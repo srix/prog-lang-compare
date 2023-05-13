@@ -1,3 +1,7 @@
+#current project specific
+#auto copied previous version of prog_lang fiel for this project. Only new prompts are requested to ai.
+.prog_lang_concepts.prev.yaml
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

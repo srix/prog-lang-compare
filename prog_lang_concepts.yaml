@@ -6,7 +6,7 @@ datatypes:
 String:
   Create: Explain how to create a string in {lang} with examples.
   Concatenation: Explain how to concatenate strings in {lang} with examples.
-  # Interpolation :  Explain how to interpolate strings in {lang} with examples.
+  Interpolation: Explain how to interpolate the strings in {lang} with examples.
   # Remove part
   # Replace
   # Split
@@ -17,6 +17,3 @@ String:
 # Importing Libraries:
 #   import: Explain how to import libraries in {lang} with examples.
 
-Programming Languages:
-  - "python 3.10"
-  # - "java 20"
