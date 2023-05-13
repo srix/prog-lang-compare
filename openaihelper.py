@@ -29,8 +29,9 @@ def request_text_chatcompletion(prompt, max_tokens=5):
     return response['choices'][0]['message']['content']
 
 
+
 load_dotenv()
-openai.organization = os.getenv('ORGANISATION_ID')
+openai.organization = os.getenv('OPENAI_ORGANISATION_ID')
 openai.api_key = os.getenv("OPENAI_API_KEY")
 # modellist = openai.Model.list()
 # print(modellist)
