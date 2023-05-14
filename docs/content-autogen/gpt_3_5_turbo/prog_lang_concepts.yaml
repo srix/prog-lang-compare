@@ -1,0 +1,19 @@
+# title: Language Constructs
+ 
+datatypes:
+  primitives: Explain about primitive types in {lang} with examples.
+ 
+String:
+  Create: Explain how to create a string in {lang} with examples.
+  # Concatenation: Explain how to concatenate strings in {lang} with examples.
+  # Interpolation: Explain how to interpolate the strings in {lang} with examples.
+  # Remove part
+  # Replace
+  # Split
+  # Remove leading and trailing whitespace
+  # Compare
+  # Regex
+
+# Importing Libraries:
+#   import: Explain how to import libraries in {lang} with examples.
+
