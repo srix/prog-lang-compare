@@ -7,16 +7,23 @@ import shutil
 from concurrent.futures import ThreadPoolExecutor
 import logging
 import datetime
+import time
 
-
+from tenacity import (
+    retry,
+    stop_after_attempt,
+    wait_random_exponential,
+    after_log
+)  # for exponential backoff
+ 
 
 # Configure logging
 now = datetime.datetime.now()
 now_str = now.strftime("%Y-%m-%d_%H-%M-%S")
-logging.basicConfig(filename=f'proglangcompare_{now_str}.log', level=logging.INFO,
+logging.basicConfig(filename=f'plc_{now_str}.log', level=logging.INFO,
                     format='%(asctime)s [%(levelname)s] %(message)s',
-                    datefmt='%Y-%m-%d %H:%M:%S:%f')
-
+                    datefmt='%Y-%m-%d %H:%M:%S:%f',filemode = 'w')
+logger = logging.getLogger(__name__)
 
 def load_from_yaml(yaml_file):
     '''
@@ -45,32 +52,9 @@ def is_prompt_new(lang_concepts, lang_concepts_prev, concept, subconcept, prompt
     
     return isnew
     
-    
-
-def walk_lang_concepts(prog_langs, lang_concepts, lang_concepts_prev):
-    """
-    Walks through the dictionary of programming language concepts
-    and returns a list of all the concepts
-
-    Parameters: lang_concepts (dict): dictionary containing language concepts
-    
-    Returns: None
-    
-    """
-
-    for prog_lang in prog_langs:
-        # Iterate over the items
-        for concept, value in lang_concepts.items():
-            if isinstance(value, dict):
-                # print(f'{concept}:')
-                for subconcept, prompt in value.items():
-                    if is_prompt_new(lang_concepts, lang_concepts_prev, concept, subconcept, prompt) is True:
-                        prompt = prompt.replace('{lang}', prog_lang).strip()
-                        logging.info(f'{prog_lang} - "{concept}"."{subconcept}" Prompt: {prompt}')
-                        ai_answer = ai_ask( prompt)
-                        write_to_file(ai_answer,prog_lang,concept, subconcept)
+  
                 
-def walk_lang_concepts_conc(prog_langs, lang_concepts, lang_concepts_prev):
+def collect_lang_concept_params(prog_langs, lang_concepts, lang_concepts_prev):
     """
     Walks through the dictionary of programming language concepts
     and returns a list of all the concepts
@@ -80,7 +64,7 @@ def walk_lang_concepts_conc(prog_langs, lang_concepts, lang_concepts_prev):
     Returns: None
     
     """
-    logging.info(f'Collecting all prompts to ask in parallel')
+    logger.info('Collecting all prompts to ask in parallel')
 
     concurrent_params = []
     for prog_lang in prog_langs:
@@ -91,33 +75,29 @@ def walk_lang_concepts_conc(prog_langs, lang_concepts, lang_concepts_prev):
                 for subconcept, prompt in value.items():
                     if is_prompt_new(lang_concepts, lang_concepts_prev, concept, subconcept, prompt) is True:
                         prompt = prompt.replace('{lang}', prog_lang).strip()
-                        logging.info(f'{prog_lang} - "{concept}"."{subconcept}" Prompt: {prompt}')
+                        logger.info(f'{prog_lang} - "{concept}"."{subconcept}" Prompt: {prompt}')
                         concurrent_params.append({'prompt':prompt, 'prog_lang':prog_lang,'concept':concept, 'subconcept':subconcept, 'prompt':prompt})  
-                        # ai_answer = ai_ask( prompt)
-                        # write_to_file(ai_answer,prog_lang,concept, subconcept)
     
+    return concurrent_params
+
+def ai_ask_write_concurrently( concurrent_params):
     if len(concurrent_params) > 0:
-        logging.info(f'Starting parallel execution')
+        logger.info('Starting parallel execution')
         with ThreadPoolExecutor() as executor:
-            ai_answer = executor.map(ai_ask_write, concurrent_params)  
+            ai_answers = executor.map(ai_ask_write, concurrent_params)  
 
+def ai_ask_write(params):
+    prompt = params['prompt']
+    prog_lang =  params['prog_lang']
+    concept = params['concept']
+    subconcept = params['subconcept']
 
-def ai_ask_write( concurrent_params):
-    prompt = concurrent_params['prompt']
-    prog_lang =  concurrent_params['prog_lang']
-    concept = concurrent_params['concept']
-    subconcept = concurrent_params['subconcept']
-
-    ai_answer = ai_ask( prompt)
+    ai_answer = openaihelper.ai_ask( prompt)
     write_to_file(ai_answer,prog_lang,concept,subconcept)
-    logging.info(f'{prog_lang} - "{concept}"."{subconcept}" Prompt: {prompt}')
+    logger.info(f'{prog_lang} - "{concept}"."{subconcept}" Prompt: {prompt}')
 
 
 
-def ai_ask( prompt):
-    '''ask the ai LLM a question and return the answer'''
-    answer = openaihelper.request_text_chatcompletion(prompt)
-    return answer
 
 def write_to_file( ai_answer, prog_lang, concept, subconcept, llm_name='gpt-3.5-turbo'):
     '''
@@ -148,23 +128,21 @@ def write_to_file( ai_answer, prog_lang, concept, subconcept, llm_name='gpt-3.5-
 
 def keep_prev_state():
     '''
-    keep a previous of the yaml file. so next time we can ask ai only the changed prompt and concepts. 
+    keep a previous of the yaml file. 
+    so next time we can ask ai only the changed prompt and concepts. 
     Saves tokens.
     '''
     shutil.copyfile('prog_lang_concepts.yaml', '.prog_lang_concepts.prev.yaml')
 
 
 
-# answer = request_text_completion("Say this is a test!")
-# answer = openaihelper.request_text_chatcompletion("Explain about primitive types in python with examples.")
-# print(answer)
-
 lang_concepts = load_from_yaml('prog_lang_concepts.yaml')
 prog_langs= load_from_yaml('prog_lang_list.yaml')['Programming Languages']
 lang_concepts_prev = load_from_yaml('.prog_lang_concepts.prev.yaml') if os.path.exists('.prog_lang_concepts.prev.yaml') else None
 
 # walk_lang_concepts(prog_langs, lang_concepts, lang_concepts_prev)
-walk_lang_concepts_conc(prog_langs, lang_concepts, lang_concepts_prev)
+concurrent_params =  collect_lang_concept_params(prog_langs, lang_concepts, lang_concepts_prev)
+ai_ask_write_concurrently(concurrent_params)
 keep_prev_state()
 
 
