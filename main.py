@@ -2,12 +2,11 @@ import os
 import requests
 import json
 import openaihelper as openaihelper
-import yaml
-import shutil
 from concurrent.futures import ThreadPoolExecutor
 import logging
 import datetime
-import time
+import helper as helper
+import plccache as plccache
 
 from tenacity import (
     retry,
@@ -25,36 +24,13 @@ logging.basicConfig(filename=f'plc_{now_str}.log', level=logging.INFO,
                     datefmt='%Y-%m-%d %H:%M:%S:%f',filemode = 'w')
 logger = logging.getLogger(__name__)
 
-def load_from_yaml(yaml_file):
-    '''
-    Loads the yaml file containing the language concepts
-    '''
-    with open(yaml_file, 'r', encoding='utf-8') as stream:
-        try:
-            content = yaml.safe_load(stream)
-            # print(lang_concepts)
-        except yaml.YAMLError as exc:
-            print(exc)
-    return content
 
 
-def is_prompt_new(lang_concepts, lang_concepts_prev, concept, subconcept, prompt):
-    '''
-    Checks if the prompt is new or not
-    '''
-    
-    isnew = True
 
-    try:
-        isnew = lang_concepts[concept][subconcept] != lang_concepts_prev[concept][subconcept]
-    except (ValueError, TypeError, KeyError):
-        isnew = True
-    
-    return isnew
     
   
                 
-def collect_lang_concept_params(prog_langs, lang_concepts, lang_concepts_prev):
+def collect_lang_concept_params(prog_langs, lang_concepts):
     """
     Walks through the dictionary of programming language concepts
     and returns a list of all the concepts
@@ -68,13 +44,14 @@ def collect_lang_concept_params(prog_langs, lang_concepts, lang_concepts_prev):
 
     concurrent_params = []
     for prog_lang in prog_langs:
+        plccache.load(lang_concepts,  prog_lang)
         # Iterate over the items
         for concept, value in lang_concepts.items():
             if isinstance(value, dict):
                 # print(f'{concept}:')
                 for subconcept, prompt in value.items():
-                    if is_prompt_new(lang_concepts, lang_concepts_prev, concept, subconcept, prompt) is True:
-                        prompt = prompt.replace('{lang}', prog_lang).strip()
+                    prompt = prompt.replace('{lang}', prog_lang).strip()
+                    if plccache.is_cache_exist( prog_lang,concept, subconcept) is False:
                         logger.info(f'{prog_lang} - "{concept}"."{subconcept}" Prompt: {prompt}')
                         concurrent_params.append({'prompt':prompt, 'prog_lang':prog_lang,'concept':concept, 'subconcept':subconcept, 'prompt':prompt})  
     
@@ -94,6 +71,7 @@ def ai_ask_write(params):
 
     ai_answer = openaihelper.ai_ask( prompt)
     write_to_file(ai_answer,prog_lang,concept,subconcept)
+    plccache.update( prog_lang, concept, subconcept)
     logger.info(f'{prog_lang} - "{concept}"."{subconcept}" Prompt: {prompt}')
 
 
@@ -104,10 +82,8 @@ def write_to_file( ai_answer, prog_lang, concept, subconcept, llm_name='gpt-3.5-
     Write to a file . the path look slike llm_name/prog_lang/concept_subconcept.txt
     
     '''
-    trans_table = str.maketrans('. -', '___')
-
-    prog_lang_name = prog_lang.translate(trans_table)
-    llm_name = llm_name.translate(trans_table)
+    prog_lang_name = helper.convert_to_filename(prog_lang)
+    llm_name = helper.convert_to_filename(llm_name)
     directory = f'{llm_name}/{prog_lang_name}/'
     file_name = f'{concept}_{subconcept}.md'
     ai_answer_sanitised = ai_answer
@@ -126,26 +102,18 @@ def write_to_file( ai_answer, prog_lang, concept, subconcept, llm_name='gpt-3.5-
         f.write(ai_answer_sanitised)
 
 
-def keep_prev_state():
-    '''
-    keep a previous of the yaml file. 
-    so next time we can ask ai only the changed prompt and concepts. 
-    Saves tokens.
-    '''
-    shutil.copyfile('prog_lang_concepts.yaml', '.prog_lang_concepts.prev.yaml')
 
+lang_concepts = helper.load_from_yaml('prog_lang_concepts.yaml')
+prog_langs= helper.load_from_yaml('prog_lang_list.yaml')['Programming Languages']
 
-
-lang_concepts = load_from_yaml('prog_lang_concepts.yaml')
-prog_langs= load_from_yaml('prog_lang_list.yaml')['Programming Languages']
-lang_concepts_prev = load_from_yaml('.prog_lang_concepts.prev.yaml') if os.path.exists('.prog_lang_concepts.prev.yaml') else None
-
-# walk_lang_concepts(prog_langs, lang_concepts, lang_concepts_prev)
-concurrent_params =  collect_lang_concept_params(prog_langs, lang_concepts, lang_concepts_prev)
+concurrent_params =  collect_lang_concept_params(prog_langs, lang_concepts)
 ai_ask_write_concurrently(concurrent_params)
-keep_prev_state()
 
+# plccache.update( 'python', 'datatypes', 'primitives', 'What are the primitive data types in python?')
 
+# plccache.update( 'java 20', 'datatypes', 'primitives', 'What are the primitive data types in python?')
+
+# # print(plccache.is_cache_exist( 'java 20', 'datatypes', 'primitives', 'What are the primitive data types in python?'))
 
 
 
