@@ -1,26 +1,7 @@
-// Define your data
-const data = [
-    {
-        Concepts: "datatypes.primitives",
-        'Python 3.10': "This is a paragraph.\n\n- List item 1\n- List item 2\n- List item 3"
-    },
-    {
-        Concepts: "String.Create",
-        'Python 3.10': "Another paragraph.\n\n1. Numbered list item 1\n2. Numbered list item 2"
-    }
-];
-
 
 // Use the DataTables library to create a table with search and filter functionality
 $(document).ready(function() {
-    $('#myTable').DataTable({
-        data: data,
-        columns: [
-            { data: 'Concepts' },
-            { data: 'Python 3.10' },
-            { data: 'Java 20' }
-        ]
-    });
+   
 
     marked.setOptions({
         highlight: function(code, lang) {
@@ -32,92 +13,175 @@ $(document).ready(function() {
         }
       });
       
-      fetch('content-autogen/gpt_3_5_turbo/python_3_10/datatypes_primitives.md')
-      .then(response => response.text())
-      .then(filecontent => {
-          // `data` contains the content of the markdown file
-          // console.log(filecontent);
-          let table = $('#myTable').DataTable();
-          let cell =  table.cell(0, 1);
-          cell.data(marked(filecontent));
-          cell.invalidate().draw();
-      })
-      .catch((error) => {
-          console.error('Error:', error);
-      });
+    let conceptsData ={}
+    let progLangList =[]
 
-    fetch('content-autogen/gpt_3_5_turbo/python_3_10/String_Create.md')
-    .then(response => response.text())
-    .then(filecontent => {
-        // `data` contains the content of the markdown file
-        // console.log(filecontent);
-        let table = $('#myTable').DataTable();
-        let cell =  table.cell(1, 1);
-        cell.data(marked(filecontent));
-        cell.invalidate().draw();
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-    });
+    const progLangConceptsUrl = 'content-autogen/gpt_3_5_turbo/prog_lang_concepts.yaml';
+    const progLangListUrl = 'content-autogen/gpt_3_5_turbo/prog_lang_list.yaml';
+
+    Promise.all([
+                getProgLangConcepts(progLangConceptsUrl),
+                getProgLangs(progLangListUrl)
+                ])
+                .then(results =>
+                    {
+                        conceptsData = results[0];
+                        progLangList = results[1];
+                        showEmptyTable('#myTable',conceptsData, progLangList)
+                    } );
+
     
-    fetch('content-autogen/gpt_3_5_turbo/java_20/datatypes_primitives.md')
-    .then(response => response.text())
-    .then(filecontent => {
-        // `data` contains the content of the markdown file
-        // console.log(filecontent);
-        let table = $('#myTable').DataTable();
-        let cell =  table.cell(0, 2);
-        cell.data(marked(filecontent));
-        cell.invalidate().draw();
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-    });
-    
-
-    fetch('content-autogen/gpt_3_5_turbo/java_20/String_Create.md')
-    .then(response => response.text())
-    .then(filecontent => {
-        // `data` contains the content of the markdown file
-        // console.log(filecontent);
-        let table = $('#myTable').DataTable();
-        let cell =  table.cell(1, 2);
-        cell.data(marked(filecontent));
-        cell.invalidate().draw();
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-    });
-    
-
-    // loadRowHeadersFromYaml('content-autogen/gpt_3_5_turbo/prog_lang_list.yaml', '#myTable');
-
 });
 
 
-async function loadRowHeadersFromYaml(yamlUrl, tableId) {
-    // Fetch the YAML file
+async function getProgLangConcepts(yamlUrl) {
+        conceptsData = []
+
+        // Fetch the YAML data from the URL
     const response = await fetch(yamlUrl);
-    const yamlText = await response.text();
-  
-    // Parse the YAML file
-    const yamlData = jsyaml.load(yamlText);
-  
-    // Assume yamlData is an array and extract the headers
-    // const headers = yamlData['Programming Languages'].map(item => item.value); // Replace 'value' with your actual key
-    const headers = yamlData['Programming Languages']
-  
-    // Create the header row in the table
-    let thead = $(tableId).children('thead');
-    if (!thead.length) {
-        thead = $('<thead>').appendTo(tableId);
+
+    // Check if the request was successful
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
     }
-    let tr = $('<tr>').appendTo(thead);
-    headers.forEach(header => {
-        $('<th>').text(header).appendTo(tr);
+
+    // Get the response body as text
+    const yamlText = await response.text();
+
+    // Parse the YAML data
+    const yamlData = jsyaml.safeLoad(yamlText);
+
+    for (let concept in yamlData) {
+        if (yamlData.hasOwnProperty(concept)) {
+            let subObj = yamlData[concept];
+            for (let subConcept in subObj) {
+                if (subObj.hasOwnProperty(subConcept)) {
+                    // rowHeader.push(`${key} - ${subKey}`);
+                    conceptsData.push({ 'concept': `${concept}` , 
+                                        'subconcept': `${subConcept}` , 
+                                        'filename': `datatypes_primitives.md`});
+                }
+            }
+        }
+    }
+    
+    return conceptsData;
+    }
+
+
+
+
+async function getProgLangs(yamlUrl) {
+    // Fetch the YAML data from the URL
+    const response = await fetch(yamlUrl);
+
+    // Check if the request was successful
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    // Get the response body as text
+    const yamlText = await response.text();
+
+    // Parse the YAML data
+    const yamlData = jsyaml.safeLoad(yamlText);
+
+    let progLangList =[]
+    progLangList = yamlData['Programming Languages']
+
+    return progLangList;
+            
+    }
+
+async function showEmptyTable(tableId, conceptsData, prog_lang_list  ) {
+   
+    //Create one column for each programming language
+    let columndefs = []
+    let map = {
+        '\.': '_',        
+    };
+
+    for (let lang of prog_lang_list) {
+        // Add a new key-value pair to each dictionary
+        let safename = getSafeName(lang) // if data key contains a dot, it will not work
+        columndefs.push({title: `${lang}` , name: `${safename}` ,data: `${safename}` });
+    }
+
+    // Concepts is the visible column. 
+    // concept and subconcept are hidden columns used to create filenames later
+    prog_lang_list.map(item => ({title: `${item}` , data: `${item}` }));
+    //Insert a new column at the beginning of the table called Concepts
+    columndefs.unshift({title: 'Concepts', name: 'Concepts', data: 'Concepts'},   //copilot suggested this !!!
+                        {title: 'concept', name: 'concept', data: 'concept', visible: false},
+                        {title: 'subconcept', name: 'subconcept', data: 'subconcept', visible: false}, 
+                        ); 
+
+    //Creating a one column row temporarily
+    let rows = conceptsData.map(item => ({ 'Concepts':  `${item.concept}  -  ${item.subconcept}` ,
+                                            'concept': `${item.concept}` ,      
+                                            'subconcept': `${item.subconcept}` }));
+
+    for (let i = 0; i < rows.length; i++) {
+        for(let lang of prog_lang_list) {
+            // Add a new key-value pair to each dictionary
+            let safename = getSafeName(lang)
+            rows[i][safename] = lang;
+        }
+    }
+    // console.log(rows);
+
+
+    $(tableId).DataTable({
+        data: rows,
+        columns: columndefs
     });
-  
-    // Initialize the DataTable
-    $(tableId).DataTable();
+    showLangConceptsInColumn(tableId, "python 3.10",conceptsData )
+    showLangConceptsInColumn(tableId, "java 20",conceptsData )
+   
 }
 
+
+async function showLangConceptsInColumn(tableId, progLang,conceptsData ) {
+   
+   //get column for a language
+   mytable = $(tableId).DataTable();
+   let columnIndex = mytable.column( progLang+':name' ).index();
+
+   mytable.rows().every(function () {
+        // Get the data for this row
+        var data = this.data();
+
+        // Update the value of the cell in the target column
+        concept = data['concept'];
+        subconcept = data['subconcept'];
+        let safename = getSafeName(progLang)
+        filepath = 'content-autogen/gpt_3_5_turbo/'+safename+'/';
+        fileurl = filepath + concept + '_' + subconcept + '.md';
+        // data[safename] = 'New Value';  // Replace 'New Value' with the new value you want to set
+
+        fetch(fileurl)
+            .then(response => response.text())
+            .then(filecontent => {
+                data[safename] = marked(filecontent);
+                this.invalidate().draw();
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    });
+
+
+}
+
+
+
+function getSafeName(value) {
+
+    const regex = /\.|\ /g;
+    let newvalue = value.replace(regex, "_");
+    return newvalue;
+    // let regex = new RegExp(Object.keys(map).join('|'), 'g');
+    // return str.replace(regex, function(matched) {
+    //     return map[matched];
+    // });
+}
