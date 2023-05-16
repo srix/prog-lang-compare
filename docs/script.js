@@ -16,8 +16,8 @@ $(document).ready(function() {
     let conceptsData ={}
     let progLangList =[]
 
-    const progLangConceptsUrl = 'content-autogen/gpt_3_5_turbo/prog_lang_concepts.yaml';
-    const progLangListUrl = 'content-autogen/gpt_3_5_turbo/prog_lang_list.yaml';
+    const progLangConceptsUrl = 'prog_lang_concepts.yaml';
+    const progLangListUrl = 'prog_langs.yaml';
 
     Promise.all([
                 getProgLangConcepts(progLangConceptsUrl),
@@ -96,7 +96,7 @@ async function getProgLangs(yamlUrl) {
 async function showEmptyTable(tableId, conceptsData, prog_lang_list  ) {
    
     //Create one column for each programming language
-    let columndefs = []
+    let columns = []
     let map = {
         '\.': '_',        
     };
@@ -104,19 +104,22 @@ async function showEmptyTable(tableId, conceptsData, prog_lang_list  ) {
     for (let lang of prog_lang_list) {
         // Add a new key-value pair to each dictionary
         let safename = getSafeName(lang) // if data key contains a dot, it will not work
-        columndefs.push({title: `${lang}` , name: `${safename}` ,data: `${safename}` });
+        columns.push({title: `${lang}` , name: `${safename}` ,data: `${safename}` });
     }
 
     // Concepts is the visible column. 
     // concept and subconcept are hidden columns used to create filenames later
     prog_lang_list.map(item => ({title: `${item}` , data: `${item}` }));
     //Insert a new column at the beginning of the table called Concepts
-    columndefs.unshift({title: 'Concepts', name: 'Concepts', data: 'Concepts'},   //copilot suggested this !!!
+    columns.unshift({title: 'Concepts', name: 'Concepts', data: 'Concepts', 
+                                    "createdCell": function (td, cellData, rowData, row, col) {
+                                        $(td).css('font-weight', 'bold');}
+                                    },   //copilot suggested this !!!
                         {title: 'concept', name: 'concept', data: 'concept', visible: false},
                         {title: 'subconcept', name: 'subconcept', data: 'subconcept', visible: false}, 
                         ); 
 
-    //Creating a one column row temporarily
+    //Creating a three column row temporarily
     let rows = conceptsData.map(item => ({ 'Concepts':  `${item.concept}  -  ${item.subconcept}` ,
                                             'concept': `${item.concept}` ,      
                                             'subconcept': `${item.subconcept}` }));
@@ -125,7 +128,7 @@ async function showEmptyTable(tableId, conceptsData, prog_lang_list  ) {
         for(let lang of prog_lang_list) {
             // Add a new key-value pair to each dictionary
             let safename = getSafeName(lang)
-            rows[i][safename] = lang;
+            rows[i][safename] = `Loading for ${lang} ...`; //Show place holder text
         }
     }
     // console.log(rows);
@@ -133,10 +136,11 @@ async function showEmptyTable(tableId, conceptsData, prog_lang_list  ) {
 
     $(tableId).DataTable({
         data: rows,
-        columns: columndefs
+        columns: columns
     });
     showLangConceptsInColumn(tableId, "python 3.10",conceptsData )
     showLangConceptsInColumn(tableId, "java 20",conceptsData )
+    showLangConceptsInColumn(tableId, "Rust 1.55",conceptsData )
    
 }
 

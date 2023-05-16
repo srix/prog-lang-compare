@@ -1,35 +1,25 @@
-In Java, you can interpolate strings using the `String.format()` method or by using string interpolation with the `$` symbol.
+In Java, we can interpolate strings using the `String.format()` method or using the newer `String interpolation` feature introduced in Java 15, which uses the `$` symbol.
 
-Here are some examples to interpolate the string "20" in Java:
+Here are some examples:
 
-Using `String.format()` method:
-
-```
-int num = 20;
-String str = String.format("The value of num is %d", num);
-System.out.println(str);
-```
-
-Output: `The value of num is 20`
-
-Using string interpolation with `$` symbol:
+Using String.format():
 
 ```
-int num = 20;
-String str = "The value of num is " + num;
-System.out.println(str);
+int age = 20;
+String name = "John";
+String message = String.format("My name is %s and I am %d years old.", name, age);
+System.out.println(message);
+// Output: My name is John and I am 20 years old.
 ```
 
-Output: `The value of num is 20`
-
-You can also use the `${}` syntax to interpolate expressions within a string:
+Using String interpolation:
 
 ```
-int num = 20;
-String str = "The result of 2 * ${num} is " + (2 * num);
-System.out.println(str);
+int age = 20;
+String name = "John";
+String message = `My name is ${name} and I am ${age} years old.`;
+System.out.println(message);
+// Output: My name is John and I am 20 years old.
 ```
 
-Output: `The result of 2 * 20 is 40`
-
-Note that string interpolation with `$` symbol and `${}` syntax is only available from Java 15 onwards.
+Note that in the second example, we use backticks/backquote (`) instead of double-quotes (") to enclose the string and `$` symbols to interpolate the variables inside the string. This feature was introduced in Java 15 and above.

@@ -19,7 +19,7 @@ from tenacity import (
 # Configure logging
 now = datetime.datetime.now()
 now_str = now.strftime("%Y-%m-%d_%H-%M-%S")
-logging.basicConfig(filename=f'plc_{now_str}.log', level=logging.INFO,
+logging.basicConfig(filename=f'logs/plc_{now_str}.log', level=logging.INFO,
                     format='%(asctime)s [%(levelname)s] %(message)s',
                     datefmt='%Y-%m-%d %H:%M:%S:%f',filemode = 'w')
 logger = logging.getLogger(__name__)
@@ -84,7 +84,7 @@ def write_to_file( ai_answer, prog_lang, concept, subconcept, llm_name='gpt-3.5-
     '''
     prog_lang_name = helper.convert_to_filename(prog_lang)
     llm_name = helper.convert_to_filename(llm_name)
-    directory = f'{llm_name}/{prog_lang_name}/'
+    directory = f'docs/content-autogen/{llm_name}/{prog_lang_name}/'
     file_name = f'{concept}_{subconcept}.md'
     ai_answer_sanitised = ai_answer
 
@@ -102,9 +102,10 @@ def write_to_file( ai_answer, prog_lang, concept, subconcept, llm_name='gpt-3.5-
         f.write(ai_answer_sanitised)
 
 
-
-lang_concepts = helper.load_from_yaml('prog_lang_concepts.yaml')
-prog_langs= helper.load_from_yaml('prog_lang_list.yaml')['Programming Languages']
+PROG_LANG_CONCEPTS_PATH = 'docs/prog_lang_concepts.yaml'
+PROG_LANGS_PATH = 'docs/prog_langs.yaml'
+lang_concepts = helper.load_from_yaml(PROG_LANG_CONCEPTS_PATH)
+prog_langs= helper.load_from_yaml(PROG_LANGS_PATH)['Programming Languages']
 
 concurrent_params =  collect_lang_concept_params(prog_langs, lang_concepts)
 ai_ask_write_concurrently(concurrent_params)
