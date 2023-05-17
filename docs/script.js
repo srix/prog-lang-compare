@@ -159,14 +159,14 @@ async function showLangConceptsInColumn(tableId, progLang,conceptsData ) {
         concept = data['concept'];
         subconcept = data['subconcept'];
         let safename = getSafeName(progLang)
-        filepath = 'content-autogen/gpt_3_5_turbo/'+safename+'/';
-        fileurl = filepath + concept + '_' + subconcept + '.md';
+        filepath = 'content-autogen/gpt_3_5_turbo/'+getSafeName(progLang)+'/';
+        fileurl = filepath + getSafeName(concept) + '_' + getSafeName(subconcept) + '.md';
         // data[safename] = 'New Value';  // Replace 'New Value' with the new value you want to set
 
         fetch(fileurl)
             .then(response => response.text())
             .then(filecontent => {
-                data[safename] = marked(filecontent);
+                data[getSafeName(progLang)] = marked(filecontent);
                 this.invalidate().draw();
             })
             .catch((error) => {

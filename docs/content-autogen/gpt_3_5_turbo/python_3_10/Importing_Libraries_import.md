@@ -2,7 +2,7 @@ In Python 3.10, you can import libraries using the `import` statement. Here are 
 
 1. Importing the `math` library:
 
-```
+```python
 import math
 
 print(math.sqrt(16))
