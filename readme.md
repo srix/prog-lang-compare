@@ -1,5 +1,7 @@
 You can check the language comparison here [https://srix.github.io/prog-lang-compare/](https://srix.github.io/prog-lang-compare/)
-```
+
+
+```mermaid
 flowchart TD
     github(github.io) --> |https://srix.github.io/prog-lang-compare/|b[Browser]
     docs(docs/) -->github 
