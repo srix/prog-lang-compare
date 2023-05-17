@@ -82,10 +82,10 @@ def write_to_file( ai_answer, prog_lang, concept, subconcept, llm_name='gpt-3.5-
     Write to a file . the path look slike llm_name/prog_lang/concept_subconcept.txt
     
     '''
-    prog_lang_name = helper.convert_to_filename(prog_lang)
-    llm_name = helper.convert_to_filename(llm_name)
+    prog_lang_name = helper.get_safename(prog_lang)
+    llm_name = helper.get_safename(llm_name)
     directory = f'docs/content-autogen/{llm_name}/{prog_lang_name}/'
-    file_name = f'{concept}_{subconcept}.md'
+    file_name = f'{helper.get_safename(concept)}_{helper.get_safename(subconcept)}.md'
     ai_answer_sanitised = ai_answer
 
 

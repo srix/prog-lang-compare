@@ -24,6 +24,6 @@ def save_to_yaml(filepath, content):
         yaml.dump(content, outfile, default_flow_style=False)
 
 
-def convert_to_filename(value):
+def get_safename(value):
     trans_table = str.maketrans('. -', '___')
     return value.translate(trans_table)

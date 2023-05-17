@@ -1,7 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V0E6QSYD2C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-V0E6QSYD2C');
+    </script>
+
+    <link rel="stylesheet" type="text/css" 
+        href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/3.14.1/js-yaml.min.js"></script>
@@ -11,18 +22,16 @@
         href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/default.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
     <style>
-    .dataTables_wrapper .dataTable td {
-        vertical-align: top;
-    }
-    pre code {
-        background-color: #e3dede;  /* Change this to your preferred color */
-    }
+        .dataTables_wrapper .dataTable td {
+            vertical-align: top;
+        }
+        pre code {
+            background-color: #e3dede;  /* Change this to your preferred color */
+        }
     </style>
 </head>
 <body>
-    <table id="myTable" class="display">
-       
-    </table>
+    <table id="myTable" class="display"></table>
 
     <script src="script.js"></script>
 </body>
