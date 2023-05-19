@@ -145,6 +145,7 @@ async function showEmptyTable(tableId, conceptsData, prog_lang_list  ) {
     $(tableId).DataTable({
         data: rows,
         columns: columns,
+        paging: false,
         order: []  //disable sorting. Maintain the cocept order in prog_lang_concepts.yaml file
     });
     showLangConceptsInColumn(tableId, "python 3.10",conceptsData )
