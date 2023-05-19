@@ -1,47 +1,33 @@
-In Python 3.10, you can import libraries using the `import` statement. Here are some examples:
-
-1. Importing the `math` library:
+To import libraries in python 3.10, we use the `import` keyword followed by the name of the library we want to import. Here are some examples:
 
 ```python
+# Importing the math library
 import math
 
-print(math.sqrt(16))
-
-# Output: 4.0
+# Using the sqrt function from the math library
+print(math.sqrt(25)) # Output: 5.0
 ```
 
-2. Importing a function from a library:
+In the code above, we have imported the `math` library and used the `sqrt` function to calculate the square root of 25.
 
-```
-from datetime import date
+```python
+# Importing a library with a custom name
+import numpy as np
 
-today = date.today()
-print(today)
-
-# Output: 2022-05-25
-```
-
-3. Aliasing a library:
-
-```
-import pandas as pd
-
-data = pd.read_csv('data.csv')
-print(data.head())
-
-# Output: displays the first 5 rows of the data.csv file
+# Using the linspace function from the numpy library
+print(np.linspace(0, 10, 5)) # Output: [ 0.   2.5  5.   7.5 10. ]
 ```
 
-4. Importing a user-defined module:
+In the code above, we have imported the `numpy` library and given it a custom name `np`. We have then used the `linspace` function to generate an array of 5 evenly spaced numbers between 0 and 10.
 
-Assuming you have a module named `custom_module.py` with a function `greet(name)`, you can import it like this:
+```python
+# Importing a specific function from a library
+from random import randint
 
-```
-import custom_module
-
-custom_module.greet('John')
-
-# Output: Hello, John!
+# Generating a random integer between 1 and 10
+print(randint(1, 10)) # Output: a random integer between 1 and 10
 ```
 
-These are just a few examples of how to import libraries in Python 3.10. Keep in mind that there are many libraries available online that may require installation prior to importing.
+In the code above, we have imported the `randint` function from the `random` library. We have then used the `randint` function to generate a random integer between 1 and 10.
+
+Note that it is also possible to import all the functions from a library using `from library_name import *`, but this is generally not recommended as it can lead to naming conflicts and make code harder to read.

@@ -101,12 +101,20 @@ async function showEmptyTable(tableId, conceptsData, prog_lang_list  ) {
         '\.': '_',        
     };
 
+    // Creating toggle for each language 
     for (let lang of prog_lang_list) {
-        // Add a new key-value pair to each dictionary
-        let safename = getSafeName(lang) // if data key contains a dot, it will not work
-        columns.push({title: `${lang}` , name: `${safename}` ,data: `${safename}` });
+        addLangToggle(lang,getSafeName(lang))
     }
 
+
+    // Creating column definitions for each language 
+    for (let lang of prog_lang_list) {
+        // Add a new key-value pair to each dictionary
+        let safeLangName = getSafeName(lang) // if data key contains a dot, it will not work
+        columns.push({title: `${lang}` , name: `${safeLangName}` ,data: `${safeLangName}` });
+    }
+
+    // Creating Concerpts, concept, subconept column definitions
     // Concepts is the visible column. 
     // concept and subconcept are hidden columns used to create filenames later
     prog_lang_list.map(item => ({title: `${item}` , data: `${item}` }));
@@ -118,7 +126,8 @@ async function showEmptyTable(tableId, conceptsData, prog_lang_list  ) {
                         {title: 'concept', name: 'concept', data: 'concept', visible: false},
                         {title: 'subconcept', name: 'subconcept', data: 'subconcept', visible: false}, 
                         ); 
-
+    
+                        // Populating the diciotnary with the data
     //Creating a three column row temporarily
     let rows = conceptsData.map(item => ({ 'Concepts':  `${item.concept}  -  ${item.subconcept}` ,
                                             'concept': `${item.concept}` ,      
@@ -127,8 +136,7 @@ async function showEmptyTable(tableId, conceptsData, prog_lang_list  ) {
     for (let i = 0; i < rows.length; i++) {
         for(let lang of prog_lang_list) {
             // Add a new key-value pair to each dictionary
-            let safename = getSafeName(lang)
-            rows[i][safename] = `Loading for ${lang} ...`; //Show place holder text
+            rows[i][getSafeName(lang)] = `Loading for ${getSafeName(lang)} ...`; //Show place holder text
         }
     }
     // console.log(rows);
@@ -188,4 +196,37 @@ function getSafeName(value) {
     // return str.replace(regex, function(matched) {
     //     return map[matched];
     // });
+}
+
+function addLangToggle(columnTitle, columnName) {
+        // Create a new anchor element
+    var a = document.createElement('a');
+
+    // Set the attributes
+    a.setAttribute("class", "toggle-vis");
+    a.setAttribute("columnname", columnName)
+
+
+    // Set the text of the anchor element
+    a.textContent = columnTitle+' , ';  // Replace with your link text
+
+    a.onclick = function (e) {
+        e.preventDefault();
+    
+        mytable = $('#myTable').DataTable();        // Get the column API object
+        var column = mytable.column($(this).attr('columnname')+':name');
+    
+        // Toggle the visibility
+        column.visible(!column.visible());
+
+        this.style.color = this.style.color == "grey" ? "blue" : "grey";
+    };
+
+     // Select the div with the specific class
+    // var div = document.querySelector('.toggle-vis');  // Replace '.my-class' with your class
+    var div = document.querySelector('#toggle');  // Replace '.my-class' with your class
+
+    // Append the anchor element to the div
+    div.appendChild(a);
+
 }
