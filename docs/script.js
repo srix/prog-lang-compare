@@ -106,33 +106,33 @@ async function showEmptyTable(tableId, conceptsData, prog_lang_list  ) {
         addLangToggle(lang,getSafeName(lang))
     }
 
+    // Creating Concerpts, concept, subconept column definitions
+    // Concepts is the visible column. 
+    // concept and subconcept are hidden columns used to create filenames later
+    columns.push({title: 'Concepts', name: 'Concepts', data: 'Concepts', 
+                                    "createdCell": function (td, cellData, rowData, row, col) {
+                                        $(td).css('font-weight', 'bold');}
+                                    },   //copilot suggested this !!!
+                        {title: 'concept', name: 'concept', data: 'concept', visible: false}, // hidden column
+                        {title: 'subconcept', name: 'subconcept', data: 'subconcept', visible: false}, //hidden column
+                        ); 
 
-    // Creating column definitions for each language 
-    for (let lang of prog_lang_list) {
+     // Creating column definitions for each language 
+     for (let lang of prog_lang_list) {
         // Add a new key-value pair to each dictionary
         let safeLangName = getSafeName(lang) // if data key contains a dot, it will not work
         columns.push({title: `${lang}` , name: `${safeLangName}` ,data: `${safeLangName}` });
     }
 
-    // Creating Concerpts, concept, subconept column definitions
-    // Concepts is the visible column. 
-    // concept and subconcept are hidden columns used to create filenames later
-    prog_lang_list.map(item => ({title: `${item}` , data: `${item}` }));
-    //Insert a new column at the beginning of the table called Concepts
-    columns.unshift({title: 'Concepts', name: 'Concepts', data: 'Concepts', 
-                                    "createdCell": function (td, cellData, rowData, row, col) {
-                                        $(td).css('font-weight', 'bold');}
-                                    },   //copilot suggested this !!!
-                        {title: 'concept', name: 'concept', data: 'concept', visible: false},
-                        {title: 'subconcept', name: 'subconcept', data: 'subconcept', visible: false}, 
-                        ); 
     
-                        // Populating the diciotnary with the data
+    // Populating the diciotnary with the data
     //Creating a three column row temporarily
     let rows = conceptsData.map(item => ({ 'Concepts':  `${item.concept}  -  ${item.subconcept}` ,
                                             'concept': `${item.concept}` ,      
                                             'subconcept': `${item.subconcept}` }));
 
+    // extend the row one cell at a time for each language.
+    // adding a placeholder text for correspoding  to a language in the cell                                
     for (let i = 0; i < rows.length; i++) {
         for(let lang of prog_lang_list) {
             // Add a new key-value pair to each dictionary
@@ -144,7 +144,8 @@ async function showEmptyTable(tableId, conceptsData, prog_lang_list  ) {
 
     $(tableId).DataTable({
         data: rows,
-        columns: columns
+        columns: columns,
+        order: []  //disable sorting. Maintain the cocept order in prog_lang_concepts.yaml file
     });
     showLangConceptsInColumn(tableId, "python 3.10",conceptsData )
     showLangConceptsInColumn(tableId, "java 20",conceptsData )
