@@ -1,21 +1,32 @@
-In Haskell, a hash is known as a Map in the Data.Map library. To check if a `Map` includes a key, we can use the `member` function that returns a boolean value `True` if the key is present in the map and `False` otherwise.
+In Haskell, we can check if a hash includes a key using the `Data.HashMap.Lazy.lookup` function which returns a `Maybe` value. A `Just` value indicates that the key exists in the hash and contains the corresponding value, while a `Nothing` value indicates that the key does not exist in the hash.
 
-Here's an example of how to check if a Map includes a key:
+Here is an example of how to check if a key exists in a hash in Haskell:
 
 ```haskell
-import qualified Data.Map as Map
+import qualified Data.HashMap.Lazy as Map
 
--- Define a map
-students :: Map.Map String Int
-students = Map.fromList [("Alice", 90), ("Bob", 80), ("Charlie", 85)]
+-- Define a hash
+hash = Map.fromList [("apple", 1), ("banana", 2), ("orange", 3)]
 
--- Check if "Alice" is a key in the map
-Map.member "Alice" students
--- Output: True
-
--- Check if "David" is a key in the map
-Map.member "David" students
--- Output: False
+-- Check if "apple" exists in the hash
+appleExists = case Map.lookup "apple" hash of
+               Just value -> True
+               Nothing -> False
+               
+-- Check if "watermelon" exists in the hash
+watermelonExists = case Map.lookup "watermelon" hash of
+                   Just value -> True
+                   Nothing -> False
+                   
+-- Print the results
+main = do
+    putStrLn $ "Does 'apple' exist in the hash? " ++ show appleExists
+    putStrLn $ "Does 'watermelon' exist in the hash? " ++ show watermelonExists
 ```
 
-In this example, we define a `Map` called `students`, which maps student names to their scores. The `member` function is used to check if "Alice" and "David" are keys in the map. The first check returns `True` because "Alice" is a key in the `Map`, while the second check returns `False` because "David" is not a key in the `Map`.
+The above code will output:
+
+```
+Does 'apple' exist in the hash? True
+Does 'watermelon' exist in the hash? False
+```

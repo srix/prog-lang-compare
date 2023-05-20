@@ -1,6 +1,7 @@
 import os
 import requests
 import json
+import time
 import openaihelper as openaihelper
 from concurrent.futures import ThreadPoolExecutor
 import logging
@@ -62,6 +63,8 @@ def ai_ask_write_concurrently( concurrent_params):
         logger.info('Starting parallel execution')
         with ThreadPoolExecutor() as executor:
             ai_answers = executor.map(ai_ask_write, concurrent_params)  
+    else:
+        logger.info('Looks like no recent changes were made to concepts or language file')
 
 def ai_ask_write(params):
     prompt = params['prompt']
@@ -72,7 +75,7 @@ def ai_ask_write(params):
     ai_answer = openaihelper.ai_ask( prompt)
     write_to_file(ai_answer,prog_lang,concept,subconcept)
     plccache.update( prog_lang, concept, subconcept)
-    logger.info(f'{prog_lang} - "{concept}"."{subconcept}" Prompt: {prompt}')
+    # logger.info(f'{prog_lang} - "{concept}"."{subconcept}" Prompt: {prompt}')
 
 
 
@@ -100,7 +103,11 @@ def write_to_file( ai_answer, prog_lang, concept, subconcept, llm_name='gpt-3.5-
     # Open the file with write permission
     with open(file_path, 'w', encoding= 'utf-8') as f:
         f.write(ai_answer_sanitised)
+        logger.info(f'{prog_lang} - "{concept}"-"{subconcept}" Filename: {file_name}')
 
+
+
+start_time = time.time()  # save start time
 
 PROG_LANG_CONCEPTS_PATH = 'docs/prog_lang_concepts.yaml'
 PROG_LANGS_PATH = 'docs/prog_langs.yaml'
@@ -110,11 +117,10 @@ prog_langs= helper.load_from_yaml(PROG_LANGS_PATH)['Programming Languages']
 concurrent_params =  collect_lang_concept_params(prog_langs, lang_concepts)
 ai_ask_write_concurrently(concurrent_params)
 
-# plccache.update( 'python', 'datatypes', 'primitives', 'What are the primitive data types in python?')
+end_time = time.time()  # save end time
+total_time = end_time - start_time  # calculate total time
+logger.info(f"Total execution time: {total_time} seconds")
 
-# plccache.update( 'java 20', 'datatypes', 'primitives', 'What are the primitive data types in python?')
-
-# # print(plccache.is_cache_exist( 'java 20', 'datatypes', 'primitives', 'What are the primitive data types in python?'))
 
 
 

@@ -1,21 +1,37 @@
-In Haskell, we can check if a class has a method by using the `elem` function on the list of method names provided by the `methods` function of the class.
+In Haskell, the simplest way to check if a class has a method is to use the `elem` function. This function checks whether an element is in a list of elements or not. We can use the function in the following way:
 
-For example, let's check if the `Eq` class has a method called `(/=)` (not equal) using the following code:
-
-```
-elem "(/=)" $ methods (undefined :: Eq a => a -> a -> Bool)
+```haskell
+elem "method_name" $ map show $ methods (undefined :: ClassName a)
 ```
 
-Here, we use the `undefined` value to create a type constraint that ensures that the `Eq` class is used. The `methods` function returns a list of the names of the methods defined by the class, which we pass to the `elem` function along with the name of the method we want to check.
+Explanation of the code:
+- `methods` is a function provided by the GHC.Generics module, which returns a list of all the method names of a class.
+- `map show` converts the list of method names to a list of strings.
+- `undefined :: ClassName a` creates an instance of the class with a type variable `a`. We don't care about this variable, we just need to have an instance of the class in order to call the `methods` function.
+- `"method_name"` is the name of the method we want to check for.
+- `elem` checks if `"method_name"` is present in the list of method names.
 
-If the `(/=)` method is defined by the class, the expression will evaluate to `True`. Otherwise, it will evaluate to `False`.
+Here's an example:
 
-Let's do another example. Let's check if the `Num` class has a method called `sin` using the following code:
+```haskell
+import GHC.Generics
+
+class MyFuncs a where
+  foo :: a -> a
+  bar :: a -> a -> a
+
+classHasMethod :: String -> Bool
+classHasMethod methodName = elem methodName $ map show $ methods (undefined :: MyFuncs a)
+
+main :: IO ()
+main = do
+  putStrLn $ "MyFuncs has method foo? " ++ show (classHasMethod "foo") -- True
+  putStrLn $ "MyFuncs has method baz? " ++ show (classHasMethod "baz") -- False
+```
+
+Here, we have defined a class `MyFuncs` with two methods `foo` and `bar`. We then define a function `classHasMethod`, which takes a method name as an argument and returns `True` if the class has that method, and `False` otherwise. Finally, we call `classHasMethod` for the method names `foo` and `baz` and print the results. The output will be:
 
 ```
-elem "sin" $ methods (undefined :: Num a => a -> a)
+MyFuncs has method foo? True
+MyFuncs has method baz? False
 ```
-
-Again, we use an undefined value with a type constraint to ensure we're using the `Num` class. The `methods` function will return a list of the names of the methods defined by the class and we pass this to the `elem` function along with the method name we want to check.
-
-If the `sin` method is defined by the class, the expression will evaluate to `True`. Otherwise, it will evaluate to `False`.

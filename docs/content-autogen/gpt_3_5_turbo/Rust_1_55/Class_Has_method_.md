@@ -1,45 +1,52 @@
-In Rust, to check if a class has a method, we can use the `std::intrinsics::type_name` function along with the `std::any::TypeId` type.
+In Rust 1.55, you can check if a class (struct) has a method by using the `impl` block and the `fn` keyword to define the method. You can then use Rust's built-in `std::fmt::Debug` trait to output a list of all the methods available on the class.
 
-Here's an example code that demonstrates this:
+Here's an example of a struct `Person` with two methods, `greet` and `get_age`:
 
 ```rust
-use std::any::TypeId;
-use std::intrinsics::type_name;
-
-// Define a sample class
-struct MyClass {
+struct Person {
     name: String,
+    age: u32,
 }
 
-// Implement a method for the class
-impl MyClass {
-    fn display_name(&self) {
-        println!("Name: {}", self.name);
+impl Person {
+    fn greet(&self) {
+        println!("Hello, my name is {}", self.name);
+    }
+
+    fn get_age(&self) -> u32 {
+        self.age
     }
 }
 
 fn main() {
-    // Create an instance of MyClass
-    let obj = MyClass{name: String::from("MyClass")};
+    let person = Person {
+        name: String::from("Alice"),
+        age: 30,
+    };
 
-    // Check if the object has the "display_name" method
-    let display_name_exist = (|| {
-        let obj_type = TypeId::of::<MyClass>();
-        let name = type_name::<MyClass>();
-        let method_name = "display_name";
-        let method_type = TypeId::of::<fn(&MyClass) -> ()>();
-        let method_exist = obj_type == method_type;
-        method_exist
-    })();
-
-    // Print the result
-    if display_name_exist {
-        println!("MyClass has the 'display_name' method");
-        obj.display_name();
+    // Check if Person has a method named "greet"
+    if let Some(_method) = <Person as std::fmt::Debug>::fmt(&person, &mut std::fmt::Formatter::new()).field(&"greet") {
+        println!("Person has a method named 'greet'");
     } else {
-        println!("MyClass does not have the 'display_name' method");
+        println!("Person does not have a method named 'greet'");
+    }
+
+    // Check if Person has a method named "get_age"
+    if let Some(_method) = <Person as std::fmt::Debug>::fmt(&person, &mut std::fmt::Formatter::new()).field(&"get_age") {
+        println!("Person has a method named 'get_age'");
+    } else {
+        println!("Person does not have a method named 'get_age'");
     }
 }
 ```
 
-In this example, we define a struct called `MyClass` and implement a method for it called `display_name`. In the `main` function, we check if the `obj` instance of `MyClass` has the `display_name` method using the `TypeId` and `type_name` functions to get the type information for the class and method. If the method exists, we call it on the object.
+In this example, we use the `if let` statement to check if the method exists using the `std::fmt::Debug` trait. We call the `fmt` method on the `Person` instance, which returns a `DebugStruct` object that allows us to access the fields of the struct, which includes the methods. We then use the `field` method to check if the method we are looking for is present, and if so, print a message indicating that the method exists.
+
+In this case, running the program would output:
+
+```
+Person has a method named 'greet'
+Person has a method named 'get_age'
+```
+
+indicating that both `greet` and `get_age` methods exist on the `Person` struct.
