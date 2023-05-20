@@ -1,30 +1,29 @@
-A multidimensional array is an array that contains one or more arrays as its elements. In Python, we can create a multidimensional array using a nested list. Here is an example of how to create a 2D array or matrix:
+In Python, a multidimensional array is simply an array of arrays. You can create a multidimensional array by defining an array and setting each element of the array to be a new array. Here's an example to create a 2D array with 3 rows and 4 columns:
 
-```
-# Creating a 2D array
-matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-```
-
-We can access the elements of the 2D array using the row and column index. For example, to access the element at row 0 and column 1, we can use the following syntax:
-
-```
-# Accessing an element in a 2D array
-matrix[0][1]  # Output: 2
+```python
+# Create a multidimensional array with 3 rows and 4 columns
+my_array = [[0 for j in range(4)] for i in range(3)]
+print(my_array)
 ```
 
-Similarly, we can create a 3D array or cube by nesting another set of square brackets inside the first set of square brackets:
-
-```
-# Creating a 3D array
-cube = [
-    [[1, 2, 3], [4, 5, 6]],
-    [[7, 8, 9], [10, 11, 12]]
-]
-
-# Accessing an element in a 3D array
-cube[1][0][2]  # Output: 9
+Output:
+```python
+[[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
 ```
 
-In this example, we have created a 3D array that contains two 2D arrays. We can access the elements of the 3D array using the row, column, and depth index. 
+In this example, we created a 2D array with 3 rows and 4 columns. We used a nested for loop to set each element of the array to be a new array with 4 elements, initialised to 0.
 
-This is a basic introduction to creating and accessing multidimensional arrays in Python. There are other techniques and libraries available for working with multidimensional arrays in Python, such as NumPy, which provides a powerful array object that is optimized for numerical operations.
+Here's another example to create a 3D array with dimensions 2x3x4:
+
+```python
+# Create a 3D array with dimensions 2x3x4
+my_3d_array = [[[0 for k in range(4)] for j in range(3)] for i in range(2)]
+print(my_3d_array)
+```
+
+Output:
+```python
+[[[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]], [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]]
+```
+
+In this example, we created a 3D array with dimensions 2x3x4. We used three nested for loops to set each element of the array to be a new array with 4 elements, initialised to 0. We repeated this for each row, and then repeated this entire process for each "layer" of the 3D array.

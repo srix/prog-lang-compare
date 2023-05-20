@@ -1,36 +1,29 @@
-A multidimensional array is also called a matrix in Haskell. The easiest way to create a matrix in Haskell is by using the Data.Array module. This module provides a function called `listArray` that takes a range of indices and a list of elements as arguments to create an array.
+In Haskell, a multidimensional array is represented as a nested list. One way to initialise a multidimensional array is to use nested list comprehension. 
 
-Here's an example of creating a 2x2 matrix in Haskell:
-
-```
-import Data.Array
-
-matrix = listArray ((0,0),(1,1)) [1,2,3,4] :: Array (Int,Int) Int
-```
-
-In this example, `listArray` takes the range of indices `((0,0),(1,1))`, which specifies a 2x2 matrix, and the list `[1,2,3,4]` as arguments. The `:: Array (Int,Int) Int` tells Haskell explicitly that the array is two-dimensional, and it contains integer values.
-
-In this example, the matrix looks like this:
+For example, let's say we want to create a 2-dimensional array (matrix) of size 3x4 with some initial values. We can do this using the following code:
 
 ```
-1  2
-3  4
+let myArray = [[x*y | y <- [1..4]] | x <- [1..3]]
 ```
 
-We can also create matrices with more dimensions. Here's an example of creating a 3x3x3 matrix in Haskell:
+Here, we are using list comprehension to create a list of lists. The inner list comprehension `[x * y | y <- [1..4]]` generates a list of values for a single row, where `x` is the row number. The outer list comprehension `[[x*y | y <- [1..4]] | x <- [1..3]]` generates the full matrix by applying the inner list comprehension for each row.
+
+The resulting `myArray` will be:
 
 ```
-matrix = listArray ((0,0,0),(2,2,2)) [1..27] :: Array (Int,Int,Int) Int
+[[1,2,3,4],[2,4,6,8],[3,6,9,12]]
 ```
 
-In this example, `listArray` takes the range of indices `((0,0,0),(2,2,2))`, which specifies a 3x3x3 matrix, and the list `[1..27]` as arguments. The `:: Array (Int,Int,Int) Int` tells Haskell explicitly that the array is three-dimensional, and it contains integer values.
-
-In this example, the matrix looks like this:
+Another example is a 3-dimensional array (a cube) of size 2x2x2 with some initial values:
 
 ```
-1   2   3     10  11  12    19  20  21
-4   5   6     13  14  15    22  23  24
-7   8   9     16  17  18    25  26  27
-``` 
+let myArray = [[[x+y+z | z <- [1,2]] | y <- [1,2]] | x <- [1,2]]
+```
 
-Here, each layer is a 3x3 matrix.
+Here, we are using three levels of nested list comprehension to generate the cube. The innermost comprehension `x+y+z` calculates the value for each element. The outer two comprehensions generate the rows and the layers respectively.
+
+The resulting `myArray` will be:
+
+```
+[[[3,4],[4,5]],[[4,5],[5,6]]]
+```
