@@ -1,4 +1,8 @@
 
+// Create an array to track visibility states of column
+var loadedColumns = [];
+var defaultShowLangs = ['Python 3.10', 'Rust 1.55'];
+
 // Use the DataTables library to create a table with search and filter functionality
 $(document).ready(function() {
    
@@ -27,17 +31,25 @@ $(document).ready(function() {
                     {
                         conceptsData = results[0];
                         progLangList = results[1];
-                        showEmptyTable('#myTable',conceptsData, progLangList)
-                    } );
+                        showEmptyTable('#langTable',conceptsData, progLangList);
+                        addLangToggle(progLangList);
+                    } )
+                .then( results => 
+                    { 
+                        loadLangConceptsInColumn('#langTable', "Python 3.10",conceptsData );
+                        loadLangConceptsInColumn('#langTable', "Rust 1.55",conceptsData )
+                    });
 
+    // showLangConceptsInColumn(tableId, "Python 3.10",conceptsData )
+    // showLangConceptsInColumn(tableId, "Java 20",conceptsData )
+    // showLangConceptsInColumn(tableId, "Rust 1.55",conceptsData )
+    // showLangConceptsInColumn(tableId, "Haskell",conceptsData )
     
 });
 
 
 async function getProgLangConcepts(yamlUrl) {
-        conceptsData = []
-
-        // Fetch the YAML data from the URL
+    // Fetch the YAML data from the URL
     const response = await fetch(yamlUrl);
 
     // Check if the request was successful
@@ -50,6 +62,8 @@ async function getProgLangConcepts(yamlUrl) {
 
     // Parse the YAML data
     const yamlData = jsyaml.safeLoad(yamlText);
+
+    let conceptsData = []
 
     for (let concept in yamlData) {
         if (yamlData.hasOwnProperty(concept)) {
@@ -101,10 +115,7 @@ async function showEmptyTable(tableId, conceptsData, prog_lang_list  ) {
         '\.': '_',        
     };
 
-    // Creating toggle for each language 
-    for (let lang of prog_lang_list) {
-        addLangToggle(lang,getSafeName(lang))
-    }
+   
 
     // Creating Concerpts, concept, subconept column definitions
     // Concepts is the visible column. 
@@ -117,11 +128,17 @@ async function showEmptyTable(tableId, conceptsData, prog_lang_list  ) {
                         {title: 'subconcept', name: 'subconcept', data: 'subconcept', visible: false}, //hidden column
                         ); 
 
+    
+
      // Creating column definitions for each language 
-     for (let lang of prog_lang_list) {
+     for (let langTitle of prog_lang_list) {
         // Add a new key-value pair to each dictionary
-        let safeLangName = getSafeName(lang) // if data key contains a dot, it will not work
-        columns.push({title: `${lang}` , name: `${safeLangName}` ,data: `${safeLangName}` });
+        let safeLangName = getSafeName(langTitle) // if data key contains a dot, it will not work
+        let visibility = false;
+        // default columns to show
+        if (defaultShowLangs.includes( langTitle))  { 
+            visibility = true;}        
+        columns.push({title: `${langTitle}` , name: `${safeLangName}` ,data: `${safeLangName}` , visible: visibility});
     }
 
     
@@ -148,15 +165,12 @@ async function showEmptyTable(tableId, conceptsData, prog_lang_list  ) {
         paging: false,
         order: []  //disable sorting. Maintain the cocept order in prog_lang_concepts.yaml file
         });
-    showLangConceptsInColumn(tableId, "Python 3.10",conceptsData )
-    showLangConceptsInColumn(tableId, "Java 20",conceptsData )
-    showLangConceptsInColumn(tableId, "Rust 1.55",conceptsData )
-    showLangConceptsInColumn(tableId, "Haskell",conceptsData )
+    
    
 }
 
 
-async function showLangConceptsInColumn(tableId, progLang,conceptsData ) {
+async function loadLangConceptsInColumn(tableId, progLang ) {
    
    //get column for a language
    mytable = $(tableId).DataTable();
@@ -185,6 +199,7 @@ async function showLangConceptsInColumn(tableId, progLang,conceptsData ) {
             });
     });
 
+    loadedColumns.push(progLang);
 
 }
 
@@ -202,35 +217,55 @@ function getSafeName(value) {
     // });
 }
 
-function addLangToggle(columnTitle, columnName) {
+function addLangToggle(prog_lang_list) {
+
+     // Creating toggle for each language 
+    for (let lang of prog_lang_list.sort()) {
+        let columnTitle = lang;
+        let columnName = getSafeName(lang);
+    
+
         // Create a new anchor element
-    var a = document.createElement('a');
+        let a = document.createElement('a');
 
-    // Set the attributes
-    a.setAttribute("class", "toggle-vis");
-    a.setAttribute("columnname", columnName)
+        // Set the attributes
+        a.setAttribute("class", "toggle-vis");
+        a.setAttribute("columnname", columnName)
 
+        // Set the text of the anchor element
+        a.textContent = columnTitle+' , ';  
 
-    // Set the text of the anchor element
-    a.textContent = columnTitle+' , ';  // Replace with your link text
+        if (defaultShowLangs.includes( columnTitle))  { 
+            a.style.color = "blue";
+        }
+        else {
+            a.style.color = "grey";
+        }   
+        
 
-    a.onclick = function (e) {
-        e.preventDefault();
-    
-        mytable = $('#myTable').DataTable();        // Get the column API object
-        var column = mytable.column($(this).attr('columnname')+':name');
-    
-        // Toggle the visibility
-        column.visible(!column.visible());
+        a.onclick = function (e) {
+            e.preventDefault();
+        
+            let mytable = $('#langTable').DataTable();        // Get the column API object
+            let column = mytable.column($(this).attr('columnname')+':name');
+        
+            // Toggle the visibility
+            column.visible(!column.visible());
 
-        this.style.color = this.style.color == "grey" ? "blue" : "grey";
-    };
+            // if making visible fo rthe first time then fetch data for subconcepts and replace the placeholder text
+            if (column.visible() == true &&  loadedColumns.includes(columnTitle) == false) {
+                loadLangConceptsInColumn('#langTable', columnTitle);
+            }
 
-     // Select the div with the specific class
-    // var div = document.querySelector('.toggle-vis');  // Replace '.my-class' with your class
-    var div = document.querySelector('#toggle');  // Replace '.my-class' with your class
+            this.style.color = this.style.color == "grey" ? "blue" : "grey";
+        };
 
-    // Append the anchor element to the div
-    div.appendChild(a);
+        // Select the div with the specific class
+        // var div = document.querySelector('.toggle-vis'); 
+        var div = document.querySelector('#toggle');  
+
+        // Append the anchor element to the div
+        div.appendChild(a);
+    }
 
 }

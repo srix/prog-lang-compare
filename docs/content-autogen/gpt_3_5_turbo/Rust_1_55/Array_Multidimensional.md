@@ -1,35 +1,23 @@
-To create a multidimensional array in Rust 1.55, you can use the array syntax that supports nested arrays. Here is an example code snippet:
+Sure! In Rust, you can create a multidimensional array using nested square brackets. Here's an example of how you can create a two-dimensional array:
 
 ```rust
-// Create a 2D array of integers with size 3x4
-let mut arr: [[i32; 4]; 3] = [[0; 4]; 3];
-
-// Access and modify elements in the 2D array
-arr[0][1] = 1;
-arr[1][2] = 2;
-arr[2][3] = 3;
-
-// Print the 2D array
-for i in 0..3 {
-    for j in 0..4 {
-        print!("{} ", arr[i][j]);
-    }
-    println!();
-}
+let mut matrix: [[i32; 3]; 3] = [[0; 3]; 3];
 ```
 
-In this example, we create a 2D array of integers with size 3x4 using the syntax `[[i32; 4]; 3]`. This defines a nested array of type `[i32; 4]` with length 3. The outer array has length 3, and each element is an inner array with length 4.
+In the above example, we've created a 2D array named matrix that has dimensions 3x3. The `mut` keyword indicates that the array is mutable and can be modified. Each element of the array is initialized to 0 using the `[[0; 3]; 3]` syntax. The `[[0; 3]; 3]` syntax creates a new array that contains three elements that are each an array of length 3, with all elements initialized to 0.
 
-We initialize all the elements in the 2D array to zero using the statement `[[0; 4]; 3]`, which creates an array with default values of 0 for each item.
+Now suppose you want to create a 3D array with dimensions 2x2x2, with each element initialized to 1. You can do that as follows:
 
-We then access and modify elements in the 2D array using the square bracket notation, e.g., `arr[0][1] = 1`.
-
-Finally, we print out the 2D array using nested loops. This should produce output like this:
-
+```rust
+let mut arr: [[[i32; 2]; 2]; 2] = [[[1; 2]; 2]; 2];
 ```
-0 1 0 0 
-0 0 2 0 
-0 0 0 3 
-``` 
 
-which shows the multidimensional array of size 3x4, with some elements modified to non-zero values.
+In the above example, we've created a 3D array named `arr` with dimensions 2x2x2. Each element of the array is an array of length 2, with each element of those arrays being a i32 value initialized to 1.
+
+You can also access elements of the array using their indices. Here's how to access the element at row 1, column 2 of `matrix`:
+
+```rust
+matrix[1][2] = 42;
+```
+
+In this case, we're modifying the value of the element at row 1, column 2 of `matrix` to be 42. You can also use nested loops to iterate over the elements of a multidimensional array.

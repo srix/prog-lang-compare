@@ -41,7 +41,7 @@ Array:
   Map (change all): Explain how to change all elements of an array in {lang} with examples.
   Concatenation: Explain how to concatenate two arrays in {lang} with examples.
   Sort: Explain how to sort an array in {lang} with examples.
-  Multidimensional: Explain how to create a multidimensional array in {lang} with examples.
+  Multidimensional: Explain how to create a multidimensional array and initialise it in {lang} with examples.
   Size:   Explain how to get the size of an array in {lang} with examples.
   Count: Explain how to count the number of elements in an array matching a condition {lang} with examples.
   Reduce: Explain how to reduce an array to a single value in {lang} with examples. 
