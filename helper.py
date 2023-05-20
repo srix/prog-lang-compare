@@ -25,5 +25,5 @@ def save_to_yaml(filepath, content):
 
 
 def get_safename(value):
-    trans_table = str.maketrans('. -', '___')
+    trans_table = str.maketrans('. -?()', '______')
     return value.translate(trans_table)

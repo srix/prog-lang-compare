@@ -1,18 +1,142 @@
 # title: Language Constructs
  
-datatypes:
-  primitives: Explain about primitive types in {lang} with examples.
+Datatypes:
+  Primitives: Explain about primitive types in {lang} with examples.
  
 String:
   Create: Explain how to create a string in {lang} with examples.
   Concatenation: Explain how to concatenate strings in {lang} with examples.
   Interpolation: Explain how to interpolate the strings in {lang} with examples.
-  # Remove part
-  # Replace
-  # Split
-  # Remove leading and trailing whitespace
-  # Compare
-  # Regex
+  Remove part: Explain how to reove part of a string in {lang} with examples.
+  Replace: Explain how to repllace a substring within a string in {lang} with examples.
+  Split: Explain how to split a string in {lang} with examples.
+  Remove leading and trailing whitespace: Explain how to remove leading and trailing whitespaces from a string in {lang} with examples."
+  Compare: Explain how to compare strings in {lang} with examples.
+  Regex: Explain how to use regex in {lang} with examples.
+
+Number:
+  Increment: Explain how to increment a number in {lang} with examples.
+  Compare:  Explain how to compare numbers in {lang} with examples.
+  Random: Explain how to generate random numbers in {lang} with examples.
+  Float:  Explain how to use float numbers in {lang} with examples.
+
+Type:
+  Get type of object: Explain how to get the type of an object in {lang} with examples.
+  Int to Float: Explain how to convert an integer to a float in {lang} with examples.
+  Int to String: Explain how to convert an integer to a string in {lang} with examples.
+  String to Int:  Explain how to convert a string to an integer in {lang} with examples.
+  String?:  Explain how to check if a string is a number in {lang} with examples.
+  Null/True/False?: Explain how to check if a value is null/true/false in {lang} with examples.
+
+Array:
+  Create populated: Explain how to create an array in {lang} with examples.
+  Add:  Explain how to add an element to an array in {lang} with examples.
+  With different types: Explain how to create an array with different types in {lang} with examples.
+  Include?: Explain how to check if an array includes an element in {lang} with examples.
+  Iterate: Explain how to iterate over an array in {lang} with examples.
+  Iterate with index: Explain how to iterate over an array with index in {lang} with examples.
+  Get first, last element: Explain how to get the first and last element of an array in {lang} with examples.
+  Find first: Explain how to find the first element of an array in {lang} with examples.
+  Select (find all): Explain how to find all elements of an array satisfying a condition in {lang} with examples.
+  Map (change all): Explain how to change all elements of an array in {lang} with examples.
+  Concatenation: Explain how to concatenate two arrays in {lang} with examples.
+  Sort: Explain how to sort an array in {lang} with examples.
+  Multidimensional: Explain how to create a multidimensional array in {lang} with examples.
+  Size:   Explain how to get the size of an array in {lang} with examples.
+  Count: Explain how to count the number of elements in an array matching a condition {lang} with examples.
+  Reduce: Explain how to reduce an array to a single value in {lang} with examples. 
+  Index of element: Explain how to get the index of an element in an array in {lang} with examples.
+  Delete element: Explain how to delete an element from an array in {lang} with examples.
+  Unique:  Explain how to get the unique elements of an array in {lang} with examples.
+
+Hash (map):
+  Create populated: Explain how to create a hash in {lang} with examples.
+  Add: Explain how to add an element to a hash in {lang} with examples.
+  Iterate:  Explain how to iterate over a hash in {lang} with examples.
+  Include?:   Explain how to check if a hash includes a key in {lang} with examples.
+  Get value: Explain how to get the value of a key in a hash in {lang} with examples.
+  Size:   Explain how to get the size of a hash in {lang} with examples.
+
+Other structure:
+  Boolean:  Explain how to use boolean in {lang} with examples.
+  Constant:   Explain how to use constant in {lang} with examples.
+  Constant list:  Explain how to use constant list in {lang} with examples.
+  Struct:   Explain how to use struct in {lang} with examples.
+
+Conditional:
+  If: Explain how to use if in {lang} with examples.
+  Unless:   Explain how to use unless in {lang} with examples.
+  If/else: Explain how to use if/else in {lang} with examples.
+  And/Or: Explain how to use and/or in {lang} with examples.
+  Switch: Explain how to use switch in {lang} with examples.
+  Switch as else if: Explain how to use switch as else if in {lang} with examples.
+  Ternary: Explain how to use ternary in {lang} with examples.
+  If assign: Explain how to use if assign in {lang} with examples.
+
+Loop:
+  For: Explain how to use for in {lang} with examples.
+  For with a step: Explain how to use for with a step in {lang} with examples.
+  Times: Explain how to use times in {lang} with examples.  
+  While: Explain how to use while in {lang} with examples.
+  Until:  Explain how to use until in {lang} with examples.
+  Return array: Explain how to return an array in {lang} with examples.
+  Break: Explain how to use break in {lang} with examples.
+  Next/Continue: Explain how to use next/continue in {lang} with examples.
+
+Math:
+  Max/Min:  Explain how to get the max/min of two numbers in {lang} with examples.
+  Sqrt: Explain how to get the square root of a number in {lang} with examples.
+
+Error handling:
+  Try/catch/finally: Explain how to use try/catch/finally in {lang} with examples.
+  With a message: Explain how to use try/catch/finally with a message in {lang} with examples.
+  Method: Explain how to use try/catch/finally in a method in {lang} with examples.
+  Throw exception: Explain how to throw an exception in {lang} with examples.
+
+File:
+  Read: Explain how to read a file in {lang} with examples.
+  Write: Explain how to write a file in {lang} with examples.
+  Get working dir path: Explain how to get the working dir path in {lang} with examples.
+  File path: Explain how to get the file path in {lang} with examples.
+  Dir path: Explain how to get the dir path in {lang} with examples.
+  Parent dir path: Explain how to get the parent dir path in {lang} with examples.
+  Sister dir path: Explain how to get the sister dir path in {lang} with examples.
+
+Method / Function:
+  Declare: Explain how to declare a method or function in {lang} with examples.
+  Multiple arguments: Explain how to use multiple arguments in method or function {lang} with examples.
+  Default value for argument: Explain how to use default value for argument in method or function {lang} with examples.
+  Return: Explain how to return a value in method or function {lang} with examples.
+  Closure: Explain how to use closure in {lang} with examples.
+  Block passing:  Explain how to use block passing in {lang} with examples.
+  Block binding: Explain how to use block binding in {lang} with examples.
+  Initialize in runtime: Explain how to initialize a method or function in runtime in {lang} with examples.
+  Alias: Explain how to use alias in {lang} with examples.
+
+Class:
+  Declare: Explain how to declare a class in {lang} with examples.
+  Constructor: Explain how to use constructor in {lang} with examples.
+  Method call: Explain how to call a method in a class {lang} with examples.
+  Static method: Explain how to define a static method in a class {lang} with examples.
+  Private method: Explain how to use private method in {lang} with examples.
+  Private method, access instance variable: Explain how to access instance variable in private method in {lang} with examples.
+  Field: Explain how to use field in class in {lang} with examples.
+  Get/set: Explain how to use get/set in class in {lang} with examples.
+  Inheritance: Explain how to use inheritance in class in {lang} with examples.
+  Mixin: Explain how to use mixin in  {lang} with examples.
+  Has method?: Explain how to check if a class has a method in {lang} with examples.
+
+Other:
+  Comment: Explain how to comment in {lang} with examples.
+  Assign value if not exist: Explain how to assign a value if not exist in {lang} with examples.
+  Import another file: Explain how to import another file in {lang} with examples.
+  Destructuring assignment: Explain how to use destructuring assignment in {lang} with examples.
+  Date: Explain how to use date in {lang} with examples.
+  Time: Explain how to use time in {lang} with examples.
+  Not:  Explain how to use not in {lang} with examples.
+  Assign this or that:  Explain how to assign this or that in {lang} with examples.
+  Run command: Explain how to run a command in {lang} with examples.
+
 
 Importing Libraries:
   import: Explain how to import libraries in {lang} with examples. mark the code block with Language name.
