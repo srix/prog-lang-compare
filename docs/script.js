@@ -192,7 +192,8 @@ async function showLangConceptsInColumn(tableId, progLang,conceptsData ) {
 
 function getSafeName(value) {
 
-    const regex = /\.|\ /g;
+    const regex = /[&\/\\#, +()$~%.'":*?<>{}]/g;
+    // const regex = /\.|\ |-|\?|\(|\)|\/|\\|/g;
     let newvalue = value.replace(regex, "_");
     return newvalue;
     // let regex = new RegExp(Object.keys(map).join('|'), 'g');

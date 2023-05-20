@@ -1,24 +1,31 @@
-In Python 3.10, you can use the `in` operator to check if a hash includes a key or not.
+In Python 3.10, checking if a hash includes a key can be done using the `in` operator.
 
-Here is an example code snippet:
+Here is an example:
 
 ```python
-person = {"name": "Alice", "age": 30, "gender": "female"}
+# Define a hash
+my_dict = {"apple": 2, "banana": 4, "orange": 1}
 
-# Checking if a key exists
-if "name" in person:
-    print("Name exists in the dictionary")
-
-# Checking if a key does not exist
-if "occupation" not in person:
-    print("Occupation does not exist in the dictionary")
+# Check if a key exists in the hash
+if "apple" in my_dict:
+    print("Yes, 'apple' is a key in the hash.")
+else:
+    print("No, 'apple' is not a key in the hash.")
 ```
 
-The output of this code would be:
+In this example, `"apple"` is a key in the hash, so the output will be `"Yes, 'apple' is a key in the hash."`
 
-```
-Name exists in the dictionary
-Occupation does not exist in the dictionary
+Here's another example:
+
+```python
+# Define a hash
+my_dict = {"cat": "meow", "dog": "woof", "bird": "chirp"}
+
+# Check if a key exists in the hash
+if "monkey" in my_dict:
+    print("Yes, 'monkey' is a key in the hash.")
+else:
+    print("No, 'monkey' is not a key in the hash.")
 ```
 
-In the above example, we have a dictionary called `person` with keys `"name"`, `"age"`, and `"gender"`. We check if `"name"` exists in the dictionary using the `in` operator, and if it does, we print a message. Similarly, we check if `"occupation"` does not exist in the dictionary using the `not in` operator and print a message accordingly.
+In this example, `"monkey"` is not a key in the hash, so the output will be `"No, 'monkey' is not a key in the hash."`

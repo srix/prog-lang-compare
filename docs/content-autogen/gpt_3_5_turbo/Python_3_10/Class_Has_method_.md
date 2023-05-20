@@ -1,42 +1,33 @@
-In Python 3.10, you can use the `hasattr()` built-in function to check if a class has a method. 
+In Python 3.10, we can use the `hasattr()` built-in function to check if a class has a method or not. The `hasattr()` function takes two arguments: the object to check and the method name to look for. It returns `True` if the method is found, and `False` otherwise.
 
-The `hasattr()` function takes two arguments: the object to check and a string that represents the name of the method you want to check for.
-
-Here is an example code snippet:
+Here's an example. Let's assume we have a class named `Person` that has two methods, `__init__()` and `greet()`. We can check if the class has the `greet()` method as follows:
 
 ```python
-class MyClass:
-    def my_method(self):
-        pass
+class Person:
+    def __init__(self, name):
+        self.name = name
 
-# Check if MyClass has a method called "my_method"
-if hasattr(MyClass, "my_method"):
-    print("MyClass has a method called 'my_method'")
+    def greet(self):
+        print(f"Hello, my name is {self.name}.")
+
+
+# check if the Person class has the greet() method
+if hasattr(Person, "greet"):
+    print("Person class has the greet() method.")
 else:
-    print("MyClass does not have a method called 'my_method'")
+    print("Person class does not have the greet() method.")
 ```
 
-This will output:
+The output of the above code will be: `Person class has the greet() method.`
 
-```
-MyClass has a method called 'my_method'
-```
-
-If you want to check for a built-in method, you can use the `dir()` function to get a list of all the attributes (including methods) of the class. Here is an example code snippet:
+On the other hand, if we check if the `Person` class has a method named `walk()`, which it doesn't, the output will be: `Person class does not have the walk() method.`
 
 ```python
-class MyClass:
-    pass
-
-# Check if MyClass has a built-in method called "__init__"
-if "__init__" in dir(MyClass):
-    print("MyClass has a built-in method called '__init__'")
+# check if the Person class has the walk() method
+if hasattr(Person, "walk"):
+    print("Person class has the walk() method.")
 else:
-    print("MyClass does not have a built-in method called '__init__'")
+    print("Person class does not have the walk() method.")
 ```
 
-This will output:
-
-```
-MyClass has a built-in method called '__init__'
-```
+I hope this helps!
