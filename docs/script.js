@@ -1,7 +1,8 @@
 
 // Create an array to track visibility states of column
-var loadedColumns = [];
-var defaultShowLangs = ['Rust 1.55', 'Haskell'];
+let loadedColumns = [];
+let defaultShowLangs = ['Rust 1.55', 'Haskell'];
+let tableBuffer =[];
 
 // Use the DataTables library to create a table with search and filter functionality
 $(document).ready(function() {
@@ -140,23 +141,23 @@ async function showEmptyTable(tableId, conceptsData, prog_lang_list  ) {
     
     // Populating the diciotnary with the data
     //Creating a three column row temporarily
-    let rows = conceptsData.map(item => ({ 'Concepts':  `${item.concept}  -  ${item.subconcept}` ,
+    tableBuffer = conceptsData.map(item => ({ 'Concepts':  `${item.concept}  -  ${item.subconcept}` ,
                                             'concept': `${item.concept}` ,      
                                             'subconcept': `${item.subconcept}` }));
 
     // extend the row one cell at a time for each language.
     // adding a placeholder text for correspoding  to a language in the cell                                
-    for (let i = 0; i < rows.length; i++) {
+    for (let i = 0; i < tableBuffer.length; i++) {
         for(let lang of prog_lang_list) {
             // Add a new key-value pair to each dictionary
-            rows[i][getSafeName(lang)] = `Loading for ${getSafeName(lang)} ...`; //Show place holder text
+            tableBuffer[i][getSafeName(lang)] = `Loading for ${getSafeName(lang)} ...`; //Show place holder text
         }
     }
     // console.log(rows);
 
 
     $(tableId).DataTable({
-        data: rows,
+        data: tableBuffer,
         columns: columns,
         paging: false,
         autoWidth: false,
@@ -164,6 +165,7 @@ async function showEmptyTable(tableId, conceptsData, prog_lang_list  ) {
         });
     
    
+
 }
 
 
@@ -196,9 +198,50 @@ async function loadLangConceptsInColumn(tableId, progLang ) {
             });
     });
 
+
     loadedColumns.push(progLang);
 
 }
+
+
+
+// async function loadLangConceptsInColumn(tableId, progLang ) {
+   
+//     //get column for a language
+//     mytable = $(tableId).DataTable();
+//     let columnIndex = mytable.column( progLang+':name' ).index();
+
+//     let rows = mytable.rows().data();
+ 
+//     for ( let i = 0; i < rows.length; i++) {
+//          // Get the data for this row
+//         //  var data = this.data();
+ 
+//          // Update the value of the cell in the target column
+//          concept = tableBuffer[i].concept;
+//          subconcept = tableBuffer[i].subconcept;
+//          let safename = getSafeName(progLang)
+//          filepath = 'content-autogen/gpt_3_5_turbo/'+getSafeName(progLang)+'/';
+//          fileurl = filepath + getSafeName(concept) + '_' + getSafeName(subconcept) + '.md';
+//          // data[safename] = 'New Value';  // Replace 'New Value' with the new value you want to set
+ 
+//          fetch(fileurl)
+//              .then(response => response.text())
+//              .then(filecontent => {
+//                  tableBuffer[i][getSafeName(progLang)] = marked(filecontent);
+//                 //  this.invalidate().draw();
+//              })
+//              .catch((error) => {
+//                  console.error('Error:', error);
+//              });
+//      };
+     
+//      datatable.clear().draw();
+//      datatable.columns.adjust().draw(); 
+ 
+//      loadedColumns.push(progLang);
+ 
+//  }
 
 
 
