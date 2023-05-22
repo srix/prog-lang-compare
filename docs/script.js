@@ -1,7 +1,7 @@
 
 // Create an array to track visibility states of column
 var loadedColumns = [];
-var defaultShowLangs = ['Python 3.10', 'Rust 1.55'];
+var defaultShowLangs = ['Rust 1.55', 'Haskell'];
 
 // Use the DataTables library to create a table with search and filter functionality
 $(document).ready(function() {
@@ -36,8 +36,9 @@ $(document).ready(function() {
                     } )
                 .then( results => 
                     { 
-                        loadLangConceptsInColumn('#langTable', "Python 3.10",conceptsData );
-                        loadLangConceptsInColumn('#langTable', "Rust 1.55",conceptsData )
+                        for (let i in defaultShowLangs) {
+                            loadLangConceptsInColumn('#langTable', defaultShowLangs[i],conceptsData );
+                        }
                     });
 
     // showLangConceptsInColumn(tableId, "Python 3.10",conceptsData )
@@ -207,7 +208,8 @@ async function loadLangConceptsInColumn(tableId, progLang ) {
 
 function getSafeName(value) {
 
-    const regex = /[&\/\\#, +()$~%.'":*?<>{}]/g;
+    // const regex = /[&\/\\#, +()$~%.'":*?<>{}]/g;
+    const regex = /[&\/\\, +()$~%.'":*?<>{}-]/g;
     // const regex = /\.|\ |-|\?|\(|\)|\/|\\|/g;
     let newvalue = value.replace(regex, "_");
     return newvalue;
