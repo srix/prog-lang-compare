@@ -22,22 +22,32 @@
         href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/default.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
     <style>
+        .dataTables_wrapper .dataTable {
+            table-layout: fixed;
+            word-wrap:break-word;
+        }
         .dataTables_wrapper .dataTable thead tr {
             background-color: #f5f5f5; /* Change this to your preferred color */
         }
         .dataTables_wrapper .dataTable td {
             vertical-align: top;
+            
         }
         .dataTables_wrapper .dataTables_filter {
             float: left;
         }
         pre  {
-            background-color: #e3dede;  /* Change this to your preferred color */
+
+            overflow-x:auto;
+            background-color: #e3dede;  
         }
         .toggle-vis {
             cursor: pointer;
             color: blue;
             text-decoration: none;
+        }
+        .custom-table-width {
+            width: '80ch' !important
         }
 
     </style>

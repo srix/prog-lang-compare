@@ -116,7 +116,7 @@ async function showEmptyTable(tableId, conceptsData, prog_lang_list  ) {
     // Creating Concerpts, concept, subconept column definitions
     // Concepts is the visible column. 
     // concept and subconcept are hidden columns used to create filenames later
-    columns.push({title: 'Concepts', name: 'Concepts', data: 'Concepts', 
+    columns.push({title: 'Concepts', name: 'Concepts', data: 'Concepts', width: '20ch',
                                     "createdCell": function (td, cellData, rowData, row, col) {
                                         $(td).css('font-weight', 'bold');}
                                     },   //copilot suggested this !!!
@@ -134,7 +134,7 @@ async function showEmptyTable(tableId, conceptsData, prog_lang_list  ) {
         // default columns to show
         if (defaultShowLangs.includes( langTitle))  { 
             visibility = true;}        
-        columns.push({title: `${langTitle}` , name: `${safeLangName}` ,data: `${safeLangName}` , visible: visibility});
+        columns.push({title: `${langTitle}` , name: `${safeLangName}` ,data: `${safeLangName}` ,  width: '100ch',  visible: visibility});
     }
 
     
@@ -160,6 +160,7 @@ async function showEmptyTable(tableId, conceptsData, prog_lang_list  ) {
         columns: columns,
         paging: false,
         autoWidth: false,
+       
         order: []  //disable sorting. Maintain the cocept order in prog_lang_concepts.yaml file
         });
     
