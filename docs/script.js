@@ -40,11 +40,6 @@ $(document).ready(function() {
                             loadLangConceptsInColumn('#langTable', defaultShowLangs[i],conceptsData );
                         }
                     });
-
-    // showLangConceptsInColumn(tableId, "Python 3.10",conceptsData )
-    // showLangConceptsInColumn(tableId, "Java 20",conceptsData )
-    // showLangConceptsInColumn(tableId, "Rust 1.55",conceptsData )
-    // showLangConceptsInColumn(tableId, "Haskell",conceptsData )
     
 });
 
@@ -164,6 +159,7 @@ async function showEmptyTable(tableId, conceptsData, prog_lang_list  ) {
         data: rows,
         columns: columns,
         paging: false,
+        autoWidth: false,
         order: []  //disable sorting. Maintain the cocept order in prog_lang_concepts.yaml file
         });
     
