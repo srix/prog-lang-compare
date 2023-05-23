@@ -4,46 +4,47 @@ var loadedColumns = [];
 var defaultShowLangs = ['Rust 1.55', 'Haskell'];
 
 // Use the DataTables library to create a table with search and filter functionality
-$(document).ready(function() {
-   
+$(document).ready(function () {
+
 
     marked.setOptions({
-        highlight: function(code, lang) {
-          if (lang && hljs.getLanguage(lang)) {
-            return hljs.highlight( code,  {language: lang}).value;
-          } else {
-            return hljs.highlightAuto(code).value;
-          }
+        highlight: function (code, lang) {
+            if (lang && hljs.getLanguage(lang)) {
+                return hljs.highlight(code, { language: lang }).value;
+            } else {
+                return hljs.highlightAuto(code).value;
+            }
         }
-      });
-      
-    let conceptsData ={}
-    let progLangList =[]
+    });
+
+    let conceptsData = {}
+    let progLangList = []
 
     const progLangConceptsUrl = 'prog_lang_concepts.yaml';
     const progLangListUrl = 'prog_langs.yaml';
 
     Promise.all([
-                getProgLangConcepts(progLangConceptsUrl),
-                getProgLangs(progLangListUrl)
-                ])
-                .then(results =>
-                    {
-                        conceptsData = results[0];
-                        progLangList = results[1];
-                        showEmptyTable('#langTable',conceptsData, progLangList);
-                        addLangToggle(progLangList);
-                    } )
-                .then( results => 
-                    { 
-                        for (let i in defaultShowLangs) {
-                            loadLangConceptsInColumn('#langTable', defaultShowLangs[i],conceptsData );
-                        }
-                    });
-    
+        getProgLangConcepts(progLangConceptsUrl),
+        getProgLangs(progLangListUrl)
+    ])
+        .then(results => {
+            conceptsData = results[0];
+            progLangList = results[1];
+            showEmptyTable('#langTable', conceptsData, progLangList);
+            addLangToggle(progLangList);
+        })
+        .then(results => {
+            for (let i in defaultShowLangs) {
+                loadLangConceptsInColumn('#langTable', defaultShowLangs[i], conceptsData);
+            }
+        });
 });
 
-
+/**
+ * fetches the concepts data from the yaml file and returns a dictionary
+ * @param {*} yamlUrl
+ * @return {dictionary} dictionary of concept, subconcept and prompt
+ */
 async function getProgLangConcepts(yamlUrl) {
     // Fetch the YAML data from the URL
     const response = await fetch(yamlUrl);
@@ -67,16 +68,18 @@ async function getProgLangConcepts(yamlUrl) {
             for (let subConcept in subObj) {
                 if (subObj.hasOwnProperty(subConcept)) {
                     // rowHeader.push(`${key} - ${subKey}`);
-                    conceptsData.push({ 'concept': `${concept}` , 
-                                        'subconcept': `${subConcept}` , 
-                                        'filename': `datatypes_primitives.md`});
+                    conceptsData.push({
+                        'concept': `${concept}`,
+                        'subconcept': `${subConcept}`,
+                        'filename': `datatypes_primitives.md`,
+                    });
                 }
             }
         }
     }
-    
+
     return conceptsData;
-    }
+}
 
 
 
@@ -96,58 +99,63 @@ async function getProgLangs(yamlUrl) {
     // Parse the YAML data
     const yamlData = jsyaml.safeLoad(yamlText);
 
-    let progLangList =[]
+    let progLangList = []
     progLangList = yamlData['Programming Languages']
 
     return progLangList;
-            
-    }
 
-async function showEmptyTable(tableId, conceptsData, prog_lang_list  ) {
-   
+}
+
+async function showEmptyTable(tableId, conceptsData, prog_lang_list) {
+
     //Create one column for each programming language
     let columns = []
     let map = {
-        '\.': '_',        
+        '\.': '_',
     };
 
-   
+
 
     // Creating Concerpts, concept, subconept column definitions
     // Concepts is the visible column. 
     // concept and subconcept are hidden columns used to create filenames later
-    columns.push({title: 'Concepts', name: 'Concepts', data: 'Concepts', width: '20ch',
-                                    "createdCell": function (td, cellData, rowData, row, col) {
-                                        $(td).css('font-weight', 'bold');}
-                                    },   //copilot suggested this !!!
-                        {title: 'concept', name: 'concept', data: 'concept', visible: false}, // hidden column
-                        {title: 'subconcept', name: 'subconcept', data: 'subconcept', visible: false}, //hidden column
-                        ); 
+    columns.push({
+        title: 'Concepts', name: 'Concepts', data: 'Concepts', width: '20ch',
+        "createdCell": function (td, cellData, rowData, row, col) {
+            $(td).css('font-weight', 'bold');
+        }
+    },   //copilot suggested this !!!
+        { title: 'concept', name: 'concept', data: 'concept', visible: false }, // hidden column
+        { title: 'subconcept', name: 'subconcept', data: 'subconcept', visible: false }, //hidden column
+    );
 
-    
 
-     // Creating column definitions for each language 
-     for (let langTitle of prog_lang_list) {
+
+    // Creating column definitions for each language 
+    for (let langTitle of prog_lang_list) {
         // Add a new key-value pair to each dictionary
         let safeLangName = getSafeName(langTitle) // if data key contains a dot, it will not work
         let visibility = false;
         // default columns to show
-        if (defaultShowLangs.includes( langTitle))  { 
-            visibility = true;}        
-        columns.push({title: `${langTitle}` , name: `${safeLangName}` ,data: `${safeLangName}` ,  width: '100ch',  visible: visibility});
+        if (defaultShowLangs.includes(langTitle)) {
+            visibility = true;
+        }
+        columns.push({ title: `${langTitle}`, name: `${safeLangName}`, data: `${safeLangName}`, width: '50ch', visible: visibility });
     }
 
-    
+
     // Populating the diciotnary with the data
     //Creating a three column row temporarily
-    let rows = conceptsData.map(item => ({ 'Concepts':  `${item.concept}  -  ${item.subconcept}` ,
-                                            'concept': `${item.concept}` ,      
-                                            'subconcept': `${item.subconcept}` }));
+    let rows = conceptsData.map(item => ({
+        'Concepts': `${item.concept}  -  ${item.subconcept}`,
+        'concept': `${item.concept}`,
+        'subconcept': `${item.subconcept}`
+    }));
 
     // extend the row one cell at a time for each language.
     // adding a placeholder text for correspoding  to a language in the cell                                
     for (let i = 0; i < rows.length; i++) {
-        for(let lang of prog_lang_list) {
+        for (let lang of prog_lang_list) {
             // Add a new key-value pair to each dictionary
             rows[i][getSafeName(lang)] = `Loading for ${getSafeName(lang)} ...`; //Show place holder text
         }
@@ -160,29 +168,29 @@ async function showEmptyTable(tableId, conceptsData, prog_lang_list  ) {
         columns: columns,
         paging: false,
         autoWidth: false,
-       
+
         order: []  //disable sorting. Maintain the cocept order in prog_lang_concepts.yaml file
-        });
-    
-   
+    });
+
+
 }
 
 
-async function loadLangConceptsInColumn(tableId, progLang ) {
-   
-   //get column for a language
-   mytable = $(tableId).DataTable();
-   let columnIndex = mytable.column( progLang+':name' ).index();
+async function loadLangConceptsInColumnMd(tableId, progLang) {
 
-   mytable.rows().every(function () {
+    //get column for a language
+    let mytable = $(tableId).DataTable();
+    let columnIndex = mytable.column(progLang + ':name').index();
+
+    mytable.rows().every(function () {
         // Get the data for this row
         var data = this.data();
 
         // Update the value of the cell in the target column
-        concept = data['concept'];
-        subconcept = data['subconcept'];
+        let concept = data['concept'];
+        let subconcept = data['subconcept'];
         let safename = getSafeName(progLang)
-        filepath = 'content-autogen/gpt_3_5_turbo/'+getSafeName(progLang)+'/';
+        filepath = 'content-autogen/gpt_3_5_turbo/' + getSafeName(progLang) + '/';
         fileurl = filepath + getSafeName(concept) + '_' + getSafeName(subconcept) + '.md';
         // data[safename] = 'New Value';  // Replace 'New Value' with the new value you want to set
 
@@ -201,7 +209,41 @@ async function loadLangConceptsInColumn(tableId, progLang ) {
 
 }
 
+async function loadLangConceptsInColumn(tableId, progLang) {
 
+    //get column for a language
+    let mytable = $(tableId).DataTable();
+    let columnIndex = mytable.column(progLang + ':name').index();
+
+    let fileurl = 'content-autogen/gpt_3_5_turbo/' + getSafeName(progLang) + '.json';
+    let mergedContent = {};
+    fetch(fileurl)
+        .then(response => response.text())
+        .then(filecontent => {
+            mergedContent = JSON.parse(filecontent);
+            mytable.rows().every(function () {
+                // Get the data for this row
+                var data = this.data();
+
+                let concept = data['concept'];
+                let subconcept = data['subconcept'];
+                // Update the value of the cell in the target column
+                let safeProglang = getSafeName(progLang)
+                let key = getSafeName(concept) + '_' + getSafeName(subconcept);
+                data[safeProglang] = marked(mergedContent[key]);
+                this.invalidate().draw();
+
+            });
+
+            loadedColumns.push(progLang);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+
+
+
+}
 
 function getSafeName(value) {
 
@@ -218,11 +260,11 @@ function getSafeName(value) {
 
 function addLangToggle(prog_lang_list) {
 
-     // Creating toggle for each language 
+    // Creating toggle for each language 
     for (let lang of prog_lang_list.sort()) {
         let columnTitle = lang;
         let columnName = getSafeName(lang);
-    
+
 
         // Create a new anchor element
         let a = document.createElement('a');
@@ -232,22 +274,22 @@ function addLangToggle(prog_lang_list) {
         a.setAttribute("columnname", columnName)
 
         // Set the text of the anchor element
-        a.textContent = columnTitle+' , ';  
+        a.textContent = columnTitle + ' , ';
 
-        if (defaultShowLangs.includes( columnTitle))  { 
+        if (defaultShowLangs.includes(columnTitle)) {
             a.style.color = "blue";
         }
         else {
             a.style.color = "grey";
-        }   
-        
+        }
+
 
         a.onclick = function (e) {
             e.preventDefault();
-        
+
             let mytable = $('#langTable').DataTable();        // Get the column API object
-            let column = mytable.column($(this).attr('columnname')+':name');
-        
+            let column = mytable.column($(this).attr('columnname') + ':name');
+
             // Toggle the visibility
             column.visible(!column.visible());
 
@@ -255,7 +297,7 @@ function addLangToggle(prog_lang_list) {
 
 
             // if making visible fo rthe first time then fetch data for subconcepts and replace the placeholder text
-            if (column.visible() == true &&  loadedColumns.includes(columnTitle) == false) {
+            if (column.visible() == true && loadedColumns.includes(columnTitle) == false) {
                 loadLangConceptsInColumn('#langTable', columnTitle);
             }
 
@@ -263,7 +305,7 @@ function addLangToggle(prog_lang_list) {
 
         // Select the div with the specific class
         // var div = document.querySelector('.toggle-vis'); 
-        var div = document.querySelector('#toggle');  
+        var div = document.querySelector('#toggle');
 
         // Append the anchor element to the div
         div.appendChild(a);
