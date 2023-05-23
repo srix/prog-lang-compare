@@ -96,6 +96,11 @@ dmypy.json
 *.cer
 *.key
 
+#node
+node_modules/
+package-lock.json
+package.json
+
 # Django
 *.log
 local_settings.py
@@ -128,3 +133,6 @@ target/
 # Windows
 Thumbs.db
 Desktop.ini
+
+#Kubuntu
+.directory
