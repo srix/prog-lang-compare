@@ -251,12 +251,14 @@ function addLangToggle(prog_lang_list) {
             // Toggle the visibility
             column.visible(!column.visible());
 
+            this.style.color = this.style.color == "grey" ? "blue" : "grey";
+
+
             // if making visible fo rthe first time then fetch data for subconcepts and replace the placeholder text
             if (column.visible() == true &&  loadedColumns.includes(columnTitle) == false) {
                 loadLangConceptsInColumn('#langTable', columnTitle);
             }
 
-            this.style.color = this.style.color == "grey" ? "blue" : "grey";
         };
 
         // Select the div with the specific class
