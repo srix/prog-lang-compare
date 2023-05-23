@@ -128,3 +128,6 @@ target/
 # Windows
 Thumbs.db
 Desktop.ini
+
+#Kubuntu
+.directory
