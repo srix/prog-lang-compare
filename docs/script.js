@@ -32,6 +32,7 @@ $(document).ready(function () {
             progLangList = results[1];
             showEmptyTable('#langTable', conceptsData, progLangList);
             addLangToggle(progLangList);
+            addTocHtml(conceptsData);
         })
         .then(results => {
             for (let i in defaultShowLangs) {
@@ -311,4 +312,73 @@ function addLangToggle(prog_lang_list) {
         div.appendChild(a);
     }
 
+}
+
+function addTocHtml(conceptsData) {
+    let html = '<ul>';
+    const tocDiv = document.getElementById('toc');
+
+    // let prevConcept = '';
+    // const concepts = document.createElement('ul');
+    // let subconcepts = null;
+
+
+    const concepts = [...new Set(conceptsData.map(item => item.concept))];
+    const conceptsUl = document.createElement('ul');
+
+    let rowIndex =0;
+
+    concepts.forEach(function(conceptStr, index) {
+
+        
+            
+
+            const subconcepts = conceptsData.filter(item2 => item2.concept === conceptStr);
+            const subconceptsUl = document.createElement('ul');
+            subconcepts.forEach(function(item3, index) {
+                const subconceptLi = document.createElement('li');
+                // subconceptLi.textContent = 'sc';
+                const a = document.createElement('a');
+                // a.href = '#';
+                a.innerText = item3.subconcept;
+                a.setAttribute("class", "toggle-vis");
+                a.setAttribute("rowIndex", rowIndex);
+                rowIndex += 1;
+
+        
+                a.onclick = function (e) {
+                    e.preventDefault();
+        
+                    // Get the DataTable instance
+                    const table = $('#langTable').DataTable();
+                    
+                    // Specify the row index to scroll to
+                    let rowIndex = $(this).attr('rowIndex');
+
+                    // Get the row node
+                    let rowNode = table.row(rowIndex).node();
+
+                    // Scroll to the row
+                    $('html, body').animate({
+                        scrollTop: $(rowNode).offset().top
+                    }, 500);
+        
+                };
+
+                
+                subconceptLi.appendChild(a);
+                subconceptsUl.appendChild(subconceptLi);
+            });
+
+            const conceptli = document.createElement('li');
+            conceptli.innerText += `${conceptStr}` ;
+            conceptsUl.appendChild(conceptli);
+            conceptsUl.appendChild(subconceptsUl);
+            tocDiv.appendChild(conceptsUl);
+
+        
+    });
+
+
+   
 }
