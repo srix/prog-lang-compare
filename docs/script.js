@@ -326,6 +326,8 @@ function addTocHtml(conceptsData) {
     const concepts = [...new Set(conceptsData.map(item => item.concept))];
     const conceptsUl = document.createElement('ul');
 
+    let rowIndex =0;
+
     concepts.forEach(function(conceptStr, index) {
 
         
@@ -337,9 +339,12 @@ function addTocHtml(conceptsData) {
                 const subconceptLi = document.createElement('li');
                 // subconceptLi.textContent = 'sc';
                 const a = document.createElement('a');
-                a.href = '#';
+                // a.href = '#';
                 a.innerText = item3.subconcept;
                 a.setAttribute("class", "toggle-vis");
+                a.setAttribute("rowIndex", rowIndex);
+                rowIndex += 1;
+
         
                 a.onclick = function (e) {
                     e.preventDefault();
@@ -348,7 +353,7 @@ function addTocHtml(conceptsData) {
                     const table = $('#langTable').DataTable();
                     
                     // Specify the row index to scroll to
-                    let rowIndex = 5;
+                    let rowIndex = $(this).attr('rowIndex');
 
                     // Get the row node
                     let rowNode = table.row(rowIndex).node();
@@ -370,31 +375,6 @@ function addTocHtml(conceptsData) {
             conceptsUl.appendChild(conceptli);
             conceptsUl.appendChild(subconceptsUl);
             tocDiv.appendChild(conceptsUl);
-
- 
-       
-        // // para.innerText += '\b\b' ;
-        // const a = document.createElement('a');
-        // // a.href="www.google.com";
-        // a.textContent = item['subconcept']; 
-        // a.setAttribute("class", "toggle-vis");
-
-        // a.onclick = function (e) {
-        //     e.preventDefault();
-
-        //     // Get the DataTable instance
-        //     const table = $('#langTable').DataTable();
-
-        //     // Get the row you want to scroll to
-        //     const row = table.row(5);
-
-        //     // Scroll to the row
-        //     row.scrollTo();
-
-        // };
-
-        // para.appendChild(a);
-        // para.appendChild(document.createElement('br'));
 
         
     });
