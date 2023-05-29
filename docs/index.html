@@ -22,6 +22,28 @@
         href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/default.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
     <style>
+        /* Style for the sidebar */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 100%;
+            background-color: #f1f1f1;
+            overflow-x: hidden;
+            padding-top: 20px;
+            z-index: 1; /* Add this property */
+        }
+
+        /* Style for the main content */
+        .content {
+            margin-left: 200px;
+            padding: 20px;
+            /* overflow-x: auto; */
+
+        }
+    </style>
+    <style>
         .dataTables_wrapper .dataTable {
             table-layout: fixed;
             word-wrap:break-word;
@@ -43,7 +65,7 @@
         }
         .toggle-vis {
             cursor: pointer;
-            color: blue;
+            color: grey;
             text-decoration: none;
         }
         .custom-table-width {
@@ -53,7 +75,16 @@
     </style>
 </head>
 <body>
-    <p>A side by side comparison of popular programming languages. The content is generated using openai chatgpt-4 llm. If you find the page useful leave a star rating at the github project <a href="https://github.com/srix/prog-lang-compare"> here</a>.</p>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div id='toc'></div>
+        <ul><li>one</li></ul>
+        
+    </div>
+
+    <!-- Main content -->
+    <div class="content">
+       <p>A side by side comparison of popular programming languages. The content is generated using openai chatgpt-4 llm. If you find the page useful leave a star rating at the github project <a href="https://github.com/srix/prog-lang-compare"> here</a>.</p>
     <div id="toggle">
         Select Language: 
         <!-- Langauage toggle anchor tag will be inserted here -->
@@ -62,5 +93,6 @@
     <table id="langTable" class="display"></table>
 
     <script src="script.js"></script>
+    </div>
 </body>
 </html>
