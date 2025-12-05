@@ -1,11 +1,33 @@
-const loadedColumns = [];
-const defaultShowLangs = ['Rust 1.55', 'Haskell'];
-let conceptsData = [];
-let progLangList = [];
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+declare const $: any;
+declare const jsyaml: any;
+declare const marked: any;
+declare const hljs: any;
+
+type ConceptEntry = {
+    concept: string;
+    subconcept: string;
+    filename: string;
+};
+
+type ProgLangList = string[];
+
+type TableRow = {
+    Concepts: string;
+    concept: string;
+    subconcept: string;
+    [key: string]: string;
+};
+
+const loadedColumns: ProgLangList = [];
+const defaultShowLangs: ProgLangList = ['Rust 1.55', 'Haskell'];
+let conceptsData: ConceptEntry[] = [];
+let progLangList: ProgLangList = [];
 
 $(document).ready(() => {
     marked.setOptions({
-        highlight: (code, lang) => {
+        highlight: (code: string, lang: string) => {
             if (lang && hljs.getLanguage(lang)) {
                 return hljs.highlight(code, { language: lang }).value;
             }
@@ -35,7 +57,7 @@ $(document).ready(() => {
         });
 });
 
-async function getProgLangConcepts(yamlUrl) {
+async function getProgLangConcepts(yamlUrl: string): Promise<ConceptEntry[]> {
     const response = await fetch(yamlUrl);
 
     if (!response.ok) {
@@ -43,16 +65,16 @@ async function getProgLangConcepts(yamlUrl) {
     }
 
     const yamlText = await response.text();
-    const yamlData = jsyaml.safeLoad(yamlText);
+    const yamlData: any = jsyaml.safeLoad(yamlText);
 
-    const conceptsDataResult = [];
+    const conceptsData: ConceptEntry[] = [];
 
     for (const concept in yamlData) {
         if (Object.prototype.hasOwnProperty.call(yamlData, concept)) {
             const subObj = yamlData[concept];
             for (const subConcept in subObj) {
                 if (Object.prototype.hasOwnProperty.call(subObj, subConcept)) {
-                    conceptsDataResult.push({
+                    conceptsData.push({
                         concept: `${concept}`,
                         subconcept: `${subConcept}`,
                         filename: 'datatypes_primitives.md'
@@ -62,10 +84,10 @@ async function getProgLangConcepts(yamlUrl) {
         }
     }
 
-    return conceptsDataResult;
+    return conceptsData;
 }
 
-async function getProgLangs(yamlUrl) {
+async function getProgLangs(yamlUrl: string): Promise<ProgLangList> {
     const response = await fetch(yamlUrl);
 
     if (!response.ok) {
@@ -73,19 +95,19 @@ async function getProgLangs(yamlUrl) {
     }
 
     const yamlText = await response.text();
-    const yamlData = jsyaml.safeLoad(yamlText);
+    const yamlData: any = jsyaml.safeLoad(yamlText);
 
-    const progLangListResult = yamlData['Programming Languages'];
+    const progLangList: ProgLangList = yamlData['Programming Languages'];
 
-    return progLangListResult;
+    return progLangList;
 }
 
-async function showEmptyTable(tableId, conceptsDataParam, prog_lang_list) {
-    const columns = [];
+async function showEmptyTable(tableId: string, conceptsData: ConceptEntry[], prog_lang_list: ProgLangList): Promise<void> {
+    const columns: Array<Record<string, any>> = [];
 
     columns.push({
         title: 'Concepts', name: 'Concepts', data: 'Concepts', width: '20ch',
-        createdCell: (td) => {
+        createdCell: (td: HTMLElement) => {
             $(td).css('font-weight', 'bold');
         }
     },
@@ -103,7 +125,7 @@ async function showEmptyTable(tableId, conceptsDataParam, prog_lang_list) {
         columns.push({ title: `${langTitle}`, name: `${safeLangName}`, data: `${safeLangName}`, width: '50ch', visible: visibility });
     }
 
-    const rows = conceptsDataParam.map(item => ({
+    const rows: TableRow[] = conceptsData.map(item => ({
         Concepts: `${item.concept}  -  ${item.subconcept}`,
         concept: `${item.concept}`,
         subconcept: `${item.subconcept}`
@@ -124,7 +146,7 @@ async function showEmptyTable(tableId, conceptsDataParam, prog_lang_list) {
     });
 }
 
-async function loadLangConceptsInColumnMd(tableId, progLang) {
+async function loadLangConceptsInColumnMd(tableId: string, progLang: string): Promise<void> {
     const mytable = $(tableId).DataTable();
     const columnIndex = mytable.column(`${progLang}:name`).index();
 
@@ -133,7 +155,7 @@ async function loadLangConceptsInColumnMd(tableId, progLang) {
     }
 
     mytable.rows().every(function () {
-        const data = this.data();
+        const data: TableRow = this.data();
 
         const concept = data['concept'];
         const subconcept = data['subconcept'];
@@ -147,7 +169,7 @@ async function loadLangConceptsInColumnMd(tableId, progLang) {
                 data[safename] = marked(filecontent);
                 this.invalidate().draw();
             })
-            .catch((error) => {
+            .catch((error: Error) => {
                 console.error('Error:', error);
             });
     });
@@ -155,7 +177,7 @@ async function loadLangConceptsInColumnMd(tableId, progLang) {
     loadedColumns.push(progLang);
 }
 
-async function loadLangConceptsInColumn(tableId, progLang) {
+async function loadLangConceptsInColumn(tableId: string, progLang: string): Promise<void> {
     const mytable = $(tableId).DataTable();
     const columnIndex = mytable.column(`${progLang}:name`).index();
 
@@ -164,13 +186,13 @@ async function loadLangConceptsInColumn(tableId, progLang) {
     }
 
     const fileurl = 'content-autogen/gpt_3_5_turbo/' + getSafeName(progLang) + '.json';
-    let mergedContent = {};
+    let mergedContent: Record<string, string> = {};
     fetch(fileurl)
         .then(response => response.text())
         .then(filecontent => {
             mergedContent = JSON.parse(filecontent);
             mytable.rows().every(function () {
-                const data = this.data();
+                const data: TableRow = this.data();
 
                 const concept = data['concept'];
                 const subconcept = data['subconcept'];
@@ -182,18 +204,18 @@ async function loadLangConceptsInColumn(tableId, progLang) {
 
             loadedColumns.push(progLang);
         })
-        .catch((error) => {
+        .catch((error: Error) => {
             console.error('Error:', error);
         });
 }
 
-function getSafeName(value) {
+function getSafeName(value: string): string {
     const regex = /[&\/\\, +()$~%.'":*?<>{}-]/g;
     const newvalue = value.replace(regex, '_');
     return newvalue;
 }
 
-function addLangToggle(prog_lang_list) {
+function addLangToggle(prog_lang_list: ProgLangList): void {
     for (const lang of prog_lang_list.sort()) {
         const columnTitle = lang;
         const columnName = getSafeName(lang);
@@ -216,7 +238,7 @@ function addLangToggle(prog_lang_list) {
             e.preventDefault();
 
             const mytable = $('#langTable').DataTable();
-            const column = mytable.column($(this).getAttribute('columnname') + ':name');
+            const column = mytable.column($(this).attr('columnname') + ':name');
 
             column.visible(!column.visible());
 
@@ -234,20 +256,20 @@ function addLangToggle(prog_lang_list) {
     }
 }
 
-function addTocHtml(conceptsDataParam) {
+function addTocHtml(conceptsData: ConceptEntry[]): void {
     const tocDiv = document.getElementById('toc');
 
     if (!tocDiv) {
         return;
     }
 
-    const concepts = [...new Set(conceptsDataParam.map(item => item.concept))];
+    const concepts = [...new Set(conceptsData.map(item => item.concept))];
     const conceptsUl = document.createElement('ul');
 
     let rowIndex = 0;
 
     concepts.forEach(conceptStr => {
-        const subconcepts = conceptsDataParam.filter(item2 => item2.concept === conceptStr);
+        const subconcepts = conceptsData.filter(item2 => item2.concept === conceptStr);
         const subconceptsUl = document.createElement('ul');
         subconcepts.forEach(item3 => {
             const subconceptLi = document.createElement('li');
