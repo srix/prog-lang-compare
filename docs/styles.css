@@ -374,7 +374,7 @@ header a:hover {
 
 /* Ensure anchor linking scrolls with offset */
 .dataTables_wrapper .dataTable tbody tr {
-    scroll-margin-top: 100px;
+    scroll-margin-top: 60px;
 }
 
 .dataTables_wrapper .dataTable td {
@@ -705,20 +705,20 @@ code.hljs {
     padding-left: 0;
 }
 
-#toc > ul > li {
+#toc>ul>li {
     margin-bottom: 8px;
 }
 
-#toc > ul > li > ul {
+#toc>ul>li>ul {
     padding-left: 12px;
     margin-top: 4px;
 }
 
-#toc > ul > li > ul > li {
+#toc>ul>li>ul>li {
     margin-bottom: 4px;
 }
 
-#toc > ul > li:first-child {
+#toc>ul>li:first-child {
     font-weight: 600;
     color: var(--text-primary);
     padding: 8px;

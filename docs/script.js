@@ -357,9 +357,12 @@ function addTocHtml(conceptsData) {
                 // Get the row node
                 let rowNode = table.row(rowIndex).node();
 
+                // Get header height dynamically (sticky header)
+                const headerHeight = $('.dataTable thead th').outerHeight() || 60;
+
                 // Scroll to the row
                 $('html, body').animate({
-                    scrollTop: $(rowNode).offset().top - 100
+                    scrollTop: $(rowNode).offset().top - headerHeight
                 }, 500);
 
             };
