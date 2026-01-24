@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Switch in Swift - Prog Lang Compare</title>
+    <meta name="title" content="Switch in Swift - Prog Lang Compare">
+    <meta name="description" content="Learn how to switch in Swift. See code examples and detailed explanations.">
+    <meta name="keywords" content="Swift, Conditional Switch, programming, code examples, syntax, Conditional">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://prog-lang-compare.netlify.app/concepts/swift/conditional-switch.html">
+    <meta property="og:title" content="Switch in Swift">
+    <meta property="og:description" content="Learn how to switch in Swift. See code examples and detailed explanations.">
+    <meta property="og:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://prog-lang-compare.netlify.app/concepts/swift/conditional-switch.html">
+    <meta property="twitter:title" content="Switch in Swift">
+    <meta property="twitter:description" content="Learn how to switch in Swift. See code examples and detailed explanations.">
+    <meta property="twitter:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://prog-lang-compare.netlify.app/concepts/swift/conditional-switch.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+    <!-- Inline Critical CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav.breadcrumb {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        nav.breadcrumb a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        nav.breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        nav.breadcrumb span {
+            color: #666;
+            margin: 0 5px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-left: 4px solid #0066cc;
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+        }
+
+        .content pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+        }
+
+        .content code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+
+        .content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .back-link {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .back-link a {
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Switch in Swift",
+        "description": "Learn how to switch in Swift. See code examples and detailed explanations.",
+        "keywords": "Swift, Conditional Switch, programming",
+        "url": "https://prog-lang-compare.netlify.app/concepts/swift/conditional-switch.html",
+        "datePublished": "2023-06-09",
+        "dateModified": "2023-05-23",
+        "author": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare",
+            "url": "https://prog-lang-compare.netlify.app"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://prog-lang-compare.netlify.app/concepts/swift/conditional-switch.html"
+        }
+    }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span>›</span>
+            <a href="../swift.html">Swift</a>
+            <span>›</span>
+            <span>Conditional Switch</span>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <h1>Switch in Swift</h1>
+
+            <div class="meta">
+                <strong>Category:</strong> Conditional |
+                <strong>Language:</strong> Swift
+            </div>
+
+            <article class="content">
+                <p>In Swift, a switch statement is a control flow statement that provides a way to execute different code blocks based on the matching value of a condition. The syntax of a switch statement is as follows:</p>
+<pre><code class="language-">switch value {
+case pattern 1:
+    code to execute if value matches pattern 1
+case pattern 2:
+    code to execute if value matches pattern 2
+...
+case pattern n:
+    code to execute if value matches pattern n
+default:
+    code to execute if value doesn't match any of the patterns
+}
+</code></pre>
+<p>Here, <code>value</code> can be any variable or expression of a type that supports the <code>==</code> operator. The patterns are a way of testing the value for equality, and can be any of the following types:</p>
+<p>- Literal values, such as <code>1</code>, <code>"hello"</code>, <code>true</code>, etc.<br>
+- Range expressions, such as <code>1...10</code>, <code>..<5</code>, etc.<br>
+- Tuple patterns, which match multiple values at once.</p>
+<p>Example of using a switch statement:</p>
+<pre><code class="language-">let dayOfWeek = "Monday"
+<p>switch dayOfWeek {<br>
+case "Monday", "Tuesday", "Wednesday", "Thursday", "Friday":<br>
+    print("It's a weekday.")<br>
+case "Saturday", "Sunday":<br>
+    print("It's a weekend.")<br>
+default:<br>
+    print("Invalid day of the week.")<br>
+}<br>
+</code></pre></p>
+<p>In this example, we are using a switch statement to test the value of <code>dayOfWeek</code>. If it matches any of the strings <code>"Monday"</code>, <code>"Tuesday"</code>, <code>"Wednesday"</code>, <code>"Thursday"</code>, or <code>"Friday"</code>, then it prints the message "It's a weekday." Similarly, if it matches <code>"Saturday"</code> or <code>"Sunday"</code>, then it prints "It's a weekend." If it doesn't match any of these patterns, then it prints "Invalid day of the week."</p>
+<p>Another example of using a switch statement with a range expression:</p>
+<pre><code class="language-">let age = 25
+<p>switch age {<br>
+case 0..<18:<br>
+    print("You're too young.")<br>
+case 18...65:<br>
+    print("You're in your prime.")<br>
+case 66...:<br>
+    print("You're a wise elder.")<br>
+default:<br>
+    print("Invalid age.")<br>
+}<br>
+</code></pre></p>
+<p>In this example, we are using a switch statement to test the value of <code>age</code>. If it is less than 18, then it prints "You're too young." If it is between 18 and 65 (inclusive), then it prints "You're in your prime." If it is 66 or greater, then it prints "You're a wise elder." If it doesn't match any of these ranges, then it prints "Invalid age."</p>
+            </article>
+
+            
+            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
+                <h2 style="font-size: 20px; margin-bottom: 15px; color: #2c3e50;">See this concept in other languages</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
+                    <a href="../python-310/conditional-switch.html">Python 3.10</a><a href="../java-20/conditional-switch.html">Java 20</a><a href="../rust-155/conditional-switch.html">Rust 1.55</a><a href="../haskell/conditional-switch.html">Haskell</a><a href="../javascript-ecmascript-2021/conditional-switch.html">JavaScript - ECMAScript 2021</a><a href="../php/conditional-switch.html">PHP</a><a href="../typescript/conditional-switch.html">TypeScript</a><a href="../ruby/conditional-switch.html">Ruby</a><a href="../kotlin/conditional-switch.html">Kotlin</a><a href="../go/conditional-switch.html">Go</a><a href="../r/conditional-switch.html">R</a><a href="../perl/conditional-switch.html">Perl</a><a href="../matlab/conditional-switch.html">MATLAB</a><a href="../lua/conditional-switch.html">Lua</a><a href="../scala/conditional-switch.html">Scala</a><a href="../groovy/conditional-switch.html">Groovy</a><a href="../dart/conditional-switch.html">Dart</a><a href="../julia/conditional-switch.html">Julia</a><a href="../objective-c/conditional-switch.html">Objective-C</a><a href="../visual-basic-net/conditional-switch.html">Visual Basic .NET</a>
+                </div>
+                <style>
+                    .related-concepts a {
+                        padding: 8px 12px;
+                        background: #f5f5f5;
+                        border-radius: 4px;
+                        text-decoration: none;
+                        color: #0066cc;
+                        display: inline-block;
+                        text-align: center;
+                        transition: background 0.2s, transform 0.2s;
+                    }
+                    .related-concepts a:hover {
+                        background: #e5e7eb;
+                        transform: translateY(-2px);
+                    }
+                </style>
+            </section>
+
+
+            <div class="back-link">
+                <a href="../../index.html">← Back to Full Comparison Table</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>Content generated using AI | <a href="https://github.com/srix/prog-lang-compare" target="_blank" rel="noopener noreferrer">View on GitHub</a></p>
+        </footer>
+    </div>
+</body>
+</html>

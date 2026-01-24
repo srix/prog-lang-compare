@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Switch as else if in JavaScript - ECMAScript 2021 - Prog Lang Compare</title>
+    <meta name="title" content="Switch as else if in JavaScript - ECMAScript 2021 - Prog Lang Compare">
+    <meta name="description" content="Learn how to switch as else if in JavaScript - ECMAScript 2021. See code examples and detailed explanations.">
+    <meta name="keywords" content="JavaScript - ECMAScript 2021, Conditional Switch as else if, programming, code examples, syntax, Conditional">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://prog-lang-compare.netlify.app/concepts/javascript-ecmascript-2021/conditional-switch-as-else-if.html">
+    <meta property="og:title" content="Switch as else if in JavaScript - ECMAScript 2021">
+    <meta property="og:description" content="Learn how to switch as else if in JavaScript - ECMAScript 2021. See code examples and detailed explanations.">
+    <meta property="og:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://prog-lang-compare.netlify.app/concepts/javascript-ecmascript-2021/conditional-switch-as-else-if.html">
+    <meta property="twitter:title" content="Switch as else if in JavaScript - ECMAScript 2021">
+    <meta property="twitter:description" content="Learn how to switch as else if in JavaScript - ECMAScript 2021. See code examples and detailed explanations.">
+    <meta property="twitter:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://prog-lang-compare.netlify.app/concepts/javascript-ecmascript-2021/conditional-switch-as-else-if.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+    <!-- Inline Critical CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav.breadcrumb {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        nav.breadcrumb a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        nav.breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        nav.breadcrumb span {
+            color: #666;
+            margin: 0 5px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-left: 4px solid #0066cc;
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+        }
+
+        .content pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+        }
+
+        .content code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+
+        .content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .back-link {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .back-link a {
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Switch as else if in JavaScript - ECMAScript 2021",
+        "description": "Learn how to switch as else if in JavaScript - ECMAScript 2021. See code examples and detailed explanations.",
+        "keywords": "JavaScript - ECMAScript 2021, Conditional Switch as else if, programming",
+        "url": "https://prog-lang-compare.netlify.app/concepts/javascript-ecmascript-2021/conditional-switch-as-else-if.html",
+        "datePublished": "2023-06-09",
+        "dateModified": "2023-05-23",
+        "author": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare",
+            "url": "https://prog-lang-compare.netlify.app"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://prog-lang-compare.netlify.app/concepts/javascript-ecmascript-2021/conditional-switch-as-else-if.html"
+        }
+    }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span>›</span>
+            <a href="../javascript-ecmascript-2021.html">JavaScript - ECMAScript 2021</a>
+            <span>›</span>
+            <span>Conditional Switch as else if</span>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <h1>Switch as else if in JavaScript - ECMAScript 2021</h1>
+
+            <div class="meta">
+                <strong>Category:</strong> Conditional |
+                <strong>Language:</strong> JavaScript - ECMAScript 2021
+            </div>
+
+            <article class="content">
+                <p>In JavaScript, you can use the <code>switch</code> statement as an alternative to nested <code>if-else</code> statements. The <code>switch</code> statement evaluates an expression and executes the corresponding code block for the first matching <code>case</code> label. If there is no match for any <code>case</code> label, the <code>default</code> block is executed.</p>
+<p>Here is the general syntax for a <code>switch</code> statement:</p>
+<pre><code class="language-">switch (expression) {
+  case value1:
+    // code block to execute
+    break;
+  case value2:
+    // code block to execute
+    break;
+  ...
+  default:
+    // code block to execute if none of the cases are matched
+}
+</code></pre>
+<p>Here is an example of using the <code>switch</code> statement to replace an <code>if-else</code> statement:</p>
+<pre><code class="language-">// using if-else statement
+let num = 2;
+if (num === 1) {
+  console.log("One");
+} else if (num === 2) {
+  console.log("Two");
+} else if (num === 3) {
+  console.log("Three");
+} else {
+  console.log("Number not found");
+}
+<p>// using switch statement<br>
+let num = 2;<br>
+switch (num) {<br>
+  case 1:<br>
+    console.log("One");<br>
+    break;<br>
+  case 2:<br>
+    console.log("Two");<br>
+    break;<br>
+  case 3:<br>
+    console.log("Three");<br>
+    break;<br>
+  default:<br>
+    console.log("Number not found");<br>
+}<br>
+</code></pre></p>
+<p>In the above example, both the <code>if-else</code> statement and the <code>switch</code> statement will produce the same output: "Two". However, the <code>switch</code> statement is more concise and easier to read for larger conditions.</p>
+<p>Here is another example of using the <code>switch</code> statement to handle multiple cases for a single output:</p>
+<pre><code class="language-">let day = 5;
+switch (day) {
+  case 1:
+  case 2:
+  case 3:
+  case 4:
+  case 5:
+    console.log("Weekday");
+    break;
+  case 6:
+  case 7:
+    console.log("Weekend");
+    break;
+  default:
+    console.log("Invalid day");
+}
+</code></pre>
+<p>In this example, the <code>switch</code> statement checks if the <code>day</code> variable is a weekday or weekend and outputs accordingly. The use of multiple cases for a single output makes the <code>switch</code> statement more efficient and avoids unnecessary repetition of code.</p>
+            </article>
+
+            
+            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
+                <h2 style="font-size: 20px; margin-bottom: 15px; color: #2c3e50;">See this concept in other languages</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
+                    <a href="../python-310/conditional-switch-as-else-if.html">Python 3.10</a><a href="../java-20/conditional-switch-as-else-if.html">Java 20</a><a href="../rust-155/conditional-switch-as-else-if.html">Rust 1.55</a><a href="../haskell/conditional-switch-as-else-if.html">Haskell</a><a href="../php/conditional-switch-as-else-if.html">PHP</a><a href="../typescript/conditional-switch-as-else-if.html">TypeScript</a><a href="../ruby/conditional-switch-as-else-if.html">Ruby</a><a href="../swift/conditional-switch-as-else-if.html">Swift</a><a href="../kotlin/conditional-switch-as-else-if.html">Kotlin</a><a href="../go/conditional-switch-as-else-if.html">Go</a><a href="../r/conditional-switch-as-else-if.html">R</a><a href="../perl/conditional-switch-as-else-if.html">Perl</a><a href="../matlab/conditional-switch-as-else-if.html">MATLAB</a><a href="../lua/conditional-switch-as-else-if.html">Lua</a><a href="../scala/conditional-switch-as-else-if.html">Scala</a><a href="../groovy/conditional-switch-as-else-if.html">Groovy</a><a href="../dart/conditional-switch-as-else-if.html">Dart</a><a href="../julia/conditional-switch-as-else-if.html">Julia</a><a href="../objective-c/conditional-switch-as-else-if.html">Objective-C</a><a href="../visual-basic-net/conditional-switch-as-else-if.html">Visual Basic .NET</a>
+                </div>
+                <style>
+                    .related-concepts a {
+                        padding: 8px 12px;
+                        background: #f5f5f5;
+                        border-radius: 4px;
+                        text-decoration: none;
+                        color: #0066cc;
+                        display: inline-block;
+                        text-align: center;
+                        transition: background 0.2s, transform 0.2s;
+                    }
+                    .related-concepts a:hover {
+                        background: #e5e7eb;
+                        transform: translateY(-2px);
+                    }
+                </style>
+            </section>
+
+
+            <div class="back-link">
+                <a href="../../index.html">← Back to Full Comparison Table</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>Content generated using AI | <a href="https://github.com/srix/prog-lang-compare" target="_blank" rel="noopener noreferrer">View on GitHub</a></p>
+        </footer>
+    </div>
+</body>
+</html>

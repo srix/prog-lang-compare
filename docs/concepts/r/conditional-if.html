@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>If in R - Prog Lang Compare</title>
+    <meta name="title" content="If in R - Prog Lang Compare">
+    <meta name="description" content="Learn how to if in R. See code examples and detailed explanations.">
+    <meta name="keywords" content="R, Conditional If, programming, code examples, syntax, Conditional">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://prog-lang-compare.netlify.app/concepts/r/conditional-if.html">
+    <meta property="og:title" content="If in R">
+    <meta property="og:description" content="Learn how to if in R. See code examples and detailed explanations.">
+    <meta property="og:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://prog-lang-compare.netlify.app/concepts/r/conditional-if.html">
+    <meta property="twitter:title" content="If in R">
+    <meta property="twitter:description" content="Learn how to if in R. See code examples and detailed explanations.">
+    <meta property="twitter:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://prog-lang-compare.netlify.app/concepts/r/conditional-if.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+    <!-- Inline Critical CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav.breadcrumb {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        nav.breadcrumb a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        nav.breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        nav.breadcrumb span {
+            color: #666;
+            margin: 0 5px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-left: 4px solid #0066cc;
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+        }
+
+        .content pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+        }
+
+        .content code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+
+        .content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .back-link {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .back-link a {
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "If in R",
+        "description": "Learn how to if in R. See code examples and detailed explanations.",
+        "keywords": "R, Conditional If, programming",
+        "url": "https://prog-lang-compare.netlify.app/concepts/r/conditional-if.html",
+        "datePublished": "2023-06-09",
+        "dateModified": "2023-05-23",
+        "author": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare",
+            "url": "https://prog-lang-compare.netlify.app"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://prog-lang-compare.netlify.app/concepts/r/conditional-if.html"
+        }
+    }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span>›</span>
+            <a href="../r.html">R</a>
+            <span>›</span>
+            <span>Conditional If</span>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <h1>If in R</h1>
+
+            <div class="meta">
+                <strong>Category:</strong> Conditional |
+                <strong>Language:</strong> R
+            </div>
+
+            <article class="content">
+                <p>Sure, I can definitely help you with that. In R, the <code>if</code> statement is used to add conditional logic to your code. An <code>if</code> statement evaluates a condition, and if it is true, executes a specified block of code.</p>
+<p>Here are a few examples to showcase how the <code>if</code> statement works in R:</p>
+<p>Example 1: Checking if a number is even or odd</p>
+<pre><code class="language-">num <- 10
+if(num %% 2 == 0) {
+  print("The number is even.")
+} else {
+  print("The number is odd.")
+}
+</code></pre>
+<p>In this example, we check whether the <code>num</code> variable is even or odd. We use the modulo operator (<code>%%</code>) to check if <code>num</code> divided by 2 leaves any remainder. If the remainder is 0, then the number is even, and the <code>if</code> statement will execute the code inside the curly braces, which in this case is to print "The number is even." Otherwise, the <code>else</code> statement will execute, and "The number is odd." will be printed.</p>
+<p>Example 2: Checking if a string is empty</p>
+<pre><code class="language-">name <- ""
+if(nchar(name) == 0) {
+  print("The name is empty.")
+} else {
+  print(paste("The length of the name is", nchar(name)))
+}
+</code></pre>
+<p>In this example, we check if the <code>name</code> variable is empty by using the <code>nchar()</code> function. If the length of <code>name</code> is zero, then the <code>if</code> statement will execute the code inside the curly braces to print "The name is empty." Otherwise, <code>else</code> will execute, and the length of <code>name</code> will be printed.</p>
+<p>Example 3: Checking multiple conditions using logical operators</p>
+<pre><code class="language-">salary <- 50000
+years_exp <- 3
+<p>if(salary > 45000 & years_exp >= 2) {<br>
+  print("You are eligible for a promotion.")<br>
+} else {<br>
+  print("You do not meet the criteria for a promotion.")<br>
+}<br>
+</code></pre></p>
+<p>In this example, we check if the <code>salary</code> is greater than 45000 AND if <code>years_exp</code> is greater than or equal to 2. If both conditions are true, then the <code>if</code> statement will execute the code inside the curly braces to print "You are eligible for a promotion." Otherwise, <code>else</code> will execute, and "You do not meet the criteria for a promotion." will be printed.</p>
+<p>I hope this helps you understand how to use the <code>if</code> statement in R. Let me know if you have any questions!</p>
+            </article>
+
+            
+            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
+                <h2 style="font-size: 20px; margin-bottom: 15px; color: #2c3e50;">See this concept in other languages</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
+                    <a href="../python-310/conditional-if.html">Python 3.10</a><a href="../java-20/conditional-if.html">Java 20</a><a href="../rust-155/conditional-if.html">Rust 1.55</a><a href="../haskell/conditional-if.html">Haskell</a><a href="../javascript-ecmascript-2021/conditional-if.html">JavaScript - ECMAScript 2021</a><a href="../php/conditional-if.html">PHP</a><a href="../typescript/conditional-if.html">TypeScript</a><a href="../ruby/conditional-if.html">Ruby</a><a href="../swift/conditional-if.html">Swift</a><a href="../kotlin/conditional-if.html">Kotlin</a><a href="../go/conditional-if.html">Go</a><a href="../perl/conditional-if.html">Perl</a><a href="../matlab/conditional-if.html">MATLAB</a><a href="../lua/conditional-if.html">Lua</a><a href="../scala/conditional-if.html">Scala</a><a href="../groovy/conditional-if.html">Groovy</a><a href="../dart/conditional-if.html">Dart</a><a href="../julia/conditional-if.html">Julia</a><a href="../objective-c/conditional-if.html">Objective-C</a><a href="../visual-basic-net/conditional-if.html">Visual Basic .NET</a>
+                </div>
+                <style>
+                    .related-concepts a {
+                        padding: 8px 12px;
+                        background: #f5f5f5;
+                        border-radius: 4px;
+                        text-decoration: none;
+                        color: #0066cc;
+                        display: inline-block;
+                        text-align: center;
+                        transition: background 0.2s, transform 0.2s;
+                    }
+                    .related-concepts a:hover {
+                        background: #e5e7eb;
+                        transform: translateY(-2px);
+                    }
+                </style>
+            </section>
+
+
+            <div class="back-link">
+                <a href="../../index.html">← Back to Full Comparison Table</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>Content generated using AI | <a href="https://github.com/srix/prog-lang-compare" target="_blank" rel="noopener noreferrer">View on GitHub</a></p>
+        </footer>
+    </div>
+</body>
+</html>

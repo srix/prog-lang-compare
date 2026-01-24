@@ -71,7 +71,7 @@ def generate_language_landing_page(language, concepts):
     for category, subconcepts in sorted_categories:
         category_name = category.replace('_', ' ').title()
         subconcept_cards = ''.join([
-            f'<div class="concept-card"><a href="{sc["slug"]}.html">{sc["name"]}</a></div>'
+            f'<div class="concept-card"><a href="{slug}/{sc["slug"]}.html">{sc["name"]}</a></div>'
             for sc in sorted(subconcepts, key=lambda x: x['name'])
         ])
 

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Declare in R - Prog Lang Compare</title>
+    <meta name="title" content="Declare in R - Prog Lang Compare">
+    <meta name="description" content="Learn how to declare in R. See code examples and detailed explanations.">
+    <meta name="keywords" content="R, Class Declare, programming, code examples, syntax, Method / Function">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://prog-lang-compare.netlify.app/concepts/r/class-declare.html">
+    <meta property="og:title" content="Declare in R">
+    <meta property="og:description" content="Learn how to declare in R. See code examples and detailed explanations.">
+    <meta property="og:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://prog-lang-compare.netlify.app/concepts/r/class-declare.html">
+    <meta property="twitter:title" content="Declare in R">
+    <meta property="twitter:description" content="Learn how to declare in R. See code examples and detailed explanations.">
+    <meta property="twitter:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://prog-lang-compare.netlify.app/concepts/r/class-declare.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+    <!-- Inline Critical CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav.breadcrumb {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        nav.breadcrumb a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        nav.breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        nav.breadcrumb span {
+            color: #666;
+            margin: 0 5px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-left: 4px solid #0066cc;
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+        }
+
+        .content pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+        }
+
+        .content code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+
+        .content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .back-link {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .back-link a {
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Declare in R",
+        "description": "Learn how to declare in R. See code examples and detailed explanations.",
+        "keywords": "R, Class Declare, programming",
+        "url": "https://prog-lang-compare.netlify.app/concepts/r/class-declare.html",
+        "datePublished": "2023-06-09",
+        "dateModified": "2023-05-23",
+        "author": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare",
+            "url": "https://prog-lang-compare.netlify.app"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://prog-lang-compare.netlify.app/concepts/r/class-declare.html"
+        }
+    }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span>›</span>
+            <a href="../r.html">R</a>
+            <span>›</span>
+            <span>Class Declare</span>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <h1>Declare in R</h1>
+
+            <div class="meta">
+                <strong>Category:</strong> Method / Function |
+                <strong>Language:</strong> R
+            </div>
+
+            <article class="content">
+                <p>In R, a class represents a blueprint for a data structure that provides various properties and methods that can be applied to the data. Here's how you can declare a class in R:</p>
+<p>1. Using <code>setClass()</code> function: This is the most common way of defining a new class in R. Here's an example:</p>
+<pre><code class="language-r">setClass("Person", 
+         slots = c(name = "character", 
+                   age = "integer",
+                   gender = "character"))
+</code></pre>
+<p>Here we created a new class called <code>Person</code> and defined three slots or attributes for it: <code>name</code>, <code>age</code>, and <code>gender</code>. Each slot has a specific data type assigned to it.</p>
+<p>2. Using <code>setOldClass()</code> function: This function is used to define a new class that inherits from an already defined class. Here's an example:</p>
+<pre><code class="language-r">setOldClass("Employee", representation(name = "character",
+                                        age = "integer",
+                                        gender = "character"),
+                                        class = "Person")
+</code></pre>
+<p>Here we created a new class called <code>Employee</code> that inherits from the <code>Person</code> class.</p>
+<p>3. Using <code>createClass()</code> function: This function is used to create a new class that inherits from multiple parent classes. Here's an example:</p>
+<pre><code class="language-r">setClass("Manager", 
+         slots = c(department = "character",
+                   subordinates = "list"),
+         contains = c("Employee"))
+</code></pre>
+<p>Here we created a new class called <code>Manager</code> with two slots: <code>department</code> and <code>subordinates</code>. The class also inherits from the <code>Employee</code> and can access its properties and methods.</p>
+<p>Once a class is defined, you can create objects or instances of that class using the <code>new()</code> function. For example:</p>
+<pre><code class="language-r">person1 <- new("Person", name = "Alice", age = 25, gender = "Female")
+</code></pre>
+<p>Here we created a new object of the <code>Person</code> class named <code>person1</code> and assigned values to its attributes.</p>
+            </article>
+
+            
+            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
+                <h2 style="font-size: 20px; margin-bottom: 15px; color: #2c3e50;">See this concept in other languages</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
+                    <a href="../python-310/class-declare.html">Python 3.10</a><a href="../java-20/class-declare.html">Java 20</a><a href="../rust-155/class-declare.html">Rust 1.55</a><a href="../haskell/class-declare.html">Haskell</a><a href="../javascript-ecmascript-2021/class-declare.html">JavaScript - ECMAScript 2021</a><a href="../php/class-declare.html">PHP</a><a href="../typescript/class-declare.html">TypeScript</a><a href="../ruby/class-declare.html">Ruby</a><a href="../swift/class-declare.html">Swift</a><a href="../kotlin/class-declare.html">Kotlin</a><a href="../go/class-declare.html">Go</a><a href="../perl/class-declare.html">Perl</a><a href="../matlab/class-declare.html">MATLAB</a><a href="../lua/class-declare.html">Lua</a><a href="../scala/class-declare.html">Scala</a><a href="../groovy/class-declare.html">Groovy</a><a href="../dart/class-declare.html">Dart</a><a href="../julia/class-declare.html">Julia</a><a href="../objective-c/class-declare.html">Objective-C</a><a href="../visual-basic-net/class-declare.html">Visual Basic .NET</a>
+                </div>
+                <style>
+                    .related-concepts a {
+                        padding: 8px 12px;
+                        background: #f5f5f5;
+                        border-radius: 4px;
+                        text-decoration: none;
+                        color: #0066cc;
+                        display: inline-block;
+                        text-align: center;
+                        transition: background 0.2s, transform 0.2s;
+                    }
+                    .related-concepts a:hover {
+                        background: #e5e7eb;
+                        transform: translateY(-2px);
+                    }
+                </style>
+            </section>
+
+
+            <div class="back-link">
+                <a href="../../index.html">← Back to Full Comparison Table</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>Content generated using AI | <a href="https://github.com/srix/prog-lang-compare" target="_blank" rel="noopener noreferrer">View on GitHub</a></p>
+        </footer>
+    </div>
+</body>
+</html>

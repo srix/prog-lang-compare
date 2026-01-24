@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>handling With a message in Rust 1.55 - Prog Lang Compare</title>
+    <meta name="title" content="handling With a message in Rust 1.55 - Prog Lang Compare">
+    <meta name="description" content="Learn how to handling with a message in Rust 1.55. See code examples and detailed explanations.">
+    <meta name="keywords" content="Rust 1.55, Error handling With a message, programming, code examples, syntax, Error handling">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://prog-lang-compare.netlify.app/concepts/rust-155/error-handling-with-a-message.html">
+    <meta property="og:title" content="handling With a message in Rust 1.55">
+    <meta property="og:description" content="Learn how to handling with a message in Rust 1.55. See code examples and detailed explanations.">
+    <meta property="og:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://prog-lang-compare.netlify.app/concepts/rust-155/error-handling-with-a-message.html">
+    <meta property="twitter:title" content="handling With a message in Rust 1.55">
+    <meta property="twitter:description" content="Learn how to handling with a message in Rust 1.55. See code examples and detailed explanations.">
+    <meta property="twitter:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://prog-lang-compare.netlify.app/concepts/rust-155/error-handling-with-a-message.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+    <!-- Inline Critical CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav.breadcrumb {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        nav.breadcrumb a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        nav.breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        nav.breadcrumb span {
+            color: #666;
+            margin: 0 5px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-left: 4px solid #0066cc;
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+        }
+
+        .content pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+        }
+
+        .content code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+
+        .content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .back-link {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .back-link a {
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "handling With a message in Rust 1.55",
+        "description": "Learn how to handling with a message in Rust 1.55. See code examples and detailed explanations.",
+        "keywords": "Rust 1.55, Error handling With a message, programming",
+        "url": "https://prog-lang-compare.netlify.app/concepts/rust-155/error-handling-with-a-message.html",
+        "datePublished": "2023-06-09",
+        "dateModified": "2023-05-23",
+        "author": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare",
+            "url": "https://prog-lang-compare.netlify.app"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://prog-lang-compare.netlify.app/concepts/rust-155/error-handling-with-a-message.html"
+        }
+    }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span>›</span>
+            <a href="../rust-155.html">Rust 1.55</a>
+            <span>›</span>
+            <span>Error handling With a message</span>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <h1>handling With a message in Rust 1.55</h1>
+
+            <div class="meta">
+                <strong>Category:</strong> Error handling |
+                <strong>Language:</strong> Rust 1.55
+            </div>
+
+            <article class="content">
+                <p>In Rust, <code>try</code>, <code>catch</code>, and <code>finally</code> are not keywords. Instead, Rust uses the <code>Result</code> type, which can represent either a success or a failure. When a function returns a <code>Result</code>, you can use the <code>match</code> expression to check whether the result is successful (<code>Ok</code>) or a failure (<code>Err</code>).</p>
+<p>Here is an example of how to use <code>Result</code> and <code>match</code> in a function that may produce an error:</p>
+<pre><code class="language-rust">fn divide(x: i32, y: i32) -> Result<i32, String> {
+    if y == 0 {
+        return Err("Division by zero error".to_string());
+    }
+    Ok(x / y)
+}
+<p>fn main() {<br>
+    let result = divide(10, 0);<br>
+    match result {<br>
+        Ok(value) => println!("Result: {}", value),<br>
+        Err(error) => println!("Error: {}", error),<br>
+    }<br>
+}<br>
+</code></pre></p>
+<p>In the above example, the <code>divide</code> function takes two <code>i32</code> arguments and returns a <code>Result<i32, String></code> type. If the second argument is zero, the function returns an <code>Err</code> with a message. Otherwise, the function returns the result of dividing <code>x</code> by <code>y</code> as an <code>Ok</code> value.</p>
+<p>In the <code>main</code> function, we call <code>divide(10, 0)</code> and store the result in the <code>result</code> variable. We then use the <code>match</code> expression to handle the <code>Result</code>. If the result is <code>Ok</code>, we print the value using <code>println!</code>. If the result is <code>Err</code>, we print the error message using <code>println!</code>.</p>
+<p>If you want to perform some action regardless of whether an error occurs or not, you can use the <code>?</code> operator or the <code>match</code> expression in a <code>finally</code> block-like function called <code>finally</code> from the <code>ScopeGuard</code> crate, like so:</p>
+<pre><code class="language-rust">use scopeguard::ScopeGuard;
+<p>let mut x = 0;<br>
+let scope_guard = ScopeGuard::defer(|| {<br>
+   println!("Scope guard reached");<br>
+   x = 1;<br>
+});</p>
+<p>let result = divide(10, 0)?;<br>
+scope_guard.run_unwind(); // finally block</p>
+<p>match result {<br>
+    Ok(value) => println!("Result: {}", value),<br>
+    Err(error) => println!("Error: {}", error),<br>
+}</p>
+<p>println!("X value: {}", x); // X value: 1<br>
+</code></pre></p>
+<p>In this example, we're using a scope guard to reach the <code>finally</code> block. The <code>defer</code> function creates a <code>ScopeGuard</code> object that executes the closure passed as an argument when it goes out of scope, which is when the <code>finally</code> block is reached. In this case, we set <code>x</code> to 1 inside the closure.</p>
+<p>To use the <code>finally</code> block-like function provided by <code>ScopeGuard</code>, we call the <code>run_unwind</code> method on the <code>ScopeGuard</code> object wherever we want the block to be executed, which, in this case, is after the <code>match</code> expression in the example above.</p>
+            </article>
+
+            
+            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
+                <h2 style="font-size: 20px; margin-bottom: 15px; color: #2c3e50;">See this concept in other languages</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
+                    <a href="../python-310/error-handling-with-a-message.html">Python 3.10</a><a href="../java-20/error-handling-with-a-message.html">Java 20</a><a href="../haskell/error-handling-with-a-message.html">Haskell</a><a href="../javascript-ecmascript-2021/error-handling-with-a-message.html">JavaScript - ECMAScript 2021</a><a href="../php/error-handling-with-a-message.html">PHP</a><a href="../typescript/error-handling-with-a-message.html">TypeScript</a><a href="../ruby/error-handling-with-a-message.html">Ruby</a><a href="../swift/error-handling-with-a-message.html">Swift</a><a href="../kotlin/error-handling-with-a-message.html">Kotlin</a><a href="../go/error-handling-with-a-message.html">Go</a><a href="../r/error-handling-with-a-message.html">R</a><a href="../perl/error-handling-with-a-message.html">Perl</a><a href="../matlab/error-handling-with-a-message.html">MATLAB</a><a href="../lua/error-handling-with-a-message.html">Lua</a><a href="../scala/error-handling-with-a-message.html">Scala</a><a href="../groovy/error-handling-with-a-message.html">Groovy</a><a href="../dart/error-handling-with-a-message.html">Dart</a><a href="../julia/error-handling-with-a-message.html">Julia</a><a href="../objective-c/error-handling-with-a-message.html">Objective-C</a><a href="../visual-basic-net/error-handling-with-a-message.html">Visual Basic .NET</a>
+                </div>
+                <style>
+                    .related-concepts a {
+                        padding: 8px 12px;
+                        background: #f5f5f5;
+                        border-radius: 4px;
+                        text-decoration: none;
+                        color: #0066cc;
+                        display: inline-block;
+                        text-align: center;
+                        transition: background 0.2s, transform 0.2s;
+                    }
+                    .related-concepts a:hover {
+                        background: #e5e7eb;
+                        transform: translateY(-2px);
+                    }
+                </style>
+            </section>
+
+
+            <div class="back-link">
+                <a href="../../index.html">← Back to Full Comparison Table</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>Content generated using AI | <a href="https://github.com/srix/prog-lang-compare" target="_blank" rel="noopener noreferrer">View on GitHub</a></p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Get set in JavaScript - ECMAScript 2021 - Prog Lang Compare</title>
+    <meta name="title" content="Get set in JavaScript - ECMAScript 2021 - Prog Lang Compare">
+    <meta name="description" content="Learn how to get set in JavaScript - ECMAScript 2021. See code examples and detailed explanations.">
+    <meta name="keywords" content="JavaScript - ECMAScript 2021, Class Get set, programming, code examples, syntax, Class">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://prog-lang-compare.netlify.app/concepts/javascript-ecmascript-2021/class-get-set.html">
+    <meta property="og:title" content="Get set in JavaScript - ECMAScript 2021">
+    <meta property="og:description" content="Learn how to get set in JavaScript - ECMAScript 2021. See code examples and detailed explanations.">
+    <meta property="og:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://prog-lang-compare.netlify.app/concepts/javascript-ecmascript-2021/class-get-set.html">
+    <meta property="twitter:title" content="Get set in JavaScript - ECMAScript 2021">
+    <meta property="twitter:description" content="Learn how to get set in JavaScript - ECMAScript 2021. See code examples and detailed explanations.">
+    <meta property="twitter:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://prog-lang-compare.netlify.app/concepts/javascript-ecmascript-2021/class-get-set.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+    <!-- Inline Critical CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav.breadcrumb {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        nav.breadcrumb a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        nav.breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        nav.breadcrumb span {
+            color: #666;
+            margin: 0 5px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-left: 4px solid #0066cc;
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+        }
+
+        .content pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+        }
+
+        .content code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+
+        .content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .back-link {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .back-link a {
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Get set in JavaScript - ECMAScript 2021",
+        "description": "Learn how to get set in JavaScript - ECMAScript 2021. See code examples and detailed explanations.",
+        "keywords": "JavaScript - ECMAScript 2021, Class Get set, programming",
+        "url": "https://prog-lang-compare.netlify.app/concepts/javascript-ecmascript-2021/class-get-set.html",
+        "datePublished": "2023-06-09",
+        "dateModified": "2023-05-23",
+        "author": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare",
+            "url": "https://prog-lang-compare.netlify.app"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://prog-lang-compare.netlify.app/concepts/javascript-ecmascript-2021/class-get-set.html"
+        }
+    }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span>›</span>
+            <a href="../javascript-ecmascript-2021.html">JavaScript - ECMAScript 2021</a>
+            <span>›</span>
+            <span>Class Get set</span>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <h1>Get set in JavaScript - ECMAScript 2021</h1>
+
+            <div class="meta">
+                <strong>Category:</strong> Class |
+                <strong>Language:</strong> JavaScript - ECMAScript 2021
+            </div>
+
+            <article class="content">
+                <p>Getters and setters are used to provide more control over the access to class properties in JavaScript. Getters are used to retrieve the value of an object's property, while setters are used to modify it. In this way, we can ensure that the properties of a class are accessed or modified in a controlled way, which can be helpful in preventing errors.</p>
+<p>To define a getter or setter in a class, we use the <code>get</code> and <code>set</code> keywords followed by the name of the property. Here's an example:</p>
+<pre><code class="language-javascript">class Person {
+  constructor(name) {
+    this._name = name;
+  }
+<p>// Getter<br>
+  get name() {<br>
+    return this._name;<br>
+  }</p>
+<p>// Setter<br>
+  set name(newName) {<br>
+    this._name = newName;<br>
+  }<br>
+}</p>
+<p>let person = new Person("John");</p>
+<p>console.log(person.name); // Output: John</p>
+<p>person.name = "David";<br>
+console.log(person.name); // Output: David<br>
+</code></pre></p>
+<p>In the above example, we created a <code>Person</code> class with a <code>name</code> property. We defined a getter and a setter for the <code>name</code> property. The getter returns the value of the <code>_name</code> property, while the setter sets the value of <code>_name</code> to the parameter passed to it.</p>
+<p>To access the <code>name</code> property, we simply use the dot notation (<code>person.name</code>). When we want to set a new value for the <code>name</code> property, we use the setter (<code>person.name = "David"</code>).</p>
+<p>Note that we used the <code>_name</code> property instead of <code>name</code> in the constructor. This is because the getter and setter use the property name <code>name</code>, so if we also used the same name in the constructor, we would have a name conflict.</p>
+<p>Another useful feature of getters and setters is that they can be used to compute properties on the fly. Here's an example:</p>
+<pre><code class="language-javascript">class Circle {
+  constructor(radius) {
+    this._radius = radius;
+  }
+<p>// Getter<br>
+  get diameter() {<br>
+    return this._radius * 2;<br>
+  }</p>
+<p>// Setter<br>
+  set diameter(newDiameter) {<br>
+    this._radius = newDiameter / 2;<br>
+  }<br>
+}</p>
+<p>let circle = new Circle(5);</p>
+<p>console.log(circle.radius); // Output: 5<br>
+console.log(circle.diameter); // Output: 10</p>
+<p>circle.diameter = 14;<br>
+console.log(circle.radius); // Output: 7<br>
+console.log(circle.diameter); // Output: 14<br>
+</code></pre></p>
+<p>In the above example, we created a <code>Circle</code> class with a <code>radius</code> property. We also defined a getter and a setter for the <code>diameter</code> property. The getter computes the diameter based on the value of <code>radius</code>, while the setter sets the value of <code>radius</code> based on the new diameter.</p>
+<p>To access the <code>diameter</code> property, we again use the dot notation (<code>circle.diameter</code>). When we want to set a new value for the <code>diameter</code> property, we use the setter (<code>circle.diameter = 14</code>).</p>
+            </article>
+
+            
+            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
+                <h2 style="font-size: 20px; margin-bottom: 15px; color: #2c3e50;">See this concept in other languages</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
+                    <a href="../python-310/class-get-set.html">Python 3.10</a><a href="../java-20/class-get-set.html">Java 20</a><a href="../rust-155/class-get-set.html">Rust 1.55</a><a href="../haskell/class-get-set.html">Haskell</a><a href="../php/class-get-set.html">PHP</a><a href="../typescript/class-get-set.html">TypeScript</a><a href="../ruby/class-get-set.html">Ruby</a><a href="../swift/class-get-set.html">Swift</a><a href="../kotlin/class-get-set.html">Kotlin</a><a href="../go/class-get-set.html">Go</a><a href="../r/class-get-set.html">R</a><a href="../perl/class-get-set.html">Perl</a><a href="../matlab/class-get-set.html">MATLAB</a><a href="../lua/class-get-set.html">Lua</a><a href="../scala/class-get-set.html">Scala</a><a href="../groovy/class-get-set.html">Groovy</a><a href="../dart/class-get-set.html">Dart</a><a href="../julia/class-get-set.html">Julia</a><a href="../objective-c/class-get-set.html">Objective-C</a><a href="../visual-basic-net/class-get-set.html">Visual Basic .NET</a>
+                </div>
+                <style>
+                    .related-concepts a {
+                        padding: 8px 12px;
+                        background: #f5f5f5;
+                        border-radius: 4px;
+                        text-decoration: none;
+                        color: #0066cc;
+                        display: inline-block;
+                        text-align: center;
+                        transition: background 0.2s, transform 0.2s;
+                    }
+                    .related-concepts a:hover {
+                        background: #e5e7eb;
+                        transform: translateY(-2px);
+                    }
+                </style>
+            </section>
+
+
+            <div class="back-link">
+                <a href="../../index.html">← Back to Full Comparison Table</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>Content generated using AI | <a href="https://github.com/srix/prog-lang-compare" target="_blank" rel="noopener noreferrer">View on GitHub</a></p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -39,6 +39,8 @@ BASE_URL = 'https://prog-lang-compare.netlify.app'
 def slugify(text):
     """Convert text to URL-friendly slug."""
     # Remove special characters and convert to lowercase
+    # Also replace underscores with hyphens to match language landing pages
+    text = text.replace('_', '-')
     slug = re.sub(r'[^\w\s-]', '', text.lower())
     # Replace whitespace with hyphens
     slug = re.sub(r'[-\s]+', '-', slug)

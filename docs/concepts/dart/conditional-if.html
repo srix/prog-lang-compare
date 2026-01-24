@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>If in Dart - Prog Lang Compare</title>
+    <meta name="title" content="If in Dart - Prog Lang Compare">
+    <meta name="description" content="Learn how to if in Dart. See code examples and detailed explanations.">
+    <meta name="keywords" content="Dart, Conditional If, programming, code examples, syntax, Conditional">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://prog-lang-compare.netlify.app/concepts/dart/conditional-if.html">
+    <meta property="og:title" content="If in Dart">
+    <meta property="og:description" content="Learn how to if in Dart. See code examples and detailed explanations.">
+    <meta property="og:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://prog-lang-compare.netlify.app/concepts/dart/conditional-if.html">
+    <meta property="twitter:title" content="If in Dart">
+    <meta property="twitter:description" content="Learn how to if in Dart. See code examples and detailed explanations.">
+    <meta property="twitter:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://prog-lang-compare.netlify.app/concepts/dart/conditional-if.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+    <!-- Inline Critical CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav.breadcrumb {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        nav.breadcrumb a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        nav.breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        nav.breadcrumb span {
+            color: #666;
+            margin: 0 5px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-left: 4px solid #0066cc;
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+        }
+
+        .content pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+        }
+
+        .content code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+
+        .content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .back-link {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .back-link a {
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "If in Dart",
+        "description": "Learn how to if in Dart. See code examples and detailed explanations.",
+        "keywords": "Dart, Conditional If, programming",
+        "url": "https://prog-lang-compare.netlify.app/concepts/dart/conditional-if.html",
+        "datePublished": "2023-06-09",
+        "dateModified": "2023-05-23",
+        "author": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare",
+            "url": "https://prog-lang-compare.netlify.app"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://prog-lang-compare.netlify.app/concepts/dart/conditional-if.html"
+        }
+    }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span>›</span>
+            <a href="../dart.html">Dart</a>
+            <span>›</span>
+            <span>Conditional If</span>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <h1>If in Dart</h1>
+
+            <div class="meta">
+                <strong>Category:</strong> Conditional |
+                <strong>Language:</strong> Dart
+            </div>
+
+            <article class="content">
+                <p>In Dart, we use <code>if</code> conditional statement to execute a block of code based on a particular condition. The general syntax of <code>if</code> statement is as follows:</p>
+<pre><code class="language-dart">if(condition){
+  // code to execute if condition is true
+}
+</code></pre>
+<p>Here is an example that shows how to use <code>if</code> statement to check if a number is greater than zero or not:</p>
+<pre><code class="language-dart">void main() {
+  int num = 5;
+<p>if (num > 0) {<br>
+    print('Number is positive');<br>
+  }<br>
+}<br>
+</code></pre></p>
+<p>Output:</p>
+<pre><code class="language-">Number is positive
+</code></pre>
+<p>You can also use <code>if-else</code> statement in Dart to execute a different block of code if the condition is false. The syntax of the <code>if-else</code> statement is as follows:</p>
+<pre><code class="language-dart">if(condition){
+  // code to execute if condition is true
+} else{
+  // code to execute if condition is false
+}
+</code></pre>
+<p>Here is an example that shows how to use <code>if-else</code> statement to check if a number is positive or negative:</p>
+<pre><code class="language-dart">void main() {
+  int num = -5;
+<p>if (num > 0) {<br>
+    print('Number is positive');<br>
+  } else {<br>
+    print('Number is negative');<br>
+  }<br>
+}<br>
+</code></pre></p>
+<p>Output:</p>
+<pre><code class="language-">Number is negative
+</code></pre>
+<p>You can also use <code>if-else if-else</code> statement to execute a different block of code based on multiple conditions. The syntax of the <code>if-else if-else</code> statement is as follows:</p>
+<pre><code class="language-dart">if(condition1){
+  // code to execute if condition1 is true
+} else if(condition2){
+  // code to execute if condition1 is false and condition2 is true
+} else{
+  // code to execute if condition1 and condition2 are false
+}
+</code></pre>
+<p>Here is an example that shows how to use <code>if-else if-else</code> statement to check if a number is positive, negative or zero:</p>
+<pre><code class="language-dart">void main() {
+  int num = 0;
+<p>if (num > 0) {<br>
+    print('Number is positive');<br>
+  } else if(num < 0) {<br>
+    print('Number is negative');<br>
+  } else {<br>
+    print('Number is zero');<br>
+  }<br>
+}<br>
+</code></pre></p>
+<p>Output:</p>
+<pre><code class="language-">Number is zero
+</code></pre>
+            </article>
+
+            
+            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
+                <h2 style="font-size: 20px; margin-bottom: 15px; color: #2c3e50;">See this concept in other languages</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
+                    <a href="../python-310/conditional-if.html">Python 3.10</a><a href="../java-20/conditional-if.html">Java 20</a><a href="../rust-155/conditional-if.html">Rust 1.55</a><a href="../haskell/conditional-if.html">Haskell</a><a href="../javascript-ecmascript-2021/conditional-if.html">JavaScript - ECMAScript 2021</a><a href="../php/conditional-if.html">PHP</a><a href="../typescript/conditional-if.html">TypeScript</a><a href="../ruby/conditional-if.html">Ruby</a><a href="../swift/conditional-if.html">Swift</a><a href="../kotlin/conditional-if.html">Kotlin</a><a href="../go/conditional-if.html">Go</a><a href="../r/conditional-if.html">R</a><a href="../perl/conditional-if.html">Perl</a><a href="../matlab/conditional-if.html">MATLAB</a><a href="../lua/conditional-if.html">Lua</a><a href="../scala/conditional-if.html">Scala</a><a href="../groovy/conditional-if.html">Groovy</a><a href="../julia/conditional-if.html">Julia</a><a href="../objective-c/conditional-if.html">Objective-C</a><a href="../visual-basic-net/conditional-if.html">Visual Basic .NET</a>
+                </div>
+                <style>
+                    .related-concepts a {
+                        padding: 8px 12px;
+                        background: #f5f5f5;
+                        border-radius: 4px;
+                        text-decoration: none;
+                        color: #0066cc;
+                        display: inline-block;
+                        text-align: center;
+                        transition: background 0.2s, transform 0.2s;
+                    }
+                    .related-concepts a:hover {
+                        background: #e5e7eb;
+                        transform: translateY(-2px);
+                    }
+                </style>
+            </section>
+
+
+            <div class="back-link">
+                <a href="../../index.html">← Back to Full Comparison Table</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>Content generated using AI | <a href="https://github.com/srix/prog-lang-compare" target="_blank" rel="noopener noreferrer">View on GitHub</a></p>
+        </footer>
+    </div>
+</body>
+</html>

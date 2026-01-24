@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Switch in Dart - Prog Lang Compare</title>
+    <meta name="title" content="Switch in Dart - Prog Lang Compare">
+    <meta name="description" content="Learn how to switch in Dart. See code examples and detailed explanations.">
+    <meta name="keywords" content="Dart, Conditional Switch, programming, code examples, syntax, Conditional">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://prog-lang-compare.netlify.app/concepts/dart/conditional-switch.html">
+    <meta property="og:title" content="Switch in Dart">
+    <meta property="og:description" content="Learn how to switch in Dart. See code examples and detailed explanations.">
+    <meta property="og:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://prog-lang-compare.netlify.app/concepts/dart/conditional-switch.html">
+    <meta property="twitter:title" content="Switch in Dart">
+    <meta property="twitter:description" content="Learn how to switch in Dart. See code examples and detailed explanations.">
+    <meta property="twitter:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://prog-lang-compare.netlify.app/concepts/dart/conditional-switch.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+    <!-- Inline Critical CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav.breadcrumb {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        nav.breadcrumb a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        nav.breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        nav.breadcrumb span {
+            color: #666;
+            margin: 0 5px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-left: 4px solid #0066cc;
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+        }
+
+        .content pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+        }
+
+        .content code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+
+        .content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .back-link {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .back-link a {
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Switch in Dart",
+        "description": "Learn how to switch in Dart. See code examples and detailed explanations.",
+        "keywords": "Dart, Conditional Switch, programming",
+        "url": "https://prog-lang-compare.netlify.app/concepts/dart/conditional-switch.html",
+        "datePublished": "2023-06-09",
+        "dateModified": "2023-05-23",
+        "author": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare",
+            "url": "https://prog-lang-compare.netlify.app"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://prog-lang-compare.netlify.app/concepts/dart/conditional-switch.html"
+        }
+    }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span>›</span>
+            <a href="../dart.html">Dart</a>
+            <span>›</span>
+            <span>Conditional Switch</span>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <h1>Switch in Dart</h1>
+
+            <div class="meta">
+                <strong>Category:</strong> Conditional |
+                <strong>Language:</strong> Dart
+            </div>
+
+            <article class="content">
+                <p>In Dart, the switch statement is used to check for multiple conditions and execute different blocks of code based on those conditions. The general syntax of the switch statement is as follows:</p>
+<pre><code class="language-dart">switch (expression) {
+  case value_1:
+    // Code to be executed if expression matches value_1
+    break;
+  case value_2:
+    // Code to be executed if expression matches value_2
+    break;
+  .
+  .
+  .
+  case value_n:
+    // Code to be executed if expression matches value_n
+    break;
+  default:
+    // Code to be executed if none of the values match expression
+}
+</code></pre>
+<p>Here, <code>expression</code> is the variable or expression being compared to the <code>value</code> cases. If the <code>expression</code> matches any of the <code>value</code> cases, the corresponding block of code is executed until the <code>break</code> statement is encountered.</p>
+<p>Now, let's see some examples of how to use switch in Dart:</p>
+<p>Example 1: A simple switch statement</p>
+<pre><code class="language-dart">void main() {
+  int number = 2;
+<p>switch (number) {<br>
+    case 1:<br>
+      print("The number is one");<br>
+      break;<br>
+    case 2:<br>
+      print("The number is two");<br>
+      break;<br>
+    case 3:<br>
+      print("The number is three");<br>
+      break;<br>
+    default:<br>
+      print("The number is not in the range of 1 to 3");<br>
+  }<br>
+}<br>
+</code></pre></p>
+<p>Output: <code>The number is two</code></p>
+<p>Explanation: Here, we have a variable <code>number</code> which is being compared to three different cases using a switch statement. Since the value of <code>number</code> is 2, the second case is executed and the corresponding message is printed.</p>
+<p>Example 2: Using switch with enum</p>
+<pre><code class="language-dart">enum Meal { breakfast, lunch, dinner }
+<p>void main() {<br>
+  Meal meal = Meal.lunch;</p>
+<p>switch (meal) {<br>
+    case Meal.breakfast:<br>
+      print("I am having breakfast");<br>
+      break;<br>
+    case Meal.lunch:<br>
+      print("I am having lunch");<br>
+      break;<br>
+    case Meal.dinner:<br>
+      print("I am having dinner");<br>
+      break;<br>
+  }<br>
+}<br>
+</code></pre></p>
+<p>Output: <code>I am having lunch</code></p>
+<p>Explanation: Here, we have an enum <code>Meal</code> which has three possible values - <code>breakfast</code>, <code>lunch</code>, and <code>dinner</code>. The variable <code>meal</code> is being compared to these three values using a switch statement. Since the value of <code>meal</code> is <code>lunch</code>, the corresponding message is printed.</p>
+<p>Example 3: Using switch with multiple cases</p>
+<pre><code class="language-dart">void main() {
+  String fruit = "apple";
+<p>switch (fruit) {<br>
+    case "apple":<br>
+    case "banana":<br>
+    case "orange":<br>
+      print("This is a fruit");<br>
+      break;<br>
+    case "carrot":<br>
+    case "broccoli":<br>
+    case "tomato":<br>
+      print("This is a vegetable");<br>
+      break;<br>
+    default:<br>
+      print("This is not a fruit or a vegetable");<br>
+  }<br>
+}<br>
+</code></pre></p>
+<p>Output: <code>This is a fruit</code></p>
+<p>Explanation: Here, we have a variable <code>fruit</code> which is being compared to multiple cases using a switch statement. Since the value of <code>fruit</code> is <code>apple</code>, which is one of the possible cases, the corresponding message is printed. Note that multiple cases can be grouped together if they have the same block of code to be executed.</p>
+            </article>
+
+            
+            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
+                <h2 style="font-size: 20px; margin-bottom: 15px; color: #2c3e50;">See this concept in other languages</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
+                    <a href="../python-310/conditional-switch.html">Python 3.10</a><a href="../java-20/conditional-switch.html">Java 20</a><a href="../rust-155/conditional-switch.html">Rust 1.55</a><a href="../haskell/conditional-switch.html">Haskell</a><a href="../javascript-ecmascript-2021/conditional-switch.html">JavaScript - ECMAScript 2021</a><a href="../php/conditional-switch.html">PHP</a><a href="../typescript/conditional-switch.html">TypeScript</a><a href="../ruby/conditional-switch.html">Ruby</a><a href="../swift/conditional-switch.html">Swift</a><a href="../kotlin/conditional-switch.html">Kotlin</a><a href="../go/conditional-switch.html">Go</a><a href="../r/conditional-switch.html">R</a><a href="../perl/conditional-switch.html">Perl</a><a href="../matlab/conditional-switch.html">MATLAB</a><a href="../lua/conditional-switch.html">Lua</a><a href="../scala/conditional-switch.html">Scala</a><a href="../groovy/conditional-switch.html">Groovy</a><a href="../julia/conditional-switch.html">Julia</a><a href="../objective-c/conditional-switch.html">Objective-C</a><a href="../visual-basic-net/conditional-switch.html">Visual Basic .NET</a>
+                </div>
+                <style>
+                    .related-concepts a {
+                        padding: 8px 12px;
+                        background: #f5f5f5;
+                        border-radius: 4px;
+                        text-decoration: none;
+                        color: #0066cc;
+                        display: inline-block;
+                        text-align: center;
+                        transition: background 0.2s, transform 0.2s;
+                    }
+                    .related-concepts a:hover {
+                        background: #e5e7eb;
+                        transform: translateY(-2px);
+                    }
+                </style>
+            </section>
+
+
+            <div class="back-link">
+                <a href="../../index.html">← Back to Full Comparison Table</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>Content generated using AI | <a href="https://github.com/srix/prog-lang-compare" target="_blank" rel="noopener noreferrer">View on GitHub</a></p>
+        </footer>
+    </div>
+</body>
+</html>

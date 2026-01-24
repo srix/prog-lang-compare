@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>handling Try catch finally in Perl - Prog Lang Compare</title>
+    <meta name="title" content="handling Try catch finally in Perl - Prog Lang Compare">
+    <meta name="description" content="Learn how to handling try catch finally in Perl. See code examples and detailed explanations.">
+    <meta name="keywords" content="Perl, Error handling Try catch finally, programming, code examples, syntax, Error">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://prog-lang-compare.netlify.app/concepts/perl/error-handling-try-catch-finally.html">
+    <meta property="og:title" content="handling Try catch finally in Perl">
+    <meta property="og:description" content="Learn how to handling try catch finally in Perl. See code examples and detailed explanations.">
+    <meta property="og:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://prog-lang-compare.netlify.app/concepts/perl/error-handling-try-catch-finally.html">
+    <meta property="twitter:title" content="handling Try catch finally in Perl">
+    <meta property="twitter:description" content="Learn how to handling try catch finally in Perl. See code examples and detailed explanations.">
+    <meta property="twitter:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://prog-lang-compare.netlify.app/concepts/perl/error-handling-try-catch-finally.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+    <!-- Inline Critical CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav.breadcrumb {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        nav.breadcrumb a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        nav.breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        nav.breadcrumb span {
+            color: #666;
+            margin: 0 5px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-left: 4px solid #0066cc;
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+        }
+
+        .content pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+        }
+
+        .content code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+
+        .content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .back-link {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .back-link a {
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "handling Try catch finally in Perl",
+        "description": "Learn how to handling try catch finally in Perl. See code examples and detailed explanations.",
+        "keywords": "Perl, Error handling Try catch finally, programming",
+        "url": "https://prog-lang-compare.netlify.app/concepts/perl/error-handling-try-catch-finally.html",
+        "datePublished": "2023-06-09",
+        "dateModified": "2023-05-23",
+        "author": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare",
+            "url": "https://prog-lang-compare.netlify.app"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://prog-lang-compare.netlify.app/concepts/perl/error-handling-try-catch-finally.html"
+        }
+    }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span>›</span>
+            <a href="../perl.html">Perl</a>
+            <span>›</span>
+            <span>Error handling Try catch finally</span>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <h1>handling Try catch finally in Perl</h1>
+
+            <div class="meta">
+                <strong>Category:</strong> Error |
+                <strong>Language:</strong> Perl
+            </div>
+
+            <article class="content">
+                <p>In Perl, try/catch/finally can be implemented using the <code>Try::Tiny</code> module. This module provides a simple syntax for error handling.</p>
+<p>Here's an example of how to use <code>Try::Tiny</code> in Perl:</p>
+<pre><code class="language-">use Try::Tiny;
+<p>try {<br>
+    # code that can throw an exception<br>
+    die "Something went wrong";<br>
+} catch {<br>
+    # code to handle the exception<br>
+    print "Caught error: $_";<br>
+} finally {<br>
+    # code to execute regardless of whether an exception was thrown or caught<br>
+    print "Done";<br>
+};<br>
+</code></pre></p>
+<p>In the above example, the <code>try</code> block contains code that could potentially throw an exception.</p>
+<p>The <code>catch</code> block specifies what should happen if an exception is thrown. The <code>$_</code> variable holds a reference to the exception object.</p>
+<p>The <code>finally</code> block contains code that will be executed regardless of whether an exception was thrown or not.</p>
+<p>Overall, <code>Try::Tiny</code> provides a convenient way to handle exceptions in Perl code.</p>
+            </article>
+
+            
+            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
+                <h2 style="font-size: 20px; margin-bottom: 15px; color: #2c3e50;">See this concept in other languages</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
+                    <a href="../python-310/error-handling-try-catch-finally.html">Python 3.10</a><a href="../java-20/error-handling-try-catch-finally.html">Java 20</a><a href="../rust-155/error-handling-try-catch-finally.html">Rust 1.55</a><a href="../haskell/error-handling-try-catch-finally.html">Haskell</a><a href="../javascript-ecmascript-2021/error-handling-try-catch-finally.html">JavaScript - ECMAScript 2021</a><a href="../php/error-handling-try-catch-finally.html">PHP</a><a href="../typescript/error-handling-try-catch-finally.html">TypeScript</a><a href="../ruby/error-handling-try-catch-finally.html">Ruby</a><a href="../swift/error-handling-try-catch-finally.html">Swift</a><a href="../kotlin/error-handling-try-catch-finally.html">Kotlin</a><a href="../go/error-handling-try-catch-finally.html">Go</a><a href="../r/error-handling-try-catch-finally.html">R</a><a href="../matlab/error-handling-try-catch-finally.html">MATLAB</a><a href="../lua/error-handling-try-catch-finally.html">Lua</a><a href="../scala/error-handling-try-catch-finally.html">Scala</a><a href="../groovy/error-handling-try-catch-finally.html">Groovy</a><a href="../dart/error-handling-try-catch-finally.html">Dart</a><a href="../julia/error-handling-try-catch-finally.html">Julia</a><a href="../objective-c/error-handling-try-catch-finally.html">Objective-C</a><a href="../visual-basic-net/error-handling-try-catch-finally.html">Visual Basic .NET</a>
+                </div>
+                <style>
+                    .related-concepts a {
+                        padding: 8px 12px;
+                        background: #f5f5f5;
+                        border-radius: 4px;
+                        text-decoration: none;
+                        color: #0066cc;
+                        display: inline-block;
+                        text-align: center;
+                        transition: background 0.2s, transform 0.2s;
+                    }
+                    .related-concepts a:hover {
+                        background: #e5e7eb;
+                        transform: translateY(-2px);
+                    }
+                </style>
+            </section>
+
+
+            <div class="back-link">
+                <a href="../../index.html">← Back to Full Comparison Table</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>Content generated using AI | <a href="https://github.com/srix/prog-lang-compare" target="_blank" rel="noopener noreferrer">View on GitHub</a></p>
+        </footer>
+    </div>
+</body>
+</html>

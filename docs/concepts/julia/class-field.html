@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Field in Julia - Prog Lang Compare</title>
+    <meta name="title" content="Field in Julia - Prog Lang Compare">
+    <meta name="description" content="Learn how to field in Julia. See code examples and detailed explanations.">
+    <meta name="keywords" content="Julia, Class Field, programming, code examples, syntax, Class">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://prog-lang-compare.netlify.app/concepts/julia/class-field.html">
+    <meta property="og:title" content="Field in Julia">
+    <meta property="og:description" content="Learn how to field in Julia. See code examples and detailed explanations.">
+    <meta property="og:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://prog-lang-compare.netlify.app/concepts/julia/class-field.html">
+    <meta property="twitter:title" content="Field in Julia">
+    <meta property="twitter:description" content="Learn how to field in Julia. See code examples and detailed explanations.">
+    <meta property="twitter:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://prog-lang-compare.netlify.app/concepts/julia/class-field.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+    <!-- Inline Critical CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav.breadcrumb {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        nav.breadcrumb a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        nav.breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        nav.breadcrumb span {
+            color: #666;
+            margin: 0 5px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-left: 4px solid #0066cc;
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+        }
+
+        .content pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+        }
+
+        .content code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+
+        .content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .back-link {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .back-link a {
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Field in Julia",
+        "description": "Learn how to field in Julia. See code examples and detailed explanations.",
+        "keywords": "Julia, Class Field, programming",
+        "url": "https://prog-lang-compare.netlify.app/concepts/julia/class-field.html",
+        "datePublished": "2023-06-09",
+        "dateModified": "2023-05-23",
+        "author": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare",
+            "url": "https://prog-lang-compare.netlify.app"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://prog-lang-compare.netlify.app/concepts/julia/class-field.html"
+        }
+    }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span>›</span>
+            <a href="../julia.html">Julia</a>
+            <span>›</span>
+            <span>Class Field</span>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <h1>Field in Julia</h1>
+
+            <div class="meta">
+                <strong>Category:</strong> Class |
+                <strong>Language:</strong> Julia
+            </div>
+
+            <article class="content">
+                <p>In Julia, a field in a class is a variable that belongs to the class and can hold any value or data structure. Fields are defined using the <code>struct</code> keyword and assigned values using the constructor of the class.</p>
+<p>Here is an example of a simple class with three fields:</p>
+<pre><code class="language-julia">struct Person
+    name::String
+    age::Int64
+    address::String
+end
+</code></pre>
+<p>In this class, <code>name</code>, <code>age</code>, and <code>address</code> are the fields. To create an instance of this class, we can use the constructor like this:</p>
+<pre><code class="language-julia">person1 = Person("John", 25, "123 Main St.")
+</code></pre>
+<p>We can access the fields of <code>person1</code> using dot notation like this:</p>
+<pre><code class="language-julia">println(person1.name)      # Output: John
+println(person1.age)       # Output: 25
+println(person1.address)   # Output: 123 Main St.
+</code></pre>
+<p>We can also change the value of a field using the dot notation:</p>
+<pre><code class="language-julia">person1.address = "456 Park Ave."
+println(person1.address)   # Output: 456 Park Ave.
+</code></pre>
+<p>Fields can also hold more complex data structures, like arrays or dictionaries:</p>
+<pre><code class="language-julia">struct Student
+    name::String
+    age::Int64
+    grades::Dict{String, Int64}
+end
+<p>student1 = Student("Alice", 18, Dict("Math" => 95, "English" => 85))<br>
+println(student1.grades["Math"])     # Output: 95<br>
+student1.grades["Science"] = 90<br>
+println(student1.grades["Science"])  # Output: 90<br>
+</code></pre></p>
+            </article>
+
+            
+            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
+                <h2 style="font-size: 20px; margin-bottom: 15px; color: #2c3e50;">See this concept in other languages</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
+                    <a href="../python-310/class-field.html">Python 3.10</a><a href="../java-20/class-field.html">Java 20</a><a href="../rust-155/class-field.html">Rust 1.55</a><a href="../haskell/class-field.html">Haskell</a><a href="../javascript-ecmascript-2021/class-field.html">JavaScript - ECMAScript 2021</a><a href="../php/class-field.html">PHP</a><a href="../typescript/class-field.html">TypeScript</a><a href="../ruby/class-field.html">Ruby</a><a href="../swift/class-field.html">Swift</a><a href="../kotlin/class-field.html">Kotlin</a><a href="../go/class-field.html">Go</a><a href="../r/class-field.html">R</a><a href="../perl/class-field.html">Perl</a><a href="../matlab/class-field.html">MATLAB</a><a href="../lua/class-field.html">Lua</a><a href="../scala/class-field.html">Scala</a><a href="../groovy/class-field.html">Groovy</a><a href="../dart/class-field.html">Dart</a><a href="../objective-c/class-field.html">Objective-C</a><a href="../visual-basic-net/class-field.html">Visual Basic .NET</a>
+                </div>
+                <style>
+                    .related-concepts a {
+                        padding: 8px 12px;
+                        background: #f5f5f5;
+                        border-radius: 4px;
+                        text-decoration: none;
+                        color: #0066cc;
+                        display: inline-block;
+                        text-align: center;
+                        transition: background 0.2s, transform 0.2s;
+                    }
+                    .related-concepts a:hover {
+                        background: #e5e7eb;
+                        transform: translateY(-2px);
+                    }
+                </style>
+            </section>
+
+
+            <div class="back-link">
+                <a href="../../index.html">← Back to Full Comparison Table</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>Content generated using AI | <a href="https://github.com/srix/prog-lang-compare" target="_blank" rel="noopener noreferrer">View on GitHub</a></p>
+        </footer>
+    </div>
+</body>
+</html>
