@@ -372,6 +372,11 @@ header a:hover {
     background: var(--bg-secondary) !important;
 }
 
+/* Ensure anchor linking scrolls with offset */
+.dataTables_wrapper .dataTable tbody tr {
+    scroll-margin-top: 100px;
+}
+
 .dataTables_wrapper .dataTable td {
     vertical-align: top;
     padding: 16px;

@@ -317,63 +317,63 @@ function addTocHtml(conceptsData) {
     const concepts = [...new Set(conceptsData.map(item => item.concept))];
     const conceptsUl = document.createElement('ul');
 
-    let rowIndex =0;
+    let rowIndex = 0;
 
-    concepts.forEach(function(conceptStr, index) {
+    concepts.forEach(function (conceptStr, index) {
 
-        
-            
 
-            const subconcepts = conceptsData.filter(item2 => item2.concept === conceptStr);
-            const subconceptsUl = document.createElement('ul');
-            subconcepts.forEach(function(item3, index) {
-                const subconceptLi = document.createElement('li');
-                // subconceptLi.textContent = 'sc';
-                const a = document.createElement('a');
-                // a.href = '#';
-                a.innerText = item3.subconcept;
-                a.setAttribute("class", "toggle-vis");
-                a.setAttribute("rowIndex", rowIndex);
-                rowIndex += 1;
 
-        
-                a.onclick = function (e) {
-                    e.preventDefault();
 
-                    // Remove active class from all TOC items
-                    document.querySelectorAll('.toggle-vis').forEach(el => {
-                        el.classList.remove('active');
-                    });
+        const subconcepts = conceptsData.filter(item2 => item2.concept === conceptStr);
+        const subconceptsUl = document.createElement('ul');
+        subconcepts.forEach(function (item3, index) {
+            const subconceptLi = document.createElement('li');
+            // subconceptLi.textContent = 'sc';
+            const a = document.createElement('a');
+            // a.href = '#';
+            a.innerText = item3.subconcept;
+            a.setAttribute("class", "toggle-vis");
+            a.setAttribute("rowIndex", rowIndex);
+            rowIndex += 1;
 
-                    // Add active class to clicked item
-                    this.classList.add('active');
 
-                    // Get the DataTable instance
-                    const table = $('#langTable').DataTable();
+            a.onclick = function (e) {
+                e.preventDefault();
 
-                    // Specify the row index to scroll to
-                    let rowIndex = $(this).attr('rowIndex');
+                // Remove active class from all TOC items
+                document.querySelectorAll('.toggle-vis').forEach(el => {
+                    el.classList.remove('active');
+                });
 
-                    // Get the row node
-                    let rowNode = table.row(rowIndex).node();
+                // Add active class to clicked item
+                this.classList.add('active');
 
-                    // Scroll to the row
-                    $('html, body').animate({
-                        scrollTop: $(rowNode).offset().top
-                    }, 500);
+                // Get the DataTable instance
+                const table = $('#langTable').DataTable();
 
-                };
+                // Specify the row index to scroll to
+                let rowIndex = $(this).attr('rowIndex');
 
-                
-                subconceptLi.appendChild(a);
-                subconceptsUl.appendChild(subconceptLi);
-            });
+                // Get the row node
+                let rowNode = table.row(rowIndex).node();
 
-            const conceptli = document.createElement('li');
-            conceptli.innerText += `${conceptStr}` ;
-            conceptsUl.appendChild(conceptli);
-            conceptsUl.appendChild(subconceptsUl);
-            tocDiv.appendChild(conceptsUl);
+                // Scroll to the row
+                $('html, body').animate({
+                    scrollTop: $(rowNode).offset().top - 100
+                }, 500);
+
+            };
+
+
+            subconceptLi.appendChild(a);
+            subconceptsUl.appendChild(subconceptLi);
+        });
+
+        const conceptli = document.createElement('li');
+        conceptli.innerText += `${conceptStr}`;
+        conceptsUl.appendChild(conceptli);
+        conceptsUl.appendChild(subconceptsUl);
+        tocDiv.appendChild(conceptsUl);
 
 
     });
@@ -452,7 +452,7 @@ function addTocHtml(conceptsData) {
 
     // Close sidebar when clicking a link on mobile
     if (sidebar) {
-        sidebar.addEventListener('click', function(event) {
+        sidebar.addEventListener('click', function (event) {
             if (event.target.tagName === 'A' && window.innerWidth <= 768) {
                 closeMenu();
             }
@@ -463,9 +463,9 @@ function addTocHtml(conceptsData) {
 // Copy to Clipboard for Code Blocks
 (function initCodeCopy() {
     // Watch for code blocks being added to the page
-    const observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
-            mutation.addedNodes.forEach(function(node) {
+    const observer = new MutationObserver(function (mutations) {
+        mutations.forEach(function (mutation) {
+            mutation.addedNodes.forEach(function (node) {
                 if (node.nodeType === 1) { // Element node
                     addCopyButtonsToCodeBlocks(node);
                 }
@@ -485,7 +485,7 @@ function addTocHtml(conceptsData) {
     function addCopyButtonsToCodeBlocks(container) {
         const codeBlocks = container.querySelectorAll('pre');
 
-        codeBlocks.forEach(function(pre) {
+        codeBlocks.forEach(function (pre) {
             // Skip if button already exists
             if (pre.querySelector('.copy-button')) {
                 return;
@@ -505,17 +505,17 @@ function addTocHtml(conceptsData) {
             button.textContent = 'Copy';
             button.setAttribute('aria-label', 'Copy code to clipboard');
 
-            button.addEventListener('click', function() {
+            button.addEventListener('click', function () {
                 const code = pre.textContent;
-                navigator.clipboard.writeText(code).then(function() {
+                navigator.clipboard.writeText(code).then(function () {
                     button.textContent = 'Copied!';
-                    setTimeout(function() {
+                    setTimeout(function () {
                         button.textContent = 'Copy';
                     }, 2000);
-                }).catch(function(err) {
+                }).catch(function (err) {
                     console.error('Failed to copy:', err);
                     button.textContent = 'Failed';
-                    setTimeout(function() {
+                    setTimeout(function () {
                         button.textContent = 'Copy';
                     }, 2000);
                 });
@@ -548,7 +548,7 @@ function addTocHtml(conceptsData) {
         let activeRowIndex = -1;
 
         // Find which row is currently in view
-        table.rows().every(function(index) {
+        table.rows().every(function (index) {
             const rowNode = this.node();
             if (!rowNode) return;
 
@@ -592,24 +592,24 @@ function addTocHtml(conceptsData) {
 
     // Debounce scroll events for performance
     let scrollTimeout;
-    $(window).on('scroll', function() {
+    $(window).on('scroll', function () {
         if (!isScrolling) {
             isScrolling = true;
         }
 
         clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(function() {
+        scrollTimeout = setTimeout(function () {
             updateActiveTocItem();
             isScrolling = false;
         }, 100); // Update every 100ms while scrolling
     });
 
     // Handle manual TOC clicks
-    $(document).on('click', '#toc a.toggle-vis', function() {
+    $(document).on('click', '#toc a.toggle-vis', function () {
         // Prevent auto-update for 1.5 seconds after user clicks
         userClicked = true;
         clearTimeout(clickTimeout);
-        clickTimeout = setTimeout(function() {
+        clickTimeout = setTimeout(function () {
             userClicked = false;
         }, 1500);
     });
