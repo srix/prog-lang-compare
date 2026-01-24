@@ -21,6 +21,7 @@ Fixes breadcrumb 404s in concept pages.
 
 import os
 import json
+import re
 import sys
 from helper import load_from_yaml, get_safename
 
@@ -37,7 +38,13 @@ BASE_URL = 'https://prog-lang-compare.netlify.app'
 
 def slugify(text):
     """Convert text to URL-friendly slug."""
-    return text.lower().replace(' ', '-').replace('.', '-').replace('_', '-').replace('/', '-').replace('(', '').replace(')', '')
+    # Remove special characters and convert to lowercase
+    # Also replace underscores with hyphens to match language landing pages
+    text = text.replace('_', '-')
+    slug = re.sub(r'[^\w\s-]', '', text.lower())
+    # Replace whitespace with hyphens
+    slug = re.sub(r'[-\s]+', '-', slug)
+    return slug.strip('-')
 
 
 def generate_language_landing_page(language, concepts):
