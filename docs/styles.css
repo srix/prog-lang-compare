@@ -495,10 +495,7 @@ pre {
     background-color: var(--code-bg) !important;
 }
 
-.dataTables_wrapper .dataTable td pre code {
-    /* Don't override syntax highlighting colors */
-}
-
+/* Allow syntax highlighting in table cells */
 /* Allow syntax highlighting in table cells */
 .dataTables_wrapper .dataTable td code.hljs,
 .dataTables_wrapper .dataTable td code.hljs * {

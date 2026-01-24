@@ -103,6 +103,12 @@ cd docs && python -m http.server 8000
 npx eslint docs/script.js
 ```
 
+### Running Tests
+```bash
+npx jest
+```
+This runs unit tests for utility functions and JSDOM tests for frontend interactions (copy button, etc.).
+
 ### Environment Configuration
 
 The `.env` file contains OpenAI API credentials:
@@ -145,6 +151,7 @@ logs/                          # Builder execution logs
 build.sh                       # NEW: One-command build script
 requirements.txt               # NEW: Python dependencies
 .env.example                   # NEW: API key template
+__tests__/                     # Unit and DOM tests
 ```
 
 ## Data Files

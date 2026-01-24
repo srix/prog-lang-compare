@@ -489,14 +489,18 @@ function addTocHtml(conceptsData) {
         const codeBlocks = container.querySelectorAll('pre');
 
         codeBlocks.forEach(function (pre) {
-            // Skip if button already exists
-            if (pre.querySelector('.copy-button')) {
-                return;
-            }
+            // Check if already wrapped
+            let wrapper = pre.parentElement;
+            const isWrapped = wrapper.classList.contains('code-block-wrapper');
 
-            // Create wrapper if not already wrapped
-            if (!pre.parentElement.classList.contains('code-block-wrapper')) {
-                const wrapper = document.createElement('div');
+            if (isWrapped) {
+                // If wrapped, check if button already exists in the wrapper
+                if (wrapper.querySelector('.copy-button')) {
+                    return;
+                }
+            } else {
+                // Create wrapper
+                wrapper = document.createElement('div');
                 wrapper.className = 'code-block-wrapper';
                 pre.parentNode.insertBefore(wrapper, pre);
                 wrapper.appendChild(pre);
@@ -506,10 +510,41 @@ function addTocHtml(conceptsData) {
             const button = document.createElement('button');
             button.className = 'copy-button';
             button.textContent = 'Copy';
+            button.type = 'button'; // Ensure it's not a submit button
             button.setAttribute('aria-label', 'Copy code to clipboard');
 
-            button.addEventListener('click', function () {
-                const code = pre.textContent;
+            button.addEventListener('click', function (e) {
+                e.preventDefault(); // Prevent any default action
+                const code = pre.textContent; // Use textContent for robust checking in all envs
+
+                // Fallback for clipboard API
+                if (!navigator.clipboard) {
+                    const textArea = document.createElement("textarea");
+                    textArea.value = code;
+
+                    // Prevent scrolling to bottom
+                    textArea.style.top = "0";
+                    textArea.style.left = "0";
+                    textArea.style.position = "fixed";
+                    textArea.style.opacity = "0";
+
+                    document.body.appendChild(textArea);
+                    textArea.focus({ preventScroll: true });
+                    textArea.select();
+                    try {
+                        document.execCommand('copy');
+                        button.textContent = 'Copied!';
+                    } catch (err) {
+                        console.error('Fallback: Oops, unable to copy', err);
+                        button.textContent = 'Failed';
+                    }
+                    document.body.removeChild(textArea);
+                    setTimeout(function () {
+                        button.textContent = 'Copy';
+                    }, 2000);
+                    return;
+                }
+
                 navigator.clipboard.writeText(code).then(function () {
                     button.textContent = 'Copied!';
                     setTimeout(function () {
@@ -524,8 +559,13 @@ function addTocHtml(conceptsData) {
                 });
             });
 
-            pre.parentElement.appendChild(button);
+            wrapper.appendChild(button);
         });
+    }
+
+    // Expose for testing
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports.addCopyButtonsToCodeBlocks = addCopyButtonsToCodeBlocks;
     }
 
     // Initial scan for code blocks
@@ -620,3 +660,11 @@ function addTocHtml(conceptsData) {
     // Initial update after table loads
     setTimeout(updateActiveTocItem, 1000);
 })();
+
+if (typeof module !== 'undefined' && module.exports) {
+    // Preserve existing exports (like addCopyButtonsToCodeBlocks)
+    module.exports = {
+        ...module.exports,
+        getSafeName
+    };
+}

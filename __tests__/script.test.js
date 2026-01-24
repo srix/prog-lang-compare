@@ -69,7 +69,8 @@ describe('getSafeName', () => {
         const allSpecialChars = '&/\\, +()$~%.\'":*?<>{}-';
         const result = getSafeName(allSpecialChars);
         // All should be replaced with underscores
-        expect(result).toBe('____________________');
+        // All should be replaced with underscores
+        expect(result).toBe('______________________');
     });
 });
 
