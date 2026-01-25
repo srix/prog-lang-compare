@@ -300,8 +300,8 @@ function getSafeName(value) {
 function addLangToggle(prog_lang_list) {
     const container = document.getElementById('allLanguages');
 
-    // Creating toggle for each language
-    for (let lang of prog_lang_list.sort()) {
+    // Creating toggle for each language (preserving order from prog_langs.yaml)
+    for (let lang of prog_lang_list) {
         let columnTitle = lang;
         let columnName = getSafeName(lang);
 
