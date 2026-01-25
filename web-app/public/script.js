@@ -135,7 +135,11 @@ async function showEmptyTable(tableId, conceptsData, prog_lang_list) {
         if (defaultShowLangs.includes(langTitle)) {
             visibility = true;
         }
-        columns.push({ title: `${langTitle}`, name: `${safeLangName}`, data: `${safeLangName}`, width: '50ch', visible: visibility });
+        let langSlug = slugify(langTitle);
+        // Add link to static page in header
+        let columnHeader = `<a href="concepts-ssg/${langSlug}.html" target="_blank" title="View ${langTitle} Concept Reference" style="color:inherit; text-decoration: none; border-bottom: 2px solid transparent; transition: all 0.2s;">${langTitle} <span style="font-size: 0.8em; opacity: 0.7;">↗</span></a>`;
+
+        columns.push({ title: columnHeader, name: `${safeLangName}`, data: `${safeLangName}`, width: '50ch', visible: visibility });
     }
 
 
@@ -231,7 +235,28 @@ async function loadLangConceptsInColumn(tableId, progLang) {
             // Update the value of the cell in the target column
             let safeProglang = getSafeName(progLang)
             let key = getSafeName(concept) + '_' + getSafeName(subconcept);
-            data[safeProglang] = marked(mergedContent[key] || '');
+
+            // Create permalink to static concept page
+            let langSlug = slugify(progLang);
+            // Construct concept key like in python generator (Concept_SubConcept) but slugify it
+            // In python generator: concept_slug = slugify(concept_key)
+            let conceptKey = getSafeName(concept) + '_' + getSafeName(subconcept);
+            let conceptSlug = slugify(conceptKey);
+            let permalink = `concepts-ssg/${langSlug}/${conceptSlug}.html`;
+
+            let htmlContent = marked(mergedContent[key] || '');
+
+            // Append permalink icon if content exists
+            if (htmlContent) {
+                htmlContent += `
+                <div style="margin-top: 10px; border-top: 1px solid #eee; padding-top: 5px; text-align: right;">
+                    <a href="${permalink}" target="_blank" class="concept-permalink" style="font-size: 12px; color: #aaa; text-decoration: none;">
+                        View Page ↗
+                    </a>
+                </div>`;
+            }
+
+            data[safeProglang] = htmlContent;
             this.invalidate().draw();
 
         });
@@ -661,10 +686,20 @@ function addTocHtml(conceptsData) {
     setTimeout(updateActiveTocItem, 1000);
 })();
 
+
+function slugify(text) {
+    text = text.replace(/_/g, '-');
+    text = text.toLowerCase();
+    text = text.replace(/[^\w\s-]/g, ''); // Remove non-word chars (except space and hyphen)
+    text = text.replace(/[-\s]+/g, '-'); // Replace spaces and hyphens with single hyphen
+    return text.replace(/^-+|-+$/g, ''); // Strip leading/trailing hyphens
+}
+
 if (typeof module !== 'undefined' && module.exports) {
-    // Preserve existing exports (like addCopyButtonsToCodeBlocks)
+    // Preserve existing exports
     module.exports = {
         ...module.exports,
-        getSafeName
+        getSafeName,
+        slugify
     };
 }

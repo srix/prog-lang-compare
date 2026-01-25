@@ -406,6 +406,11 @@ header a:hover {
     color: var(--primary-hover) !important;
 }
 
+.dataTables_wrapper .dataTable td a.concept-permalink:hover {
+    color: var(--primary) !important;
+    text-decoration: underline;
+}
+
 .dataTables_wrapper .dataTable td em {
     color: inherit !important;
 }
