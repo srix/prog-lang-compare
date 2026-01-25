@@ -2,9 +2,7 @@
 #auto copied previous version of prog_lang fiel for this project. Only new prompts are requested to ai.
 .prog_lang_concepts.prev.yaml
 
-# New Project Artifacts
-concept-builder/output/
-web-app/public/concepts/
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -16,7 +14,7 @@ __pycache__/
 
 # Distribution / packaging
 .Python
-build/
+/build/
 develop-eggs/
 dist/
 downloads/
