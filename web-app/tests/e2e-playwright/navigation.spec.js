@@ -8,53 +8,81 @@ test.describe('Navigation', () => {
         // Wait for data table to load (it's populated via JS from concepts-spa)
         await expect(page.locator('#langTable')).toBeVisible();
 
-        // Find a cell with a link (e.g., Python Arrays)
-        // The specific selector depends on the table structure, but looking for the first concept cell link
-        // Assuming the script.js adds links to table cells
-
-        // Let's filter for a specific text if possible, or just click the first available permalink
-        // Note: The concept builder might not have populated everything in the mock environment,
-        // but we know Python 3.10 generated pages exist (from previous steps).
-
-        // We can rely on searching for "Python" column and a concept row?
-        // Or simpler: Look for any link matching the pattern
-
-        // Note: The table renders dynamically. We need to wait for rows.
+        // Wait for rows to be populated
         const tableRow = page.locator('#langTable tbody tr').first();
         await tableRow.waitFor({ state: 'visible', timeout: 10000 });
 
-        // Try to find a link inside the table that goes to concept details
+        // Find a concept permalink inside the table
         const conceptLink = page.locator('#langTable a[href*="concepts-ssg"]').first();
 
         if (await conceptLink.count() > 0) {
-            // Prepare to wait for the new page (popup)
-            const pagePromise = page.context().waitForEvent('page');
+            // Verify the link does NOT have target="_blank"
+            const targetAttr = await conceptLink.getAttribute('target');
+            expect(targetAttr).toBeNull();
 
+            // Verify the link does NOT contain the external link icon (↗)
+            const linkText = await conceptLink.textContent();
+            expect(linkText).not.toContain('↗');
+
+            // Get the URL before clicking
+            const urlToClick = await conceptLink.getAttribute('href');
+
+            // Click the link (should navigate in same tab)
             await conceptLink.click();
 
-            const newPage = await pagePromise;
-            await newPage.waitForLoadState();
+            // Wait for navigation to complete
+            await page.waitForLoadState();
 
-            // Verify URL on the new page
-            const urlToClick = await conceptLink.getAttribute('href');
-            await expect(newPage).toHaveURL(new RegExp(urlToClick));
+            // Verify we navigated to the concept page in the SAME tab
+            await expect(page).toHaveURL(new RegExp(urlToClick));
 
-            // Verify we are on a static page (check for "concept title" or back link)
-            await expect(newPage.locator('text=Back to Language Comparison Table')).toBeVisible();
+            // Verify we are on a static page (check for back link)
+            await expect(page.locator('text=Back to Language Comparison Table')).toBeVisible();
 
-            // Navigate Back logic is now different because we are in a new tab.
-            // We can just close the tab and check original page is still there, 
-            // OR test navigation within the new tab if it has back links.
-            // The static page has a "Back to Language Comparison Table" link.
+            // Navigate back using the back link
+            await page.click('text=Back to Language Comparison Table');
 
-            // Let's test the back link on the new page
-            // <nav><a href="../index.html">← Back to Language Comparison Table</a></nav>
-            await newPage.click('text=Back to Language Comparison Table');
-
-            // It should go to index.html
-            await expect(newPage).toHaveURL(/.*index\.html|.*\/$/);
+            // Should return to index
+            await expect(page).toHaveURL(/.*index\.html|.*\/$/);
         } else {
             console.log('No concept links found in table - skipping click test');
+        }
+    });
+
+    test('Language Header Links Navigate in Same Tab', async ({ page }) => {
+        await page.goto('/');
+
+        // Wait for table to load
+        await expect(page.locator('#langTable')).toBeVisible();
+
+        // Find a language header link (e.g., to rust-155.html)
+        const headerLink = page.locator('th a[href*="concepts-ssg"]').first();
+
+        if (await headerLink.count() > 0) {
+            // Verify the link does NOT have target="_blank"
+            const targetAttr = await headerLink.getAttribute('target');
+            expect(targetAttr).toBeNull();
+
+            // Verify the link does NOT contain the external link icon (↗)
+            const linkText = await headerLink.textContent();
+            expect(linkText).not.toContain('↗');
+
+            // Get the URL before clicking
+            const urlToClick = await headerLink.getAttribute('href');
+
+            // Click the link
+            await headerLink.click();
+
+            // Wait for navigation
+            await page.waitForLoadState();
+
+            // Verify we navigated to the landing page in the SAME tab
+            await expect(page).toHaveURL(new RegExp(urlToClick));
+
+            // Verify we're on a language landing page
+            await expect(page.locator('h1')).toBeVisible();
+        } else {
+            console.log('No language header links found - skipping test');
         }
     });
 

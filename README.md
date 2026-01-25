@@ -109,6 +109,7 @@ flowchart TD
 -   📚 **108+ Concepts**: Arrays, Loops, Classes, Async/Await, etc.
 -   🎨 **Modern UI**: Dark/Light mode toggle, Syntax Highlighting (Highlight.js).
 -   ⚡ **Performance**: 2,500+ pre-rendered static pages for SEO.
+-   🔗 **Seamless Navigation**: All internal links navigate within the same tab for a smooth browsing experience.
 -   ⭐ **GitHub CTA**: Integrated "Star on GitHub" call-to-action.
 -   🔎 **Interactive**: DataTables-powered search and filtering.
 
