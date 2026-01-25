@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Switch as else if in R - Prog Lang Compare</title>
+    <meta name="title" content="Switch as else if in R - Prog Lang Compare">
+    <meta name="description" content="Learn how to switch as else if in R. See code examples and detailed explanations.">
+    <meta name="keywords" content="R, Conditional Switch as else if, programming, code examples, syntax, Conditional">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://prog-lang-compare.netlify.app/concepts/r/conditional-switch-as-else-if.html">
+    <meta property="og:title" content="Switch as else if in R">
+    <meta property="og:description" content="Learn how to switch as else if in R. See code examples and detailed explanations.">
+    <meta property="og:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://prog-lang-compare.netlify.app/concepts/r/conditional-switch-as-else-if.html">
+    <meta property="twitter:title" content="Switch as else if in R">
+    <meta property="twitter:description" content="Learn how to switch as else if in R. See code examples and detailed explanations.">
+    <meta property="twitter:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://prog-lang-compare.netlify.app/concepts/r/conditional-switch-as-else-if.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+    <!-- Inline Critical CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav.breadcrumb {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        nav.breadcrumb a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        nav.breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        nav.breadcrumb span {
+            color: #666;
+            margin: 0 5px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-left: 4px solid #0066cc;
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+        }
+
+        .content pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+        }
+
+        .content code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+
+        .content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .back-link {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .back-link a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Switch as else if in R",
+        "description": "Learn how to switch as else if in R. See code examples and detailed explanations.",
+        "keywords": "R, Conditional Switch as else if, programming",
+        "url": "https://prog-lang-compare.netlify.app/concepts/r/conditional-switch-as-else-if.html",
+        "datePublished": "2023-06-09",
+        "dateModified": "2026-01-24",
+        "author": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare",
+            "url": "https://prog-lang-compare.netlify.app"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://prog-lang-compare.netlify.app/concepts/r/conditional-switch-as-else-if.html"
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span>›</span>
+            <a href="../r.html">R</a>
+            <span>›</span>
+            <span>Conditional Switch as else if</span>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <h1>Switch as else if in R</h1>
+
+            <div class="meta">
+                <strong>Category:</strong> Conditional |
+                <strong>Language:</strong> R
+            </div>
+
+            <article class="content">
+                <p>In R, the switch statement can be used to substitute a sequence of else if statements. The syntax of the switch statement is as follows:</p>
+<pre><code class="language-">switch(expr, case1, case2, ...)
+</code></pre>
+<p>where <code>expr</code> is the expression to evaluate and <code>case1</code>, <code>case2</code>, etc. are the different cases to compare the expression against. Here is a simple example:</p>
+<pre><code class="language-">x <- 3
+<p>result <- switch(x,<br>
+  "case1" = "x is equal to 1",<br>
+  "case2" = "x is equal to 2",<br>
+  "case3" = "x is equal to 3",<br>
+  "case4" = "x is equal to 4",<br>
+  "default" = "x is not in the range of cases"<br>
+)</p>
+<p>print(result)<br>
+</code></pre></p>
+<p>In this example, if <code>x</code> is equal to 3, the resulting value will be "x is equal to 3". If <code>x</code> is not equal to any of the given cases, "default" will be executed and the resulting value will be "x is not in the range of cases".</p>
+<p>Notice that the switch statement does not require any <code>else</code> statement at the end, as it has a specific <code>default</code> case to handle all other cases that do not match the given cases.</p>
+            </article>
+
+            
+            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
+                <h2 style="font-size: 20px; margin-bottom: 15px; color: #2c3e50;">See this concept in other languages</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
+                    <a href="../python-310/conditional-switch-as-else-if.html">Python 3.10</a><a href="../java-20/conditional-switch-as-else-if.html">Java 20</a><a href="../rust-155/conditional-switch-as-else-if.html">Rust 1.55</a><a href="../haskell/conditional-switch-as-else-if.html">Haskell</a><a href="../javascript-ecmascript-2021/conditional-switch-as-else-if.html">JavaScript - ECMAScript 2021</a><a href="../php/conditional-switch-as-else-if.html">PHP</a><a href="../typescript/conditional-switch-as-else-if.html">TypeScript</a><a href="../ruby/conditional-switch-as-else-if.html">Ruby</a><a href="../swift/conditional-switch-as-else-if.html">Swift</a><a href="../kotlin/conditional-switch-as-else-if.html">Kotlin</a><a href="../go/conditional-switch-as-else-if.html">Go</a><a href="../perl/conditional-switch-as-else-if.html">Perl</a><a href="../matlab/conditional-switch-as-else-if.html">MATLAB</a><a href="../lua/conditional-switch-as-else-if.html">Lua</a><a href="../scala/conditional-switch-as-else-if.html">Scala</a><a href="../groovy/conditional-switch-as-else-if.html">Groovy</a><a href="../dart/conditional-switch-as-else-if.html">Dart</a><a href="../julia/conditional-switch-as-else-if.html">Julia</a><a href="../objective-c/conditional-switch-as-else-if.html">Objective-C</a><a href="../visual-basic-net/conditional-switch-as-else-if.html">Visual Basic .NET</a>
+                </div>
+                <style>
+                    .related-concepts a {
+                        padding: 8px 12px;
+                        background: #f5f5f5;
+                        border-radius: 4px;
+                        text-decoration: none;
+                        color: #0066cc;
+                        display: inline-block;
+                        text-align: center;
+                        transition: background 0.2s, transform 0.2s;
+                    }
+                    .related-concepts a:hover {
+                        background: #e5e7eb;
+                        transform: translateY(-2px);
+                    }
+                </style>
+            </section>
+
+
+            <div class="back-link">
+                <a href="../../index.html">← Back to Full Comparison Table</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>Content generated using AI | <a href="https://github.com/srix/prog-lang-compare" target="_blank"
+                    rel="noopener noreferrer">View on GitHub</a></p>
+        </footer>
+    </div>
+</body>
+
+</html>

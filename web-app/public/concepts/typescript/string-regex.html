@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Regex in TypeScript - Prog Lang Compare</title>
+    <meta name="title" content="Regex in TypeScript - Prog Lang Compare">
+    <meta name="description" content="Learn how to regex in TypeScript. See code examples and detailed explanations.">
+    <meta name="keywords" content="TypeScript, String Regex, programming, code examples, syntax, String">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://prog-lang-compare.netlify.app/concepts/typescript/string-regex.html">
+    <meta property="og:title" content="Regex in TypeScript">
+    <meta property="og:description" content="Learn how to regex in TypeScript. See code examples and detailed explanations.">
+    <meta property="og:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://prog-lang-compare.netlify.app/concepts/typescript/string-regex.html">
+    <meta property="twitter:title" content="Regex in TypeScript">
+    <meta property="twitter:description" content="Learn how to regex in TypeScript. See code examples and detailed explanations.">
+    <meta property="twitter:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://prog-lang-compare.netlify.app/concepts/typescript/string-regex.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+    <!-- Inline Critical CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav.breadcrumb {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        nav.breadcrumb a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        nav.breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        nav.breadcrumb span {
+            color: #666;
+            margin: 0 5px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-left: 4px solid #0066cc;
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+        }
+
+        .content pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+        }
+
+        .content code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+
+        .content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .back-link {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .back-link a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Regex in TypeScript",
+        "description": "Learn how to regex in TypeScript. See code examples and detailed explanations.",
+        "keywords": "TypeScript, String Regex, programming",
+        "url": "https://prog-lang-compare.netlify.app/concepts/typescript/string-regex.html",
+        "datePublished": "2023-06-09",
+        "dateModified": "2026-01-24",
+        "author": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare",
+            "url": "https://prog-lang-compare.netlify.app"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://prog-lang-compare.netlify.app/concepts/typescript/string-regex.html"
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span>›</span>
+            <a href="../typescript.html">TypeScript</a>
+            <span>›</span>
+            <span>String Regex</span>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <h1>Regex in TypeScript</h1>
+
+            <div class="meta">
+                <strong>Category:</strong> String |
+                <strong>Language:</strong> TypeScript
+            </div>
+
+            <article class="content">
+                <p>Regex (short for regular expression) is a pattern-matching language that can help you search and manipulate text. In TypeScript, you can use regular expressions with the <code>RegExp</code> class, which provides methods for searching and replacing strings.</p>
+<p>Here are a few examples of how to use regex in TypeScript:</p>
+<p>1. Searching for a pattern in a string:</p>
+<p>To search for a pattern in a string, you can use the <code>test()</code> method of the <code>RegExp</code> class. The <code>test()</code> method returns <code>true</code> if the pattern is found in the string and <code>false</code> otherwise.</p>
+<pre><code class="language-typescript">const regex = /hello/;
+const testString = "hello world";
+<p>console.log(regex.test(testString)); // true<br>
+</code></pre></p>
+<p>2. Extracting matches from a string:</p>
+<p>To extract the matches from a string, you can use the <code>exec()</code> method of the <code>RegExp</code> class. The <code>exec()</code> method returns an array containing information about the match, such as the matched text and the index where the match starts.</p>
+<pre><code class="language-typescript">const regex = /hello/;
+const testString = "hello world";
+<p>const result = regex.exec(testString);</p>
+<p>console.log(result[0]); // "hello"<br>
+console.log(result.index); // 0<br>
+</code></pre></p>
+<p>3. Replacing matches with a new string:</p>
+<p>To replace the matches in a string with a new string, you can use the <code>replace()</code> method of the <code>string</code> class. The <code>replace()</code> method takes a regex pattern and a replacement string as arguments, and replaces all instances of the pattern in the string with the replacement string.</p>
+<pre><code class="language-typescript">const regex = /hello/;
+const testString = "hello world";
+<p>const newString = testString.replace(regex, "hi");</p>
+<p>console.log(newString); // "hi world"<br>
+</code></pre></p>
+<p>These are just a few examples of what you can do with regex in TypeScript. Regular expressions are a powerful tool for working with text, and can be used in many different ways depending on your specific needs.</p>
+            </article>
+
+            
+            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
+                <h2 style="font-size: 20px; margin-bottom: 15px; color: #2c3e50;">See this concept in other languages</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
+                    <a href="../python-310/string-regex.html">Python 3.10</a><a href="../java-20/string-regex.html">Java 20</a><a href="../rust-155/string-regex.html">Rust 1.55</a><a href="../haskell/string-regex.html">Haskell</a><a href="../javascript-ecmascript-2021/string-regex.html">JavaScript - ECMAScript 2021</a><a href="../php/string-regex.html">PHP</a><a href="../ruby/string-regex.html">Ruby</a><a href="../swift/string-regex.html">Swift</a><a href="../kotlin/string-regex.html">Kotlin</a><a href="../go/string-regex.html">Go</a><a href="../r/string-regex.html">R</a><a href="../perl/string-regex.html">Perl</a><a href="../matlab/string-regex.html">MATLAB</a><a href="../lua/string-regex.html">Lua</a><a href="../scala/string-regex.html">Scala</a><a href="../groovy/string-regex.html">Groovy</a><a href="../dart/string-regex.html">Dart</a><a href="../julia/string-regex.html">Julia</a><a href="../objective-c/string-regex.html">Objective-C</a><a href="../visual-basic-net/string-regex.html">Visual Basic .NET</a>
+                </div>
+                <style>
+                    .related-concepts a {
+                        padding: 8px 12px;
+                        background: #f5f5f5;
+                        border-radius: 4px;
+                        text-decoration: none;
+                        color: #0066cc;
+                        display: inline-block;
+                        text-align: center;
+                        transition: background 0.2s, transform 0.2s;
+                    }
+                    .related-concepts a:hover {
+                        background: #e5e7eb;
+                        transform: translateY(-2px);
+                    }
+                </style>
+            </section>
+
+
+            <div class="back-link">
+                <a href="../../index.html">← Back to Full Comparison Table</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>Content generated using AI | <a href="https://github.com/srix/prog-lang-compare" target="_blank"
+                    rel="noopener noreferrer">View on GitHub</a></p>
+        </footer>
+    </div>
+</body>
+
+</html>

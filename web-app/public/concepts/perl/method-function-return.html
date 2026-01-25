@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>  Function Return in Perl - Prog Lang Compare</title>
+    <meta name="title" content="  Function Return in Perl - Prog Lang Compare">
+    <meta name="description" content="Learn how to   function return in Perl. See code examples and detailed explanations.">
+    <meta name="keywords" content="Perl, Method   Function Return, programming, code examples, syntax, Error handling">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://prog-lang-compare.netlify.app/concepts/perl/method-function-return.html">
+    <meta property="og:title" content="  Function Return in Perl">
+    <meta property="og:description" content="Learn how to   function return in Perl. See code examples and detailed explanations.">
+    <meta property="og:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://prog-lang-compare.netlify.app/concepts/perl/method-function-return.html">
+    <meta property="twitter:title" content="  Function Return in Perl">
+    <meta property="twitter:description" content="Learn how to   function return in Perl. See code examples and detailed explanations.">
+    <meta property="twitter:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://prog-lang-compare.netlify.app/concepts/perl/method-function-return.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+    <!-- Inline Critical CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav.breadcrumb {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        nav.breadcrumb a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        nav.breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        nav.breadcrumb span {
+            color: #666;
+            margin: 0 5px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-left: 4px solid #0066cc;
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+        }
+
+        .content pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+        }
+
+        .content code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+
+        .content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .back-link {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .back-link a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "  Function Return in Perl",
+        "description": "Learn how to   function return in Perl. See code examples and detailed explanations.",
+        "keywords": "Perl, Method   Function Return, programming",
+        "url": "https://prog-lang-compare.netlify.app/concepts/perl/method-function-return.html",
+        "datePublished": "2023-06-09",
+        "dateModified": "2026-01-24",
+        "author": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare",
+            "url": "https://prog-lang-compare.netlify.app"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://prog-lang-compare.netlify.app/concepts/perl/method-function-return.html"
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span>›</span>
+            <a href="../perl.html">Perl</a>
+            <span>›</span>
+            <span>Method   Function Return</span>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <h1>  Function Return in Perl</h1>
+
+            <div class="meta">
+                <strong>Category:</strong> Error handling |
+                <strong>Language:</strong> Perl
+            </div>
+
+            <article class="content">
+                <p>In Perl, a method or function can return a value using the <code>return</code> keyword. The <code>return</code> statement exits the method or function and returns the specified value to the calling program.</p>
+<p>Here is an example of how to define a function that returns the sum of two numbers in Perl:</p>
+<pre><code class="language-">sub add_numbers {
+   my ($num1, $num2) = @_;
+   my $sum = $num1 + $num2;
+   return $sum;
+}
+</code></pre>
+<p>In the above code, <code>add_numbers</code> is a function that takes two arguments <code>$num1</code> and <code>$num2</code>. The two input numbers are added together and stored in the variable <code>$sum</code>. The <code>return</code> statement returns the value of <code>$sum</code>.</p>
+<p>To use this function, you can call it and assign the return value to a variable, like this:</p>
+<pre><code class="language-">my $result = add_numbers(5, 7);
+</code></pre>
+<p>In this example, the <code>add_numbers</code> function is called with the arguments <code>5</code> and <code>7</code>. The returned value, <code>12</code>, is stored in the variable <code>$result</code>.</p>
+<p>Alternatively, you can also return a list of values from a function using the <code>return</code> statement separated by commas, like this:</p>
+<pre><code class="language-">sub get_name_and_age {
+   my $name = "John";
+   my $age = 30;
+   return $name, $age;
+}
+</code></pre>
+<p>In this example, the <code>get_name_and_age</code> function returns two values, <code>$name</code> and <code>$age</code>. To use this function, you can assign the return values to a list, like this:</p>
+<pre><code class="language-">my ($name, $age) = get_name_and_age();
+</code></pre>
+<p>In this example, the <code>get_name_and_age</code> function is called and the two returned values are assigned to the variables <code>$name</code> and <code>$age</code>.</p>
+            </article>
+
+            
+            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
+                <h2 style="font-size: 20px; margin-bottom: 15px; color: #2c3e50;">See this concept in other languages</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
+                    <a href="../python-310/method-function-return.html">Python 3.10</a><a href="../java-20/method-function-return.html">Java 20</a><a href="../rust-155/method-function-return.html">Rust 1.55</a><a href="../haskell/method-function-return.html">Haskell</a><a href="../javascript-ecmascript-2021/method-function-return.html">JavaScript - ECMAScript 2021</a><a href="../php/method-function-return.html">PHP</a><a href="../typescript/method-function-return.html">TypeScript</a><a href="../ruby/method-function-return.html">Ruby</a><a href="../swift/method-function-return.html">Swift</a><a href="../kotlin/method-function-return.html">Kotlin</a><a href="../go/method-function-return.html">Go</a><a href="../r/method-function-return.html">R</a><a href="../matlab/method-function-return.html">MATLAB</a><a href="../lua/method-function-return.html">Lua</a><a href="../scala/method-function-return.html">Scala</a><a href="../groovy/method-function-return.html">Groovy</a><a href="../dart/method-function-return.html">Dart</a><a href="../julia/method-function-return.html">Julia</a><a href="../objective-c/method-function-return.html">Objective-C</a><a href="../visual-basic-net/method-function-return.html">Visual Basic .NET</a>
+                </div>
+                <style>
+                    .related-concepts a {
+                        padding: 8px 12px;
+                        background: #f5f5f5;
+                        border-radius: 4px;
+                        text-decoration: none;
+                        color: #0066cc;
+                        display: inline-block;
+                        text-align: center;
+                        transition: background 0.2s, transform 0.2s;
+                    }
+                    .related-concepts a:hover {
+                        background: #e5e7eb;
+                        transform: translateY(-2px);
+                    }
+                </style>
+            </section>
+
+
+            <div class="back-link">
+                <a href="../../index.html">← Back to Full Comparison Table</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>Content generated using AI | <a href="https://github.com/srix/prog-lang-compare" target="_blank"
+                    rel="noopener noreferrer">View on GitHub</a></p>
+        </footer>
+    </div>
+</body>
+
+</html>

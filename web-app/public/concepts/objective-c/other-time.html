@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Time in Objective-C - Prog Lang Compare</title>
+    <meta name="title" content="Time in Objective-C - Prog Lang Compare">
+    <meta name="description" content="Learn how to time in Objective-C. See code examples and detailed explanations.">
+    <meta name="keywords" content="Objective-C, Other Time, programming, code examples, syntax, Other">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://prog-lang-compare.netlify.app/concepts/objective-c/other-time.html">
+    <meta property="og:title" content="Time in Objective-C">
+    <meta property="og:description" content="Learn how to time in Objective-C. See code examples and detailed explanations.">
+    <meta property="og:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://prog-lang-compare.netlify.app/concepts/objective-c/other-time.html">
+    <meta property="twitter:title" content="Time in Objective-C">
+    <meta property="twitter:description" content="Learn how to time in Objective-C. See code examples and detailed explanations.">
+    <meta property="twitter:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://prog-lang-compare.netlify.app/concepts/objective-c/other-time.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+    <!-- Inline Critical CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav.breadcrumb {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        nav.breadcrumb a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        nav.breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        nav.breadcrumb span {
+            color: #666;
+            margin: 0 5px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-left: 4px solid #0066cc;
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+        }
+
+        .content pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+        }
+
+        .content code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+
+        .content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .back-link {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .back-link a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Time in Objective-C",
+        "description": "Learn how to time in Objective-C. See code examples and detailed explanations.",
+        "keywords": "Objective-C, Other Time, programming",
+        "url": "https://prog-lang-compare.netlify.app/concepts/objective-c/other-time.html",
+        "datePublished": "2023-06-09",
+        "dateModified": "2026-01-24",
+        "author": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare",
+            "url": "https://prog-lang-compare.netlify.app"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://prog-lang-compare.netlify.app/concepts/objective-c/other-time.html"
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span>›</span>
+            <a href="../objective-c.html">Objective-C</a>
+            <span>›</span>
+            <span>Other Time</span>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <h1>Time in Objective-C</h1>
+
+            <div class="meta">
+                <strong>Category:</strong> Other |
+                <strong>Language:</strong> Objective-C
+            </div>
+
+            <article class="content">
+                <p>In Objective-C, we can use the class <code>NSDate</code> to work with time in our code. Here are some examples:</p>
+<p>1. Get the current time</p>
+<p>To get the current time, we can create a new <code>NSDate</code> object and initialize it with the <code>+[NSDate date]</code> method:</p>
+<p>``<code>objective-c<br>
+NSDate *now = [NSDate date];<br>
+NSLog(@"The current time is %@", now);<br>
+<pre><code class="language-"><br>
+2. Compare two dates</p>
+<p>We can compare two dates using the </code>compare:<code> method of </code>NSDate<code>. It returns an </code>NSComparisonResult<code> enum that tells us whether the first date is before, after, or equal to the second date:</p>
+<p></code></pre>objective-c<br>
+NSDate *date1 = [NSDate dateWithTimeIntervalSinceNow:3600];  // One hour from now<br>
+NSDate *date2 = [NSDate dateWithTimeIntervalSinceNow:7200];  // Two hours from now</p>
+<p>NSComparisonResult result = [date1 compare:date2];<br>
+if (result == NSOrderedAscending) {<br>
+    NSLog(@"date1 is before date2");<br>
+} else if (result == NSOrderedDescending) {<br>
+    NSLog(@"date1 is after date2");<br>
+} else {<br>
+    NSLog(@"date1 is equal to date2");<br>
+}<br>
+<pre><code class="language-"><br>
+3. Add or subtract time intervals</p>
+<p>We can add or subtract time intervals (in seconds) to/from an </code>NSDate<code> using the </code>dateByAddingTimeInterval:<code> method:</p>
+<p></code></pre>objective-c<br>
+NSDate *now = [NSDate date];  // The current time<br>
+NSTimeInterval oneHour = 60 * 60;</p>
+<p>NSDate *oneHourLater = [now dateByAddingTimeInterval:oneHour];<br>
+NSDate *oneHourAgo = [now dateByAddingTimeInterval:-oneHour];</p>
+<p>NSLog(@"One hour later: %@", oneHourLater);<br>
+NSLog(@"One hour ago: %@", oneHourAgo);<br>
+<pre><code class="language-"><br>
+4. Convert a date to a string</p>
+<p>We can convert an </code>NSDate<code> to a string using an </code>NSDateFormatter<code> instance. For example, to convert the current time to a string in the format "yyyy-MM-dd HH:mm:ss":</p>
+<p></code></pre>objective-c<br>
+NSDate *now = [NSDate date];<br>
+NSDateFormatter *formatter = [[NSDateFormatter alloc] init];<br>
+[formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];</p>
+<p>NSString *string = [formatter stringFromDate:now];<br>
+NSLog(@"The current time as a string: %@", string);<br>
+</code>`<code></p>
+<p>These are just some basic examples of working with time in Objective-C using </code>NSDate<code>. There are many more methods and features in the </code>NSDate` class and related classes for working with dates and times in more advanced ways.</p>
+            </article>
+
+            
+            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
+                <h2 style="font-size: 20px; margin-bottom: 15px; color: #2c3e50;">See this concept in other languages</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
+                    <a href="../python-310/other-time.html">Python 3.10</a><a href="../java-20/other-time.html">Java 20</a><a href="../rust-155/other-time.html">Rust 1.55</a><a href="../haskell/other-time.html">Haskell</a><a href="../javascript-ecmascript-2021/other-time.html">JavaScript - ECMAScript 2021</a><a href="../php/other-time.html">PHP</a><a href="../typescript/other-time.html">TypeScript</a><a href="../ruby/other-time.html">Ruby</a><a href="../swift/other-time.html">Swift</a><a href="../kotlin/other-time.html">Kotlin</a><a href="../go/other-time.html">Go</a><a href="../r/other-time.html">R</a><a href="../perl/other-time.html">Perl</a><a href="../matlab/other-time.html">MATLAB</a><a href="../lua/other-time.html">Lua</a><a href="../scala/other-time.html">Scala</a><a href="../groovy/other-time.html">Groovy</a><a href="../dart/other-time.html">Dart</a><a href="../julia/other-time.html">Julia</a><a href="../visual-basic-net/other-time.html">Visual Basic .NET</a>
+                </div>
+                <style>
+                    .related-concepts a {
+                        padding: 8px 12px;
+                        background: #f5f5f5;
+                        border-radius: 4px;
+                        text-decoration: none;
+                        color: #0066cc;
+                        display: inline-block;
+                        text-align: center;
+                        transition: background 0.2s, transform 0.2s;
+                    }
+                    .related-concepts a:hover {
+                        background: #e5e7eb;
+                        transform: translateY(-2px);
+                    }
+                </style>
+            </section>
+
+
+            <div class="back-link">
+                <a href="../../index.html">← Back to Full Comparison Table</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>Content generated using AI | <a href="https://github.com/srix/prog-lang-compare" target="_blank"
+                    rel="noopener noreferrer">View on GitHub</a></p>
+        </footer>
+    </div>
+</body>
+
+</html>

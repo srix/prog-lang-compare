@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Sort in Python 3.10 - Prog Lang Compare</title>
+    <meta name="title" content="Sort in Python 3.10 - Prog Lang Compare">
+    <meta name="description" content="Learn how to sort in Python 3.10. See code examples and detailed explanations.">
+    <meta name="keywords" content="Python 3.10, Array Sort, programming, code examples, syntax, Array">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://prog-lang-compare.netlify.app/concepts/python-310/array-sort.html">
+    <meta property="og:title" content="Sort in Python 3.10">
+    <meta property="og:description" content="Learn how to sort in Python 3.10. See code examples and detailed explanations.">
+    <meta property="og:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://prog-lang-compare.netlify.app/concepts/python-310/array-sort.html">
+    <meta property="twitter:title" content="Sort in Python 3.10">
+    <meta property="twitter:description" content="Learn how to sort in Python 3.10. See code examples and detailed explanations.">
+    <meta property="twitter:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://prog-lang-compare.netlify.app/concepts/python-310/array-sort.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+    <!-- Inline Critical CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav.breadcrumb {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        nav.breadcrumb a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        nav.breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        nav.breadcrumb span {
+            color: #666;
+            margin: 0 5px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-left: 4px solid #0066cc;
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+        }
+
+        .content pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+        }
+
+        .content code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+
+        .content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .back-link {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .back-link a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Sort in Python 3.10",
+        "description": "Learn how to sort in Python 3.10. See code examples and detailed explanations.",
+        "keywords": "Python 3.10, Array Sort, programming",
+        "url": "https://prog-lang-compare.netlify.app/concepts/python-310/array-sort.html",
+        "datePublished": "2023-06-09",
+        "dateModified": "2026-01-24",
+        "author": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare",
+            "url": "https://prog-lang-compare.netlify.app"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://prog-lang-compare.netlify.app/concepts/python-310/array-sort.html"
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span>›</span>
+            <a href="../python-310.html">Python 3.10</a>
+            <span>›</span>
+            <span>Array Sort</span>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <h1>Sort in Python 3.10</h1>
+
+            <div class="meta">
+                <strong>Category:</strong> Array |
+                <strong>Language:</strong> Python 3.10
+            </div>
+
+            <article class="content">
+                <p>In Python, there are various ways to sort an array. Here are a few ways to do it in Python 3.10:</p>
+<p>1. Sorting using the Sorted Function:</p>
+<p>The "sorted" function returns a sorted list, without modifying the original. Here is an example:</p>
+<pre><code class="language-python">arr = [7, 3, 8, 2, 1, 5, 9, 4, 6]
+sorted_arr = sorted(arr)
+print(sorted_arr)  # Output: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+</code></pre>
+<p>2. Sorting using the sort Method:</p>
+<p>The "sort" method modifies the original list. Here is an example:</p>
+<pre><code class="language-python">arr = [7, 3, 8, 2, 1, 5, 9, 4, 6]
+arr.sort()
+print(arr)  # Output: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+</code></pre>
+<p>3. Sorting using the "key" Argument:</p>
+<p>You can also pass a custom function, using the "key" argument, to specify how the sorting should be done. Here is an example:</p>
+<pre><code class="language-python">def my_func(x):
+    return x % 3
+<p>arr = [7, 3, 8, 2, 1, 5, 9, 4, 6]<br>
+sorted_arr = sorted(arr, key=my_func)<br>
+print(sorted_arr)  # Output: [3, 6, 9, 1, 4, 7, 2, 5, 8]<br>
+</code></pre></p>
+<p>In this example, we have defined a function that returns the remainder of each element after division by 3. We pass this function to the "key" argument of the "sorted" function. The elements are sorted based on the value returned by this function.</p>
+<p>Note: The same "key" argument can also be used with the "sort" method.</p>
+            </article>
+
+            
+            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
+                <h2 style="font-size: 20px; margin-bottom: 15px; color: #2c3e50;">See this concept in other languages</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
+                    <a href="../java-20/array-sort.html">Java 20</a><a href="../rust-155/array-sort.html">Rust 1.55</a><a href="../haskell/array-sort.html">Haskell</a><a href="../javascript-ecmascript-2021/array-sort.html">JavaScript - ECMAScript 2021</a><a href="../php/array-sort.html">PHP</a><a href="../typescript/array-sort.html">TypeScript</a><a href="../ruby/array-sort.html">Ruby</a><a href="../swift/array-sort.html">Swift</a><a href="../kotlin/array-sort.html">Kotlin</a><a href="../go/array-sort.html">Go</a><a href="../r/array-sort.html">R</a><a href="../perl/array-sort.html">Perl</a><a href="../matlab/array-sort.html">MATLAB</a><a href="../lua/array-sort.html">Lua</a><a href="../scala/array-sort.html">Scala</a><a href="../groovy/array-sort.html">Groovy</a><a href="../dart/array-sort.html">Dart</a><a href="../julia/array-sort.html">Julia</a><a href="../objective-c/array-sort.html">Objective-C</a><a href="../visual-basic-net/array-sort.html">Visual Basic .NET</a>
+                </div>
+                <style>
+                    .related-concepts a {
+                        padding: 8px 12px;
+                        background: #f5f5f5;
+                        border-radius: 4px;
+                        text-decoration: none;
+                        color: #0066cc;
+                        display: inline-block;
+                        text-align: center;
+                        transition: background 0.2s, transform 0.2s;
+                    }
+                    .related-concepts a:hover {
+                        background: #e5e7eb;
+                        transform: translateY(-2px);
+                    }
+                </style>
+            </section>
+
+
+            <div class="back-link">
+                <a href="../../index.html">← Back to Full Comparison Table</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>Content generated using AI | <a href="https://github.com/srix/prog-lang-compare" target="_blank"
+                    rel="noopener noreferrer">View on GitHub</a></p>
+        </footer>
+    </div>
+</body>
+
+</html>

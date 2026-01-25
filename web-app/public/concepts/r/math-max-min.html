@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Max Min in R - Prog Lang Compare</title>
+    <meta name="title" content="Max Min in R - Prog Lang Compare">
+    <meta name="description" content="Learn how to max min in R. See code examples and detailed explanations.">
+    <meta name="keywords" content="R, Math Max Min, programming, code examples, syntax, Math">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://prog-lang-compare.netlify.app/concepts/r/math-max-min.html">
+    <meta property="og:title" content="Max Min in R">
+    <meta property="og:description" content="Learn how to max min in R. See code examples and detailed explanations.">
+    <meta property="og:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://prog-lang-compare.netlify.app/concepts/r/math-max-min.html">
+    <meta property="twitter:title" content="Max Min in R">
+    <meta property="twitter:description" content="Learn how to max min in R. See code examples and detailed explanations.">
+    <meta property="twitter:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://prog-lang-compare.netlify.app/concepts/r/math-max-min.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+    <!-- Inline Critical CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav.breadcrumb {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        nav.breadcrumb a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        nav.breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        nav.breadcrumb span {
+            color: #666;
+            margin: 0 5px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-left: 4px solid #0066cc;
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+        }
+
+        .content pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+        }
+
+        .content code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+
+        .content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .back-link {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .back-link a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Max Min in R",
+        "description": "Learn how to max min in R. See code examples and detailed explanations.",
+        "keywords": "R, Math Max Min, programming",
+        "url": "https://prog-lang-compare.netlify.app/concepts/r/math-max-min.html",
+        "datePublished": "2023-06-09",
+        "dateModified": "2026-01-24",
+        "author": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare",
+            "url": "https://prog-lang-compare.netlify.app"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://prog-lang-compare.netlify.app/concepts/r/math-max-min.html"
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span>›</span>
+            <a href="../r.html">R</a>
+            <span>›</span>
+            <span>Math Max Min</span>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <h1>Max Min in R</h1>
+
+            <div class="meta">
+                <strong>Category:</strong> Math |
+                <strong>Language:</strong> R
+            </div>
+
+            <article class="content">
+                <p>To get the maximum or minimum of two numbers in R, we can use the <code>max()</code> and <code>min()</code> functions respectively.</p>
+<p>For example, if we want to find the maximum of two numbers, say 5 and 7, we can simply call the <code>max()</code> function with these two numbers as the arguments as shown below:</p>
+<pre><code class="language-">max(5, 7)
+</code></pre>
+<p>This returns the output <code>7</code>, indicating that 7 is the larger of the two numbers.</p>
+<p>Similarly, if we want to find the minimum of two numbers, we can call the <code>min()</code> function with the two numbers as below:</p>
+<pre><code class="language-">min(5, 7)
+</code></pre>
+<p>This returns the output <code>5</code>, indicating that 5 is the smaller of the two numbers.</p>
+<p>We can also store the values in variables and pass them to the functions like so:</p>
+<pre><code class="language-">x <- 5
+y <- 7
+<p>max(x, y)<br>
+min(x, y)<br>
+</code></pre></p>
+<p>These will return the same results as before, but now we are using variables instead of literals.</p>
+            </article>
+
+            
+            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
+                <h2 style="font-size: 20px; margin-bottom: 15px; color: #2c3e50;">See this concept in other languages</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
+                    <a href="../python-310/math-max-min.html">Python 3.10</a><a href="../java-20/math-max-min.html">Java 20</a><a href="../rust-155/math-max-min.html">Rust 1.55</a><a href="../haskell/math-max-min.html">Haskell</a><a href="../javascript-ecmascript-2021/math-max-min.html">JavaScript - ECMAScript 2021</a><a href="../php/math-max-min.html">PHP</a><a href="../typescript/math-max-min.html">TypeScript</a><a href="../ruby/math-max-min.html">Ruby</a><a href="../swift/math-max-min.html">Swift</a><a href="../kotlin/math-max-min.html">Kotlin</a><a href="../go/math-max-min.html">Go</a><a href="../perl/math-max-min.html">Perl</a><a href="../matlab/math-max-min.html">MATLAB</a><a href="../lua/math-max-min.html">Lua</a><a href="../scala/math-max-min.html">Scala</a><a href="../groovy/math-max-min.html">Groovy</a><a href="../dart/math-max-min.html">Dart</a><a href="../julia/math-max-min.html">Julia</a><a href="../objective-c/math-max-min.html">Objective-C</a><a href="../visual-basic-net/math-max-min.html">Visual Basic .NET</a>
+                </div>
+                <style>
+                    .related-concepts a {
+                        padding: 8px 12px;
+                        background: #f5f5f5;
+                        border-radius: 4px;
+                        text-decoration: none;
+                        color: #0066cc;
+                        display: inline-block;
+                        text-align: center;
+                        transition: background 0.2s, transform 0.2s;
+                    }
+                    .related-concepts a:hover {
+                        background: #e5e7eb;
+                        transform: translateY(-2px);
+                    }
+                </style>
+            </section>
+
+
+            <div class="back-link">
+                <a href="../../index.html">← Back to Full Comparison Table</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>Content generated using AI | <a href="https://github.com/srix/prog-lang-compare" target="_blank"
+                    rel="noopener noreferrer">View on GitHub</a></p>
+        </footer>
+    </div>
+</body>
+
+</html>

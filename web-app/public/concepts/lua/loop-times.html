@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Times in Lua - Prog Lang Compare</title>
+    <meta name="title" content="Times in Lua - Prog Lang Compare">
+    <meta name="description" content="Learn how to times in Lua. See code examples and detailed explanations.">
+    <meta name="keywords" content="Lua, Loop Times, programming, code examples, syntax, Loop">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://prog-lang-compare.netlify.app/concepts/lua/loop-times.html">
+    <meta property="og:title" content="Times in Lua">
+    <meta property="og:description" content="Learn how to times in Lua. See code examples and detailed explanations.">
+    <meta property="og:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://prog-lang-compare.netlify.app/concepts/lua/loop-times.html">
+    <meta property="twitter:title" content="Times in Lua">
+    <meta property="twitter:description" content="Learn how to times in Lua. See code examples and detailed explanations.">
+    <meta property="twitter:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://prog-lang-compare.netlify.app/concepts/lua/loop-times.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+    <!-- Inline Critical CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav.breadcrumb {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        nav.breadcrumb a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        nav.breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        nav.breadcrumb span {
+            color: #666;
+            margin: 0 5px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-left: 4px solid #0066cc;
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+        }
+
+        .content pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+        }
+
+        .content code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+
+        .content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .back-link {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .back-link a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Times in Lua",
+        "description": "Learn how to times in Lua. See code examples and detailed explanations.",
+        "keywords": "Lua, Loop Times, programming",
+        "url": "https://prog-lang-compare.netlify.app/concepts/lua/loop-times.html",
+        "datePublished": "2023-06-09",
+        "dateModified": "2026-01-24",
+        "author": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare",
+            "url": "https://prog-lang-compare.netlify.app"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://prog-lang-compare.netlify.app/concepts/lua/loop-times.html"
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span>›</span>
+            <a href="../lua.html">Lua</a>
+            <span>›</span>
+            <span>Loop Times</span>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <h1>Times in Lua</h1>
+
+            <div class="meta">
+                <strong>Category:</strong> Loop |
+                <strong>Language:</strong> Lua
+            </div>
+
+            <article class="content">
+                <p>Using times in Lua is relatively easy. In Lua, there are two primary ways to represent times: as a number of seconds since Unix epoch (January 1, 1970), or as a table with separate fields for year, month, day, hour, minute, and second.</p>
+<p>Here are some examples to demonstrate how to use times in Lua:</p>
+<p>1. To get the current time as a number of seconds since Unix epoch, use the <code>os.time()</code> function:</p>
+<pre><code class="language-lua">local current_time = os.time()
+print(current_time)
+</code></pre>
+<p>This will output the current time in seconds since Unix epoch, such as <code>1614736029</code>.</p>
+<p>2. To convert a table representing a time to a number of seconds since Unix epoch, use the <code>os.time()</code> function with the table as an argument:</p>
+<pre><code class="language-lua">local my_time = {year=2021, month=3, day=3, hour=10, min=30, sec=0}
+local seconds_since_epoch = os.time(my_time)
+print(seconds_since_epoch)
+</code></pre>
+<p>This will output <code>1614757800</code>, which is the number of seconds since Unix epoch equivalent to March 3, 2021 at 10:30:00 AM.</p>
+<p>3. To convert a number of seconds since Unix epoch to a table representing the time, use the <code>os.date()</code> function:</p>
+<pre><code class="language-lua">local my_time = os.date("*t", 1614757800)
+print(my_time.year, my_time.month, my_time.day, my_time.hour, my_time.min, my_time.sec)
+</code></pre>
+<p>This will output <code>2021, 3, 3, 10, 30, 0</code>, which is the year, month, day, hour, minute, and second of the time represented by <code>1614757800</code>.</p>
+<p>Note that the <code>os.date()</code> function returns a table with separate fields for year, month, day, hour, minute, and second. The <code>*t</code> argument tells <code>os.date()</code> to return this table representation of the time.</p>
+<p>These are just a few examples of how to use times in Lua. There are many other functions and features available for working with times, including time zone conversions and date formatting.</p>
+            </article>
+
+            
+            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
+                <h2 style="font-size: 20px; margin-bottom: 15px; color: #2c3e50;">See this concept in other languages</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
+                    <a href="../python-310/loop-times.html">Python 3.10</a><a href="../java-20/loop-times.html">Java 20</a><a href="../rust-155/loop-times.html">Rust 1.55</a><a href="../haskell/loop-times.html">Haskell</a><a href="../javascript-ecmascript-2021/loop-times.html">JavaScript - ECMAScript 2021</a><a href="../php/loop-times.html">PHP</a><a href="../typescript/loop-times.html">TypeScript</a><a href="../ruby/loop-times.html">Ruby</a><a href="../swift/loop-times.html">Swift</a><a href="../kotlin/loop-times.html">Kotlin</a><a href="../go/loop-times.html">Go</a><a href="../r/loop-times.html">R</a><a href="../perl/loop-times.html">Perl</a><a href="../matlab/loop-times.html">MATLAB</a><a href="../scala/loop-times.html">Scala</a><a href="../groovy/loop-times.html">Groovy</a><a href="../dart/loop-times.html">Dart</a><a href="../julia/loop-times.html">Julia</a><a href="../objective-c/loop-times.html">Objective-C</a><a href="../visual-basic-net/loop-times.html">Visual Basic .NET</a>
+                </div>
+                <style>
+                    .related-concepts a {
+                        padding: 8px 12px;
+                        background: #f5f5f5;
+                        border-radius: 4px;
+                        text-decoration: none;
+                        color: #0066cc;
+                        display: inline-block;
+                        text-align: center;
+                        transition: background 0.2s, transform 0.2s;
+                    }
+                    .related-concepts a:hover {
+                        background: #e5e7eb;
+                        transform: translateY(-2px);
+                    }
+                </style>
+            </section>
+
+
+            <div class="back-link">
+                <a href="../../index.html">← Back to Full Comparison Table</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>Content generated using AI | <a href="https://github.com/srix/prog-lang-compare" target="_blank"
+                    rel="noopener noreferrer">View on GitHub</a></p>
+        </footer>
+    </div>
+</body>
+
+</html>

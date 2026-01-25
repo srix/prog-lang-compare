@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Regex in Kotlin - Prog Lang Compare</title>
+    <meta name="title" content="Regex in Kotlin - Prog Lang Compare">
+    <meta name="description" content="Learn how to regex in Kotlin. See code examples and detailed explanations.">
+    <meta name="keywords" content="Kotlin, String Regex, programming, code examples, syntax, String">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://prog-lang-compare.netlify.app/concepts/kotlin/string-regex.html">
+    <meta property="og:title" content="Regex in Kotlin">
+    <meta property="og:description" content="Learn how to regex in Kotlin. See code examples and detailed explanations.">
+    <meta property="og:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://prog-lang-compare.netlify.app/concepts/kotlin/string-regex.html">
+    <meta property="twitter:title" content="Regex in Kotlin">
+    <meta property="twitter:description" content="Learn how to regex in Kotlin. See code examples and detailed explanations.">
+    <meta property="twitter:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://prog-lang-compare.netlify.app/concepts/kotlin/string-regex.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+    <!-- Inline Critical CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav.breadcrumb {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        nav.breadcrumb a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        nav.breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        nav.breadcrumb span {
+            color: #666;
+            margin: 0 5px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-left: 4px solid #0066cc;
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+        }
+
+        .content pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+        }
+
+        .content code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+
+        .content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .back-link {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .back-link a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Regex in Kotlin",
+        "description": "Learn how to regex in Kotlin. See code examples and detailed explanations.",
+        "keywords": "Kotlin, String Regex, programming",
+        "url": "https://prog-lang-compare.netlify.app/concepts/kotlin/string-regex.html",
+        "datePublished": "2023-06-09",
+        "dateModified": "2026-01-24",
+        "author": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare",
+            "url": "https://prog-lang-compare.netlify.app"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://prog-lang-compare.netlify.app/concepts/kotlin/string-regex.html"
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span>›</span>
+            <a href="../kotlin.html">Kotlin</a>
+            <span>›</span>
+            <span>String Regex</span>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <h1>Regex in Kotlin</h1>
+
+            <div class="meta">
+                <strong>Category:</strong> String |
+                <strong>Language:</strong> Kotlin
+            </div>
+
+            <article class="content">
+                <p>Regex (short for regular expression) is a pattern-matching technique that can be used in Kotlin (and many other programming languages) to search, manipulate, and validate text. Here's how to use regex in Kotlin with some examples:</p>
+<p>1. Creating a Regex object<br>
+To use regex in Kotlin, you first need to create a Regex object. This can be done using the <code>Regex()</code> constructor, like this:</p>
+<pre><code class="language-">val regex = Regex(pattern)
+</code></pre>
+<p>The <code>pattern</code> parameter is a string that contains the regex pattern you want to match.</p>
+<p>2. Matching a string against a regex pattern<br>
+Once you have a Regex object, you can use it to match a string against a regex pattern. This is done using the <code>matchEntire()</code> method, which returns a <code>MatchResult?</code> object if the string matches the pattern, or <code>null</code> if it doesn't. Here's an example:</p>
+<pre><code class="language-">val pattern = "\\d+".toRegex()
+val matchResult = pattern.matchEntire("123")
+if (matchResult != null) {
+    println("Match found: ${matchResult.value}")
+} else {
+    println("No match found")
+}
+</code></pre>
+<p>This code creates a Regex object that matches one or more digits (<code>\d+</code>), and then tries to match the string "123" against it. If a match is found, the code prints the matched value ("123") to the console.</p>
+<p>3. Extracting matched groups<br>
+Regex patterns often include groups, which are portions of the pattern that you can extract separately. To do this in Kotlin, you can use the <code>groupValues</code> property of the <code>MatchResult</code> object, which returns a list of all matched groups. Here's an example:</p>
+<pre><code class="language-">val pattern = "(\\d+)-(\\d+)".toRegex()
+val matchResult = pattern.matchEntire("123-456")
+if (matchResult != null) {
+    val group1 = matchResult.groupValues[1]
+    val group2 = matchResult.groupValues[2]
+    println("Match found: $group1, $group2")
+} else {
+    println("No match found")
+}
+</code></pre>
+<p>This code creates a Regex object that matches a pattern of two groups (one or more digits, followed by a hyphen, followed by one or more digits), and then tries to match the string "123-456" against it. If a match is found, the code extracts both groups and prints them to the console ("123, 456").</p>
+<p>4. Replacing matched text<br>
+Regex can also be used to replace text that matches a pattern, using the <code>replace()</code> method. Here's an example:</p>
+<pre><code class="language-">val pattern = "\\d+".toRegex()
+val input = "1A2B3C4D5E"
+val replacement = "***"
+val output = pattern.replace(input, replacement)
+println(output)
+</code></pre>
+<p>This code creates a Regex object that matches one or more digits, and then replaces all occurrences of that pattern in the string "1A2B3C4D5E" with "***". The resulting string ("A"B"C"D"E") is then printed to the console.</p>
+<p>These are just a few examples of how to use regex in Kotlin. With this powerful tool, you can parse, validate, and manipulate text in countless ways.</p>
+            </article>
+
+            
+            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
+                <h2 style="font-size: 20px; margin-bottom: 15px; color: #2c3e50;">See this concept in other languages</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
+                    <a href="../python-310/string-regex.html">Python 3.10</a><a href="../java-20/string-regex.html">Java 20</a><a href="../rust-155/string-regex.html">Rust 1.55</a><a href="../haskell/string-regex.html">Haskell</a><a href="../javascript-ecmascript-2021/string-regex.html">JavaScript - ECMAScript 2021</a><a href="../php/string-regex.html">PHP</a><a href="../typescript/string-regex.html">TypeScript</a><a href="../ruby/string-regex.html">Ruby</a><a href="../swift/string-regex.html">Swift</a><a href="../go/string-regex.html">Go</a><a href="../r/string-regex.html">R</a><a href="../perl/string-regex.html">Perl</a><a href="../matlab/string-regex.html">MATLAB</a><a href="../lua/string-regex.html">Lua</a><a href="../scala/string-regex.html">Scala</a><a href="../groovy/string-regex.html">Groovy</a><a href="../dart/string-regex.html">Dart</a><a href="../julia/string-regex.html">Julia</a><a href="../objective-c/string-regex.html">Objective-C</a><a href="../visual-basic-net/string-regex.html">Visual Basic .NET</a>
+                </div>
+                <style>
+                    .related-concepts a {
+                        padding: 8px 12px;
+                        background: #f5f5f5;
+                        border-radius: 4px;
+                        text-decoration: none;
+                        color: #0066cc;
+                        display: inline-block;
+                        text-align: center;
+                        transition: background 0.2s, transform 0.2s;
+                    }
+                    .related-concepts a:hover {
+                        background: #e5e7eb;
+                        transform: translateY(-2px);
+                    }
+                </style>
+            </section>
+
+
+            <div class="back-link">
+                <a href="../../index.html">← Back to Full Comparison Table</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>Content generated using AI | <a href="https://github.com/srix/prog-lang-compare" target="_blank"
+                    rel="noopener noreferrer">View on GitHub</a></p>
+        </footer>
+    </div>
+</body>
+
+</html>

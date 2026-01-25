@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Mixin in Python 3.10 - Prog Lang Compare</title>
+    <meta name="title" content="Mixin in Python 3.10 - Prog Lang Compare">
+    <meta name="description" content="Learn how to mixin in Python 3.10. See code examples and detailed explanations.">
+    <meta name="keywords" content="Python 3.10, Class Mixin, programming, code examples, syntax, Class">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://prog-lang-compare.netlify.app/concepts/python-310/class-mixin.html">
+    <meta property="og:title" content="Mixin in Python 3.10">
+    <meta property="og:description" content="Learn how to mixin in Python 3.10. See code examples and detailed explanations.">
+    <meta property="og:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://prog-lang-compare.netlify.app/concepts/python-310/class-mixin.html">
+    <meta property="twitter:title" content="Mixin in Python 3.10">
+    <meta property="twitter:description" content="Learn how to mixin in Python 3.10. See code examples and detailed explanations.">
+    <meta property="twitter:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://prog-lang-compare.netlify.app/concepts/python-310/class-mixin.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+    <!-- Inline Critical CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav.breadcrumb {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        nav.breadcrumb a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        nav.breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        nav.breadcrumb span {
+            color: #666;
+            margin: 0 5px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-left: 4px solid #0066cc;
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+        }
+
+        .content pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+        }
+
+        .content code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+
+        .content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .back-link {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .back-link a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Mixin in Python 3.10",
+        "description": "Learn how to mixin in Python 3.10. See code examples and detailed explanations.",
+        "keywords": "Python 3.10, Class Mixin, programming",
+        "url": "https://prog-lang-compare.netlify.app/concepts/python-310/class-mixin.html",
+        "datePublished": "2023-06-09",
+        "dateModified": "2026-01-24",
+        "author": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare",
+            "url": "https://prog-lang-compare.netlify.app"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://prog-lang-compare.netlify.app/concepts/python-310/class-mixin.html"
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span>›</span>
+            <a href="../python-310.html">Python 3.10</a>
+            <span>›</span>
+            <span>Class Mixin</span>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <h1>Mixin in Python 3.10</h1>
+
+            <div class="meta">
+                <strong>Category:</strong> Class |
+                <strong>Language:</strong> Python 3.10
+            </div>
+
+            <article class="content">
+                <p>Mixin is a concept in object-oriented programming where a class can reuse code from another class without inheriting from it. Python 3.10 introduces a new syntax for using mixins called <code>case</code>. Here's an example of how to use mixins in Python 3.10:</p>
+<pre><code class="language-python">from typing import Type, Protocol
+<p>class Loggable(Protocol):<br>
+    def log(self, message: str):<br>
+        ...</p>
+<p>def with_logging(cls: Type):<br>
+    class Logged(cls):<br>
+        def log(self, message):<br>
+            print(f"{self.__class__.__name__}: {message}")<br>
+    return Logged</p>
+<p>@with_logging<br>
+class MyClass:<br>
+    def foo(self):<br>
+        pass</p>
+<p>my_object = MyClass()<br>
+my_object.log("Hello, world!")<br>
+</code></pre></p>
+<p>In this example, we define a <code>Loggable</code> protocol that declares a <code>log</code> method. We then define a <code>with_logging</code> function that takes a class and returns a new class that inherits from the original class and adds a <code>log</code> method that prints out a message. We use Python 3.10's new <code>case</code> syntax to decorate the <code>MyClass</code> definition with the <code>with_logging</code> function.</p>
+<p>Finally, we create an instance of <code>MyClass</code> and call the <code>log</code> method on it, which was added by the <code>with_logging</code> mixin. The output of this code will be:</p>
+<pre><code class="language-">MyClass: Hello, world!
+</code></pre>
+<p>So we can see that by using a mixin, we have added behavior to an existing class without having to modify the class directly.</p>
+            </article>
+
+            
+            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
+                <h2 style="font-size: 20px; margin-bottom: 15px; color: #2c3e50;">See this concept in other languages</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
+                    <a href="../java-20/class-mixin.html">Java 20</a><a href="../rust-155/class-mixin.html">Rust 1.55</a><a href="../haskell/class-mixin.html">Haskell</a><a href="../javascript-ecmascript-2021/class-mixin.html">JavaScript - ECMAScript 2021</a><a href="../php/class-mixin.html">PHP</a><a href="../typescript/class-mixin.html">TypeScript</a><a href="../ruby/class-mixin.html">Ruby</a><a href="../swift/class-mixin.html">Swift</a><a href="../kotlin/class-mixin.html">Kotlin</a><a href="../go/class-mixin.html">Go</a><a href="../r/class-mixin.html">R</a><a href="../perl/class-mixin.html">Perl</a><a href="../matlab/class-mixin.html">MATLAB</a><a href="../lua/class-mixin.html">Lua</a><a href="../scala/class-mixin.html">Scala</a><a href="../groovy/class-mixin.html">Groovy</a><a href="../dart/class-mixin.html">Dart</a><a href="../julia/class-mixin.html">Julia</a><a href="../objective-c/class-mixin.html">Objective-C</a><a href="../visual-basic-net/class-mixin.html">Visual Basic .NET</a>
+                </div>
+                <style>
+                    .related-concepts a {
+                        padding: 8px 12px;
+                        background: #f5f5f5;
+                        border-radius: 4px;
+                        text-decoration: none;
+                        color: #0066cc;
+                        display: inline-block;
+                        text-align: center;
+                        transition: background 0.2s, transform 0.2s;
+                    }
+                    .related-concepts a:hover {
+                        background: #e5e7eb;
+                        transform: translateY(-2px);
+                    }
+                </style>
+            </section>
+
+
+            <div class="back-link">
+                <a href="../../index.html">← Back to Full Comparison Table</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>Content generated using AI | <a href="https://github.com/srix/prog-lang-compare" target="_blank"
+                    rel="noopener noreferrer">View on GitHub</a></p>
+        </footer>
+    </div>
+</body>
+
+</html>

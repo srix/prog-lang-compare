@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Random in Python 3.10 - Prog Lang Compare</title>
+    <meta name="title" content="Random in Python 3.10 - Prog Lang Compare">
+    <meta name="description" content="Learn how to random in Python 3.10. See code examples and detailed explanations.">
+    <meta name="keywords" content="Python 3.10, Number Random, programming, code examples, syntax, Number">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://prog-lang-compare.netlify.app/concepts/python-310/number-random.html">
+    <meta property="og:title" content="Random in Python 3.10">
+    <meta property="og:description" content="Learn how to random in Python 3.10. See code examples and detailed explanations.">
+    <meta property="og:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://prog-lang-compare.netlify.app/concepts/python-310/number-random.html">
+    <meta property="twitter:title" content="Random in Python 3.10">
+    <meta property="twitter:description" content="Learn how to random in Python 3.10. See code examples and detailed explanations.">
+    <meta property="twitter:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://prog-lang-compare.netlify.app/concepts/python-310/number-random.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+    <!-- Inline Critical CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav.breadcrumb {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        nav.breadcrumb a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        nav.breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        nav.breadcrumb span {
+            color: #666;
+            margin: 0 5px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-left: 4px solid #0066cc;
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+        }
+
+        .content pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+        }
+
+        .content code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+
+        .content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .back-link {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .back-link a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Random in Python 3.10",
+        "description": "Learn how to random in Python 3.10. See code examples and detailed explanations.",
+        "keywords": "Python 3.10, Number Random, programming",
+        "url": "https://prog-lang-compare.netlify.app/concepts/python-310/number-random.html",
+        "datePublished": "2023-06-09",
+        "dateModified": "2026-01-24",
+        "author": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare",
+            "url": "https://prog-lang-compare.netlify.app"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://prog-lang-compare.netlify.app/concepts/python-310/number-random.html"
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span>›</span>
+            <a href="../python-310.html">Python 3.10</a>
+            <span>›</span>
+            <span>Number Random</span>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <h1>Random in Python 3.10</h1>
+
+            <div class="meta">
+                <strong>Category:</strong> Number |
+                <strong>Language:</strong> Python 3.10
+            </div>
+
+            <article class="content">
+                <p>To generate random numbers in Python 3.10, you can use the built-in <code>random</code> module. This module provides a wide range of functions to generate random numbers and sequences. Here are some examples:</p>
+<p>### Generate a random integer between two numbers<br>
+You can use the <code>randint()</code> function to generate a random integer between two specified numbers. For example, to generate a random integer between 1 and 10:</p>
+<pre><code class="language-python">import random
+<p>x = random.randint(1, 10)<br>
+print(x)<br>
+</code></pre></p>
+<p>Output:<br>
+<pre><code class="language-">6<br>
+</code></pre></p>
+<p>### Generate a random float between two numbers<br>
+You can use the <code>uniform()</code> function to generate a random float between two specified numbers. For example, to generate a random float between 0 and 1:</p>
+<pre><code class="language-python">import random
+<p>x = random.uniform(0, 1)<br>
+print(x)<br>
+</code></pre></p>
+<p>Output:<br>
+<pre><code class="language-">0.6724468632278536<br>
+</code></pre></p>
+<p>### Generate a random element from a list<br>
+You can use the <code>choice()</code> function to randomly select an element from a list. For example, to randomly select a color from a list of colors:</p>
+<pre><code class="language-python">import random
+<p>colors = ['red', 'green', 'blue']<br>
+x = random.choice(colors)<br>
+print(x)<br>
+</code></pre></p>
+<p>Output:<br>
+<pre><code class="language-">blue<br>
+</code></pre></p>
+<p>### Generate a random sample from a list<br>
+You can use the <code>sample()</code> function to randomly select a sample of elements from a list without replacement. For example, to randomly select 3 elements from a list of numbers:</p>
+<pre><code class="language-python">import random
+<p>numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]<br>
+x = random.sample(numbers, 3)<br>
+print(x)<br>
+</code></pre></p>
+<p>Output:<br>
+<pre><code class="language-">[5, 9, 1]<br>
+</code></pre></p>
+<p>### Shuffle a list randomly<br>
+You can use the <code>shuffle()</code> function to randomly shuffle the elements in a list. For example, to shuffle a list of numbers:</p>
+<pre><code class="language-python">import random
+<p>numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]<br>
+random.shuffle(numbers)<br>
+print(numbers)<br>
+</code></pre></p>
+<p>Output (random order of numbers):<br>
+<pre><code class="language-">[6, 9, 8, 5, 2, 7, 3, 1, 4]<br>
+</code></pre></p>
+            </article>
+
+            
+            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
+                <h2 style="font-size: 20px; margin-bottom: 15px; color: #2c3e50;">See this concept in other languages</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
+                    <a href="../java-20/number-random.html">Java 20</a><a href="../rust-155/number-random.html">Rust 1.55</a><a href="../haskell/number-random.html">Haskell</a><a href="../javascript-ecmascript-2021/number-random.html">JavaScript - ECMAScript 2021</a><a href="../php/number-random.html">PHP</a><a href="../typescript/number-random.html">TypeScript</a><a href="../ruby/number-random.html">Ruby</a><a href="../swift/number-random.html">Swift</a><a href="../kotlin/number-random.html">Kotlin</a><a href="../go/number-random.html">Go</a><a href="../r/number-random.html">R</a><a href="../perl/number-random.html">Perl</a><a href="../matlab/number-random.html">MATLAB</a><a href="../lua/number-random.html">Lua</a><a href="../scala/number-random.html">Scala</a><a href="../groovy/number-random.html">Groovy</a><a href="../dart/number-random.html">Dart</a><a href="../julia/number-random.html">Julia</a><a href="../objective-c/number-random.html">Objective-C</a><a href="../visual-basic-net/number-random.html">Visual Basic .NET</a>
+                </div>
+                <style>
+                    .related-concepts a {
+                        padding: 8px 12px;
+                        background: #f5f5f5;
+                        border-radius: 4px;
+                        text-decoration: none;
+                        color: #0066cc;
+                        display: inline-block;
+                        text-align: center;
+                        transition: background 0.2s, transform 0.2s;
+                    }
+                    .related-concepts a:hover {
+                        background: #e5e7eb;
+                        transform: translateY(-2px);
+                    }
+                </style>
+            </section>
+
+
+            <div class="back-link">
+                <a href="../../index.html">← Back to Full Comparison Table</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>Content generated using AI | <a href="https://github.com/srix/prog-lang-compare" target="_blank"
+                    rel="noopener noreferrer">View on GitHub</a></p>
+        </footer>
+    </div>
+</body>
+
+</html>

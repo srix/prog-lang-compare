@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Perl Programming Concepts - Prog Lang Compare</title>
+    <meta name="title" content="Perl Programming Concepts - Prog Lang Compare">
+    <meta name="description" content="Learn Perl programming with 108 detailed concept explanations and code examples. Compare syntax, features, and best practices with other languages.">
+    <meta name="keywords" content="Perl, programming, code examples, syntax, tutorial, reference">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://prog-lang-compare.netlify.app/concepts/perl.html">
+    <meta property="og:title" content="Perl Programming Concepts">
+    <meta property="og:description" content="Learn Perl with 108 detailed concept explanations and code examples.">
+    <meta property="og:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://prog-lang-compare.netlify.app/concepts/perl.html">
+    <meta property="twitter:title" content="Perl Programming Concepts">
+    <meta property="twitter:description" content="Learn Perl with 108 detailed concept explanations.">
+    <meta property="twitter:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://prog-lang-compare.netlify.app/concepts/perl.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        nav {
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        nav a {
+            color: #0066cc;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .intro {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .stats {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: bold;
+            color: #0066cc;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .category-section {
+            margin-bottom: 40px;
+        }
+
+        h2, h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-size: 24px;
+            border-left: 4px solid #0066cc;
+            padding-left: 15px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .concept-card {
+            background: #fff;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .concept-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        .concept-card a {
+            text-decoration: none;
+            color: #0066cc;
+            font-weight: 500;
+        }
+
+        .concept-card a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 2px solid #e5e7eb;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .intro {
+                font-size: 16px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Perl Programming Concepts",
+        "description": "Learn Perl programming with 108 detailed concept explanations and code examples.",
+        "url": "https://prog-lang-compare.netlify.app/concepts/perl.html",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "Prog Lang Compare",
+            "url": "https://prog-lang-compare.netlify.app"
+        },
+        "about": {
+            "@type": "ComputerLanguage",
+            "name": "Perl"
+        }
+    }
+    </script>
+</head>
+<body>
+    <nav>
+        <a href="../index.html">← Back to Language Comparison Table</a>
+    </nav>
+
+    <header>
+        <h1>Perl Programming Concepts</h1>
+        <p class="intro">Explore Perl programming with detailed explanations and code examples across 108 concepts.</p>
+    </header>
+
+    <div class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">108</div>
+                <div class="stat-label">Concepts Covered</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">15</div>
+                <div class="stat-label">Categories</div>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <h2>All Concepts</h2>
+        
+        <section class="category-section">
+            <h3>Array</h3>
+            <div class="grid">
+                <div class="concept-card"><a href="perl/array-add.html">Add</a></div><div class="concept-card"><a href="perl/array-concatenation.html">Concatenation</a></div><div class="concept-card"><a href="perl/array-count.html">Count</a></div><div class="concept-card"><a href="perl/array-create-populated.html">Create Populated</a></div><div class="concept-card"><a href="perl/array-delete-element.html">Delete Element</a></div><div class="concept-card"><a href="perl/array-find-first.html">Find First</a></div><div class="concept-card"><a href="perl/array-get-first-last-element.html">Get First  Last Element</a></div><div class="concept-card"><a href="perl/array-include.html">Include </a></div><div class="concept-card"><a href="perl/array-index-of-element.html">Index Of Element</a></div><div class="concept-card"><a href="perl/array-iterate.html">Iterate</a></div><div class="concept-card"><a href="perl/array-iterate-with-index.html">Iterate With Index</a></div><div class="concept-card"><a href="perl/array-map-change-all.html">Map  Change All </a></div><div class="concept-card"><a href="perl/array-multidimensional.html">Multidimensional</a></div><div class="concept-card"><a href="perl/array-reduce.html">Reduce</a></div><div class="concept-card"><a href="perl/array-select-find-all.html">Select  Find All </a></div><div class="concept-card"><a href="perl/array-size.html">Size</a></div><div class="concept-card"><a href="perl/array-sort.html">Sort</a></div><div class="concept-card"><a href="perl/array-unique.html">Unique</a></div><div class="concept-card"><a href="perl/array-with-different-types.html">With Different Types</a></div>
+            </div>
+        </section>
+        
+        <section class="category-section">
+            <h3>Class</h3>
+            <div class="grid">
+                <div class="concept-card"><a href="perl/class-constructor.html">Constructor</a></div><div class="concept-card"><a href="perl/class-declare.html">Declare</a></div><div class="concept-card"><a href="perl/class-field.html">Field</a></div><div class="concept-card"><a href="perl/class-get-set.html">Get Set</a></div><div class="concept-card"><a href="perl/class-has-method.html">Has Method </a></div><div class="concept-card"><a href="perl/class-inheritance.html">Inheritance</a></div><div class="concept-card"><a href="perl/class-method-call.html">Method Call</a></div><div class="concept-card"><a href="perl/class-mixin.html">Mixin</a></div><div class="concept-card"><a href="perl/class-private-method.html">Private Method</a></div><div class="concept-card"><a href="perl/class-private-method-access-instance-variable.html">Private Method  Access Instance Variable</a></div><div class="concept-card"><a href="perl/class-static-method.html">Static Method</a></div>
+            </div>
+        </section>
+        
+        <section class="category-section">
+            <h3>Conditional</h3>
+            <div class="grid">
+                <div class="concept-card"><a href="perl/conditional-and-or.html">And Or</a></div><div class="concept-card"><a href="perl/conditional-if.html">If</a></div><div class="concept-card"><a href="perl/conditional-if-assign.html">If Assign</a></div><div class="concept-card"><a href="perl/conditional-if-else.html">If Else</a></div><div class="concept-card"><a href="perl/conditional-switch.html">Switch</a></div><div class="concept-card"><a href="perl/conditional-switch-as-else-if.html">Switch As Else If</a></div><div class="concept-card"><a href="perl/conditional-ternary.html">Ternary</a></div><div class="concept-card"><a href="perl/conditional-unless.html">Unless</a></div>
+            </div>
+        </section>
+        
+        <section class="category-section">
+            <h3>Datatypes</h3>
+            <div class="grid">
+                <div class="concept-card"><a href="perl/datatypes-primitives.html">Primitives</a></div>
+            </div>
+        </section>
+        
+        <section class="category-section">
+            <h3>Error</h3>
+            <div class="grid">
+                <div class="concept-card"><a href="perl/error-handling-method.html">Handling Method</a></div><div class="concept-card"><a href="perl/error-handling-throw-exception.html">Handling Throw Exception</a></div><div class="concept-card"><a href="perl/error-handling-try-catch-finally.html">Handling Try Catch Finally</a></div><div class="concept-card"><a href="perl/error-handling-with-a-message.html">Handling With A Message</a></div>
+            </div>
+        </section>
+        
+        <section class="category-section">
+            <h3>File</h3>
+            <div class="grid">
+                <div class="concept-card"><a href="perl/file-dir-path.html">Dir Path</a></div><div class="concept-card"><a href="perl/file-file-path.html">File Path</a></div><div class="concept-card"><a href="perl/file-get-working-dir-path.html">Get Working Dir Path</a></div><div class="concept-card"><a href="perl/file-parent-dir-path.html">Parent Dir Path</a></div><div class="concept-card"><a href="perl/file-read.html">Read</a></div><div class="concept-card"><a href="perl/file-sister-dir-path.html">Sister Dir Path</a></div><div class="concept-card"><a href="perl/file-write.html">Write</a></div>
+            </div>
+        </section>
+        
+        <section class="category-section">
+            <h3>Hash</h3>
+            <div class="grid">
+                <div class="concept-card"><a href="perl/hash-map-add.html"> Map  Add</a></div><div class="concept-card"><a href="perl/hash-map-create-populated.html"> Map  Create Populated</a></div><div class="concept-card"><a href="perl/hash-map-get-value.html"> Map  Get Value</a></div><div class="concept-card"><a href="perl/hash-map-include.html"> Map  Include </a></div><div class="concept-card"><a href="perl/hash-map-iterate.html"> Map  Iterate</a></div><div class="concept-card"><a href="perl/hash-map-size.html"> Map  Size</a></div>
+            </div>
+        </section>
+        
+        <section class="category-section">
+            <h3>Importing</h3>
+            <div class="grid">
+                <div class="concept-card"><a href="perl/importing-libraries-import.html">Libraries Import</a></div>
+            </div>
+        </section>
+        
+        <section class="category-section">
+            <h3>Loop</h3>
+            <div class="grid">
+                <div class="concept-card"><a href="perl/loop-break.html">Break</a></div><div class="concept-card"><a href="perl/loop-for.html">For</a></div><div class="concept-card"><a href="perl/loop-for-with-a-step.html">For With A Step</a></div><div class="concept-card"><a href="perl/loop-next-continue.html">Next Continue</a></div><div class="concept-card"><a href="perl/loop-return-array.html">Return Array</a></div><div class="concept-card"><a href="perl/loop-times.html">Times</a></div><div class="concept-card"><a href="perl/loop-until.html">Until</a></div><div class="concept-card"><a href="perl/loop-while.html">While</a></div>
+            </div>
+        </section>
+        
+        <section class="category-section">
+            <h3>Math</h3>
+            <div class="grid">
+                <div class="concept-card"><a href="perl/math-max-min.html">Max Min</a></div><div class="concept-card"><a href="perl/math-sqrt.html">Sqrt</a></div>
+            </div>
+        </section>
+        
+        <section class="category-section">
+            <h3>Method</h3>
+            <div class="grid">
+                <div class="concept-card"><a href="perl/method-function-alias.html">  Function Alias</a></div><div class="concept-card"><a href="perl/method-function-block-binding.html">  Function Block Binding</a></div><div class="concept-card"><a href="perl/method-function-block-passing.html">  Function Block Passing</a></div><div class="concept-card"><a href="perl/method-function-closure.html">  Function Closure</a></div><div class="concept-card"><a href="perl/method-function-declare.html">  Function Declare</a></div><div class="concept-card"><a href="perl/method-function-default-value-for-argument.html">  Function Default Value For Argument</a></div><div class="concept-card"><a href="perl/method-function-initialize-in-runtime.html">  Function Initialize In Runtime</a></div><div class="concept-card"><a href="perl/method-function-multiple-arguments.html">  Function Multiple Arguments</a></div><div class="concept-card"><a href="perl/method-function-return.html">  Function Return</a></div>
+            </div>
+        </section>
+        
+        <section class="category-section">
+            <h3>Number</h3>
+            <div class="grid">
+                <div class="concept-card"><a href="perl/number-compare.html">Compare</a></div><div class="concept-card"><a href="perl/number-float.html">Float</a></div><div class="concept-card"><a href="perl/number-increment.html">Increment</a></div><div class="concept-card"><a href="perl/number-random.html">Random</a></div>
+            </div>
+        </section>
+        
+        <section class="category-section">
+            <h3>Other</h3>
+            <div class="grid">
+                <div class="concept-card"><a href="perl/other-assign-this-or-that.html">Assign This Or That</a></div><div class="concept-card"><a href="perl/other-assign-value-if-not-exist.html">Assign Value If Not Exist</a></div><div class="concept-card"><a href="perl/other-comment.html">Comment</a></div><div class="concept-card"><a href="perl/other-date.html">Date</a></div><div class="concept-card"><a href="perl/other-destructuring-assignment.html">Destructuring Assignment</a></div><div class="concept-card"><a href="perl/other-import-another-file.html">Import Another File</a></div><div class="concept-card"><a href="perl/other-not.html">Not</a></div><div class="concept-card"><a href="perl/other-run-command.html">Run Command</a></div><div class="concept-card"><a href="perl/other-structure-boolean.html">Structure Boolean</a></div><div class="concept-card"><a href="perl/other-structure-constant.html">Structure Constant</a></div><div class="concept-card"><a href="perl/other-structure-constant-list.html">Structure Constant List</a></div><div class="concept-card"><a href="perl/other-structure-struct.html">Structure Struct</a></div><div class="concept-card"><a href="perl/other-time.html">Time</a></div>
+            </div>
+        </section>
+        
+        <section class="category-section">
+            <h3>String</h3>
+            <div class="grid">
+                <div class="concept-card"><a href="perl/string-compare.html">Compare</a></div><div class="concept-card"><a href="perl/string-concatenation.html">Concatenation</a></div><div class="concept-card"><a href="perl/string-create.html">Create</a></div><div class="concept-card"><a href="perl/string-interpolation.html">Interpolation</a></div><div class="concept-card"><a href="perl/string-regex.html">Regex</a></div><div class="concept-card"><a href="perl/string-remove-leading-and-trailing-whitespace.html">Remove Leading And Trailing Whitespace</a></div><div class="concept-card"><a href="perl/string-remove-part.html">Remove Part</a></div><div class="concept-card"><a href="perl/string-replace.html">Replace</a></div><div class="concept-card"><a href="perl/string-split.html">Split</a></div>
+            </div>
+        </section>
+        
+        <section class="category-section">
+            <h3>Type</h3>
+            <div class="grid">
+                <div class="concept-card"><a href="perl/type-get-type-of-object.html">Get Type Of Object</a></div><div class="concept-card"><a href="perl/type-int-to-float.html">Int To Float</a></div><div class="concept-card"><a href="perl/type-int-to-string.html">Int To String</a></div><div class="concept-card"><a href="perl/type-null-true-false.html">Null True False </a></div><div class="concept-card"><a href="perl/type-string.html">String </a></div><div class="concept-card"><a href="perl/type-string-to-int.html">String To Int</a></div>
+            </div>
+        </section>
+        
+    </main>
+
+    <footer>
+        <p>Content generated using AI | <a href="https://github.com/srix/prog-lang-compare" target="_blank" rel="noopener noreferrer">View on GitHub</a></p>
+    </footer>
+</body>
+</html>

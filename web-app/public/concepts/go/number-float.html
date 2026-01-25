@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Float in Go - Prog Lang Compare</title>
+    <meta name="title" content="Float in Go - Prog Lang Compare">
+    <meta name="description" content="Learn how to float in Go. See code examples and detailed explanations.">
+    <meta name="keywords" content="Go, Number Float, programming, code examples, syntax, Number">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://prog-lang-compare.netlify.app/concepts/go/number-float.html">
+    <meta property="og:title" content="Float in Go">
+    <meta property="og:description" content="Learn how to float in Go. See code examples and detailed explanations.">
+    <meta property="og:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://prog-lang-compare.netlify.app/concepts/go/number-float.html">
+    <meta property="twitter:title" content="Float in Go">
+    <meta property="twitter:description" content="Learn how to float in Go. See code examples and detailed explanations.">
+    <meta property="twitter:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://prog-lang-compare.netlify.app/concepts/go/number-float.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+    <!-- Inline Critical CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav.breadcrumb {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        nav.breadcrumb a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        nav.breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        nav.breadcrumb span {
+            color: #666;
+            margin: 0 5px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-left: 4px solid #0066cc;
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+        }
+
+        .content pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+        }
+
+        .content code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+
+        .content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .back-link {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .back-link a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Float in Go",
+        "description": "Learn how to float in Go. See code examples and detailed explanations.",
+        "keywords": "Go, Number Float, programming",
+        "url": "https://prog-lang-compare.netlify.app/concepts/go/number-float.html",
+        "datePublished": "2023-06-09",
+        "dateModified": "2026-01-24",
+        "author": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare",
+            "url": "https://prog-lang-compare.netlify.app"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://prog-lang-compare.netlify.app/concepts/go/number-float.html"
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span>›</span>
+            <a href="../go.html">Go</a>
+            <span>›</span>
+            <span>Number Float</span>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <h1>Float in Go</h1>
+
+            <div class="meta">
+                <strong>Category:</strong> Number |
+                <strong>Language:</strong> Go
+            </div>
+
+            <article class="content">
+                <p>In Go, float numbers are used to represent decimal or fractional numbers. Go supports two float data types: float32 and float64.</p>
+<p>Here are some examples of how to use float numbers in Go:</p>
+<p>Example 1: Declaring a float32 variable named "num1" and assigning a value to it.</p>
+<pre><code class="language-go">var num1 float32 = 3.14159
+fmt.Println(num1)
+</code></pre>
+<p>Output: <code>3.14159</code></p>
+<p>Example 2: Declaring a float64 variable named "num2" and assigning a value to it.</p>
+<pre><code class="language-go">var num2 float64 = 2.71828
+fmt.Println(num2)
+</code></pre>
+<p>Output: <code>2.71828</code></p>
+<p>Example 3: Calculating the area of a circle with radius 2.5 using float64 data type.</p>
+<pre><code class="language-go">package main
+<p>import (<br>
+    "fmt"<br>
+    "math"<br>
+)</p>
+<p>func main() {<br>
+    var radius float64 = 2.5 // declare and assign a float64 value to radius<br>
+    var area float64 = math.Pi * radius * radius // calculate the area of the circle<br>
+    fmt.Printf("The area of the circle is %.2f\n", area) // print the area with 2 decimal places<br>
+}<br>
+</code></pre></p>
+<p>Output: <code>The area of the circle is 19.63</code></p>
+<p>In Go, it is important to use the appropriate float data type depending on the level of precision required. For most cases, float64 would suffice.</p>
+            </article>
+
+            
+            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
+                <h2 style="font-size: 20px; margin-bottom: 15px; color: #2c3e50;">See this concept in other languages</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
+                    <a href="../python-310/number-float.html">Python 3.10</a><a href="../java-20/number-float.html">Java 20</a><a href="../rust-155/number-float.html">Rust 1.55</a><a href="../haskell/number-float.html">Haskell</a><a href="../javascript-ecmascript-2021/number-float.html">JavaScript - ECMAScript 2021</a><a href="../php/number-float.html">PHP</a><a href="../typescript/number-float.html">TypeScript</a><a href="../ruby/number-float.html">Ruby</a><a href="../swift/number-float.html">Swift</a><a href="../kotlin/number-float.html">Kotlin</a><a href="../r/number-float.html">R</a><a href="../perl/number-float.html">Perl</a><a href="../matlab/number-float.html">MATLAB</a><a href="../lua/number-float.html">Lua</a><a href="../scala/number-float.html">Scala</a><a href="../groovy/number-float.html">Groovy</a><a href="../dart/number-float.html">Dart</a><a href="../julia/number-float.html">Julia</a><a href="../objective-c/number-float.html">Objective-C</a><a href="../visual-basic-net/number-float.html">Visual Basic .NET</a>
+                </div>
+                <style>
+                    .related-concepts a {
+                        padding: 8px 12px;
+                        background: #f5f5f5;
+                        border-radius: 4px;
+                        text-decoration: none;
+                        color: #0066cc;
+                        display: inline-block;
+                        text-align: center;
+                        transition: background 0.2s, transform 0.2s;
+                    }
+                    .related-concepts a:hover {
+                        background: #e5e7eb;
+                        transform: translateY(-2px);
+                    }
+                </style>
+            </section>
+
+
+            <div class="back-link">
+                <a href="../../index.html">← Back to Full Comparison Table</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>Content generated using AI | <a href="https://github.com/srix/prog-lang-compare" target="_blank"
+                    rel="noopener noreferrer">View on GitHub</a></p>
+        </footer>
+    </div>
+</body>
+
+</html>

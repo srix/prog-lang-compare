@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>handling With a message in Ruby - Prog Lang Compare</title>
+    <meta name="title" content="handling With a message in Ruby - Prog Lang Compare">
+    <meta name="description" content="Learn how to handling with a message in Ruby. See code examples and detailed explanations.">
+    <meta name="keywords" content="Ruby, Error handling With a message, programming, code examples, syntax, Error handling">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://prog-lang-compare.netlify.app/concepts/ruby/error-handling-with-a-message.html">
+    <meta property="og:title" content="handling With a message in Ruby">
+    <meta property="og:description" content="Learn how to handling with a message in Ruby. See code examples and detailed explanations.">
+    <meta property="og:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://prog-lang-compare.netlify.app/concepts/ruby/error-handling-with-a-message.html">
+    <meta property="twitter:title" content="handling With a message in Ruby">
+    <meta property="twitter:description" content="Learn how to handling with a message in Ruby. See code examples and detailed explanations.">
+    <meta property="twitter:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://prog-lang-compare.netlify.app/concepts/ruby/error-handling-with-a-message.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+    <!-- Inline Critical CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav.breadcrumb {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        nav.breadcrumb a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        nav.breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        nav.breadcrumb span {
+            color: #666;
+            margin: 0 5px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-left: 4px solid #0066cc;
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+        }
+
+        .content pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+        }
+
+        .content code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+
+        .content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .back-link {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .back-link a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "handling With a message in Ruby",
+        "description": "Learn how to handling with a message in Ruby. See code examples and detailed explanations.",
+        "keywords": "Ruby, Error handling With a message, programming",
+        "url": "https://prog-lang-compare.netlify.app/concepts/ruby/error-handling-with-a-message.html",
+        "datePublished": "2023-06-09",
+        "dateModified": "2026-01-24",
+        "author": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare",
+            "url": "https://prog-lang-compare.netlify.app"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://prog-lang-compare.netlify.app/concepts/ruby/error-handling-with-a-message.html"
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span>›</span>
+            <a href="../ruby.html">Ruby</a>
+            <span>›</span>
+            <span>Error handling With a message</span>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <h1>handling With a message in Ruby</h1>
+
+            <div class="meta">
+                <strong>Category:</strong> Error handling |
+                <strong>Language:</strong> Ruby
+            </div>
+
+            <article class="content">
+                <p>In Ruby, <code>begin</code>, <code>rescue</code>, <code>ensure</code>, <code>else</code> are used to implement try/catch/finally blocks. Here is an example on how to use them with a message:</p>
+<pre><code class="language-">begin
+  # this block contains code that might raise an exception
+  age = 17
+  raise ArgumentError, "Age should be greater than or equal to 18." if age < 18
+rescue ArgumentError => e
+  # this block will catch the exception
+  puts "Error: #{e.message}"
+else
+  # this block will execute only if there is no exception
+  puts "Welcome!"
+ensure
+  # this block will always execute, regardless of whether there
+  # was an exception raised or not
+  puts "Thank you for using our application."
+end
+</code></pre>
+<p>In this example, <code>begin</code>, <code>rescue</code>, <code>ensure</code>, <code>else</code> have been used to create a try/catch/finally block. The <code>begin</code> block contains the code that might raise an exception. In this case, we are checking if the age is less than 18 and raising an <code>ArgumentError</code> with a custom message if it is.</p>
+<p>The <code>rescue</code> block will catch any exception thrown by the code in the <code>begin</code> block and provide a customized error message using <code>e.message</code>. The <code>else</code> block will execute only if there is no exception.</p>
+<p>The <code>ensure</code> block will always execute, regardless of whether there was an exception raised or not. In this case, it simply prints a thank you message.</p>
+            </article>
+
+            
+            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
+                <h2 style="font-size: 20px; margin-bottom: 15px; color: #2c3e50;">See this concept in other languages</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
+                    <a href="../python-310/error-handling-with-a-message.html">Python 3.10</a><a href="../java-20/error-handling-with-a-message.html">Java 20</a><a href="../rust-155/error-handling-with-a-message.html">Rust 1.55</a><a href="../haskell/error-handling-with-a-message.html">Haskell</a><a href="../javascript-ecmascript-2021/error-handling-with-a-message.html">JavaScript - ECMAScript 2021</a><a href="../php/error-handling-with-a-message.html">PHP</a><a href="../typescript/error-handling-with-a-message.html">TypeScript</a><a href="../swift/error-handling-with-a-message.html">Swift</a><a href="../kotlin/error-handling-with-a-message.html">Kotlin</a><a href="../go/error-handling-with-a-message.html">Go</a><a href="../r/error-handling-with-a-message.html">R</a><a href="../perl/error-handling-with-a-message.html">Perl</a><a href="../matlab/error-handling-with-a-message.html">MATLAB</a><a href="../lua/error-handling-with-a-message.html">Lua</a><a href="../scala/error-handling-with-a-message.html">Scala</a><a href="../groovy/error-handling-with-a-message.html">Groovy</a><a href="../dart/error-handling-with-a-message.html">Dart</a><a href="../julia/error-handling-with-a-message.html">Julia</a><a href="../objective-c/error-handling-with-a-message.html">Objective-C</a><a href="../visual-basic-net/error-handling-with-a-message.html">Visual Basic .NET</a>
+                </div>
+                <style>
+                    .related-concepts a {
+                        padding: 8px 12px;
+                        background: #f5f5f5;
+                        border-radius: 4px;
+                        text-decoration: none;
+                        color: #0066cc;
+                        display: inline-block;
+                        text-align: center;
+                        transition: background 0.2s, transform 0.2s;
+                    }
+                    .related-concepts a:hover {
+                        background: #e5e7eb;
+                        transform: translateY(-2px);
+                    }
+                </style>
+            </section>
+
+
+            <div class="back-link">
+                <a href="../../index.html">← Back to Full Comparison Table</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>Content generated using AI | <a href="https://github.com/srix/prog-lang-compare" target="_blank"
+                    rel="noopener noreferrer">View on GitHub</a></p>
+        </footer>
+    </div>
+</body>
+
+</html>
