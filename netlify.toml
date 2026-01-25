@@ -1,4 +1,3 @@
 [build]
-  command = "./build.sh"
   publish = "web-app/public"
   base = "."
