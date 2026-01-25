@@ -166,8 +166,8 @@ async function showEmptyTable(tableId, conceptsData, prog_lang_list) {
         columns: columns,
         paging: false,
         autoWidth: false,
-
-        order: []  //disable sorting. Maintain the cocept order in prog_lang_concepts.yaml file
+        ordering: false,  // Completely disable sorting functionality
+        order: []  // Maintain the concept order in prog_lang_concepts.yaml file
     });
 
 

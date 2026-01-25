@@ -512,6 +512,23 @@ header a:hover {
     outline-offset: 2px;
 }
 
+/* Disable sorting indicators since sorting is disabled */
+.dataTables_wrapper .dataTable thead th.sorting::before,
+.dataTables_wrapper .dataTable thead th.sorting::after,
+.dataTables_wrapper .dataTable thead th.sorting_asc::before,
+.dataTables_wrapper .dataTable thead th.sorting_asc::after,
+.dataTables_wrapper .dataTable thead th.sorting_desc::before,
+.dataTables_wrapper .dataTable thead th.sorting_desc::after {
+    display: none !important;
+}
+
+/* Remove sorting cursor since sorting is disabled */
+.dataTables_wrapper .dataTable thead th.sorting,
+.dataTables_wrapper .dataTable thead th.sorting_asc,
+.dataTables_wrapper .dataTable thead th.sorting_desc {
+    cursor: default !important;
+}
+
 /* Additional DataTables UI elements for dark mode */
 .dataTables_wrapper .dataTables_length,
 .dataTables_wrapper .dataTables_info,
