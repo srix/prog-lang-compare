@@ -23,6 +23,12 @@ cp web-app/src/js/script.js web-app/public/
 cp web-app/src/assets/favicon.svg web-app/public/
 cp LICENSE web-app/public/
 
+echo "Copying data files..."
+cp concept-builder/config/prog_lang_concepts.yaml web-app/public/
+cp concept-builder/config/prog_langs.yaml web-app/public/
+mkdir -p web-app/public/content-autogen/gpt_3_5_turbo
+cp -r concept-builder/output/content-autogen/gpt_3_5_turbo/*.json web-app/public/content-autogen/gpt_3_5_turbo/
+
 # echo "Step 0/4: Generating Content (Optional, skipped by default)"
 # # python concept-builder/src/main.py
 
