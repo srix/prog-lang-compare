@@ -142,4 +142,23 @@ describe('DOM Interactions', () => {
             expect(document.execCommand).toHaveBeenCalledWith('copy');
         });
     });
+
+    describe('Theme Toggle', () => {
+        test('exists in the DOM', () => {
+            document.body.innerHTML = `
+                <button id="themeToggle">
+                    <svg id="sunIcon"></svg>
+                    <svg id="moonIcon"></svg>
+                </button>
+            `;
+
+            const themeToggle = document.getElementById('themeToggle');
+            const sunIcon = document.getElementById('sunIcon');
+            const moonIcon = document.getElementById('moonIcon');
+
+            expect(themeToggle).not.toBeNull();
+            expect(sunIcon).not.toBeNull();
+            expect(moonIcon).not.toBeNull();
+        });
+    });
 });

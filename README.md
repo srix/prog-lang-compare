@@ -15,7 +15,7 @@ This project is divided into two distinct components:
 
 2.  **Web App** (`web-app/`):
     -   **Frontend**: Vanilla JS, custom CSS, and HTML templates.
-    -   **Build System**: Python scripts (SSG) that consume the generated content and build 2,500+ SEO-optimized static HTML pages.
+    -   **Build System**: Node.js scripts (SSG) that consume the generated content and build 2,500+ SEO-optimized static HTML pages.
 
 ## Directory Structure
 
@@ -58,15 +58,11 @@ This generates the static website from the content in `concept-builder/output`.
 
 ```bash
 # Setup
-cd web-app
-pip install -r requirements.txt
 npm install
 
 # Build Site
-cd build
-python3 generate_static_pages.py
-python3 generate_language_landing.py
-python3 generate_sitemap.py
+./build.sh
+
 
 # The site is now in web-app/public/
 ```
@@ -90,7 +86,7 @@ cd web-app
 npm test
 ```
 *   Runs JSDOM tests for `script.js` (copy buttons, table logic).
-*   Runs Python unit tests for `generate_static_pages.py` (slugify logic).
+*   Runs Jest unit tests for `generator content` (checking static page output).
 
 ## Architecture
 
@@ -111,8 +107,9 @@ flowchart TD
 
 -   🔍 **21+ Languages**: Python, JS, Rust, Go, Java, Swift, Kotlin, etc.
 -   📚 **108+ Concepts**: Arrays, Loops, Classes, Async/Await, etc.
--   🎨 **Modern UI**: Dark mode, Syntax Highlighting (Highlight.js).
+-   🎨 **Modern UI**: Dark/Light mode toggle, Syntax Highlighting (Highlight.js).
 -   ⚡ **Performance**: 2,500+ pre-rendered static pages for SEO.
+-   ⭐ **GitHub CTA**: Integrated "Star on GitHub" call-to-action.
 -   🔎 **Interactive**: DataTables-powered search and filtering.
 
 ## Contributing

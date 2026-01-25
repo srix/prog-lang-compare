@@ -21,7 +21,9 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "@jest/globals": "^29.7.0",
+    "glob": "^13.0.0",
     "jest": "^29.7.0",
-    "jest-environment-jsdom": "^29.7.0"
+    "jest-environment-jsdom": "^29.7.0",
+    "js-yaml": "^4.1.1"
   }
 }

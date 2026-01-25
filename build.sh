@@ -1,22 +1,21 @@
 #!/bin/bash
-set -e
 
 echo "🔨 Building Programming Language Comparison Site"
 echo ""
 
-
-echo "Comparing build environment..."
-# Setup virtual environment
-if [ ! -d ".venv" ]; then
-    echo "Creating virtual environment..."
-    python3 -m venv .venv
+# Initialize build
+if [ ! -d "web-app/public" ]; then
+    mkdir -p web-app/public
 fi
-source .venv/bin/activate
 
-pip install -r web-app/requirements.txt
+# Install dependencies (only NPM needed now)
+echo "Installing NPM dependencies..."
+cd web-app
+npm install > /dev/null 2>&1
+cd ..
 
+# Copy static assets
 echo "Copying static assets..."
-mkdir -p web-app/public
 cp web-app/src/index.html web-app/public/
 cp web-app/src/css/styles.css web-app/public/
 cp web-app/src/js/script.js web-app/public/
@@ -24,39 +23,31 @@ cp web-app/src/js/theme.js web-app/public/
 cp web-app/src/assets/favicon.svg web-app/public/
 cp LICENSE web-app/public/
 
+# Copy data files for SPA fetch logic
 echo "Copying data files..."
-cp concept-builder/config/prog_lang_concepts.yaml web-app/public/
-cp concept-builder/config/prog_langs.yaml web-app/public/
 mkdir -p web-app/public/concepts-spa
-cp -r concept-builder/output/content-autogen/gpt_3_5_turbo/*.json web-app/public/concepts-spa/
 
-# echo "Step 0/4: Generating Content (Optional, skipped by default)"
-# # python concept-builder/src/main.py
+# Flatten the structure: copy all .json files from subdirectories to concepts-spa root
+find concept-builder/output/content-autogen/gpt_3_5_turbo -name "*.json" -exec cp {} web-app/public/concepts-spa/ \;
 
-cd "$(dirname "$0")/web-app/build"
+# Run SSG using Node.js scripts
+echo "Step 1/3: Generating language landing pages..."
+node web-app/build/generate_language_landing.js
 
-echo "Step 1/4: Generating language landing pages..."
-python3 generate_language_landing.py
+echo "Step 2/3: Generating static concept pages..."
+node web-app/build/generate_static_pages.js
 
-echo ""
-echo "Step 2/4: Generating static concept pages..."
-python3 generate_static_pages.py
+echo "Step 3/3: Generating sitemap..."
+node web-app/build/generate_sitemap.js
 
-echo ""
-echo "Step 3/4: Generating sitemap..."
-python3 generate_sitemap.py
-
-echo ""
-echo "Step 4/4: Counting generated pages..."
-cd ..
-PAGE_COUNT=$(find public/concepts -name '*.html' | wc -l)
-SITEMAP_SIZE=$(du -h public/sitemap.xml | cut -f1)
+# Count files
+FILE_COUNT=$(find web-app/public -name "*.html" | wc -l)
 
 echo ""
 echo "✅ Build complete!"
-echo "   📄 Generated $PAGE_COUNT pages"
-echo "   🗺️  Sitemap: docs/sitemap.xml ($SITEMAP_SIZE)"
+echo "   📄 Generated $FILE_COUNT pages"
+echo "   🗺️  Sitemap: web-app/public/sitemap.xml"
 echo ""
 echo "Preview locally:"
-echo "   cd docs && python -m http.server 8000"
-echo "   Then visit: http://localhost:8000"
+echo "   cd web-app/public && python3 -m http.server 8080"
+echo "   Then visit: http://localhost:8080"

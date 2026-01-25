@@ -223,12 +223,12 @@
 my $var1 = "Hello, world!";
 my $alias = \$var1;
 <p># Print the value of $var1 through the alias<br>
-print $$alias, "\n"; # Output: Hello, world!</p>
+print $alias, "\n"; # Output: Hello, world!</p>
 <p># Change the value of $var1 through the alias<br>
-$$alias = "Goodbye, cruel world!";<br>
+$alias = "Goodbye, cruel world!";<br>
 print $var1, "\n"; # Output: Goodbye, cruel world!<br>
 </code></pre></p>
-<p>In the example above, the <code>$alias</code> variable is assigned to a reference to <code>$var1</code>, meaning that it points to the same location in memory as <code>$var1</code>. By using the <code>$$</code> notation, the value of <code>$var1</code> can be accessed and modified through the <code>$alias</code>.</p>
+<p>In the example above, the <code>$alias</code> variable is assigned to a reference to <code>$var1</code>, meaning that it points to the same location in memory as <code>$var1</code>. By using the <code>$</code> notation, the value of <code>$var1</code> can be accessed and modified through the <code>$alias</code>.</p>
 <p>Alternatively, the same can be achieved using the <code>\</code> operator, as shown in the next example:</p>
 <pre><code class="language-perl"># Define a variable and an alias
 my $var1 = "Hello, world!";
