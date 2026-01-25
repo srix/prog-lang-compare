@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Programming Language Comparison - Side by Side Concept Reference</title>
+    <meta name="title" content="Programming Language Comparison - Side by Side Concept Reference">
+    <meta name="description" content="Compare programming concepts across 23+ languages side by side. Learn syntax differences for variables, loops, functions, classes, and more in Python, JavaScript, Rust, Java, Go, and other popular languages.">
+    <meta name="keywords" content="programming language comparison, syntax comparison, Python vs JavaScript, Rust vs Go, programming concepts, language reference, code examples, multi-language comparison">
+    <meta name="author" content="Prog Lang Compare">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://prog-lang-compare.netlify.app/">
+    <meta property="og:title" content="Programming Language Comparison - Side by Side Concept Reference">
+    <meta property="og:description" content="Compare programming concepts across 23+ languages side by side. Learn syntax differences for variables, loops, functions, classes, and more.">
+    <meta property="og:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+    <meta property="og:site_name" content="Prog Lang Compare">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://prog-lang-compare.netlify.app/">
+    <meta property="twitter:title" content="Programming Language Comparison - Side by Side Concept Reference">
+    <meta property="twitter:description" content="Compare programming concepts across 23+ languages side by side. Learn syntax differences for variables, loops, functions, classes, and more.">
+    <meta property="twitter:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://prog-lang-compare.netlify.app/">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V0E6QSYD2C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-V0E6QSYD2C');
+    </script>
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <!-- External Libraries CSS -->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+    <!-- Highlight.js theme is controlled by custom CSS -->
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- External Libraries JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/3.14.1/js-yaml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/3.0.8/marked.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+
+    <!-- Structured Data (Schema.org JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebApplication",
+                "name": "Prog Lang Compare",
+                "url": "https://prog-lang-compare.netlify.app/",
+                "description": "Compare programming concepts across 23+ languages side by side. Learn syntax differences for variables, loops, functions, classes, and more.",
+                "applicationCategory": "DeveloperApplication",
+                "operatingSystem": "Any",
+                "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "USD"
+                },
+                "author": {
+                    "@type": "Person",
+                    "name": "Prog Lang Compare"
+                }
+            },
+            {
+                "@type": "Dataset",
+                "name": "Programming Language Concepts Comparison Dataset",
+                "description": "AI-generated explanations and code examples for programming concepts across 23+ languages including Python, JavaScript, Rust, Java, Go, TypeScript, Ruby, Swift, Kotlin, and more.",
+                "url": "https://prog-lang-compare.netlify.app/",
+                "keywords": [
+                    "programming languages",
+                    "syntax comparison",
+                    "code examples",
+                    "Python",
+                    "JavaScript",
+                    "Rust",
+                    "Java",
+                    "Go",
+                    "TypeScript"
+                ],
+                "creator": {
+                    "@type": "Organization",
+                    "name": "Prog Lang Compare"
+                },
+                "license": "https://github.com/srix/prog-lang-compare",
+                "distribution": {
+                    "@type": "DataDownload",
+                    "contentUrl": "https://github.com/srix/prog-lang-compare"
+                }
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://prog-lang-compare.netlify.app/"
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Mobile Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
+
+    <!-- Dark Mode Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg id="sunIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+        <svg id="moonIcon" style="display: none;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+    </button>
+
+    <!-- Table of Contents Sidebar -->
+    <aside class="sidebar" role="navigation" aria-label="Table of Contents">
+        <div class="sidebar-header">
+            <h2>Concepts</h2>
+        </div>
+        <div id='toc'></div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="content">
+        <header>
+            <h1>Programming Language Comparison</h1>
+            <p>A side by side comparison of popular programming languages. The content is generated using AI. If you find the page useful leave a star rating at the github project <a href="https://github.com/srix/prog-lang-compare" target="_blank" rel="noopener noreferrer">here</a>.</p>
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <strong>21</strong> <span>Languages</span>
+                </div>
+                <div class="stat-item">
+                    <strong>108</strong> <span>Concepts</span>
+                </div>
+                <div class="stat-item">
+                    <strong>2,500+</strong> <span>Examples</span>
+                </div>
+            </div>
+        </header>
+
+        <nav id="toggle" aria-label="Language Selection">
+            <div class="language-header">
+                <strong>Select Languages</strong>
+            </div>
+            <div class="language-container">
+                <div class="language-pills" id="allLanguages">
+                    <!-- Language pills will be inserted here -->
+                </div>
+            </div>
+        </nav>
+
+        <section aria-label="Programming Concepts Comparison Table">
+            <table id="langTable" class="display" role="grid"></table>
+        </section>
+
+        <footer>
+            <p>© 2026 Programming Language Comparison | Licensed under <a href="LICENSE" target="_blank" rel="noopener noreferrer">Apache License 2.0</a></p>
+            <p>Content generated using AI | <a href="https://github.com/srix/prog-lang-compare" target="_blank" rel="noopener noreferrer">View on GitHub</a></p>
+        </footer>
+
+        <script src="script.js"></script>
+    </main>
+</body>
+</html>

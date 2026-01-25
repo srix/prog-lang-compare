@@ -11,7 +11,7 @@ from xml.etree.ElementTree import Element, SubElement, ElementTree
 import subprocess
 
 # Paths
-DOCS_DIR = os.path.join(os.path.dirname(__file__), '..', 'docs')
+DOCS_DIR = os.path.join(os.path.dirname(__file__), '..', 'public')
 CONCEPTS_DIR = os.path.join(DOCS_DIR, 'concepts')
 SITEMAP_FILE = os.path.join(DOCS_DIR, 'sitemap.xml')
 

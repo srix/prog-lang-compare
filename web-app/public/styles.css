@@ -1,0 +1,858 @@
+/* ========================================
+   CSS VARIABLES - DESIGN SYSTEM
+   ======================================== */
+:root {
+    /* Modern Blue Color Palette */
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+    --primary-light: #dbeafe;
+    --secondary: #64748b;
+    --accent: #8b5cf6;
+
+    /* Backgrounds */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8fafc;
+    --bg-tertiary: #f1f5f9;
+    --bg-sidebar: #ffffff;
+
+    /* Text */
+    --text-primary: #0f172a;
+    --text-secondary: #64748b;
+    --text-tertiary: #94a3b8;
+
+    /* Borders */
+    --border-color: #e2e8f0;
+    --border-radius: 12px;
+    --border-radius-sm: 6px;
+
+    /* Code */
+    --code-bg: #f1f5f9;
+    --code-border: #e2e8f0;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+    /* Spacing */
+    --sidebar-width: 240px;
+    --header-height: 80px;
+
+    /* Transitions */
+    --transition: all 0.2s ease;
+}
+
+/* Dark Mode Variables */
+[data-theme="dark"] {
+    --primary: #3b82f6;
+    --primary-hover: #2563eb;
+    --primary-light: #1e3a8a;
+
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-tertiary: #334155;
+    --bg-sidebar: #1e293b;
+
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
+    --text-tertiary: #94a3b8;
+
+    --border-color: #334155;
+
+    --code-bg: #1e293b;
+    --code-border: #334155;
+
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+}
+
+/* ========================================
+   BASE STYLES
+   ======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    line-height: 1.6;
+}
+
+/* ========================================
+   SIDEBAR
+   ======================================== */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    height: 100%;
+    background-color: var(--bg-sidebar);
+    border-right: 1px solid var(--border-color);
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 24px 16px;
+    z-index: 1000;
+    transition: var(--transition);
+    box-shadow: var(--shadow-md);
+}
+
+.sidebar-header {
+    padding: 0 8px 16px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 20px;
+}
+
+.sidebar-header h2 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Mobile Hamburger Menu */
+.menu-toggle {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1001;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius-sm);
+    padding: 10px 14px;
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+}
+
+.menu-toggle:hover {
+    background: var(--primary-hover);
+    transform: scale(1.05);
+}
+
+.menu-toggle svg {
+    width: 24px;
+    height: 24px;
+    display: block;
+    stroke: currentColor;
+}
+
+/* ========================================
+   MAIN CONTENT
+   ======================================== */
+.content {
+    margin-left: var(--sidebar-width);
+    padding: 32px;
+    transition: var(--transition);
+    min-height: 100vh;
+    position: relative;
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+header {
+    margin-bottom: 40px;
+    padding-bottom: 24px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+header h1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+header p {
+    color: var(--text-secondary);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+header a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+header a:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+}
+
+/* Stats Bar */
+.stats-bar {
+    display: flex;
+    gap: 24px;
+    margin-top: 16px;
+    padding: 16px 0;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.stat-item strong {
+    color: var(--primary);
+    font-size: 18px;
+}
+
+/* ========================================
+   DARK MODE TOGGLE
+   ======================================== */
+.theme-toggle {
+    position: absolute;
+    top: 32px;
+    right: 32px;
+    z-index: 100;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    padding: 8px 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+}
+
+.theme-toggle:hover {
+    background: var(--bg-secondary);
+    box-shadow: var(--shadow-md);
+}
+
+.theme-toggle svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--text-primary);
+    color: var(--text-primary);
+}
+
+/* ========================================
+   LANGUAGE SELECTION - COMPACT DESIGN
+   ======================================== */
+#toggle {
+    margin-bottom: 24px;
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.language-header {
+    padding: 16px 20px;
+    background: var(--bg-tertiary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.language-header strong {
+    color: var(--text-primary);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.language-container {
+    padding: 16px;
+}
+
+.language-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.toggle-vis {
+    display: inline-block;
+    padding: 6px 14px;
+    background: var(--bg-primary);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.toggle-vis:hover {
+    background: var(--primary-light);
+    color: var(--primary);
+    border-color: var(--primary);
+    transform: translateY(-1px);
+}
+
+.toggle-vis.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+    font-weight: 600;
+    box-shadow: var(--shadow-sm);
+}
+
+/* ========================================
+   TABLE STYLES
+   ======================================== */
+.dataTables_wrapper {
+    background: var(--bg-primary);
+    border-radius: var(--border-radius);
+    padding: 24px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+/* Ensure all DataTables text is visible in dark mode */
+.dataTables_wrapper * {
+    color: inherit;
+}
+
+.dataTables_wrapper label,
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_paginate,
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter {
+    color: var(--text-primary);
+}
+
+.dataTables_wrapper .dataTable {
+    table-layout: fixed;
+    word-wrap: break-word;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.dataTables_wrapper .dataTable thead tr {
+    background: var(--bg-tertiary);
+}
+
+.dataTables_wrapper .dataTable thead th {
+    padding: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    border-bottom: 2px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    background: var(--bg-tertiary);
+    z-index: 10;
+}
+
+.dataTables_wrapper .dataTable tbody tr {
+    transition: var(--transition);
+    border-bottom: 1px solid var(--border-color);
+    background: var(--bg-primary) !important;
+}
+
+.dataTables_wrapper .dataTable tbody tr.odd,
+.dataTables_wrapper .dataTable tbody tr.even {
+    background: var(--bg-primary) !important;
+}
+
+.dataTables_wrapper .dataTable tbody tr:hover {
+    background: var(--bg-secondary) !important;
+}
+
+/* Ensure anchor linking scrolls with offset */
+.dataTables_wrapper .dataTable tbody tr {
+    scroll-margin-top: 60px;
+}
+
+.dataTables_wrapper .dataTable td {
+    vertical-align: top;
+    padding: 16px;
+    color: var(--text-primary) !important;
+    background-color: transparent !important;
+}
+
+/* Ensure markdown content in table cells is visible */
+.dataTables_wrapper .dataTable td p,
+.dataTables_wrapper .dataTable td li,
+.dataTables_wrapper .dataTable td div,
+.dataTables_wrapper .dataTable td h1,
+.dataTables_wrapper .dataTable td h2,
+.dataTables_wrapper .dataTable td h3,
+.dataTables_wrapper .dataTable td h4,
+.dataTables_wrapper .dataTable td h5,
+.dataTables_wrapper .dataTable td h6 {
+    color: var(--text-primary);
+    background: transparent;
+}
+
+.dataTables_wrapper .dataTable td a {
+    color: var(--primary) !important;
+}
+
+.dataTables_wrapper .dataTable td a:hover {
+    color: var(--primary-hover) !important;
+}
+
+.dataTables_wrapper .dataTable td em {
+    color: inherit !important;
+}
+
+.dataTables_wrapper .dataTable td strong {
+    color: inherit !important;
+}
+
+.dataTables_wrapper .dataTable td ul,
+.dataTables_wrapper .dataTable td ol {
+    background: transparent;
+}
+
+.dataTables_wrapper .dataTables_filter {
+    float: left;
+    margin-bottom: 16px;
+}
+
+.dataTables_wrapper .dataTables_filter label {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.dataTables_wrapper .dataTables_filter input {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    padding: 8px 12px;
+    color: var(--text-primary);
+    margin-left: 8px;
+}
+
+.dataTables_wrapper .dataTables_filter input::placeholder {
+    color: var(--text-tertiary);
+    opacity: 0.7;
+}
+
+.dataTables_wrapper .dataTables_filter input:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* Additional DataTables UI elements for dark mode */
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_paginate {
+    color: var(--text-primary) !important;
+}
+
+.dataTables_wrapper .dataTables_length label,
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_paginate .paginate_button,
+.dataTables_wrapper .dataTables_processing {
+    color: var(--text-primary) !important;
+}
+
+.dataTables_wrapper .dataTables_length select {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    padding: 4px 8px;
+    color: var(--text-primary);
+    margin: 0 8px;
+}
+
+/* Force all text elements to use theme colors */
+.dataTables_wrapper .dataTables_filter label,
+.dataTables_wrapper .dataTables_filter input::placeholder {
+    color: var(--text-primary) !important;
+}
+
+/* ========================================
+   CODE BLOCKS
+   ======================================== */
+pre {
+    overflow-x: auto;
+    background-color: var(--code-bg) !important;
+    border: 1px solid var(--code-border);
+    border-radius: var(--border-radius-sm);
+    padding: 16px;
+    margin: 12px 0;
+    position: relative;
+}
+
+/* Code blocks inside table cells */
+.dataTables_wrapper .dataTable td pre {
+    background-color: var(--code-bg) !important;
+}
+
+/* Allow syntax highlighting in table cells */
+/* Allow syntax highlighting in table cells */
+.dataTables_wrapper .dataTable td code.hljs,
+.dataTables_wrapper .dataTable td code.hljs * {
+    color: inherit;
+}
+
+pre code {
+    font-family: 'Fira Code', 'JetBrains Mono', 'Cascadia Code', Consolas, monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text-primary);
+    display: block;
+    overflow-x: auto;
+}
+
+/* Base highlight.js styling for light mode */
+code.hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 1em;
+    color: #383a42 !important;
+    background: transparent !important;
+}
+
+.hljs-comment,
+.hljs-quote {
+    color: #a0a1a7 !important;
+    font-style: italic;
+}
+
+.hljs-doctag,
+.hljs-keyword,
+.hljs-formula {
+    color: #a626a4 !important;
+}
+
+.hljs-section,
+.hljs-name,
+.hljs-selector-tag,
+.hljs-deletion,
+.hljs-subst {
+    color: #e45649 !important;
+}
+
+.hljs-literal {
+    color: #0184bb !important;
+}
+
+.hljs-string,
+.hljs-regexp,
+.hljs-addition,
+.hljs-attribute,
+.hljs-meta .hljs-string {
+    color: #50a14f !important;
+}
+
+.hljs-attr,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-type,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-number {
+    color: #986801 !important;
+}
+
+.hljs-symbol,
+.hljs-bullet,
+.hljs-link,
+.hljs-meta,
+.hljs-selector-id,
+.hljs-title {
+    color: #4078f2 !important;
+}
+
+.hljs-built_in,
+.hljs-title.class_,
+.hljs-class .hljs-title {
+    color: #c18401 !important;
+}
+
+.hljs-emphasis {
+    font-style: italic;
+}
+
+.hljs-strong {
+    font-weight: bold;
+}
+
+.hljs-link {
+    text-decoration: underline;
+}
+
+/* Syntax highlighting for dark mode - One Dark theme */
+[data-theme="dark"] code.hljs {
+    color: #abb2bf !important;
+    background: transparent !important;
+}
+
+[data-theme="dark"] .hljs-comment,
+[data-theme="dark"] .hljs-quote {
+    color: #5c6370 !important;
+    font-style: italic;
+}
+
+[data-theme="dark"] .hljs-doctag,
+[data-theme="dark"] .hljs-keyword,
+[data-theme="dark"] .hljs-formula {
+    color: #c678dd !important;
+}
+
+[data-theme="dark"] .hljs-section,
+[data-theme="dark"] .hljs-name,
+[data-theme="dark"] .hljs-selector-tag,
+[data-theme="dark"] .hljs-deletion,
+[data-theme="dark"] .hljs-subst {
+    color: #e06c75 !important;
+}
+
+[data-theme="dark"] .hljs-literal {
+    color: #56b6c2 !important;
+}
+
+[data-theme="dark"] .hljs-string,
+[data-theme="dark"] .hljs-regexp,
+[data-theme="dark"] .hljs-addition,
+[data-theme="dark"] .hljs-attribute,
+[data-theme="dark"] .hljs-meta .hljs-string {
+    color: #98c379 !important;
+}
+
+[data-theme="dark"] .hljs-attr,
+[data-theme="dark"] .hljs-variable,
+[data-theme="dark"] .hljs-template-variable,
+[data-theme="dark"] .hljs-type,
+[data-theme="dark"] .hljs-selector-class,
+[data-theme="dark"] .hljs-selector-attr,
+[data-theme="dark"] .hljs-selector-pseudo,
+[data-theme="dark"] .hljs-number {
+    color: #d19a66 !important;
+}
+
+[data-theme="dark"] .hljs-symbol,
+[data-theme="dark"] .hljs-bullet,
+[data-theme="dark"] .hljs-link,
+[data-theme="dark"] .hljs-meta,
+[data-theme="dark"] .hljs-selector-id,
+[data-theme="dark"] .hljs-title {
+    color: #61afef !important;
+}
+
+[data-theme="dark"] .hljs-built_in,
+[data-theme="dark"] .hljs-title.class_,
+[data-theme="dark"] .hljs-class .hljs-title {
+    color: #e5c07b !important;
+}
+
+[data-theme="dark"] .hljs-emphasis {
+    font-style: italic;
+}
+
+[data-theme="dark"] .hljs-strong {
+    font-weight: bold;
+}
+
+[data-theme="dark"] .hljs-link {
+    text-decoration: underline;
+}
+
+/* Copy Button for Code Blocks */
+.code-block-wrapper {
+    position: relative;
+}
+
+.copy-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius-sm);
+    padding: 6px 12px;
+    font-size: 12px;
+    cursor: pointer;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.code-block-wrapper:hover .copy-button {
+    opacity: 1;
+}
+
+.copy-button:hover {
+    background: var(--primary-hover);
+}
+
+/* ========================================
+   TOC STYLES
+   ======================================== */
+#toc ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+#toc>ul>li {
+    margin-bottom: 8px;
+}
+
+#toc>ul>li>ul {
+    padding-left: 12px;
+    margin-top: 4px;
+}
+
+#toc>ul>li>ul>li {
+    margin-bottom: 4px;
+}
+
+#toc>ul>li:first-child {
+    font-weight: 600;
+    color: var(--text-primary);
+    padding: 8px;
+    background: var(--bg-tertiary);
+    border-radius: var(--border-radius-sm);
+    margin-bottom: 12px;
+}
+
+#toc a.toggle-vis {
+    display: block;
+    padding: 6px 12px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-radius: var(--border-radius-sm);
+    transition: var(--transition);
+    border: none;
+    background: transparent;
+    margin: 0;
+}
+
+#toc a.toggle-vis:hover {
+    background: var(--bg-tertiary);
+    color: var(--primary);
+    transform: translateX(4px);
+}
+
+#toc a.toggle-vis.active {
+    background: var(--primary-light);
+    color: var(--primary);
+    font-weight: 600;
+    border-left: 3px solid var(--primary);
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+footer {
+    margin-top: 60px;
+    padding-top: 24px;
+    border-top: 2px solid var(--border-color);
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+footer a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Error message styling */
+.error-message {
+    color: var(--text-tertiary);
+    font-style: italic;
+}
+
+/* Mobile Sidebar Overlay */
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar-overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .theme-toggle {
+        top: 24px;
+        right: 20px;
+    }
+
+    .sidebar {
+        transform: translateX(-100%);
+        box-shadow: none;
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .content {
+        margin-left: 0;
+        padding: 80px 16px 16px;
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    .stats-bar {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .dataTables_wrapper {
+        padding: 12px;
+        border-radius: var(--border-radius-sm);
+    }
+
+    .language-container {
+        padding: 12px;
+    }
+
+    .language-header {
+        padding: 12px 16px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .sidebar {
+        width: 220px;
+    }
+
+    .content {
+        margin-left: 220px;
+        padding: 24px;
+    }
+}

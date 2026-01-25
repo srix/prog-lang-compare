@@ -5,6 +5,24 @@ echo "🔨 Building Programming Language Comparison Site"
 echo ""
 
 
+echo "Comparing build environment..."
+# Setup virtual environment
+if [ ! -d ".venv" ]; then
+    echo "Creating virtual environment..."
+    python3 -m venv .venv
+fi
+source .venv/bin/activate
+
+pip install -r web-app/requirements.txt
+
+echo "Copying static assets..."
+mkdir -p web-app/public
+cp web-app/src/index.html web-app/public/
+cp web-app/src/css/styles.css web-app/public/
+cp web-app/src/js/script.js web-app/public/
+cp web-app/src/assets/favicon.svg web-app/public/
+cp LICENSE web-app/public/
+
 # echo "Step 0/4: Generating Content (Optional, skipped by default)"
 # # python concept-builder/src/main.py
 
