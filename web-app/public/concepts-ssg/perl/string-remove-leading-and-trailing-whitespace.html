@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Remove leading and trailing whitespace in Perl - Prog Lang Compare</title>
+    <meta name="title" content="Remove leading and trailing whitespace in Perl - Prog Lang Compare">
+    <meta name="description" content="Learn how to remove leading and trailing whitespace in Perl. See code examples and detailed explanations.">
+    <meta name="keywords" content="Perl, String Remove leading and trailing whitespace, programming, code examples, syntax, String">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://prog-lang-compare.netlify.app/concepts-ssg/perl/string-remove-leading-and-trailing-whitespace.html">
+    <meta property="og:title" content="Remove leading and trailing whitespace in Perl">
+    <meta property="og:description" content="Learn how to remove leading and trailing whitespace in Perl. See code examples and detailed explanations.">
+    <meta property="og:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://prog-lang-compare.netlify.app/concepts-ssg/perl/string-remove-leading-and-trailing-whitespace.html">
+    <meta property="twitter:title" content="Remove leading and trailing whitespace in Perl">
+    <meta property="twitter:description" content="Learn how to remove leading and trailing whitespace in Perl. See code examples and detailed explanations.">
+    <meta property="twitter:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://prog-lang-compare.netlify.app/concepts-ssg/perl/string-remove-leading-and-trailing-whitespace.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+    <!-- Inline Critical CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav.breadcrumb {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        nav.breadcrumb a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        nav.breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        nav.breadcrumb span {
+            color: #666;
+            margin: 0 5px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-left: 4px solid #0066cc;
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+        }
+
+        .content pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+        }
+
+        .content code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+
+        .content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .back-link {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .back-link a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Remove leading and trailing whitespace in Perl",
+        "description": "Learn how to remove leading and trailing whitespace in Perl. See code examples and detailed explanations.",
+        "keywords": "Perl, String Remove leading and trailing whitespace, programming",
+        "url": "https://prog-lang-compare.netlify.app/concepts-ssg/perl/string-remove-leading-and-trailing-whitespace.html",
+        "datePublished": "2023-06-09",
+        "dateModified": "2026-01-25",
+        "author": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare",
+            "url": "https://prog-lang-compare.netlify.app"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://prog-lang-compare.netlify.app/concepts-ssg/perl/string-remove-leading-and-trailing-whitespace.html"
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span>›</span>
+            <a href="../perl.html">Perl</a>
+            <span>›</span>
+            <span>String Remove leading and trailing whitespace</span>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <h1>Remove leading and trailing whitespace in Perl</h1>
+
+            <div class="meta">
+                <strong>Category:</strong> String |
+                <strong>Language:</strong> Perl
+            </div>
+
+            <article class="content">
+                <p>Sure, here's an explanation with examples:</p>
+<p>In Perl, to remove leading and trailing whitespaces from a string, you can use the <code>s/^\s+|\s+$//g</code> regular expression substitution operator. This replaces all leading (<code>^\s+</code>) and trailing (<code>\s+$</code>) whitespaces with an empty string (<code>''</code>).</p>
+<p>For example, consider the following Perl code:</p>
+<pre><code class="language-perl">my $string = "  Hello, world!   ";
+$string =~ s/^\s+|\s+$//g;
+<p>print "String with leading and trailing whitespaces removed: '$string'\n";<br>
+</code></pre></p>
+<p>Output:</p>
+<pre><code class="language-">String with leading and trailing whitespaces removed: 'Hello, world!'
+</code></pre>
+<p>In this example, the <code>s/^\s+|\s+$//g</code> operator matches the leading and trailing whitespaces in the string <code>"  Hello, world!   "</code>, and replaces them with an empty string, resulting in the string <code>"Hello, world!"</code>.</p>
+<p>Note that the <code>g</code> modifier at the end of the substitution operator means that it should replace all occurrences of the pattern in the string, not just the first one. If you omit it, only the first occurrence will be replaced.</p>
+<p>I hope this helps! Let me know if you have any questions.</p>
+            </article>
+
+            
+            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
+                <h2 style="font-size: 20px; margin-bottom: 15px; color: #2c3e50;">See this concept in other languages</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
+                    <a href="../python-310/string-remove-leading-and-trailing-whitespace.html">Python 3.10</a><a href="../java-20/string-remove-leading-and-trailing-whitespace.html">Java 20</a><a href="../rust-155/string-remove-leading-and-trailing-whitespace.html">Rust 1.55</a><a href="../haskell/string-remove-leading-and-trailing-whitespace.html">Haskell</a><a href="../javascript-ecmascript-2021/string-remove-leading-and-trailing-whitespace.html">JavaScript - ECMAScript 2021</a><a href="../php/string-remove-leading-and-trailing-whitespace.html">PHP</a><a href="../typescript/string-remove-leading-and-trailing-whitespace.html">TypeScript</a><a href="../ruby/string-remove-leading-and-trailing-whitespace.html">Ruby</a><a href="../swift/string-remove-leading-and-trailing-whitespace.html">Swift</a><a href="../kotlin/string-remove-leading-and-trailing-whitespace.html">Kotlin</a><a href="../go/string-remove-leading-and-trailing-whitespace.html">Go</a><a href="../r/string-remove-leading-and-trailing-whitespace.html">R</a><a href="../matlab/string-remove-leading-and-trailing-whitespace.html">MATLAB</a><a href="../lua/string-remove-leading-and-trailing-whitespace.html">Lua</a><a href="../scala/string-remove-leading-and-trailing-whitespace.html">Scala</a><a href="../groovy/string-remove-leading-and-trailing-whitespace.html">Groovy</a><a href="../dart/string-remove-leading-and-trailing-whitespace.html">Dart</a><a href="../julia/string-remove-leading-and-trailing-whitespace.html">Julia</a><a href="../objective-c/string-remove-leading-and-trailing-whitespace.html">Objective-C</a><a href="../visual-basic-net/string-remove-leading-and-trailing-whitespace.html">Visual Basic .NET</a>
+                </div>
+                <style>
+                    .related-concepts a {
+                        padding: 8px 12px;
+                        background: #f5f5f5;
+                        border-radius: 4px;
+                        text-decoration: none;
+                        color: #0066cc;
+                        display: inline-block;
+                        text-align: center;
+                        transition: background 0.2s, transform 0.2s;
+                    }
+                    .related-concepts a:hover {
+                        background: #e5e7eb;
+                        transform: translateY(-2px);
+                    }
+                </style>
+            </section>
+
+
+            <div class="back-link">
+                <a href="../../index.html">← Back to Full Comparison Table</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>Content generated using AI | <a href="https://github.com/srix/prog-lang-compare" target="_blank"
+                    rel="noopener noreferrer">View on GitHub</a></p>
+        </footer>
+    </div>
+</body>
+
+</html>

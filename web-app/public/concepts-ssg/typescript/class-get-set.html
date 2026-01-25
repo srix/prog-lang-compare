@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Get set in TypeScript - Prog Lang Compare</title>
+    <meta name="title" content="Get set in TypeScript - Prog Lang Compare">
+    <meta name="description" content="Learn how to get set in TypeScript. See code examples and detailed explanations.">
+    <meta name="keywords" content="TypeScript, Class Get set, programming, code examples, syntax, Class">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://prog-lang-compare.netlify.app/concepts-ssg/typescript/class-get-set.html">
+    <meta property="og:title" content="Get set in TypeScript">
+    <meta property="og:description" content="Learn how to get set in TypeScript. See code examples and detailed explanations.">
+    <meta property="og:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://prog-lang-compare.netlify.app/concepts-ssg/typescript/class-get-set.html">
+    <meta property="twitter:title" content="Get set in TypeScript">
+    <meta property="twitter:description" content="Learn how to get set in TypeScript. See code examples and detailed explanations.">
+    <meta property="twitter:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://prog-lang-compare.netlify.app/concepts-ssg/typescript/class-get-set.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+    <!-- Inline Critical CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav.breadcrumb {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        nav.breadcrumb a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        nav.breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        nav.breadcrumb span {
+            color: #666;
+            margin: 0 5px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-left: 4px solid #0066cc;
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+        }
+
+        .content pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+        }
+
+        .content code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+
+        .content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .back-link {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .back-link a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Get set in TypeScript",
+        "description": "Learn how to get set in TypeScript. See code examples and detailed explanations.",
+        "keywords": "TypeScript, Class Get set, programming",
+        "url": "https://prog-lang-compare.netlify.app/concepts-ssg/typescript/class-get-set.html",
+        "datePublished": "2023-06-09",
+        "dateModified": "2026-01-25",
+        "author": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare",
+            "url": "https://prog-lang-compare.netlify.app"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://prog-lang-compare.netlify.app/concepts-ssg/typescript/class-get-set.html"
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span>›</span>
+            <a href="../typescript.html">TypeScript</a>
+            <span>›</span>
+            <span>Class Get set</span>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <h1>Get set in TypeScript</h1>
+
+            <div class="meta">
+                <strong>Category:</strong> Class |
+                <strong>Language:</strong> TypeScript
+            </div>
+
+            <article class="content">
+                <p>In TypeScript, we can use get/set to define a property in the class. This property can be accessed using a getter and a setter function.</p>
+<p>Here's an example:</p>
+<pre><code class="language-typescript">class Person {
+  private _age: number;
+<p>get age(): number {<br>
+    return this._age;<br>
+  }</p>
+<p>set age(value: number) {<br>
+    if (value < 0) {<br>
+      console.error('Age can not be negative');<br>
+    } else {<br>
+      this._age = value;<br>
+    }<br>
+  }<br>
+}</p>
+<p>const john = new Person();<br>
+john.age = -10; // outputs 'Age can not be negative' to console<br>
+john.age = 20; // sets john's age to 20<br>
+console.log(john.age); // logs 20 to console<br>
+</code></pre></p>
+<p>In the example above, we have defined a private property <code>_age</code> and a public property <code>age</code> using get/set. When we set the value of <code>age</code>, it triggers the <code>set</code> function, which checks whether the value is negative or not. If it is negative, it outputs an error message to the console. If not, it sets the value of <code>_age</code>. When we get the value of <code>age</code>, it triggers the <code>get</code> function, which simply returns the value of <code>_age</code>.</p>
+            </article>
+
+            
+            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
+                <h2 style="font-size: 20px; margin-bottom: 15px; color: #2c3e50;">See this concept in other languages</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
+                    <a href="../python-310/class-get-set.html">Python 3.10</a><a href="../java-20/class-get-set.html">Java 20</a><a href="../rust-155/class-get-set.html">Rust 1.55</a><a href="../haskell/class-get-set.html">Haskell</a><a href="../javascript-ecmascript-2021/class-get-set.html">JavaScript - ECMAScript 2021</a><a href="../php/class-get-set.html">PHP</a><a href="../ruby/class-get-set.html">Ruby</a><a href="../swift/class-get-set.html">Swift</a><a href="../kotlin/class-get-set.html">Kotlin</a><a href="../go/class-get-set.html">Go</a><a href="../r/class-get-set.html">R</a><a href="../perl/class-get-set.html">Perl</a><a href="../matlab/class-get-set.html">MATLAB</a><a href="../lua/class-get-set.html">Lua</a><a href="../scala/class-get-set.html">Scala</a><a href="../groovy/class-get-set.html">Groovy</a><a href="../dart/class-get-set.html">Dart</a><a href="../julia/class-get-set.html">Julia</a><a href="../objective-c/class-get-set.html">Objective-C</a><a href="../visual-basic-net/class-get-set.html">Visual Basic .NET</a>
+                </div>
+                <style>
+                    .related-concepts a {
+                        padding: 8px 12px;
+                        background: #f5f5f5;
+                        border-radius: 4px;
+                        text-decoration: none;
+                        color: #0066cc;
+                        display: inline-block;
+                        text-align: center;
+                        transition: background 0.2s, transform 0.2s;
+                    }
+                    .related-concepts a:hover {
+                        background: #e5e7eb;
+                        transform: translateY(-2px);
+                    }
+                </style>
+            </section>
+
+
+            <div class="back-link">
+                <a href="../../index.html">← Back to Full Comparison Table</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>Content generated using AI | <a href="https://github.com/srix/prog-lang-compare" target="_blank"
+                    rel="noopener noreferrer">View on GitHub</a></p>
+        </footer>
+    </div>
+</body>
+
+</html>

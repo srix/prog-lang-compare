@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Regex in Dart - Prog Lang Compare</title>
+    <meta name="title" content="Regex in Dart - Prog Lang Compare">
+    <meta name="description" content="Learn how to regex in Dart. See code examples and detailed explanations.">
+    <meta name="keywords" content="Dart, String Regex, programming, code examples, syntax, String">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://prog-lang-compare.netlify.app/concepts-ssg/dart/string-regex.html">
+    <meta property="og:title" content="Regex in Dart">
+    <meta property="og:description" content="Learn how to regex in Dart. See code examples and detailed explanations.">
+    <meta property="og:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://prog-lang-compare.netlify.app/concepts-ssg/dart/string-regex.html">
+    <meta property="twitter:title" content="Regex in Dart">
+    <meta property="twitter:description" content="Learn how to regex in Dart. See code examples and detailed explanations.">
+    <meta property="twitter:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://prog-lang-compare.netlify.app/concepts-ssg/dart/string-regex.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+    <!-- Inline Critical CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav.breadcrumb {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        nav.breadcrumb a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        nav.breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        nav.breadcrumb span {
+            color: #666;
+            margin: 0 5px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-left: 4px solid #0066cc;
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+        }
+
+        .content pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+        }
+
+        .content code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+
+        .content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .back-link {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .back-link a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Regex in Dart",
+        "description": "Learn how to regex in Dart. See code examples and detailed explanations.",
+        "keywords": "Dart, String Regex, programming",
+        "url": "https://prog-lang-compare.netlify.app/concepts-ssg/dart/string-regex.html",
+        "datePublished": "2023-06-09",
+        "dateModified": "2026-01-25",
+        "author": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare",
+            "url": "https://prog-lang-compare.netlify.app"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://prog-lang-compare.netlify.app/concepts-ssg/dart/string-regex.html"
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span>›</span>
+            <a href="../dart.html">Dart</a>
+            <span>›</span>
+            <span>String Regex</span>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <h1>Regex in Dart</h1>
+
+            <div class="meta">
+                <strong>Category:</strong> String |
+                <strong>Language:</strong> Dart
+            </div>
+
+            <article class="content">
+                <p>Regular Expressions (regex) are a powerful tool used to match patterns in strings. In Dart, the <code>RegExp</code> class is used to define a regular expression pattern. Here is an example of defining a regular expression pattern:</p>
+<pre><code class="language-dart">RegExp pattern = RegExp(r'ab+c');
+</code></pre>
+<p>This pattern will match any string that starts with an 'a', followed by one or more 'b's, and ends with a 'c'.</p>
+<p>To use this pattern to match a string, we can call the <code>hasMatch()</code> method of the <code>RegExp</code> class, passing in the string we want to match:</p>
+<pre><code class="language-dart">bool matches = pattern.hasMatch('abbccc');
+<p>print(matches); // true<br>
+</code></pre></p>
+<p>In addition to the <code>hasMatch()</code> method, there are several other methods we can use to work with regular expressions:</p>
+<p>- <code>allMatches()</code> - returns an iterable of all matches in a string<br>
+- <code>firstMatch()</code> - returns the first match in a string<br>
+- <code>stringMatch()</code> - returns the matched string of the first match in a string</p>
+<p>Here is an example of using <code>allMatches()</code> to find all occurrences of a pattern in a string:</p>
+<pre><code class="language-dart">RegExp pattern = RegExp(r'\d+');
+String text = 'There are 100 apples and 200 pears.';
+<p>Iterable<Match> matches = pattern.allMatches(text);</p>
+<p>for (Match match in matches) {<br>
+  print('${match.start} - ${match.end}: ${match.group(0)}');<br>
+}<br>
+</code></pre></p>
+<p>This will output:</p>
+<pre><code class="language-">10 - 13: 100
+28 - 31: 200
+</code></pre>
+<p>In this example, we're using the <code>\d+</code> regular expression pattern to match one or more digits, and then calling the <code>allMatches()</code> method to find all occurrences of this pattern in the text. We then loop over each match and print out the start and end position of the match, as well as the matched string itself (which we get using the <code>group(0)</code> method of the <code>Match</code> object).</p>
+<p>Regular expressions can be complex, but they are also very powerful. They can be used to match a wide variety of patterns in strings, and Dart's <code>RegExp</code> class provides a simple way of incorporating regular expressions into your Dart code.</p>
+            </article>
+
+            
+            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
+                <h2 style="font-size: 20px; margin-bottom: 15px; color: #2c3e50;">See this concept in other languages</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
+                    <a href="../python-310/string-regex.html">Python 3.10</a><a href="../java-20/string-regex.html">Java 20</a><a href="../rust-155/string-regex.html">Rust 1.55</a><a href="../haskell/string-regex.html">Haskell</a><a href="../javascript-ecmascript-2021/string-regex.html">JavaScript - ECMAScript 2021</a><a href="../php/string-regex.html">PHP</a><a href="../typescript/string-regex.html">TypeScript</a><a href="../ruby/string-regex.html">Ruby</a><a href="../swift/string-regex.html">Swift</a><a href="../kotlin/string-regex.html">Kotlin</a><a href="../go/string-regex.html">Go</a><a href="../r/string-regex.html">R</a><a href="../perl/string-regex.html">Perl</a><a href="../matlab/string-regex.html">MATLAB</a><a href="../lua/string-regex.html">Lua</a><a href="../scala/string-regex.html">Scala</a><a href="../groovy/string-regex.html">Groovy</a><a href="../julia/string-regex.html">Julia</a><a href="../objective-c/string-regex.html">Objective-C</a><a href="../visual-basic-net/string-regex.html">Visual Basic .NET</a>
+                </div>
+                <style>
+                    .related-concepts a {
+                        padding: 8px 12px;
+                        background: #f5f5f5;
+                        border-radius: 4px;
+                        text-decoration: none;
+                        color: #0066cc;
+                        display: inline-block;
+                        text-align: center;
+                        transition: background 0.2s, transform 0.2s;
+                    }
+                    .related-concepts a:hover {
+                        background: #e5e7eb;
+                        transform: translateY(-2px);
+                    }
+                </style>
+            </section>
+
+
+            <div class="back-link">
+                <a href="../../index.html">← Back to Full Comparison Table</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>Content generated using AI | <a href="https://github.com/srix/prog-lang-compare" target="_blank"
+                    rel="noopener noreferrer">View on GitHub</a></p>
+        </footer>
+    </div>
+</body>
+
+</html>

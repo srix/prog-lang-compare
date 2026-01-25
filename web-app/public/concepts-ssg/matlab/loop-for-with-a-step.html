@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>For with a step in MATLAB - Prog Lang Compare</title>
+    <meta name="title" content="For with a step in MATLAB - Prog Lang Compare">
+    <meta name="description" content="Learn how to for with a step in MATLAB. See code examples and detailed explanations.">
+    <meta name="keywords" content="MATLAB, Loop For with a step, programming, code examples, syntax, Loop">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://prog-lang-compare.netlify.app/concepts-ssg/matlab/loop-for-with-a-step.html">
+    <meta property="og:title" content="For with a step in MATLAB">
+    <meta property="og:description" content="Learn how to for with a step in MATLAB. See code examples and detailed explanations.">
+    <meta property="og:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://prog-lang-compare.netlify.app/concepts-ssg/matlab/loop-for-with-a-step.html">
+    <meta property="twitter:title" content="For with a step in MATLAB">
+    <meta property="twitter:description" content="Learn how to for with a step in MATLAB. See code examples and detailed explanations.">
+    <meta property="twitter:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://prog-lang-compare.netlify.app/concepts-ssg/matlab/loop-for-with-a-step.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+    <!-- Inline Critical CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav.breadcrumb {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        nav.breadcrumb a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        nav.breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        nav.breadcrumb span {
+            color: #666;
+            margin: 0 5px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-left: 4px solid #0066cc;
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+        }
+
+        .content pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+        }
+
+        .content code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+
+        .content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .back-link {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .back-link a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "For with a step in MATLAB",
+        "description": "Learn how to for with a step in MATLAB. See code examples and detailed explanations.",
+        "keywords": "MATLAB, Loop For with a step, programming",
+        "url": "https://prog-lang-compare.netlify.app/concepts-ssg/matlab/loop-for-with-a-step.html",
+        "datePublished": "2023-06-09",
+        "dateModified": "2026-01-25",
+        "author": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare",
+            "url": "https://prog-lang-compare.netlify.app"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://prog-lang-compare.netlify.app/concepts-ssg/matlab/loop-for-with-a-step.html"
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span>›</span>
+            <a href="../matlab.html">MATLAB</a>
+            <span>›</span>
+            <span>Loop For with a step</span>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <h1>For with a step in MATLAB</h1>
+
+            <div class="meta">
+                <strong>Category:</strong> Loop |
+                <strong>Language:</strong> MATLAB
+            </div>
+
+            <article class="content">
+                <p>In MATLAB, the <code>for</code> loop is used to repeat a specific block of code a fixed number of times. A loop index is used to control the number of iterations of the loop. <code>for</code> has the following syntax:</p>
+<pre><code class="language-">for loopIndex = 1:step:maxIndex
+    % statements to be executed
+end
+</code></pre>
+<p>Here, <code>loopIndex</code> is the iterative variable that takes on values from <code>1</code> to <code>maxIndex</code> in steps of <code>step</code>. The statements within the loop are executed repeatedly until <code>loopIndex</code> reaches <code>maxIndex</code>.</p>
+<p>For example, let's say we want to display the numbers between 1 and 10, incrementing by 2. We can write the following code:</p>
+<pre><code class="language-">for i = 1:2:10
+    disp(i);
+end
+</code></pre>
+<p>The output would be:</p>
+<pre><code class="language-">1
+3
+5
+7
+9
+</code></pre>
+<p>Here, the index variable <code>i</code> takes on the values <code>1</code>, <code>3</code>, <code>5</code>, <code>7</code>, and <code>9</code> in steps of <code>2</code> and the <code>disp(i)</code> statement displays the value of <code>i</code> in each iteration.</p>
+<p>Another example is if we want to create a vector of even numbers from <code>2</code> to <code>20</code>, we can use the following code:</p>
+<pre><code class="language-">evenNum = zeros(1,10); % allocate a vector to store the even numbers
+n = 2; % initialize the starting number
+for i = 1:10
+    evenNum(i) = n;
+    n = n + 2; % increment by 2
+end
+disp(evenNum);
+</code></pre>
+<p>The output would be:</p>
+<pre><code class="language-">2 4 6 8 10 12 14 16 18 20
+</code></pre>
+<p>Here, we create a vector <code>evenNum</code> of size <code>1x10</code> using the <code>zeros</code> function, initialize <code>n</code> to <code>2</code>, and then use the for loop to iterate 10 times. In each iteration, we assign the value of <code>n</code> to the <code>i-th</code> element of the <code>evenNum</code> vector and then increment <code>n</code> by 2 for the next iteration. Finally, we display the <code>evenNum</code> vector using the <code>disp</code> function.</p>
+            </article>
+
+            
+            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
+                <h2 style="font-size: 20px; margin-bottom: 15px; color: #2c3e50;">See this concept in other languages</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
+                    <a href="../python-310/loop-for-with-a-step.html">Python 3.10</a><a href="../java-20/loop-for-with-a-step.html">Java 20</a><a href="../rust-155/loop-for-with-a-step.html">Rust 1.55</a><a href="../haskell/loop-for-with-a-step.html">Haskell</a><a href="../javascript-ecmascript-2021/loop-for-with-a-step.html">JavaScript - ECMAScript 2021</a><a href="../php/loop-for-with-a-step.html">PHP</a><a href="../typescript/loop-for-with-a-step.html">TypeScript</a><a href="../ruby/loop-for-with-a-step.html">Ruby</a><a href="../swift/loop-for-with-a-step.html">Swift</a><a href="../kotlin/loop-for-with-a-step.html">Kotlin</a><a href="../go/loop-for-with-a-step.html">Go</a><a href="../r/loop-for-with-a-step.html">R</a><a href="../perl/loop-for-with-a-step.html">Perl</a><a href="../lua/loop-for-with-a-step.html">Lua</a><a href="../scala/loop-for-with-a-step.html">Scala</a><a href="../groovy/loop-for-with-a-step.html">Groovy</a><a href="../dart/loop-for-with-a-step.html">Dart</a><a href="../julia/loop-for-with-a-step.html">Julia</a><a href="../objective-c/loop-for-with-a-step.html">Objective-C</a><a href="../visual-basic-net/loop-for-with-a-step.html">Visual Basic .NET</a>
+                </div>
+                <style>
+                    .related-concepts a {
+                        padding: 8px 12px;
+                        background: #f5f5f5;
+                        border-radius: 4px;
+                        text-decoration: none;
+                        color: #0066cc;
+                        display: inline-block;
+                        text-align: center;
+                        transition: background 0.2s, transform 0.2s;
+                    }
+                    .related-concepts a:hover {
+                        background: #e5e7eb;
+                        transform: translateY(-2px);
+                    }
+                </style>
+            </section>
+
+
+            <div class="back-link">
+                <a href="../../index.html">← Back to Full Comparison Table</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>Content generated using AI | <a href="https://github.com/srix/prog-lang-compare" target="_blank"
+                    rel="noopener noreferrer">View on GitHub</a></p>
+        </footer>
+    </div>
+</body>
+
+</html>

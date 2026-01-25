@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Inheritance in Swift - Prog Lang Compare</title>
+    <meta name="title" content="Inheritance in Swift - Prog Lang Compare">
+    <meta name="description" content="Learn how to inheritance in Swift. See code examples and detailed explanations.">
+    <meta name="keywords" content="Swift, Class Inheritance, programming, code examples, syntax, Class">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://prog-lang-compare.netlify.app/concepts-ssg/swift/class-inheritance.html">
+    <meta property="og:title" content="Inheritance in Swift">
+    <meta property="og:description" content="Learn how to inheritance in Swift. See code examples and detailed explanations.">
+    <meta property="og:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://prog-lang-compare.netlify.app/concepts-ssg/swift/class-inheritance.html">
+    <meta property="twitter:title" content="Inheritance in Swift">
+    <meta property="twitter:description" content="Learn how to inheritance in Swift. See code examples and detailed explanations.">
+    <meta property="twitter:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://prog-lang-compare.netlify.app/concepts-ssg/swift/class-inheritance.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+    <!-- Inline Critical CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav.breadcrumb {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        nav.breadcrumb a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        nav.breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        nav.breadcrumb span {
+            color: #666;
+            margin: 0 5px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-left: 4px solid #0066cc;
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+        }
+
+        .content pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+        }
+
+        .content code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+
+        .content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .back-link {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .back-link a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Inheritance in Swift",
+        "description": "Learn how to inheritance in Swift. See code examples and detailed explanations.",
+        "keywords": "Swift, Class Inheritance, programming",
+        "url": "https://prog-lang-compare.netlify.app/concepts-ssg/swift/class-inheritance.html",
+        "datePublished": "2023-06-09",
+        "dateModified": "2026-01-25",
+        "author": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare",
+            "url": "https://prog-lang-compare.netlify.app"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://prog-lang-compare.netlify.app/concepts-ssg/swift/class-inheritance.html"
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span>›</span>
+            <a href="../swift.html">Swift</a>
+            <span>›</span>
+            <span>Class Inheritance</span>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <h1>Inheritance in Swift</h1>
+
+            <div class="meta">
+                <strong>Category:</strong> Class |
+                <strong>Language:</strong> Swift
+            </div>
+
+            <article class="content">
+                <p>Inheritance is a mechanism in object-oriented programming that allows you to define a new class based on an existing class, in which the new class inherits all the properties and methods of the existing class. In Swift, you can use the <code>class</code> keyword to define a class, and the <code>super</code> keyword to refer to the superclass.</p>
+<p>Here is an example of a <code>Vehicle</code> class that contains basic properties and methods that describe a vehicle:</p>
+<pre><code class="language-swift">class Vehicle {
+    var brand: String
+    var model: String
+    var year: Int
+<p>init(brand: String, model: String, year: Int) {<br>
+        self.brand = brand<br>
+        self.model = model<br>
+        self.year = year<br>
+    }</p>
+<p>func startEngine() {<br>
+        print("Starting the engine of \(brand) \(model)")<br>
+    }</p>
+<p>func stopEngine() {<br>
+        print("Stopping the engine of \(brand) \(model)")<br>
+    }</p>
+<p>func drive() {<br>
+        print("Driving \(brand) \(model)")<br>
+    }<br>
+}<br>
+</code></pre></p>
+<p>Now, let's say we want to create a <code>Car</code> class that is a subclass of <code>Vehicle</code>. We can do this by using the <code>class</code> keyword followed by the subclass name, and then specifying the superclass name using a colon and the superclass name:</p>
+<pre><code class="language-swift">class Car: Vehicle {
+    var numWheels: Int
+<p>init(numWheels: Int, brand: String, model: String, year: Int) {<br>
+        self.numWheels = numWheels<br>
+        super.init(brand: brand, model: model, year: year)<br>
+    }</p>
+<p>func honk() {<br>
+        print("Honking the horn of \(brand) \(model)")<br>
+    }<br>
+}<br>
+</code></pre></p>
+<p>In this subclass, we've added a new property <code>numWheels</code>, and a new method <code>honk()</code>. We've also added an <code>init</code> method that takes in arguments for both the subclass and superclass properties, and calls the superclass <code>init</code> method using <code>super.init()</code>. This ensures that the superclass properties are initialized before the subclass properties.</p>
+<p>Now, we can create a <code>Car</code> object:</p>
+<pre><code class="language-swift">let myCar = Car(numWheels: 4, brand: "Toyota", model: "Camry", year: 2020)
+</code></pre>
+<p>We can access the superclass methods and properties using the <code>super</code> keyword:</p>
+<pre><code class="language-swift">myCar.startEngine() // prints "Starting the engine of Toyota Camry"
+myCar.stopEngine() // prints "Stopping the engine of Toyota Camry"
+myCar.drive() // prints "Driving Toyota Camry"
+</code></pre>
+<p>And, we can access the subclass properties and methods:</p>
+<pre><code class="language-swift">myCar.honk() // prints "Honking the horn of Toyota Camry"
+print(myCar.numWheels) // prints 4
+</code></pre>
+            </article>
+
+            
+            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
+                <h2 style="font-size: 20px; margin-bottom: 15px; color: #2c3e50;">See this concept in other languages</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
+                    <a href="../python-310/class-inheritance.html">Python 3.10</a><a href="../java-20/class-inheritance.html">Java 20</a><a href="../rust-155/class-inheritance.html">Rust 1.55</a><a href="../haskell/class-inheritance.html">Haskell</a><a href="../javascript-ecmascript-2021/class-inheritance.html">JavaScript - ECMAScript 2021</a><a href="../php/class-inheritance.html">PHP</a><a href="../typescript/class-inheritance.html">TypeScript</a><a href="../ruby/class-inheritance.html">Ruby</a><a href="../kotlin/class-inheritance.html">Kotlin</a><a href="../go/class-inheritance.html">Go</a><a href="../r/class-inheritance.html">R</a><a href="../perl/class-inheritance.html">Perl</a><a href="../matlab/class-inheritance.html">MATLAB</a><a href="../lua/class-inheritance.html">Lua</a><a href="../scala/class-inheritance.html">Scala</a><a href="../groovy/class-inheritance.html">Groovy</a><a href="../dart/class-inheritance.html">Dart</a><a href="../julia/class-inheritance.html">Julia</a><a href="../objective-c/class-inheritance.html">Objective-C</a><a href="../visual-basic-net/class-inheritance.html">Visual Basic .NET</a>
+                </div>
+                <style>
+                    .related-concepts a {
+                        padding: 8px 12px;
+                        background: #f5f5f5;
+                        border-radius: 4px;
+                        text-decoration: none;
+                        color: #0066cc;
+                        display: inline-block;
+                        text-align: center;
+                        transition: background 0.2s, transform 0.2s;
+                    }
+                    .related-concepts a:hover {
+                        background: #e5e7eb;
+                        transform: translateY(-2px);
+                    }
+                </style>
+            </section>
+
+
+            <div class="back-link">
+                <a href="../../index.html">← Back to Full Comparison Table</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>Content generated using AI | <a href="https://github.com/srix/prog-lang-compare" target="_blank"
+                    rel="noopener noreferrer">View on GitHub</a></p>
+        </footer>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>structure Struct in Julia - Prog Lang Compare</title>
+    <meta name="title" content="structure Struct in Julia - Prog Lang Compare">
+    <meta name="description" content="Learn how to structure struct in Julia. See code examples and detailed explanations.">
+    <meta name="keywords" content="Julia, Other structure Struct, programming, code examples, syntax, Other structure">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://prog-lang-compare.netlify.app/concepts-ssg/julia/other-structure-struct.html">
+    <meta property="og:title" content="structure Struct in Julia">
+    <meta property="og:description" content="Learn how to structure struct in Julia. See code examples and detailed explanations.">
+    <meta property="og:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://prog-lang-compare.netlify.app/concepts-ssg/julia/other-structure-struct.html">
+    <meta property="twitter:title" content="structure Struct in Julia">
+    <meta property="twitter:description" content="Learn how to structure struct in Julia. See code examples and detailed explanations.">
+    <meta property="twitter:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://prog-lang-compare.netlify.app/concepts-ssg/julia/other-structure-struct.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+    <!-- Inline Critical CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav.breadcrumb {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        nav.breadcrumb a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        nav.breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        nav.breadcrumb span {
+            color: #666;
+            margin: 0 5px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-left: 4px solid #0066cc;
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+        }
+
+        .content pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+        }
+
+        .content code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+
+        .content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .back-link {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .back-link a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "structure Struct in Julia",
+        "description": "Learn how to structure struct in Julia. See code examples and detailed explanations.",
+        "keywords": "Julia, Other structure Struct, programming",
+        "url": "https://prog-lang-compare.netlify.app/concepts-ssg/julia/other-structure-struct.html",
+        "datePublished": "2023-06-09",
+        "dateModified": "2026-01-25",
+        "author": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare",
+            "url": "https://prog-lang-compare.netlify.app"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://prog-lang-compare.netlify.app/concepts-ssg/julia/other-structure-struct.html"
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span>›</span>
+            <a href="../julia.html">Julia</a>
+            <span>›</span>
+            <span>Other structure Struct</span>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <h1>structure Struct in Julia</h1>
+
+            <div class="meta">
+                <strong>Category:</strong> Other structure |
+                <strong>Language:</strong> Julia
+            </div>
+
+            <article class="content">
+                <p>In Julia, a <code>struct</code> is a composite data type that groups together variables with different data types under a single name. Here's an example:</p>
+<pre><code class="language-julia">struct Person
+    name::String
+    age::Int
+    height::Float64
+    is_student::Bool
+end
+</code></pre>
+<p>In this code snippet, we define a <code>Person</code> struct with four fields: <code>name</code>, <code>age</code>, <code>height</code>, and <code>is_student</code>. Each field is followed by a type annotation that specifies its data type.</p>
+<p>Now that we have defined the <code>Person</code> struct, we can create instances of it like this:</p>
+<pre><code class="language-julia">person1 = Person("Alice", 25, 1.75, false)
+person2 = Person("Bob", 30, 1.85, true)
+</code></pre>
+<p>Here, we create two <code>Person</code> objects, <code>person1</code> and <code>person2</code>, by calling the <code>Person</code> constructor with the values we want to assign to each field. Notice that we don't explicitly specify the data types when creating objects - Julia infers the types automatically based on the types we specified in the struct definition.</p>
+<p>We can access each field of a <code>Person</code> object using the <code>.</code> operator:</p>
+<pre><code class="language-julia">println(person1.name)
+println(person2.is_student)
+</code></pre>
+<p>This code will print <code>"Alice"</code> and <code>true</code>, respectively, since <code>person1</code> has <code>"Alice"</code> as its name and <code>person2</code> is a student (i.e., its <code>is_student</code> field is <code>true</code>).</p>
+<p>We can also define functions that take <code>Person</code> objects as arguments or return them as values:</p>
+<pre><code class="language-julia">function can_vote(person::Person)
+    if person.age >= 18
+        return true
+    else
+        return false
+    end
+end
+<p>function create_student(name::String, age::Int, height::Float64)<br>
+    return Person(name, age, height, true)<br>
+end<br>
+</code></pre></p>
+<p>The <code>can_vote</code> function takes a <code>Person</code> object as its argument and returns <code>true</code> if the person is at least 18 years old, and <code>false</code> otherwise. The <code>create_student</code> function creates a new <code>Person</code> object with the <code>is_student</code> field set to <code>true</code>, and returns it.</p>
+<p>Hopefully, this demonstrates how you can use <code>struct</code> in Julia.</p>
+            </article>
+
+            
+            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
+                <h2 style="font-size: 20px; margin-bottom: 15px; color: #2c3e50;">See this concept in other languages</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
+                    <a href="../python-310/other-structure-struct.html">Python 3.10</a><a href="../java-20/other-structure-struct.html">Java 20</a><a href="../rust-155/other-structure-struct.html">Rust 1.55</a><a href="../haskell/other-structure-struct.html">Haskell</a><a href="../javascript-ecmascript-2021/other-structure-struct.html">JavaScript - ECMAScript 2021</a><a href="../php/other-structure-struct.html">PHP</a><a href="../typescript/other-structure-struct.html">TypeScript</a><a href="../ruby/other-structure-struct.html">Ruby</a><a href="../swift/other-structure-struct.html">Swift</a><a href="../kotlin/other-structure-struct.html">Kotlin</a><a href="../go/other-structure-struct.html">Go</a><a href="../r/other-structure-struct.html">R</a><a href="../perl/other-structure-struct.html">Perl</a><a href="../matlab/other-structure-struct.html">MATLAB</a><a href="../lua/other-structure-struct.html">Lua</a><a href="../scala/other-structure-struct.html">Scala</a><a href="../groovy/other-structure-struct.html">Groovy</a><a href="../dart/other-structure-struct.html">Dart</a><a href="../objective-c/other-structure-struct.html">Objective-C</a><a href="../visual-basic-net/other-structure-struct.html">Visual Basic .NET</a>
+                </div>
+                <style>
+                    .related-concepts a {
+                        padding: 8px 12px;
+                        background: #f5f5f5;
+                        border-radius: 4px;
+                        text-decoration: none;
+                        color: #0066cc;
+                        display: inline-block;
+                        text-align: center;
+                        transition: background 0.2s, transform 0.2s;
+                    }
+                    .related-concepts a:hover {
+                        background: #e5e7eb;
+                        transform: translateY(-2px);
+                    }
+                </style>
+            </section>
+
+
+            <div class="back-link">
+                <a href="../../index.html">← Back to Full Comparison Table</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>Content generated using AI | <a href="https://github.com/srix/prog-lang-compare" target="_blank"
+                    rel="noopener noreferrer">View on GitHub</a></p>
+        </footer>
+    </div>
+</body>
+
+</html>

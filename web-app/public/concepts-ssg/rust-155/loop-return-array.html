@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Return array in Rust 1.55 - Prog Lang Compare</title>
+    <meta name="title" content="Return array in Rust 1.55 - Prog Lang Compare">
+    <meta name="description" content="Learn how to return array in Rust 1.55. See code examples and detailed explanations.">
+    <meta name="keywords" content="Rust 1.55, Loop Return array, programming, code examples, syntax, Loop">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://prog-lang-compare.netlify.app/concepts-ssg/rust-155/loop-return-array.html">
+    <meta property="og:title" content="Return array in Rust 1.55">
+    <meta property="og:description" content="Learn how to return array in Rust 1.55. See code examples and detailed explanations.">
+    <meta property="og:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://prog-lang-compare.netlify.app/concepts-ssg/rust-155/loop-return-array.html">
+    <meta property="twitter:title" content="Return array in Rust 1.55">
+    <meta property="twitter:description" content="Learn how to return array in Rust 1.55. See code examples and detailed explanations.">
+    <meta property="twitter:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://prog-lang-compare.netlify.app/concepts-ssg/rust-155/loop-return-array.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+    <!-- Inline Critical CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav.breadcrumb {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        nav.breadcrumb a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        nav.breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        nav.breadcrumb span {
+            color: #666;
+            margin: 0 5px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-left: 4px solid #0066cc;
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+        }
+
+        .content pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+        }
+
+        .content code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+
+        .content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .back-link {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .back-link a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Return array in Rust 1.55",
+        "description": "Learn how to return array in Rust 1.55. See code examples and detailed explanations.",
+        "keywords": "Rust 1.55, Loop Return array, programming",
+        "url": "https://prog-lang-compare.netlify.app/concepts-ssg/rust-155/loop-return-array.html",
+        "datePublished": "2023-06-09",
+        "dateModified": "2026-01-25",
+        "author": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare",
+            "url": "https://prog-lang-compare.netlify.app"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://prog-lang-compare.netlify.app/concepts-ssg/rust-155/loop-return-array.html"
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span>›</span>
+            <a href="../rust-155.html">Rust 1.55</a>
+            <span>›</span>
+            <span>Loop Return array</span>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <h1>Return array in Rust 1.55</h1>
+
+            <div class="meta">
+                <strong>Category:</strong> Loop |
+                <strong>Language:</strong> Rust 1.55
+            </div>
+
+            <article class="content">
+                <p>In Rust 1.55, you can return an array using the syntax <code>fn function_name() -> [type; size]</code>.</p>
+<p>Here's an example code to demonstrate this:</p>
+<pre><code class="language-rust">fn main() {
+    let arr = create_array();
+    println!("{:?}", arr);
+}
+<p>fn create_array() -> [i32; 5] {<br>
+    [1, 2, 3, 4, 5]<br>
+}<br>
+</code></pre></p>
+<p>In this example, the <code>create_array</code> function returns an array of 5 integers. The <code>main</code> function calls <code>create_array</code> and prints the resulting array.</p>
+<p>You can also return arrays with variables:</p>
+<pre><code class="language-rust">fn main() {
+    let arr = create_array();
+    let sum: i32 = arr.iter().sum();
+    println!("The sum of array is: {}", sum);
+}
+<p>fn create_array() -> [i32; 5] {<br>
+    let arr: [i32; 5] = [1, 2, 3, 4, 5];<br>
+    arr<br>
+}</p>
+<p></code></pre></p>
+<p>In this example, the <code>create_array</code> function creates an array and assigns it to a variable <code>arr</code>. Then it returns <code>arr</code> to main function. In main function we calculate the sum of returned array and print it.</p>
+<p>Note that the array size must be known at compile time. If you need to return a dynamically sized array, you can use a <code>Vec</code> instead.</p>
+<pre><code class="language-rust">fn main() {
+    let vec = create_vec();
+    println!("{:?}", vec);
+}
+<p>fn create_vec() -> Vec<i32> {<br>
+    vec![1, 2, 3, 4, 5]<br>
+}<br>
+</code></pre></p>
+<p>In this example, the <code>create_vec</code> function creates a <code>Vec</code> of integers and returns it.</p>
+            </article>
+
+            
+            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
+                <h2 style="font-size: 20px; margin-bottom: 15px; color: #2c3e50;">See this concept in other languages</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
+                    <a href="../python-310/loop-return-array.html">Python 3.10</a><a href="../java-20/loop-return-array.html">Java 20</a><a href="../haskell/loop-return-array.html">Haskell</a><a href="../javascript-ecmascript-2021/loop-return-array.html">JavaScript - ECMAScript 2021</a><a href="../php/loop-return-array.html">PHP</a><a href="../typescript/loop-return-array.html">TypeScript</a><a href="../ruby/loop-return-array.html">Ruby</a><a href="../swift/loop-return-array.html">Swift</a><a href="../kotlin/loop-return-array.html">Kotlin</a><a href="../go/loop-return-array.html">Go</a><a href="../r/loop-return-array.html">R</a><a href="../perl/loop-return-array.html">Perl</a><a href="../matlab/loop-return-array.html">MATLAB</a><a href="../lua/loop-return-array.html">Lua</a><a href="../scala/loop-return-array.html">Scala</a><a href="../groovy/loop-return-array.html">Groovy</a><a href="../dart/loop-return-array.html">Dart</a><a href="../julia/loop-return-array.html">Julia</a><a href="../objective-c/loop-return-array.html">Objective-C</a><a href="../visual-basic-net/loop-return-array.html">Visual Basic .NET</a>
+                </div>
+                <style>
+                    .related-concepts a {
+                        padding: 8px 12px;
+                        background: #f5f5f5;
+                        border-radius: 4px;
+                        text-decoration: none;
+                        color: #0066cc;
+                        display: inline-block;
+                        text-align: center;
+                        transition: background 0.2s, transform 0.2s;
+                    }
+                    .related-concepts a:hover {
+                        background: #e5e7eb;
+                        transform: translateY(-2px);
+                    }
+                </style>
+            </section>
+
+
+            <div class="back-link">
+                <a href="../../index.html">← Back to Full Comparison Table</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>Content generated using AI | <a href="https://github.com/srix/prog-lang-compare" target="_blank"
+                    rel="noopener noreferrer">View on GitHub</a></p>
+        </footer>
+    </div>
+</body>
+
+</html>

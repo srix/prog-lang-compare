@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>For with a step in Groovy - Prog Lang Compare</title>
+    <meta name="title" content="For with a step in Groovy - Prog Lang Compare">
+    <meta name="description" content="Learn how to for with a step in Groovy. See code examples and detailed explanations.">
+    <meta name="keywords" content="Groovy, Loop For with a step, programming, code examples, syntax, Loop">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://prog-lang-compare.netlify.app/concepts-ssg/groovy/loop-for-with-a-step.html">
+    <meta property="og:title" content="For with a step in Groovy">
+    <meta property="og:description" content="Learn how to for with a step in Groovy. See code examples and detailed explanations.">
+    <meta property="og:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://prog-lang-compare.netlify.app/concepts-ssg/groovy/loop-for-with-a-step.html">
+    <meta property="twitter:title" content="For with a step in Groovy">
+    <meta property="twitter:description" content="Learn how to for with a step in Groovy. See code examples and detailed explanations.">
+    <meta property="twitter:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://prog-lang-compare.netlify.app/concepts-ssg/groovy/loop-for-with-a-step.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+    <!-- Inline Critical CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav.breadcrumb {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        nav.breadcrumb a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        nav.breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        nav.breadcrumb span {
+            color: #666;
+            margin: 0 5px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-left: 4px solid #0066cc;
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+        }
+
+        .content pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+        }
+
+        .content code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+
+        .content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .back-link {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .back-link a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "For with a step in Groovy",
+        "description": "Learn how to for with a step in Groovy. See code examples and detailed explanations.",
+        "keywords": "Groovy, Loop For with a step, programming",
+        "url": "https://prog-lang-compare.netlify.app/concepts-ssg/groovy/loop-for-with-a-step.html",
+        "datePublished": "2023-06-09",
+        "dateModified": "2026-01-25",
+        "author": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare",
+            "url": "https://prog-lang-compare.netlify.app"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://prog-lang-compare.netlify.app/concepts-ssg/groovy/loop-for-with-a-step.html"
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span>›</span>
+            <a href="../groovy.html">Groovy</a>
+            <span>›</span>
+            <span>Loop For with a step</span>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <h1>For with a step in Groovy</h1>
+
+            <div class="meta">
+                <strong>Category:</strong> Loop |
+                <strong>Language:</strong> Groovy
+            </div>
+
+            <article class="content">
+                <p>In Groovy, the <code>for</code> loop is used to iterate over a range of values or elements of a collection. The <code>step</code> keyword can be used in a <code>for</code> loop to specify the increment value between each iteration.</p>
+<p>Here's an example of a <code>for</code> loop with a <code>step</code> keyword:</p>
+<pre><code class="language-">for (i in 0..10 step 2) {
+    println(i)
+}
+</code></pre>
+<p>In this example, the loop will start at 0 and increment by 2 until it reaches 10. The output will be:</p>
+<pre><code class="language-">0
+2
+4
+6
+8
+10
+</code></pre>
+<p>The <code>step</code> keyword can also be used with collections, like this:</p>
+<pre><code class="language-">def myArray = [1, 2, 3, 4, 5]
+for (num in myArray.step(2)) {
+    println(num)
+}
+</code></pre>
+<p>In this example, the <code>step(2)</code> method is called on the <code>myArray</code> collection to specify that the loop should iterate over every second element. The output will be:</p>
+<pre><code class="language-">1
+3
+5
+</code></pre>
+<p>So, the <code>step</code> keyword is used to control the increment value of a <code>for</code> loop in Groovy.</p>
+            </article>
+
+            
+            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
+                <h2 style="font-size: 20px; margin-bottom: 15px; color: #2c3e50;">See this concept in other languages</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
+                    <a href="../python-310/loop-for-with-a-step.html">Python 3.10</a><a href="../java-20/loop-for-with-a-step.html">Java 20</a><a href="../rust-155/loop-for-with-a-step.html">Rust 1.55</a><a href="../haskell/loop-for-with-a-step.html">Haskell</a><a href="../javascript-ecmascript-2021/loop-for-with-a-step.html">JavaScript - ECMAScript 2021</a><a href="../php/loop-for-with-a-step.html">PHP</a><a href="../typescript/loop-for-with-a-step.html">TypeScript</a><a href="../ruby/loop-for-with-a-step.html">Ruby</a><a href="../swift/loop-for-with-a-step.html">Swift</a><a href="../kotlin/loop-for-with-a-step.html">Kotlin</a><a href="../go/loop-for-with-a-step.html">Go</a><a href="../r/loop-for-with-a-step.html">R</a><a href="../perl/loop-for-with-a-step.html">Perl</a><a href="../matlab/loop-for-with-a-step.html">MATLAB</a><a href="../lua/loop-for-with-a-step.html">Lua</a><a href="../scala/loop-for-with-a-step.html">Scala</a><a href="../dart/loop-for-with-a-step.html">Dart</a><a href="../julia/loop-for-with-a-step.html">Julia</a><a href="../objective-c/loop-for-with-a-step.html">Objective-C</a><a href="../visual-basic-net/loop-for-with-a-step.html">Visual Basic .NET</a>
+                </div>
+                <style>
+                    .related-concepts a {
+                        padding: 8px 12px;
+                        background: #f5f5f5;
+                        border-radius: 4px;
+                        text-decoration: none;
+                        color: #0066cc;
+                        display: inline-block;
+                        text-align: center;
+                        transition: background 0.2s, transform 0.2s;
+                    }
+                    .related-concepts a:hover {
+                        background: #e5e7eb;
+                        transform: translateY(-2px);
+                    }
+                </style>
+            </section>
+
+
+            <div class="back-link">
+                <a href="../../index.html">← Back to Full Comparison Table</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>Content generated using AI | <a href="https://github.com/srix/prog-lang-compare" target="_blank"
+                    rel="noopener noreferrer">View on GitHub</a></p>
+        </footer>
+    </div>
+</body>
+
+</html>

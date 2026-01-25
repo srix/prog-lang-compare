@@ -35,7 +35,7 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 #   CONFIG_DIR = ../../concept-builder/config
 
 CONTENT_DIR = os.path.join(SCRIPT_DIR, '..', '..', 'concept-builder', 'output', 'content-autogen', 'gpt_3_5_turbo')
-CONCEPTS_OUTPUT_DIR = os.path.join(SCRIPT_DIR, '..', 'public', 'concepts')
+CONCEPTS_OUTPUT_DIR = os.path.join(SCRIPT_DIR, '..', 'public', 'concepts-ssg')
 PROG_LANGS_YAML = os.path.join(SCRIPT_DIR, '..', '..', 'concept-builder', 'config', 'prog_langs.yaml')
 PROG_CONCEPTS_YAML = os.path.join(SCRIPT_DIR, '..', '..', 'concept-builder', 'config', 'prog_lang_concepts.yaml')
 TEMPLATE_DIR = os.path.join(SCRIPT_DIR, '..', 'src')
@@ -190,7 +190,7 @@ def generate_page_template(language, concept_key, concept_title, content_html, c
     # URL paths
     concept_slug = slugify(concept_key)
     language_slug = slugify(language)
-    page_url = f"{BASE_URL}/concepts/{language_slug}/{concept_slug}.html"
+    page_url = f"{BASE_URL}/concepts-ssg/{language_slug}/{concept_slug}.html"
 
     # Get last modified date from git or filesystem
     safe_lang_name = get_safename(language)

@@ -209,7 +209,7 @@ async function loadLangConceptsInColumn(tableId, progLang) {
     let mytable = $(tableId).DataTable();
     let columnIndex = mytable.column(progLang + ':name').index();
 
-    let fileurl = 'content-autogen/gpt_3_5_turbo/' + getSafeName(progLang) + '.json';
+    let fileurl = 'concepts-spa/' + getSafeName(progLang) + '.json';
     let mergedContent = {};
 
     try {

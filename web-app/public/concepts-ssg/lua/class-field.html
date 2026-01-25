@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Field in Lua - Prog Lang Compare</title>
+    <meta name="title" content="Field in Lua - Prog Lang Compare">
+    <meta name="description" content="Learn how to field in Lua. See code examples and detailed explanations.">
+    <meta name="keywords" content="Lua, Class Field, programming, code examples, syntax, Class">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://prog-lang-compare.netlify.app/concepts-ssg/lua/class-field.html">
+    <meta property="og:title" content="Field in Lua">
+    <meta property="og:description" content="Learn how to field in Lua. See code examples and detailed explanations.">
+    <meta property="og:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://prog-lang-compare.netlify.app/concepts-ssg/lua/class-field.html">
+    <meta property="twitter:title" content="Field in Lua">
+    <meta property="twitter:description" content="Learn how to field in Lua. See code examples and detailed explanations.">
+    <meta property="twitter:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://prog-lang-compare.netlify.app/concepts-ssg/lua/class-field.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+    <!-- Inline Critical CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav.breadcrumb {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        nav.breadcrumb a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        nav.breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        nav.breadcrumb span {
+            color: #666;
+            margin: 0 5px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-left: 4px solid #0066cc;
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+        }
+
+        .content pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+        }
+
+        .content code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+
+        .content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .back-link {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .back-link a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Field in Lua",
+        "description": "Learn how to field in Lua. See code examples and detailed explanations.",
+        "keywords": "Lua, Class Field, programming",
+        "url": "https://prog-lang-compare.netlify.app/concepts-ssg/lua/class-field.html",
+        "datePublished": "2023-06-09",
+        "dateModified": "2026-01-25",
+        "author": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare",
+            "url": "https://prog-lang-compare.netlify.app"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://prog-lang-compare.netlify.app/concepts-ssg/lua/class-field.html"
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span>›</span>
+            <a href="../lua.html">Lua</a>
+            <span>›</span>
+            <span>Class Field</span>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <h1>Field in Lua</h1>
+
+            <div class="meta">
+                <strong>Category:</strong> Class |
+                <strong>Language:</strong> Lua
+            </div>
+
+            <article class="content">
+                <p>In Lua, a class is a table that contains data and methods. To define a class in Lua, you can use a regular table and define its methods as key-value pairs. Here is an example of a simple class in Lua:</p>
+<pre><code class="language-lua">-- define class
+Person = { name = "John", age = 30 }
+<p>-- define method<br>
+function Person:sayName()<br>
+  print("My name is " .. self.name)<br>
+end</p>
+<p>-- create object<br>
+local person1 = Person</p>
+<p>-- call method<br>
+person1:sayName()<br>
+</code></pre></p>
+<p>In this example, we defined a class called <code>Person</code> with two fields: <code>name</code> and <code>age</code>. We also defined a method called <code>sayName</code> that prints the name of the person. To create an object of the class, we simply assign the class to a variable <code>person1</code>. Finally, we call the <code>sayName</code> method on the <code>person1</code> object to print its name.</p>
+<p>You can also modify the fields of an object at runtime by simply assigning new values to them. For example:</p>
+<pre><code class="language-lua">-- create object
+local person2 = Person
+<p>-- change name<br>
+person2.name = "Alice"</p>
+<p>-- call method<br>
+person2:sayName()<br>
+</code></pre></p>
+<p>In this example, we created a new object <code>person2</code> based on the <code>Person</code> class, and then changed its <code>name</code> field to "Alice". When we call the <code>sayName</code> method on <code>person2</code>, it will print "My name is Alice" instead of "My name is John".</p>
+<p>Overall, the use of fields in classes in Lua is relatively simple and flexible. You can define fields and methods for your classes, and modify them at runtime as needed.</p>
+            </article>
+
+            
+            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
+                <h2 style="font-size: 20px; margin-bottom: 15px; color: #2c3e50;">See this concept in other languages</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
+                    <a href="../python-310/class-field.html">Python 3.10</a><a href="../java-20/class-field.html">Java 20</a><a href="../rust-155/class-field.html">Rust 1.55</a><a href="../haskell/class-field.html">Haskell</a><a href="../javascript-ecmascript-2021/class-field.html">JavaScript - ECMAScript 2021</a><a href="../php/class-field.html">PHP</a><a href="../typescript/class-field.html">TypeScript</a><a href="../ruby/class-field.html">Ruby</a><a href="../swift/class-field.html">Swift</a><a href="../kotlin/class-field.html">Kotlin</a><a href="../go/class-field.html">Go</a><a href="../r/class-field.html">R</a><a href="../perl/class-field.html">Perl</a><a href="../matlab/class-field.html">MATLAB</a><a href="../scala/class-field.html">Scala</a><a href="../groovy/class-field.html">Groovy</a><a href="../dart/class-field.html">Dart</a><a href="../julia/class-field.html">Julia</a><a href="../objective-c/class-field.html">Objective-C</a><a href="../visual-basic-net/class-field.html">Visual Basic .NET</a>
+                </div>
+                <style>
+                    .related-concepts a {
+                        padding: 8px 12px;
+                        background: #f5f5f5;
+                        border-radius: 4px;
+                        text-decoration: none;
+                        color: #0066cc;
+                        display: inline-block;
+                        text-align: center;
+                        transition: background 0.2s, transform 0.2s;
+                    }
+                    .related-concepts a:hover {
+                        background: #e5e7eb;
+                        transform: translateY(-2px);
+                    }
+                </style>
+            </section>
+
+
+            <div class="back-link">
+                <a href="../../index.html">← Back to Full Comparison Table</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>Content generated using AI | <a href="https://github.com/srix/prog-lang-compare" target="_blank"
+                    rel="noopener noreferrer">View on GitHub</a></p>
+        </footer>
+    </div>
+</body>
+
+</html>

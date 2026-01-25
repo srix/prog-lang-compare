@@ -12,7 +12,7 @@ import subprocess
 
 # Paths
 DOCS_DIR = os.path.join(os.path.dirname(__file__), '..', 'public')
-CONCEPTS_DIR = os.path.join(DOCS_DIR, 'concepts')
+CONCEPTS_DIR = os.path.join(DOCS_DIR, 'concepts-ssg')
 SITEMAP_FILE = os.path.join(DOCS_DIR, 'sitemap.xml')
 
 # Base URL
@@ -83,7 +83,7 @@ def generate_sitemap():
             # vs a concept page (concepts/{lang}/{concept}.html)
             path_parts = rel_path.split(os.sep)
             is_language_landing = (len(path_parts) == 2 and
-                                 path_parts[0] == 'concepts' and
+                                 path_parts[0] == 'concepts-ssg' and
                                  path_parts[1].endswith('.html'))
 
             # Create URL entry

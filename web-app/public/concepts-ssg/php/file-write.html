@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Write in PHP - Prog Lang Compare</title>
+    <meta name="title" content="Write in PHP - Prog Lang Compare">
+    <meta name="description" content="Learn how to write in PHP. See code examples and detailed explanations.">
+    <meta name="keywords" content="PHP, File Write, programming, code examples, syntax, File">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://prog-lang-compare.netlify.app/concepts-ssg/php/file-write.html">
+    <meta property="og:title" content="Write in PHP">
+    <meta property="og:description" content="Learn how to write in PHP. See code examples and detailed explanations.">
+    <meta property="og:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://prog-lang-compare.netlify.app/concepts-ssg/php/file-write.html">
+    <meta property="twitter:title" content="Write in PHP">
+    <meta property="twitter:description" content="Learn how to write in PHP. See code examples and detailed explanations.">
+    <meta property="twitter:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://prog-lang-compare.netlify.app/concepts-ssg/php/file-write.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+    <!-- Inline Critical CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav.breadcrumb {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        nav.breadcrumb a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        nav.breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        nav.breadcrumb span {
+            color: #666;
+            margin: 0 5px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-left: 4px solid #0066cc;
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+        }
+
+        .content pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+        }
+
+        .content code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+
+        .content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .back-link {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .back-link a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Write in PHP",
+        "description": "Learn how to write in PHP. See code examples and detailed explanations.",
+        "keywords": "PHP, File Write, programming",
+        "url": "https://prog-lang-compare.netlify.app/concepts-ssg/php/file-write.html",
+        "datePublished": "2023-06-09",
+        "dateModified": "2026-01-25",
+        "author": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare",
+            "url": "https://prog-lang-compare.netlify.app"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://prog-lang-compare.netlify.app/concepts-ssg/php/file-write.html"
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span>›</span>
+            <a href="../php.html">PHP</a>
+            <span>›</span>
+            <span>File Write</span>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <h1>Write in PHP</h1>
+
+            <div class="meta">
+                <strong>Category:</strong> File |
+                <strong>Language:</strong> PHP
+            </div>
+
+            <article class="content">
+                <p>In PHP, the <code>fwrite()</code> function is used to write data to a file. Here is an example:</p>
+<pre><code class="language-">// Open or create a file for writing
+$file = fopen("data.txt", "w");
+<p>// Write data to the file<br>
+fwrite($file, "This is some text that we are writing to the file.");</p>
+<p>// Close the file<br>
+fclose($file);<br>
+</code></pre></p>
+<p>In this example, we create a new file called <code>data.txt</code> using the <code>fopen()</code> function with the <code>"w"</code> flag, which means "write mode". We then use the <code>fwrite()</code> function to write text to the file. Finally, we close the file using the <code>fclose()</code> function.</p>
+<p>Another example shows how to write an array to a file:</p>
+<pre><code class="language-">// Create an array of data to write
+$data = array(
+    "First Name" => "John",
+    "Last Name" => "Doe",
+    "Email" => "johndoe@example.com"
+);
+<p>// Open or create a file for writing<br>
+$file = fopen("data.txt", "w");</p>
+<p>// Convert the array to a string and write it to the file<br>
+fwrite($file, serialize($data));</p>
+<p>// Close the file<br>
+fclose($file);<br>
+</code></pre></p>
+<p>In this example, we create an array of data and use the <code>serialize()</code> function to convert it to a string. We then write the string to the file using <code>fwrite()</code>. By serializing the array, we can later read it back from the file and convert it back into an array.</p>
+            </article>
+
+            
+            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
+                <h2 style="font-size: 20px; margin-bottom: 15px; color: #2c3e50;">See this concept in other languages</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
+                    <a href="../python-310/file-write.html">Python 3.10</a><a href="../java-20/file-write.html">Java 20</a><a href="../rust-155/file-write.html">Rust 1.55</a><a href="../haskell/file-write.html">Haskell</a><a href="../javascript-ecmascript-2021/file-write.html">JavaScript - ECMAScript 2021</a><a href="../typescript/file-write.html">TypeScript</a><a href="../ruby/file-write.html">Ruby</a><a href="../swift/file-write.html">Swift</a><a href="../kotlin/file-write.html">Kotlin</a><a href="../go/file-write.html">Go</a><a href="../r/file-write.html">R</a><a href="../perl/file-write.html">Perl</a><a href="../matlab/file-write.html">MATLAB</a><a href="../lua/file-write.html">Lua</a><a href="../scala/file-write.html">Scala</a><a href="../groovy/file-write.html">Groovy</a><a href="../dart/file-write.html">Dart</a><a href="../julia/file-write.html">Julia</a><a href="../objective-c/file-write.html">Objective-C</a><a href="../visual-basic-net/file-write.html">Visual Basic .NET</a>
+                </div>
+                <style>
+                    .related-concepts a {
+                        padding: 8px 12px;
+                        background: #f5f5f5;
+                        border-radius: 4px;
+                        text-decoration: none;
+                        color: #0066cc;
+                        display: inline-block;
+                        text-align: center;
+                        transition: background 0.2s, transform 0.2s;
+                    }
+                    .related-concepts a:hover {
+                        background: #e5e7eb;
+                        transform: translateY(-2px);
+                    }
+                </style>
+            </section>
+
+
+            <div class="back-link">
+                <a href="../../index.html">← Back to Full Comparison Table</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>Content generated using AI | <a href="https://github.com/srix/prog-lang-compare" target="_blank"
+                    rel="noopener noreferrer">View on GitHub</a></p>
+        </footer>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Break in R - Prog Lang Compare</title>
+    <meta name="title" content="Break in R - Prog Lang Compare">
+    <meta name="description" content="Learn how to break in R. See code examples and detailed explanations.">
+    <meta name="keywords" content="R, Loop Break, programming, code examples, syntax, Loop">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://prog-lang-compare.netlify.app/concepts-ssg/r/loop-break.html">
+    <meta property="og:title" content="Break in R">
+    <meta property="og:description" content="Learn how to break in R. See code examples and detailed explanations.">
+    <meta property="og:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://prog-lang-compare.netlify.app/concepts-ssg/r/loop-break.html">
+    <meta property="twitter:title" content="Break in R">
+    <meta property="twitter:description" content="Learn how to break in R. See code examples and detailed explanations.">
+    <meta property="twitter:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://prog-lang-compare.netlify.app/concepts-ssg/r/loop-break.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+    <!-- Inline Critical CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav.breadcrumb {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        nav.breadcrumb a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        nav.breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        nav.breadcrumb span {
+            color: #666;
+            margin: 0 5px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-left: 4px solid #0066cc;
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+        }
+
+        .content pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+        }
+
+        .content code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+
+        .content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .back-link {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .back-link a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Break in R",
+        "description": "Learn how to break in R. See code examples and detailed explanations.",
+        "keywords": "R, Loop Break, programming",
+        "url": "https://prog-lang-compare.netlify.app/concepts-ssg/r/loop-break.html",
+        "datePublished": "2023-06-09",
+        "dateModified": "2026-01-25",
+        "author": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare",
+            "url": "https://prog-lang-compare.netlify.app"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://prog-lang-compare.netlify.app/concepts-ssg/r/loop-break.html"
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span>›</span>
+            <a href="../r.html">R</a>
+            <span>›</span>
+            <span>Loop Break</span>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <h1>Break in R</h1>
+
+            <div class="meta">
+                <strong>Category:</strong> Loop |
+                <strong>Language:</strong> R
+            </div>
+
+            <article class="content">
+                <p>In R, the <code>break</code> statement is used to terminate the execution of a loop in certain conditions. It can be used in both <code>for</code> loops and <code>while</code> loops.</p>
+<p>Here are some examples:</p>
+<p>Example 1: Using break in a for loop</p>
+<pre><code class="language-">for (i in 1:10) {
+  if (i == 5) {
+    break
+  }
+  print(i)
+}
+</code></pre>
+Output:
+<pre><code class="language-">[1] 1
+[1] 2
+[1] 3
+[1] 4
+</code></pre>
+<p>In this example, the <code>for</code> loop is set to iterate over the numbers 1 to 10. Inside the loop, there is an if statement that checks if the current value of <code>i</code> is equal to 5. If it is, the <code>break</code> statement is executed which causes the loop to terminate immediately. As a result, the loop only iterates up to 4 and the remaining iterations are skipped.</p>
+<p>Example 2: Using break in a while loop</p>
+<pre><code class="language-">i <- 1
+<p>while (i <= 10) {<br>
+  if (i == 5) {<br>
+    break<br>
+  }<br>
+  print(i)<br>
+  i <- i + 1<br>
+}<br>
+</code></pre><br>
+Output:<br>
+<pre><code class="language-">[1] 1<br>
+[1] 2<br>
+[1] 3<br>
+[1] 4<br>
+</code></pre></p>
+<p>This example shows how to use <code>break</code> in a <code>while</code> loop. Initially, the value of <code>i</code> is set to 1. As long as <code>i</code> is less than or equal to 10, the loop will continue to run. Inside the loop, an if statement checks if the current value of <code>i</code> is equal to 5. Once <code>i</code> equals 5, the <code>break</code> statement is executed and the loop immediately terminates. As a result, only the numbers 1 to 4 are printed.</p>
+<p>In both examples, the <code>break</code> statement is used to terminate the loop prematurely based on a certain condition.</p>
+            </article>
+
+            
+            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
+                <h2 style="font-size: 20px; margin-bottom: 15px; color: #2c3e50;">See this concept in other languages</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
+                    <a href="../python-310/loop-break.html">Python 3.10</a><a href="../java-20/loop-break.html">Java 20</a><a href="../rust-155/loop-break.html">Rust 1.55</a><a href="../haskell/loop-break.html">Haskell</a><a href="../javascript-ecmascript-2021/loop-break.html">JavaScript - ECMAScript 2021</a><a href="../php/loop-break.html">PHP</a><a href="../typescript/loop-break.html">TypeScript</a><a href="../ruby/loop-break.html">Ruby</a><a href="../swift/loop-break.html">Swift</a><a href="../kotlin/loop-break.html">Kotlin</a><a href="../go/loop-break.html">Go</a><a href="../perl/loop-break.html">Perl</a><a href="../matlab/loop-break.html">MATLAB</a><a href="../lua/loop-break.html">Lua</a><a href="../scala/loop-break.html">Scala</a><a href="../groovy/loop-break.html">Groovy</a><a href="../dart/loop-break.html">Dart</a><a href="../julia/loop-break.html">Julia</a><a href="../objective-c/loop-break.html">Objective-C</a><a href="../visual-basic-net/loop-break.html">Visual Basic .NET</a>
+                </div>
+                <style>
+                    .related-concepts a {
+                        padding: 8px 12px;
+                        background: #f5f5f5;
+                        border-radius: 4px;
+                        text-decoration: none;
+                        color: #0066cc;
+                        display: inline-block;
+                        text-align: center;
+                        transition: background 0.2s, transform 0.2s;
+                    }
+                    .related-concepts a:hover {
+                        background: #e5e7eb;
+                        transform: translateY(-2px);
+                    }
+                </style>
+            </section>
+
+
+            <div class="back-link">
+                <a href="../../index.html">← Back to Full Comparison Table</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>Content generated using AI | <a href="https://github.com/srix/prog-lang-compare" target="_blank"
+                    rel="noopener noreferrer">View on GitHub</a></p>
+        </footer>
+    </div>
+</body>
+
+</html>

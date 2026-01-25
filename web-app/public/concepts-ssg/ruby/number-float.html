@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Float in Ruby - Prog Lang Compare</title>
+    <meta name="title" content="Float in Ruby - Prog Lang Compare">
+    <meta name="description" content="Learn how to float in Ruby. See code examples and detailed explanations.">
+    <meta name="keywords" content="Ruby, Number Float, programming, code examples, syntax, Number">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://prog-lang-compare.netlify.app/concepts-ssg/ruby/number-float.html">
+    <meta property="og:title" content="Float in Ruby">
+    <meta property="og:description" content="Learn how to float in Ruby. See code examples and detailed explanations.">
+    <meta property="og:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://prog-lang-compare.netlify.app/concepts-ssg/ruby/number-float.html">
+    <meta property="twitter:title" content="Float in Ruby">
+    <meta property="twitter:description" content="Learn how to float in Ruby. See code examples and detailed explanations.">
+    <meta property="twitter:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://prog-lang-compare.netlify.app/concepts-ssg/ruby/number-float.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+    <!-- Inline Critical CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav.breadcrumb {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        nav.breadcrumb a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        nav.breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        nav.breadcrumb span {
+            color: #666;
+            margin: 0 5px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-left: 4px solid #0066cc;
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+        }
+
+        .content pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+        }
+
+        .content code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+
+        .content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .back-link {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .back-link a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Float in Ruby",
+        "description": "Learn how to float in Ruby. See code examples and detailed explanations.",
+        "keywords": "Ruby, Number Float, programming",
+        "url": "https://prog-lang-compare.netlify.app/concepts-ssg/ruby/number-float.html",
+        "datePublished": "2023-06-09",
+        "dateModified": "2026-01-25",
+        "author": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare",
+            "url": "https://prog-lang-compare.netlify.app"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://prog-lang-compare.netlify.app/concepts-ssg/ruby/number-float.html"
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span>›</span>
+            <a href="../ruby.html">Ruby</a>
+            <span>›</span>
+            <span>Number Float</span>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <h1>Float in Ruby</h1>
+
+            <div class="meta">
+                <strong>Category:</strong> Number |
+                <strong>Language:</strong> Ruby
+            </div>
+
+            <article class="content">
+                <p>Float numbers, also known as floating-point numbers, in Ruby are used to represent decimal numbers. They are represented by adding a decimal point to a number or using scientific notation.</p>
+<p>Here are some examples of using float numbers in Ruby:</p>
+<pre><code class="language-"># Declare a float variable
+num1 = 3.14
+puts num1 # Output: 3.14
+<p># Add two float numbers<br>
+num2 = 2.5<br>
+sum = num1 + num2<br>
+puts sum # Output: 5.64</p>
+<p># Subtract two float numbers<br>
+diff = num1 - num2<br>
+puts diff # Output: 0.64</p>
+<p># Multiply two float numbers<br>
+product = num1 * num2<br>
+puts product # Output: 7.85</p>
+<p># Divide two float numbers<br>
+quotient = num1 / num2<br>
+puts quotient # Output: 1.256</p>
+<p># Use scientific notation<br>
+num3 = 1.23e-4<br>
+puts num3 # Output: 0.000123<br>
+</code></pre></p>
+<p>In the above examples, we declare a float variable <code>num1</code> and assign it the value <code>3.14</code>. We then perform different arithmetic operations on <code>num1</code> along with another float variable <code>num2</code>. We also demonstrate using scientific notation to create a float number <code>num3</code>.</p>
+            </article>
+
+            
+            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
+                <h2 style="font-size: 20px; margin-bottom: 15px; color: #2c3e50;">See this concept in other languages</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
+                    <a href="../python-310/number-float.html">Python 3.10</a><a href="../java-20/number-float.html">Java 20</a><a href="../rust-155/number-float.html">Rust 1.55</a><a href="../haskell/number-float.html">Haskell</a><a href="../javascript-ecmascript-2021/number-float.html">JavaScript - ECMAScript 2021</a><a href="../php/number-float.html">PHP</a><a href="../typescript/number-float.html">TypeScript</a><a href="../swift/number-float.html">Swift</a><a href="../kotlin/number-float.html">Kotlin</a><a href="../go/number-float.html">Go</a><a href="../r/number-float.html">R</a><a href="../perl/number-float.html">Perl</a><a href="../matlab/number-float.html">MATLAB</a><a href="../lua/number-float.html">Lua</a><a href="../scala/number-float.html">Scala</a><a href="../groovy/number-float.html">Groovy</a><a href="../dart/number-float.html">Dart</a><a href="../julia/number-float.html">Julia</a><a href="../objective-c/number-float.html">Objective-C</a><a href="../visual-basic-net/number-float.html">Visual Basic .NET</a>
+                </div>
+                <style>
+                    .related-concepts a {
+                        padding: 8px 12px;
+                        background: #f5f5f5;
+                        border-radius: 4px;
+                        text-decoration: none;
+                        color: #0066cc;
+                        display: inline-block;
+                        text-align: center;
+                        transition: background 0.2s, transform 0.2s;
+                    }
+                    .related-concepts a:hover {
+                        background: #e5e7eb;
+                        transform: translateY(-2px);
+                    }
+                </style>
+            </section>
+
+
+            <div class="back-link">
+                <a href="../../index.html">← Back to Full Comparison Table</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>Content generated using AI | <a href="https://github.com/srix/prog-lang-compare" target="_blank"
+                    rel="noopener noreferrer">View on GitHub</a></p>
+        </footer>
+    </div>
+</body>
+
+</html>

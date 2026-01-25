@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>  Function Block binding in Objective-C - Prog Lang Compare</title>
+    <meta name="title" content="  Function Block binding in Objective-C - Prog Lang Compare">
+    <meta name="description" content="Learn how to   function block binding in Objective-C. See code examples and detailed explanations.">
+    <meta name="keywords" content="Objective-C, Method   Function Block binding, programming, code examples, syntax, Error handling">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://prog-lang-compare.netlify.app/concepts-ssg/objective-c/method-function-block-binding.html">
+    <meta property="og:title" content="  Function Block binding in Objective-C">
+    <meta property="og:description" content="Learn how to   function block binding in Objective-C. See code examples and detailed explanations.">
+    <meta property="og:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://prog-lang-compare.netlify.app/concepts-ssg/objective-c/method-function-block-binding.html">
+    <meta property="twitter:title" content="  Function Block binding in Objective-C">
+    <meta property="twitter:description" content="Learn how to   function block binding in Objective-C. See code examples and detailed explanations.">
+    <meta property="twitter:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://prog-lang-compare.netlify.app/concepts-ssg/objective-c/method-function-block-binding.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+    <!-- Inline Critical CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav.breadcrumb {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        nav.breadcrumb a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        nav.breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        nav.breadcrumb span {
+            color: #666;
+            margin: 0 5px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-left: 4px solid #0066cc;
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+        }
+
+        .content pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+        }
+
+        .content code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+
+        .content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .back-link {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .back-link a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "  Function Block binding in Objective-C",
+        "description": "Learn how to   function block binding in Objective-C. See code examples and detailed explanations.",
+        "keywords": "Objective-C, Method   Function Block binding, programming",
+        "url": "https://prog-lang-compare.netlify.app/concepts-ssg/objective-c/method-function-block-binding.html",
+        "datePublished": "2023-06-09",
+        "dateModified": "2026-01-25",
+        "author": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare",
+            "url": "https://prog-lang-compare.netlify.app"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://prog-lang-compare.netlify.app/concepts-ssg/objective-c/method-function-block-binding.html"
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span>›</span>
+            <a href="../objective-c.html">Objective-C</a>
+            <span>›</span>
+            <span>Method   Function Block binding</span>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <h1>  Function Block binding in Objective-C</h1>
+
+            <div class="meta">
+                <strong>Category:</strong> Error handling |
+                <strong>Language:</strong> Objective-C
+            </div>
+
+            <article class="content">
+                <p>Block binding in Objective-C is a technique that allows you to declare and define an anonymous function (block) within your code and assign it to a variable. This allows you to pass the block around as an argument to other functions and use it as a callback.</p>
+<p>Here's an example of how to use block binding in Objective-C:</p>
+<p>``<code>objective-c<br>
+// Declare a block<br>
+int (^addBlock)(int, int);</p>
+<p>// Define the block<br>
+addBlock = ^(int a, int b) {<br>
+    return a + b;<br>
+};</p>
+<p>// Call the block<br>
+int sum = addBlock(2, 3);</p>
+<p>NSLog(@"The sum is %d", sum); // Output: The sum is 5<br>
+<pre><code class="language-"><br>
+In the example above, we declare a block called </code>addBlock<code> that takes two </code>int<code> arguments and returns an </code>int<code>. We then define the block using the block syntax </code>^(int a, int b) { ... }<code> and assign it to the variable </code>addBlock<code>. Finally, we call the block with the arguments </code>2<code> and </code>3<code> and assign the result to the variable </code>sum<code>. The output of the </code>NSLog<code> statement is </code>The sum is 5<code>.</p>
+<p>Here's another example that demonstrates passing a block as an argument:</p>
+<p></code></pre>objective-c<br>
+// Define a function that takes a block as an argument<br>
+void printResult(int (^operation)(int, int), int a, int b) {<br>
+    int result = operation(a, b);<br>
+    NSLog(@"The result is %d", result);<br>
+}</p>
+<p>// Call the function with a block<br>
+printResult(^(int a, int b) {<br>
+    return a * b;<br>
+}, 4, 5);</p>
+<p>// Output: The result is 20<br>
+</code>`<code></p>
+<p>In this example, we define a function called </code>printResult<code> that takes a block as its first argument. The block takes two </code>int<code> arguments and returns an </code>int<code>. Inside the function, we call the block with the arguments </code>a<code> and </code>b<code>, and assign the result to the variable </code>result<code>. We then log the result using </code>NSLog<code>.</p>
+<p>Finally, we call the </code>printResult<code> function with a block that multiplies its two arguments, </code>4<code> and </code>5<code>, using the block syntax </code>^(int a, int b) { return a * b; }<code>. The output of the </code>NSLog<code> statement is </code>The result is 20`.</p>
+            </article>
+
+            
+            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
+                <h2 style="font-size: 20px; margin-bottom: 15px; color: #2c3e50;">See this concept in other languages</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
+                    <a href="../python-310/method-function-block-binding.html">Python 3.10</a><a href="../java-20/method-function-block-binding.html">Java 20</a><a href="../rust-155/method-function-block-binding.html">Rust 1.55</a><a href="../haskell/method-function-block-binding.html">Haskell</a><a href="../javascript-ecmascript-2021/method-function-block-binding.html">JavaScript - ECMAScript 2021</a><a href="../php/method-function-block-binding.html">PHP</a><a href="../typescript/method-function-block-binding.html">TypeScript</a><a href="../ruby/method-function-block-binding.html">Ruby</a><a href="../swift/method-function-block-binding.html">Swift</a><a href="../kotlin/method-function-block-binding.html">Kotlin</a><a href="../go/method-function-block-binding.html">Go</a><a href="../r/method-function-block-binding.html">R</a><a href="../perl/method-function-block-binding.html">Perl</a><a href="../matlab/method-function-block-binding.html">MATLAB</a><a href="../lua/method-function-block-binding.html">Lua</a><a href="../scala/method-function-block-binding.html">Scala</a><a href="../groovy/method-function-block-binding.html">Groovy</a><a href="../dart/method-function-block-binding.html">Dart</a><a href="../julia/method-function-block-binding.html">Julia</a><a href="../visual-basic-net/method-function-block-binding.html">Visual Basic .NET</a>
+                </div>
+                <style>
+                    .related-concepts a {
+                        padding: 8px 12px;
+                        background: #f5f5f5;
+                        border-radius: 4px;
+                        text-decoration: none;
+                        color: #0066cc;
+                        display: inline-block;
+                        text-align: center;
+                        transition: background 0.2s, transform 0.2s;
+                    }
+                    .related-concepts a:hover {
+                        background: #e5e7eb;
+                        transform: translateY(-2px);
+                    }
+                </style>
+            </section>
+
+
+            <div class="back-link">
+                <a href="../../index.html">← Back to Full Comparison Table</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>Content generated using AI | <a href="https://github.com/srix/prog-lang-compare" target="_blank"
+                    rel="noopener noreferrer">View on GitHub</a></p>
+        </footer>
+    </div>
+</body>
+
+</html>

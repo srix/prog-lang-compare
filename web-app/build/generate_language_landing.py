@@ -31,7 +31,7 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 # New Structure
 CONTENT_DIR = os.path.join(SCRIPT_DIR, '..', '..', 'concept-builder', 'output', 'content-autogen', 'gpt_3_5_turbo')
-CONCEPTS_DIR = os.path.join(SCRIPT_DIR, '..', 'public', 'concepts')
+CONCEPTS_DIR = os.path.join(SCRIPT_DIR, '..', 'public', 'concepts-ssg')
 PROG_LANGS_YAML = os.path.join(SCRIPT_DIR, '..', '..', 'concept-builder', 'config', 'prog_langs.yaml')
 
 # Base URL
@@ -107,20 +107,20 @@ def generate_language_landing_page(language, concepts):
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="{BASE_URL}/concepts/{slug}.html">
+    <meta property="og:url" content="{BASE_URL}/concepts-ssg/{slug}.html">
     <meta property="og:title" content="{language_display} Programming Concepts">
     <meta property="og:description" content="Learn {language_display} with {len(concepts)} detailed concept explanations and code examples.">
     <meta property="og:image" content="{BASE_URL}/social-preview.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="{BASE_URL}/concepts/{slug}.html">
+    <meta property="twitter:url" content="{BASE_URL}/concepts-ssg/{slug}.html">
     <meta property="twitter:title" content="{language_display} Programming Concepts">
     <meta property="twitter:description" content="Learn {language_display} with {len(concepts)} detailed concept explanations.">
     <meta property="twitter:image" content="{BASE_URL}/social-preview.png">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="{BASE_URL}/concepts/{slug}.html">
+    <link rel="canonical" href="{BASE_URL}/concepts-ssg/{slug}.html">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
