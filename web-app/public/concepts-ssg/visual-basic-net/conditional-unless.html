@@ -2,6 +2,12 @@
 <html lang="en">
 
 <head>
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -92,15 +98,15 @@
             border-left: 4px solid var(--primary);
         }
 
-        .content {
+        .concept-article-content {
             margin-top: 20px;
         }
 
-        .content p {
+        .concept-article-content p {
             margin-bottom: 15px;
         }
 
-        .content pre {
+        .concept-article-content pre {
             background-color: var(--code-bg);
             padding: 15px;
             border-radius: 5px;
@@ -109,7 +115,7 @@
             border: 1px solid var(--code-border);
         }
 
-        .content code {
+        .concept-article-content code {
             background-color: var(--code-bg);
             padding: 2px 6px;
             border-radius: 3px;
@@ -117,7 +123,7 @@
             font-size: 14px;
         }
 
-        .content pre code {
+        .concept-article-content pre code {
             background-color: transparent;
             padding: 0;
         }
@@ -218,7 +224,7 @@
                 <strong>Language:</strong> Visual Basic .NET
             </div>
 
-            <article class="content">
+            <article class="concept-article-content">
                 <p>In Visual Basic .NET, unless is not a reserved keyword. However, you can achieve the same functionality as unless using the Not operator with an If statement.</p>
 <p>The syntax would be: <br>
 ``<code>vb.net<br>
@@ -242,24 +248,24 @@ However, as previously mentioned, unless is not a reserved keyword in Visual Bas
             </article>
 
             
-            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
-                <h2 style="font-size: 20px; margin-bottom: 15px; color: #2c3e50;">See this concept in other languages</h2>
+            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-color);">
+                <h2 style="font-size: 20px; margin-bottom: 15px; color: var(--text-primary);">See this concept in other languages</h2>
                 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
                     <a href="../python-310/conditional-unless.html">Python 3.10</a><a href="../java-20/conditional-unless.html">Java 20</a><a href="../rust-155/conditional-unless.html">Rust 1.55</a><a href="../haskell/conditional-unless.html">Haskell</a><a href="../javascript-ecmascript-2021/conditional-unless.html">JavaScript - ECMAScript 2021</a><a href="../php/conditional-unless.html">PHP</a><a href="../typescript/conditional-unless.html">TypeScript</a><a href="../ruby/conditional-unless.html">Ruby</a><a href="../swift/conditional-unless.html">Swift</a><a href="../kotlin/conditional-unless.html">Kotlin</a><a href="../go/conditional-unless.html">Go</a><a href="../r/conditional-unless.html">R</a><a href="../perl/conditional-unless.html">Perl</a><a href="../matlab/conditional-unless.html">MATLAB</a><a href="../lua/conditional-unless.html">Lua</a><a href="../scala/conditional-unless.html">Scala</a><a href="../groovy/conditional-unless.html">Groovy</a><a href="../dart/conditional-unless.html">Dart</a><a href="../julia/conditional-unless.html">Julia</a><a href="../objective-c/conditional-unless.html">Objective-C</a>
                 </div>
                 <style>
                     .related-concepts a {
                         padding: 8px 12px;
-                        background: #f5f5f5;
+                        background: var(--bg-tertiary);
                         border-radius: 4px;
                         text-decoration: none;
-                        color: #0066cc;
+                        color: var(--primary);
                         display: inline-block;
                         text-align: center;
                         transition: background 0.2s, transform 0.2s;
                     }
                     .related-concepts a:hover {
-                        background: #e5e7eb;
+                        background: var(--primary-light);
                         transform: translateY(-2px);
                     }
                 </style>
@@ -277,6 +283,22 @@ However, as previously mentioned, unless is not a reserved keyword in Visual Bas
         </footer>
     </div>
 
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/haskell.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/dart.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/julia.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/kotlin.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/scala.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/groovy.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/matlab.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/vbnet.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelectorAll('pre code').forEach((el) => {
+                hljs.highlightElement(el);
+            });
+        });
+    </script>
     <script src="../../theme.js"></script>
 </body>
 

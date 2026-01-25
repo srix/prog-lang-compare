@@ -2,6 +2,12 @@
 <html lang="en">
 
 <head>
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -92,15 +98,15 @@
             border-left: 4px solid var(--primary);
         }
 
-        .content {
+        .concept-article-content {
             margin-top: 20px;
         }
 
-        .content p {
+        .concept-article-content p {
             margin-bottom: 15px;
         }
 
-        .content pre {
+        .concept-article-content pre {
             background-color: var(--code-bg);
             padding: 15px;
             border-radius: 5px;
@@ -109,7 +115,7 @@
             border: 1px solid var(--code-border);
         }
 
-        .content code {
+        .concept-article-content code {
             background-color: var(--code-bg);
             padding: 2px 6px;
             border-radius: 3px;
@@ -117,7 +123,7 @@
             font-size: 14px;
         }
 
-        .content pre code {
+        .concept-article-content pre code {
             background-color: transparent;
             padding: 0;
         }
@@ -218,7 +224,7 @@
                 <strong>Language:</strong> Rust 1.55
             </div>
 
-            <article class="content">
+            <article class="concept-article-content">
                 <p>In Rust, an alias is a name that refers to the same type or value as another name. Aliases are helpful when you want to use a different name for a type, especially when the original name is long or complex. Rust allows you to create type aliases using the <code>type</code> keyword. Here's how to use aliases in Rust:</p>
 <pre><code class="language-">type Age = u32;
 <p>fn display_age(age: Age) {<br>
@@ -253,24 +259,24 @@
             </article>
 
             
-            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
-                <h2 style="font-size: 20px; margin-bottom: 15px; color: #2c3e50;">See this concept in other languages</h2>
+            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-color);">
+                <h2 style="font-size: 20px; margin-bottom: 15px; color: var(--text-primary);">See this concept in other languages</h2>
                 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
                     <a href="../python-310/method-function-alias.html">Python 3.10</a><a href="../java-20/method-function-alias.html">Java 20</a><a href="../haskell/method-function-alias.html">Haskell</a><a href="../javascript-ecmascript-2021/method-function-alias.html">JavaScript - ECMAScript 2021</a><a href="../php/method-function-alias.html">PHP</a><a href="../typescript/method-function-alias.html">TypeScript</a><a href="../ruby/method-function-alias.html">Ruby</a><a href="../swift/method-function-alias.html">Swift</a><a href="../kotlin/method-function-alias.html">Kotlin</a><a href="../go/method-function-alias.html">Go</a><a href="../r/method-function-alias.html">R</a><a href="../perl/method-function-alias.html">Perl</a><a href="../matlab/method-function-alias.html">MATLAB</a><a href="../lua/method-function-alias.html">Lua</a><a href="../scala/method-function-alias.html">Scala</a><a href="../groovy/method-function-alias.html">Groovy</a><a href="../dart/method-function-alias.html">Dart</a><a href="../julia/method-function-alias.html">Julia</a><a href="../objective-c/method-function-alias.html">Objective-C</a><a href="../visual-basic-net/method-function-alias.html">Visual Basic .NET</a>
                 </div>
                 <style>
                     .related-concepts a {
                         padding: 8px 12px;
-                        background: #f5f5f5;
+                        background: var(--bg-tertiary);
                         border-radius: 4px;
                         text-decoration: none;
-                        color: #0066cc;
+                        color: var(--primary);
                         display: inline-block;
                         text-align: center;
                         transition: background 0.2s, transform 0.2s;
                     }
                     .related-concepts a:hover {
-                        background: #e5e7eb;
+                        background: var(--primary-light);
                         transform: translateY(-2px);
                     }
                 </style>
@@ -288,6 +294,22 @@
         </footer>
     </div>
 
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/haskell.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/dart.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/julia.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/kotlin.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/scala.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/groovy.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/matlab.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/vbnet.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelectorAll('pre code').forEach((el) => {
+                hljs.highlightElement(el);
+            });
+        });
+    </script>
     <script src="../../theme.js"></script>
 </body>
 

@@ -137,7 +137,7 @@ async function showEmptyTable(tableId, conceptsData, prog_lang_list) {
         }
         let langSlug = slugify(langTitle);
         // Add link to static page in header
-        let columnHeader = `<a href="concepts-ssg/${langSlug}.html" target="_blank" title="View ${langTitle} Concept Reference" style="color:inherit; text-decoration: none; border-bottom: 2px solid transparent; transition: all 0.2s;">${langTitle} <span style="font-size: 0.8em; opacity: 0.7;">↗</span></a>`;
+        let columnHeader = `<a href="concepts-ssg/${langSlug}.html" title="View ${langTitle} Concept Reference" style="color:inherit; text-decoration: none; border-bottom: 2px solid transparent; transition: all 0.2s;">${langTitle}</a>`;
 
         columns.push({ title: columnHeader, name: `${safeLangName}`, data: `${safeLangName}`, width: '50ch', visible: visibility });
     }
@@ -250,8 +250,8 @@ async function loadLangConceptsInColumn(tableId, progLang) {
             if (htmlContent) {
                 htmlContent += `
                 <div style="margin-top: 10px; padding-top: 5px; text-align: right;">
-                    <a href="${permalink}" target="_blank" class="concept-permalink" style="font-size: 12px; color: #aaa; text-decoration: none;">
-                        View Page ↗
+                    <a href="${permalink}" class="concept-permalink" style="font-size: 12px; color: #aaa; text-decoration: none;">
+                        View Page
                     </a>
                 </div>`;
             }

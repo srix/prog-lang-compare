@@ -96,24 +96,24 @@ function generateRelatedLanguagesSection(currentLanguage, conceptSlug, allLangua
     }).join('');
 
     return `
-            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
-                <h2 style="font-size: 20px; margin-bottom: 15px; color: #2c3e50;">See this concept in other languages</h2>
+            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-color);">
+                <h2 style="font-size: 20px; margin-bottom: 15px; color: var(--text-primary);">See this concept in other languages</h2>
                 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
                     ${languageLinks}
                 </div>
                 <style>
                     .related-concepts a {
                         padding: 8px 12px;
-                        background: #f5f5f5;
+                        background: var(--bg-tertiary);
                         border-radius: 4px;
                         text-decoration: none;
-                        color: #0066cc;
+                        color: var(--primary);
                         display: inline-block;
                         text-align: center;
                         transition: background 0.2s, transform 0.2s;
                     }
                     .related-concepts a:hover {
-                        background: #e5e7eb;
+                        background: var(--primary-light);
                         transform: translateY(-2px);
                     }
                 </style>

@@ -2,6 +2,12 @@
 <html lang="en">
 
 <head>
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -92,15 +98,15 @@
             border-left: 4px solid var(--primary);
         }
 
-        .content {
+        .concept-article-content {
             margin-top: 20px;
         }
 
-        .content p {
+        .concept-article-content p {
             margin-bottom: 15px;
         }
 
-        .content pre {
+        .concept-article-content pre {
             background-color: var(--code-bg);
             padding: 15px;
             border-radius: 5px;
@@ -109,7 +115,7 @@
             border: 1px solid var(--code-border);
         }
 
-        .content code {
+        .concept-article-content code {
             background-color: var(--code-bg);
             padding: 2px 6px;
             border-radius: 3px;
@@ -117,7 +123,7 @@
             font-size: 14px;
         }
 
-        .content pre code {
+        .concept-article-content pre code {
             background-color: transparent;
             padding: 0;
         }
@@ -218,7 +224,7 @@
                 <strong>Language:</strong> MATLAB
             </div>
 
-            <article class="content">
+            <article class="concept-article-content">
                 <p>In MATLAB, while loop is a control flow statement that allows you to execute a block of code repeatedly as long as the specified condition remains true. Here's the syntax for using the while loop:</p>
 <pre><code class="language-matlab">while condition
     statement
@@ -250,24 +256,24 @@ disp(['The sum of the numbers in the array is ' num2str(sum)]);
             </article>
 
             
-            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
-                <h2 style="font-size: 20px; margin-bottom: 15px; color: #2c3e50;">See this concept in other languages</h2>
+            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-color);">
+                <h2 style="font-size: 20px; margin-bottom: 15px; color: var(--text-primary);">See this concept in other languages</h2>
                 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
                     <a href="../python-310/loop-while.html">Python 3.10</a><a href="../java-20/loop-while.html">Java 20</a><a href="../rust-155/loop-while.html">Rust 1.55</a><a href="../haskell/loop-while.html">Haskell</a><a href="../javascript-ecmascript-2021/loop-while.html">JavaScript - ECMAScript 2021</a><a href="../php/loop-while.html">PHP</a><a href="../typescript/loop-while.html">TypeScript</a><a href="../ruby/loop-while.html">Ruby</a><a href="../swift/loop-while.html">Swift</a><a href="../kotlin/loop-while.html">Kotlin</a><a href="../go/loop-while.html">Go</a><a href="../r/loop-while.html">R</a><a href="../perl/loop-while.html">Perl</a><a href="../lua/loop-while.html">Lua</a><a href="../scala/loop-while.html">Scala</a><a href="../groovy/loop-while.html">Groovy</a><a href="../dart/loop-while.html">Dart</a><a href="../julia/loop-while.html">Julia</a><a href="../objective-c/loop-while.html">Objective-C</a><a href="../visual-basic-net/loop-while.html">Visual Basic .NET</a>
                 </div>
                 <style>
                     .related-concepts a {
                         padding: 8px 12px;
-                        background: #f5f5f5;
+                        background: var(--bg-tertiary);
                         border-radius: 4px;
                         text-decoration: none;
-                        color: #0066cc;
+                        color: var(--primary);
                         display: inline-block;
                         text-align: center;
                         transition: background 0.2s, transform 0.2s;
                     }
                     .related-concepts a:hover {
-                        background: #e5e7eb;
+                        background: var(--primary-light);
                         transform: translateY(-2px);
                     }
                 </style>
@@ -285,6 +291,22 @@ disp(['The sum of the numbers in the array is ' num2str(sum)]);
         </footer>
     </div>
 
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/haskell.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/dart.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/julia.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/kotlin.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/scala.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/groovy.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/matlab.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/vbnet.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelectorAll('pre code').forEach((el) => {
+                hljs.highlightElement(el);
+            });
+        });
+    </script>
     <script src="../../theme.js"></script>
 </body>
 

@@ -2,6 +2,12 @@
 <html lang="en">
 
 <head>
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -92,15 +98,15 @@
             border-left: 4px solid var(--primary);
         }
 
-        .content {
+        .concept-article-content {
             margin-top: 20px;
         }
 
-        .content p {
+        .concept-article-content p {
             margin-bottom: 15px;
         }
 
-        .content pre {
+        .concept-article-content pre {
             background-color: var(--code-bg);
             padding: 15px;
             border-radius: 5px;
@@ -109,7 +115,7 @@
             border: 1px solid var(--code-border);
         }
 
-        .content code {
+        .concept-article-content code {
             background-color: var(--code-bg);
             padding: 2px 6px;
             border-radius: 3px;
@@ -117,7 +123,7 @@
             font-size: 14px;
         }
 
-        .content pre code {
+        .concept-article-content pre code {
             background-color: transparent;
             padding: 0;
         }
@@ -218,7 +224,7 @@
                 <strong>Language:</strong> Objective-C
             </div>
 
-            <article class="content">
+            <article class="concept-article-content">
                 <p>In Objective-C, you can check if a class has a particular method using the <code>respondsToSelector:</code> method. This method is typically used to check if a class or object can respond to a particular message or method call.</p>
 <p>Here's a quick example:</p>
 <pre><code class="language-">// Let's say we have a class called "MyClass"
@@ -247,24 +253,24 @@ if ([myInstance respondsToSelector:@selector(myMethod)]) {<br>
             </article>
 
             
-            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
-                <h2 style="font-size: 20px; margin-bottom: 15px; color: #2c3e50;">See this concept in other languages</h2>
+            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-color);">
+                <h2 style="font-size: 20px; margin-bottom: 15px; color: var(--text-primary);">See this concept in other languages</h2>
                 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
                     <a href="../python-310/class-has-method.html">Python 3.10</a><a href="../java-20/class-has-method.html">Java 20</a><a href="../rust-155/class-has-method.html">Rust 1.55</a><a href="../haskell/class-has-method.html">Haskell</a><a href="../javascript-ecmascript-2021/class-has-method.html">JavaScript - ECMAScript 2021</a><a href="../php/class-has-method.html">PHP</a><a href="../typescript/class-has-method.html">TypeScript</a><a href="../ruby/class-has-method.html">Ruby</a><a href="../swift/class-has-method.html">Swift</a><a href="../kotlin/class-has-method.html">Kotlin</a><a href="../go/class-has-method.html">Go</a><a href="../r/class-has-method.html">R</a><a href="../perl/class-has-method.html">Perl</a><a href="../matlab/class-has-method.html">MATLAB</a><a href="../lua/class-has-method.html">Lua</a><a href="../scala/class-has-method.html">Scala</a><a href="../groovy/class-has-method.html">Groovy</a><a href="../dart/class-has-method.html">Dart</a><a href="../julia/class-has-method.html">Julia</a><a href="../visual-basic-net/class-has-method.html">Visual Basic .NET</a>
                 </div>
                 <style>
                     .related-concepts a {
                         padding: 8px 12px;
-                        background: #f5f5f5;
+                        background: var(--bg-tertiary);
                         border-radius: 4px;
                         text-decoration: none;
-                        color: #0066cc;
+                        color: var(--primary);
                         display: inline-block;
                         text-align: center;
                         transition: background 0.2s, transform 0.2s;
                     }
                     .related-concepts a:hover {
-                        background: #e5e7eb;
+                        background: var(--primary-light);
                         transform: translateY(-2px);
                     }
                 </style>
@@ -282,6 +288,22 @@ if ([myInstance respondsToSelector:@selector(myMethod)]) {<br>
         </footer>
     </div>
 
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/haskell.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/dart.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/julia.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/kotlin.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/scala.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/groovy.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/matlab.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/vbnet.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelectorAll('pre code').forEach((el) => {
+                hljs.highlightElement(el);
+            });
+        });
+    </script>
     <script src="../../theme.js"></script>
 </body>
 
