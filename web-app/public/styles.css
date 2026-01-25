@@ -220,44 +220,50 @@ header a:hover {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 24px;
+    padding-right: 60px;
+    /* Space for theme toggle */
 }
 
-.github-btn {
+.header-controls h1 {
+    margin-bottom: 0;
+    margin-right: 16px;
+}
+
+.github-cta {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    background-color: #24292e;
-    color: white;
-    padding: 8px 16px;
-    border-radius: 6px;
-    font-weight: 600;
-    font-size: 14px;
-    text-decoration: none;
-    transition: all 0.2s ease;
-    border: 1px solid transparent;
+    gap: 12px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    padding: 6px 12px;
+    border-radius: var(--border-radius-sm);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
 }
 
-.github-btn:hover {
-    background-color: #000;
-    text-decoration: none;
+.github-cta:hover {
+    background: var(--bg-tertiary);
+    border-color: var(--primary-light);
     transform: translateY(-1px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-md);
 }
 
-.github-btn svg {
-    fill: currentColor;
-    width: 20px;
-    height: 20px;
+.github-cta span {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
 }
 
-[data-theme="dark"] .github-btn {
-    background-color: #f0f6fc;
-    color: #24292e;
+[data-theme="dark"] .github-cta {
+    background: var(--bg-tertiary);
 }
 
-[data-theme="dark"] .github-btn:hover {
-    background-color: #ffffff;
+[data-theme="dark"] .github-cta:hover {
+    background: var(--bg-secondary);
+    border-color: var(--primary);
 }
+
+
 
 /* ========================================
    DARK MODE TOGGLE

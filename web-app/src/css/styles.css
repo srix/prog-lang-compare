@@ -229,6 +229,40 @@ header a:hover {
     margin-right: 16px;
 }
 
+.github-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    padding: 6px 12px;
+    border-radius: var(--border-radius-sm);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.github-cta:hover {
+    background: var(--bg-tertiary);
+    border-color: var(--primary-light);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+.github-cta span {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+[data-theme="dark"] .github-cta {
+    background: var(--bg-tertiary);
+}
+
+[data-theme="dark"] .github-cta:hover {
+    background: var(--bg-secondary);
+    border-color: var(--primary);
+}
+
 
 
 /* ========================================

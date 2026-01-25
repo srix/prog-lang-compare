@@ -20,6 +20,7 @@ mkdir -p web-app/public
 cp web-app/src/index.html web-app/public/
 cp web-app/src/css/styles.css web-app/public/
 cp web-app/src/js/script.js web-app/public/
+cp web-app/src/js/theme.js web-app/public/
 cp web-app/src/assets/favicon.svg web-app/public/
 cp LICENSE web-app/public/
 

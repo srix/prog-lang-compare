@@ -30,57 +30,30 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <link rel="stylesheet" href="../styles.css">
+    <!-- Highlight.js theme is controlled by custom CSS -->
 
+    <style>
+        /* Minimal critical overrides if needed, otherwise rely on styles.css */
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
         }
-
-        nav {
-            margin-bottom: 30px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #e5e7eb;
-        }
-
-        nav a {
-            color: #0066cc;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
-        }
-
-        h1 {
-            color: #2c3e50;
-            font-size: 36px;
-            margin-bottom: 10px;
-        }
-
+        
+        /* Adjustments for static pages layout */
         .intro {
             font-size: 18px;
-            color: #666;
+            color: var(--text-secondary);
             margin-bottom: 40px;
         }
 
         .stats {
-            background: #fff;
+            background: var(--bg-primary);
             padding: 20px;
             border-radius: 8px;
             margin-bottom: 40px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
         }
 
         .stats-grid {
@@ -96,12 +69,12 @@
         .stat-number {
             font-size: 36px;
             font-weight: bold;
-            color: #0066cc;
+            color: var(--primary);
         }
 
         .stat-label {
             font-size: 14px;
-            color: #666;
+            color: var(--text-secondary);
             margin-top: 5px;
         }
 
@@ -110,13 +83,13 @@
         }
 
         h2, h3 {
-            color: #2c3e50;
+            color: var(--text-primary);
             margin-bottom: 20px;
         }
 
         h3 {
             font-size: 24px;
-            border-left: 4px solid #0066cc;
+            border-left: 4px solid var(--primary);
             padding-left: 15px;
         }
 
@@ -128,21 +101,22 @@
         }
 
         .concept-card {
-            background: #fff;
+            background: var(--bg-primary);
             padding: 15px 20px;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
             transition: transform 0.2s, box-shadow 0.2s;
         }
 
         .concept-card:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            box-shadow: var(--shadow-md);
         }
 
         .concept-card a {
             text-decoration: none;
-            color: #0066cc;
+            color: var(--primary);
             font-weight: 500;
         }
 
@@ -153,14 +127,14 @@
         footer {
             margin-top: 60px;
             padding-top: 20px;
-            border-top: 2px solid #e5e7eb;
+            border-top: 2px solid var(--border-color);
             text-align: center;
-            color: #666;
+            color: var(--text-secondary);
             font-size: 14px;
         }
 
         footer a {
-            color: #0066cc;
+            color: var(--primary);
             text-decoration: none;
         }
 
@@ -208,6 +182,19 @@
     </script>
 </head>
 <body>
+    <!-- Dark Mode Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg id="sunIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+        <svg id="moonIcon" style="display: none;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+    </button>
+
     <nav>
         <a href="../index.html">← Back to Language Comparison Table</a>
     </nav>
@@ -215,10 +202,11 @@
     <header>
         <div class="header-controls">
             <h1>R Programming Concepts</h1>
-            <a href="https://github.com/srix/prog-lang-compare" target="_blank" rel="noopener noreferrer" class="github-btn">
-                <svg viewBox="0 0 16 16" version="1.1" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                Star on GitHub
-            </a>
+            <div class="github-cta">
+                <span>Find this useful? Support us:</span>
+                <script async defer src="https://buttons.github.io/buttons.js"></script>
+                <a class="github-button" href="https://github.com/srix/prog-lang-compare" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star srix/prog-lang-compare on GitHub">Star on GitHub</a>
+            </div>
         </div>
         <p class="intro">Explore R programming with detailed explanations and code examples across 108 concepts.</p>
     </header>
@@ -349,5 +337,7 @@
     <footer>
         <p>Content generated using AI | <a href="https://github.com/srix/prog-lang-compare" target="_blank" rel="noopener noreferrer">View on GitHub</a></p>
     </footer>
+
+    <script src="../theme.js"></script>
 </body>
 </html>
