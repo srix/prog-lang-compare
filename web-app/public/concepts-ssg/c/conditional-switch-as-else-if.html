@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Switch as else if in C++ - Prog Lang Compare</title>
+    <meta name="title" content="Switch as else if in C++ - Prog Lang Compare">
+    <meta name="description" content="Learn how to switch as else if in C++. See code examples and detailed explanations.">
+    <meta name="keywords" content="C++, Conditional Switch as else if, programming, code examples, syntax, Conditional">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://prog-lang-compare.netlify.app/concepts-ssg/c/conditional-switch-as-else-if.html">
+    <meta property="og:title" content="Switch as else if in C++">
+    <meta property="og:description" content="Learn how to switch as else if in C++. See code examples and detailed explanations.">
+    <meta property="og:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://prog-lang-compare.netlify.app/concepts-ssg/c/conditional-switch-as-else-if.html">
+    <meta property="twitter:title" content="Switch as else if in C++">
+    <meta property="twitter:description" content="Learn how to switch as else if in C++. See code examples and detailed explanations.">
+    <meta property="twitter:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://prog-lang-compare.netlify.app/concepts-ssg/c/conditional-switch-as-else-if.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+    <!-- Inline Critical CSS -->
+    <link rel="stylesheet" href="../../styles.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--bg-primary);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        nav.breadcrumb {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 14px;
+        }
+
+        nav.breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        nav.breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        nav.breadcrumb span {
+            color: var(--text-secondary);
+            margin: 0 5px;
+        }
+
+        h1 {
+            color: var(--text-primary);
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .meta {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 30px;
+            padding: 10px;
+            background-color: var(--bg-tertiary);
+            border-left: 4px solid var(--primary);
+        }
+
+        .concept-article-content {
+            margin-top: 20px;
+        }
+
+        .concept-article-content p {
+            margin-bottom: 15px;
+        }
+
+        .concept-article-content pre {
+            background-color: var(--code-bg);
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border: 1px solid var(--code-border);
+        }
+
+        .concept-article-content code {
+            background-color: var(--code-bg);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+
+        .concept-article-content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .back-link {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .back-link a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Switch as else if in C++",
+        "description": "Learn how to switch as else if in C++. See code examples and detailed explanations.",
+        "keywords": "C++, Conditional Switch as else if, programming",
+        "url": "https://prog-lang-compare.netlify.app/concepts-ssg/c/conditional-switch-as-else-if.html",
+        "datePublished": "2023-06-09",
+        "dateModified": "2026-01-25",
+        "author": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare",
+            "url": "https://prog-lang-compare.netlify.app"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://prog-lang-compare.netlify.app/concepts-ssg/c/conditional-switch-as-else-if.html"
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <!-- Dark Mode Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg id="sunIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+        <svg id="moonIcon" style="display: none;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+    </button>
+
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span>›</span>
+            <a href="../c.html">C++</a>
+            <span>›</span>
+            <span>Conditional Switch as else if</span>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <div class="header-controls"
+                style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; margin-bottom: 24px;">
+                <h1 style="margin-bottom: 0;">Switch as else if in C++</h1>
+                <div class="github-cta">
+                    <span>Find this useful? Support us:</span>
+                    <script async defer src="https://buttons.github.io/buttons.js"></script>
+                    <a class="github-button" href="https://github.com/srix/prog-lang-compare" data-icon="octicon-star"
+                        data-size="large" data-show-count="true" aria-label="Star srix/prog-lang-compare on GitHub">Star
+                        on GitHub</a>
+                </div>
+            </div>
+
+            <div class="meta">
+                <strong>Category:</strong> Conditional |
+                <strong>Language:</strong> C++
+            </div>
+
+            <article class="concept-article-content">
+                <p>In C++, the switch statement is used to select one option among multiple options available. It can be used as an alternative to multiple if-else statements in some scenarios. Here is how to use switch as an else-if statement in C++ with examples:</p>
+<p>The basic syntax of a switch statement in C++ is as follows:</p>
+<pre><code class="language-">switch(expression) {
+    case constant-expression1:
+        // code to be executed when expression evaluates to constant-expression1
+        break;
+    case constant-expression2:
+        // code to be executed when expression evaluates to constant-expression2
+        break;
+    ...
+    default:
+        // optional code to be executed when none of the cases match
+}
+</code></pre>
+<p>Here, <code>expression</code> is evaluated once and compared to each of the constant expressions (<code>constant-expression1</code>, <code>constant-expression2</code>, etc.) specified in the case statements. If a match is found, the code inside that case is executed. The <code>break</code> statement is used to exit the switch statement and prevent execution of the code in subsequent cases.</p>
+<p>Now let's look at an example of using switch instead of else-if statements:</p>
+<pre><code class="language-">// Program to print the name of a month based on its number
+<p>#include <iostream><br>
+using namespace std;</p>
+<p>int main() {<br>
+  int monthNum;</p>
+<p>cout << "Enter the month number (1-12): ";<br>
+  cin >> monthNum;</p>
+<p>switch(monthNum) {<br>
+    case 1:<br>
+      cout << "January" << endl;<br>
+      break;<br>
+    case 2:<br>
+      cout << "February" << endl;<br>
+      break;<br>
+    case 3:<br>
+      cout << "March" << endl;<br>
+      break;<br>
+    case 4:<br>
+      cout << "April" << endl;<br>
+      break;<br>
+    case 5:<br>
+      cout << "May" << endl;<br>
+      break;<br>
+    case 6:<br>
+      cout << "June" << endl;<br>
+      break;<br>
+    case 7:<br>
+      cout << "July" << endl;<br>
+      break;<br>
+    case 8:<br>
+      cout << "August" << endl;<br>
+      break;<br>
+    case 9:<br>
+      cout << "September" << endl;<br>
+      break;<br>
+    case 10:<br>
+      cout << "October" << endl;<br>
+      break;<br>
+    case 11:<br>
+      cout << "November" << endl;<br>
+      break;<br>
+    case 12:<br>
+      cout << "December" << endl;<br>
+      break;<br>
+    default:<br>
+      cout << "Invalid month number" << endl;<br>
+  }</p>
+<p>return 0;<br>
+}<br>
+</code></pre></p>
+<p>In this example, we take input from the user as the month number and use switch to print the name of the month. If the user enters a number that does not match any of the cases, the default case is executed and an error message is printed.</p>
+<p>This is how we can use switch as an alternative to multiple if-else statements in some scenarios.</p>
+            </article>
+
+            
+            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-color);">
+                <h2 style="font-size: 20px; margin-bottom: 15px; color: var(--text-primary);">See this concept in other languages</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
+                    <a href="../c/conditional-switch-as-else-if.html">C#</a><a href="../dart/conditional-switch-as-else-if.html">Dart</a><a href="../go/conditional-switch-as-else-if.html">Go</a><a href="../groovy/conditional-switch-as-else-if.html">Groovy</a><a href="../haskell/conditional-switch-as-else-if.html">Haskell</a><a href="../java-20/conditional-switch-as-else-if.html">Java 20</a><a href="../javascript-ecmascript-2021/conditional-switch-as-else-if.html">JavaScript - ECMAScript 2021</a><a href="../julia/conditional-switch-as-else-if.html">Julia</a><a href="../kotlin/conditional-switch-as-else-if.html">Kotlin</a><a href="../lua/conditional-switch-as-else-if.html">Lua</a><a href="../matlab/conditional-switch-as-else-if.html">MATLAB</a><a href="../objective-c/conditional-switch-as-else-if.html">Objective-C</a><a href="../perl/conditional-switch-as-else-if.html">Perl</a><a href="../php/conditional-switch-as-else-if.html">PHP</a><a href="../python-310/conditional-switch-as-else-if.html">Python 3.10</a><a href="../r/conditional-switch-as-else-if.html">R</a><a href="../ruby/conditional-switch-as-else-if.html">Ruby</a><a href="../rust-155/conditional-switch-as-else-if.html">Rust 1.55</a><a href="../scala/conditional-switch-as-else-if.html">Scala</a><a href="../swift/conditional-switch-as-else-if.html">Swift</a><a href="../typescript/conditional-switch-as-else-if.html">TypeScript</a><a href="../visual-basic-net/conditional-switch-as-else-if.html">Visual Basic .NET</a>
+                </div>
+                <style>
+                    .related-concepts a {
+                        padding: 8px 12px;
+                        background: var(--bg-tertiary);
+                        border-radius: 4px;
+                        text-decoration: none;
+                        color: var(--primary);
+                        display: inline-block;
+                        text-align: center;
+                        transition: background 0.2s, transform 0.2s;
+                    }
+                    .related-concepts a:hover {
+                        background: var(--primary-light);
+                        transform: translateY(-2px);
+                    }
+                </style>
+            </section>
+
+
+            <div class="back-link">
+                <a href="../../index.html">← Back to Full Comparison Table</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>Content generated using AI | <a href="https://github.com/srix/prog-lang-compare" target="_blank"
+                    rel="noopener noreferrer">View on GitHub</a></p>
+        </footer>
+    </div>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/haskell.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/dart.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/julia.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/kotlin.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/scala.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/groovy.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/matlab.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/vbnet.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelectorAll('pre code').forEach((el) => {
+                hljs.highlightElement(el);
+            });
+        });
+    </script>
+    <script src="../../theme.js"></script>
+</body>
+
+</html>

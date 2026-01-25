@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>C++ Programming Concepts - Prog Lang Compare</title>
+    <meta name="title" content="C++ Programming Concepts - Prog Lang Compare">
+    <meta name="description" content="Learn C++ programming with 108 detailed concept explanations and code examples. Compare syntax, features, and best practices with other languages.">
+    <meta name="keywords" content="C++, programming, code examples, syntax, tutorial, reference">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://prog-lang-compare.netlify.app/concepts-ssg/c.html">
+    <meta property="og:title" content="C++ Programming Concepts">
+    <meta property="og:description" content="Learn C++ with 108 detailed concept explanations and code examples.">
+    <meta property="og:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://prog-lang-compare.netlify.app/concepts-ssg/c.html">
+    <meta property="twitter:title" content="C++ Programming Concepts">
+    <meta property="twitter:description" content="Learn C++ with 108 detailed concept explanations.">
+    <meta property="twitter:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://prog-lang-compare.netlify.app/concepts-ssg/c.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+
+    <link rel="stylesheet" href="../styles.css">
+    <!-- Highlight.js theme is controlled by custom CSS -->
+
+    <style>
+        /* Minimal critical overrides if needed, otherwise rely on styles.css */
+        body {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Adjustments for static pages layout */
+        .intro {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+        }
+
+        .stats {
+            background: var(--bg-primary);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-top: 5px;
+        }
+
+        .category-section {
+            margin-bottom: 40px;
+        }
+
+        h2, h3 {
+            color: var(--text-primary);
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-size: 24px;
+            border-left: 4px solid var(--primary);
+            padding-left: 15px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .concept-card {
+            background: var(--bg-primary);
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .concept-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .concept-card a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .concept-card a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 2px solid var(--border-color);
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .intro {
+                font-size: 16px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "C++ Programming Concepts",
+        "description": "Learn C++ programming with 108 detailed concept explanations and code examples.",
+        "url": "https://prog-lang-compare.netlify.app/concepts/c.html",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "Prog Lang Compare",
+            "url": "https://prog-lang-compare.netlify.app"
+        },
+        "about": {
+            "@type": "ComputerLanguage",
+            "name": "C++"
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- Dark Mode Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg id="sunIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+        <svg id="moonIcon" style="display: none;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+    </button>
+
+    <nav>
+        <a href="../index.html">← Back to Language Comparison Table</a>
+    </nav>
+
+    <header>
+        <div class="header-controls">
+            <h1>C++ Programming Concepts</h1>
+            <div class="github-cta">
+                <span>Find this useful? Support us:</span>
+                <script async defer src="https://buttons.github.io/buttons.js"></script>
+                <a class="github-button" href="https://github.com/srix/prog-lang-compare" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star srix/prog-lang-compare on GitHub">Star on GitHub</a>
+            </div>
+        </div>
+        <p class="intro">Explore C++ programming with detailed explanations and code examples across 108 concepts.</p>
+    </header>
+
+    <div class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">108</div>
+                <div class="stat-label">Concepts Covered</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">15</div>
+                <div class="stat-label">Categories</div>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <h2>All Concepts</h2>
+        
+        <section class="category-section">
+            <h3>Array</h3>
+            <div class="grid">
+                <div class="concept-card"><a href="c/array-add.html">Add</a></div><div class="concept-card"><a href="c/array-concatenation.html">Concatenation</a></div><div class="concept-card"><a href="c/array-count.html">Count</a></div><div class="concept-card"><a href="c/array-create-populated.html">Create Populated</a></div><div class="concept-card"><a href="c/array-delete-element.html">Delete Element</a></div><div class="concept-card"><a href="c/array-find-first.html">Find First</a></div><div class="concept-card"><a href="c/array-get-first-last-element.html">Get First  Last Element</a></div><div class="concept-card"><a href="c/array-include.html">Include </a></div><div class="concept-card"><a href="c/array-index-of-element.html">Index Of Element</a></div><div class="concept-card"><a href="c/array-iterate.html">Iterate</a></div><div class="concept-card"><a href="c/array-iterate-with-index.html">Iterate With Index</a></div><div class="concept-card"><a href="c/array-map-change-all.html">Map  Change All </a></div><div class="concept-card"><a href="c/array-multidimensional.html">Multidimensional</a></div><div class="concept-card"><a href="c/array-reduce.html">Reduce</a></div><div class="concept-card"><a href="c/array-select-find-all.html">Select  Find All </a></div><div class="concept-card"><a href="c/array-size.html">Size</a></div><div class="concept-card"><a href="c/array-sort.html">Sort</a></div><div class="concept-card"><a href="c/array-unique.html">Unique</a></div><div class="concept-card"><a href="c/array-with-different-types.html">With Different Types</a></div>
+            </div>
+        </section>
+        
+        <section class="category-section">
+            <h3>Class</h3>
+            <div class="grid">
+                <div class="concept-card"><a href="c/class-constructor.html">Constructor</a></div><div class="concept-card"><a href="c/class-declare.html">Declare</a></div><div class="concept-card"><a href="c/class-field.html">Field</a></div><div class="concept-card"><a href="c/class-get-set.html">Get Set</a></div><div class="concept-card"><a href="c/class-has-method.html">Has Method </a></div><div class="concept-card"><a href="c/class-inheritance.html">Inheritance</a></div><div class="concept-card"><a href="c/class-method-call.html">Method Call</a></div><div class="concept-card"><a href="c/class-mixin.html">Mixin</a></div><div class="concept-card"><a href="c/class-private-method.html">Private Method</a></div><div class="concept-card"><a href="c/class-private-method-access-instance-variable.html">Private Method  Access Instance Variable</a></div><div class="concept-card"><a href="c/class-static-method.html">Static Method</a></div>
+            </div>
+        </section>
+        
+        <section class="category-section">
+            <h3>Conditional</h3>
+            <div class="grid">
+                <div class="concept-card"><a href="c/conditional-and-or.html">And Or</a></div><div class="concept-card"><a href="c/conditional-if.html">If</a></div><div class="concept-card"><a href="c/conditional-if-assign.html">If Assign</a></div><div class="concept-card"><a href="c/conditional-if-else.html">If Else</a></div><div class="concept-card"><a href="c/conditional-switch.html">Switch</a></div><div class="concept-card"><a href="c/conditional-switch-as-else-if.html">Switch As Else If</a></div><div class="concept-card"><a href="c/conditional-ternary.html">Ternary</a></div><div class="concept-card"><a href="c/conditional-unless.html">Unless</a></div>
+            </div>
+        </section>
+        
+        <section class="category-section">
+            <h3>Datatypes</h3>
+            <div class="grid">
+                <div class="concept-card"><a href="c/datatypes-primitives.html">Primitives</a></div>
+            </div>
+        </section>
+        
+        <section class="category-section">
+            <h3>Error</h3>
+            <div class="grid">
+                <div class="concept-card"><a href="c/error-handling-method.html">Handling Method</a></div><div class="concept-card"><a href="c/error-handling-throw-exception.html">Handling Throw Exception</a></div><div class="concept-card"><a href="c/error-handling-try-catch-finally.html">Handling Try Catch Finally</a></div><div class="concept-card"><a href="c/error-handling-with-a-message.html">Handling With A Message</a></div>
+            </div>
+        </section>
+        
+        <section class="category-section">
+            <h3>File</h3>
+            <div class="grid">
+                <div class="concept-card"><a href="c/file-dir-path.html">Dir Path</a></div><div class="concept-card"><a href="c/file-file-path.html">File Path</a></div><div class="concept-card"><a href="c/file-get-working-dir-path.html">Get Working Dir Path</a></div><div class="concept-card"><a href="c/file-parent-dir-path.html">Parent Dir Path</a></div><div class="concept-card"><a href="c/file-read.html">Read</a></div><div class="concept-card"><a href="c/file-sister-dir-path.html">Sister Dir Path</a></div><div class="concept-card"><a href="c/file-write.html">Write</a></div>
+            </div>
+        </section>
+        
+        <section class="category-section">
+            <h3>Hash</h3>
+            <div class="grid">
+                <div class="concept-card"><a href="c/hash-map-add.html"> Map  Add</a></div><div class="concept-card"><a href="c/hash-map-create-populated.html"> Map  Create Populated</a></div><div class="concept-card"><a href="c/hash-map-get-value.html"> Map  Get Value</a></div><div class="concept-card"><a href="c/hash-map-include.html"> Map  Include </a></div><div class="concept-card"><a href="c/hash-map-iterate.html"> Map  Iterate</a></div><div class="concept-card"><a href="c/hash-map-size.html"> Map  Size</a></div>
+            </div>
+        </section>
+        
+        <section class="category-section">
+            <h3>Importing</h3>
+            <div class="grid">
+                <div class="concept-card"><a href="c/importing-libraries-import.html">Libraries Import</a></div>
+            </div>
+        </section>
+        
+        <section class="category-section">
+            <h3>Loop</h3>
+            <div class="grid">
+                <div class="concept-card"><a href="c/loop-break.html">Break</a></div><div class="concept-card"><a href="c/loop-for.html">For</a></div><div class="concept-card"><a href="c/loop-for-with-a-step.html">For With A Step</a></div><div class="concept-card"><a href="c/loop-next-continue.html">Next Continue</a></div><div class="concept-card"><a href="c/loop-return-array.html">Return Array</a></div><div class="concept-card"><a href="c/loop-times.html">Times</a></div><div class="concept-card"><a href="c/loop-until.html">Until</a></div><div class="concept-card"><a href="c/loop-while.html">While</a></div>
+            </div>
+        </section>
+        
+        <section class="category-section">
+            <h3>Math</h3>
+            <div class="grid">
+                <div class="concept-card"><a href="c/math-max-min.html">Max Min</a></div><div class="concept-card"><a href="c/math-sqrt.html">Sqrt</a></div>
+            </div>
+        </section>
+        
+        <section class="category-section">
+            <h3>Method</h3>
+            <div class="grid">
+                <div class="concept-card"><a href="c/method-function-alias.html">  Function Alias</a></div><div class="concept-card"><a href="c/method-function-block-binding.html">  Function Block Binding</a></div><div class="concept-card"><a href="c/method-function-block-passing.html">  Function Block Passing</a></div><div class="concept-card"><a href="c/method-function-closure.html">  Function Closure</a></div><div class="concept-card"><a href="c/method-function-declare.html">  Function Declare</a></div><div class="concept-card"><a href="c/method-function-default-value-for-argument.html">  Function Default Value For Argument</a></div><div class="concept-card"><a href="c/method-function-initialize-in-runtime.html">  Function Initialize In Runtime</a></div><div class="concept-card"><a href="c/method-function-multiple-arguments.html">  Function Multiple Arguments</a></div><div class="concept-card"><a href="c/method-function-return.html">  Function Return</a></div>
+            </div>
+        </section>
+        
+        <section class="category-section">
+            <h3>Number</h3>
+            <div class="grid">
+                <div class="concept-card"><a href="c/number-compare.html">Compare</a></div><div class="concept-card"><a href="c/number-float.html">Float</a></div><div class="concept-card"><a href="c/number-increment.html">Increment</a></div><div class="concept-card"><a href="c/number-random.html">Random</a></div>
+            </div>
+        </section>
+        
+        <section class="category-section">
+            <h3>Other</h3>
+            <div class="grid">
+                <div class="concept-card"><a href="c/other-assign-this-or-that.html">Assign This Or That</a></div><div class="concept-card"><a href="c/other-assign-value-if-not-exist.html">Assign Value If Not Exist</a></div><div class="concept-card"><a href="c/other-comment.html">Comment</a></div><div class="concept-card"><a href="c/other-date.html">Date</a></div><div class="concept-card"><a href="c/other-destructuring-assignment.html">Destructuring Assignment</a></div><div class="concept-card"><a href="c/other-import-another-file.html">Import Another File</a></div><div class="concept-card"><a href="c/other-not.html">Not</a></div><div class="concept-card"><a href="c/other-run-command.html">Run Command</a></div><div class="concept-card"><a href="c/other-structure-boolean.html">Structure Boolean</a></div><div class="concept-card"><a href="c/other-structure-constant.html">Structure Constant</a></div><div class="concept-card"><a href="c/other-structure-constant-list.html">Structure Constant List</a></div><div class="concept-card"><a href="c/other-structure-struct.html">Structure Struct</a></div><div class="concept-card"><a href="c/other-time.html">Time</a></div>
+            </div>
+        </section>
+        
+        <section class="category-section">
+            <h3>String</h3>
+            <div class="grid">
+                <div class="concept-card"><a href="c/string-compare.html">Compare</a></div><div class="concept-card"><a href="c/string-concatenation.html">Concatenation</a></div><div class="concept-card"><a href="c/string-create.html">Create</a></div><div class="concept-card"><a href="c/string-interpolation.html">Interpolation</a></div><div class="concept-card"><a href="c/string-regex.html">Regex</a></div><div class="concept-card"><a href="c/string-remove-leading-and-trailing-whitespace.html">Remove Leading And Trailing Whitespace</a></div><div class="concept-card"><a href="c/string-remove-part.html">Remove Part</a></div><div class="concept-card"><a href="c/string-replace.html">Replace</a></div><div class="concept-card"><a href="c/string-split.html">Split</a></div>
+            </div>
+        </section>
+        
+        <section class="category-section">
+            <h3>Type</h3>
+            <div class="grid">
+                <div class="concept-card"><a href="c/type-get-type-of-object.html">Get Type Of Object</a></div><div class="concept-card"><a href="c/type-int-to-float.html">Int To Float</a></div><div class="concept-card"><a href="c/type-int-to-string.html">Int To String</a></div><div class="concept-card"><a href="c/type-null-true-false.html">Null True False </a></div><div class="concept-card"><a href="c/type-string.html">String </a></div><div class="concept-card"><a href="c/type-string-to-int.html">String To Int</a></div>
+            </div>
+        </section>
+        
+    </main>
+
+    <footer>
+        <p>Content generated using AI | <a href="https://github.com/srix/prog-lang-compare" target="_blank" rel="noopener noreferrer">View on GitHub</a></p>
+    </footer>
+
+    <script src="../theme.js"></script>
+</body>
+</html>

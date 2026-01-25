@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Create populated in C++ - Prog Lang Compare</title>
+    <meta name="title" content="Create populated in C++ - Prog Lang Compare">
+    <meta name="description" content="Learn how to create populated in C++. See code examples and detailed explanations.">
+    <meta name="keywords" content="C++, Array Create populated, programming, code examples, syntax, String">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://prog-lang-compare.netlify.app/concepts-ssg/c/array-create-populated.html">
+    <meta property="og:title" content="Create populated in C++">
+    <meta property="og:description" content="Learn how to create populated in C++. See code examples and detailed explanations.">
+    <meta property="og:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://prog-lang-compare.netlify.app/concepts-ssg/c/array-create-populated.html">
+    <meta property="twitter:title" content="Create populated in C++">
+    <meta property="twitter:description" content="Learn how to create populated in C++. See code examples and detailed explanations.">
+    <meta property="twitter:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://prog-lang-compare.netlify.app/concepts-ssg/c/array-create-populated.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+    <!-- Inline Critical CSS -->
+    <link rel="stylesheet" href="../../styles.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--bg-primary);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        nav.breadcrumb {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 14px;
+        }
+
+        nav.breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        nav.breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        nav.breadcrumb span {
+            color: var(--text-secondary);
+            margin: 0 5px;
+        }
+
+        h1 {
+            color: var(--text-primary);
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .meta {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 30px;
+            padding: 10px;
+            background-color: var(--bg-tertiary);
+            border-left: 4px solid var(--primary);
+        }
+
+        .concept-article-content {
+            margin-top: 20px;
+        }
+
+        .concept-article-content p {
+            margin-bottom: 15px;
+        }
+
+        .concept-article-content pre {
+            background-color: var(--code-bg);
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border: 1px solid var(--code-border);
+        }
+
+        .concept-article-content code {
+            background-color: var(--code-bg);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+
+        .concept-article-content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .back-link {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .back-link a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Create populated in C++",
+        "description": "Learn how to create populated in C++. See code examples and detailed explanations.",
+        "keywords": "C++, Array Create populated, programming",
+        "url": "https://prog-lang-compare.netlify.app/concepts-ssg/c/array-create-populated.html",
+        "datePublished": "2023-06-09",
+        "dateModified": "2026-01-25",
+        "author": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare",
+            "url": "https://prog-lang-compare.netlify.app"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://prog-lang-compare.netlify.app/concepts-ssg/c/array-create-populated.html"
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <!-- Dark Mode Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg id="sunIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+        <svg id="moonIcon" style="display: none;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+    </button>
+
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span>›</span>
+            <a href="../c.html">C++</a>
+            <span>›</span>
+            <span>Array Create populated</span>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <div class="header-controls"
+                style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; margin-bottom: 24px;">
+                <h1 style="margin-bottom: 0;">Create populated in C++</h1>
+                <div class="github-cta">
+                    <span>Find this useful? Support us:</span>
+                    <script async defer src="https://buttons.github.io/buttons.js"></script>
+                    <a class="github-button" href="https://github.com/srix/prog-lang-compare" data-icon="octicon-star"
+                        data-size="large" data-show-count="true" aria-label="Star srix/prog-lang-compare on GitHub">Star
+                        on GitHub</a>
+                </div>
+            </div>
+
+            <div class="meta">
+                <strong>Category:</strong> String |
+                <strong>Language:</strong> C++
+            </div>
+
+            <article class="concept-article-content">
+                <p>To create an array in C++, you need to follow these steps:</p>
+<p>Step 1: Declare the array with its data type and size. For example:</p>
+<pre><code class="language-">int numbers[5];
+</code></pre>
+<p>This declares an integer array with 5 elements. Each element can hold an integer value.</p>
+<p>Step 2: Initialize the array by assigning values to its elements. For example:</p>
+<pre><code class="language-">int numbers[5] = {1, 2, 3, 4, 5};
+</code></pre>
+<p>This initializes the first five elements of the array with the values 1, 2, 3, 4, and 5.</p>
+<p>Step 3: Access the elements of the array using their index. For example:</p>
+<pre><code class="language-">cout << numbers[0]; // Outputs 1
+cout << numbers[2]; // Outputs 3
+</code></pre>
+<p>Here's an example program that creates and initializes an array in C++:</p>
+<pre><code class="language-">#include <iostream>
+using namespace std;
+<p>int main() {<br>
+  int numbers[5] = {1, 2, 3, 4, 5};<br>
+  <br>
+  cout << "The values in the array are: ";<br>
+  for(int i = 0; i < 5; i++) {<br>
+    cout << numbers[i] << " ";<br>
+  }<br>
+  <br>
+  return 0;<br>
+}<br>
+</code></pre></p>
+<p>This program outputs:</p>
+<pre><code class="language-">The values in the array are: 1 2 3 4 5
+</code></pre>
+<p>Now, you can use the array throughout your program, accessing and modifying its elements as needed.</p>
+            </article>
+
+            
+            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-color);">
+                <h2 style="font-size: 20px; margin-bottom: 15px; color: var(--text-primary);">See this concept in other languages</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
+                    <a href="../c/array-create-populated.html">C#</a><a href="../dart/array-create-populated.html">Dart</a><a href="../go/array-create-populated.html">Go</a><a href="../groovy/array-create-populated.html">Groovy</a><a href="../haskell/array-create-populated.html">Haskell</a><a href="../java-20/array-create-populated.html">Java 20</a><a href="../javascript-ecmascript-2021/array-create-populated.html">JavaScript - ECMAScript 2021</a><a href="../julia/array-create-populated.html">Julia</a><a href="../kotlin/array-create-populated.html">Kotlin</a><a href="../lua/array-create-populated.html">Lua</a><a href="../matlab/array-create-populated.html">MATLAB</a><a href="../objective-c/array-create-populated.html">Objective-C</a><a href="../perl/array-create-populated.html">Perl</a><a href="../php/array-create-populated.html">PHP</a><a href="../python-310/array-create-populated.html">Python 3.10</a><a href="../r/array-create-populated.html">R</a><a href="../ruby/array-create-populated.html">Ruby</a><a href="../rust-155/array-create-populated.html">Rust 1.55</a><a href="../scala/array-create-populated.html">Scala</a><a href="../swift/array-create-populated.html">Swift</a><a href="../typescript/array-create-populated.html">TypeScript</a><a href="../visual-basic-net/array-create-populated.html">Visual Basic .NET</a>
+                </div>
+                <style>
+                    .related-concepts a {
+                        padding: 8px 12px;
+                        background: var(--bg-tertiary);
+                        border-radius: 4px;
+                        text-decoration: none;
+                        color: var(--primary);
+                        display: inline-block;
+                        text-align: center;
+                        transition: background 0.2s, transform 0.2s;
+                    }
+                    .related-concepts a:hover {
+                        background: var(--primary-light);
+                        transform: translateY(-2px);
+                    }
+                </style>
+            </section>
+
+
+            <div class="back-link">
+                <a href="../../index.html">← Back to Full Comparison Table</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>Content generated using AI | <a href="https://github.com/srix/prog-lang-compare" target="_blank"
+                    rel="noopener noreferrer">View on GitHub</a></p>
+        </footer>
+    </div>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/haskell.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/dart.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/julia.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/kotlin.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/scala.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/groovy.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/matlab.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/vbnet.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelectorAll('pre code').forEach((el) => {
+                hljs.highlightElement(el);
+            });
+        });
+    </script>
+    <script src="../../theme.js"></script>
+</body>
+
+</html>

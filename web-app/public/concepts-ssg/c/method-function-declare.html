@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>  Function Declare in C++ - Prog Lang Compare</title>
+    <meta name="title" content="  Function Declare in C++ - Prog Lang Compare">
+    <meta name="description" content="Learn how to   function declare in C++. See code examples and detailed explanations.">
+    <meta name="keywords" content="C++, Method   Function Declare, programming, code examples, syntax, Error handling">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://prog-lang-compare.netlify.app/concepts-ssg/c/method-function-declare.html">
+    <meta property="og:title" content="  Function Declare in C++">
+    <meta property="og:description" content="Learn how to   function declare in C++. See code examples and detailed explanations.">
+    <meta property="og:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://prog-lang-compare.netlify.app/concepts-ssg/c/method-function-declare.html">
+    <meta property="twitter:title" content="  Function Declare in C++">
+    <meta property="twitter:description" content="Learn how to   function declare in C++. See code examples and detailed explanations.">
+    <meta property="twitter:image" content="https://prog-lang-compare.netlify.app/social-preview.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://prog-lang-compare.netlify.app/concepts-ssg/c/method-function-declare.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+    <!-- Inline Critical CSS -->
+    <link rel="stylesheet" href="../../styles.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--bg-primary);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        nav.breadcrumb {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 14px;
+        }
+
+        nav.breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        nav.breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        nav.breadcrumb span {
+            color: var(--text-secondary);
+            margin: 0 5px;
+        }
+
+        h1 {
+            color: var(--text-primary);
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .meta {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 30px;
+            padding: 10px;
+            background-color: var(--bg-tertiary);
+            border-left: 4px solid var(--primary);
+        }
+
+        .concept-article-content {
+            margin-top: 20px;
+        }
+
+        .concept-article-content p {
+            margin-bottom: 15px;
+        }
+
+        .concept-article-content pre {
+            background-color: var(--code-bg);
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border: 1px solid var(--code-border);
+        }
+
+        .concept-article-content code {
+            background-color: var(--code-bg);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+
+        .concept-article-content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .back-link {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .back-link a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "  Function Declare in C++",
+        "description": "Learn how to   function declare in C++. See code examples and detailed explanations.",
+        "keywords": "C++, Method   Function Declare, programming",
+        "url": "https://prog-lang-compare.netlify.app/concepts-ssg/c/method-function-declare.html",
+        "datePublished": "2023-06-09",
+        "dateModified": "2026-01-25",
+        "author": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Prog Lang Compare",
+            "url": "https://prog-lang-compare.netlify.app"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://prog-lang-compare.netlify.app/concepts-ssg/c/method-function-declare.html"
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <!-- Dark Mode Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg id="sunIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+        <svg id="moonIcon" style="display: none;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+    </button>
+
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span>›</span>
+            <a href="../c.html">C++</a>
+            <span>›</span>
+            <span>Method   Function Declare</span>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <div class="header-controls"
+                style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; margin-bottom: 24px;">
+                <h1 style="margin-bottom: 0;">  Function Declare in C++</h1>
+                <div class="github-cta">
+                    <span>Find this useful? Support us:</span>
+                    <script async defer src="https://buttons.github.io/buttons.js"></script>
+                    <a class="github-button" href="https://github.com/srix/prog-lang-compare" data-icon="octicon-star"
+                        data-size="large" data-show-count="true" aria-label="Star srix/prog-lang-compare on GitHub">Star
+                        on GitHub</a>
+                </div>
+            </div>
+
+            <div class="meta">
+                <strong>Category:</strong> Error handling |
+                <strong>Language:</strong> C++
+            </div>
+
+            <article class="concept-article-content">
+                <p>In C++, a function is declared using the following syntax:</p>
+<pre><code class="language-cpp">return_type function_name(parameters){
+//function body
+}
+</code></pre>
+<p>Here, <code>return_type</code> represents the data type of the value returned by the function. If the function doesn't return anything, <code>void</code> is used.</p>
+<p><code>function_name</code> is the name of the function, and <code>parameters</code> is the list of input parameters passed to the function.</p>
+<p>For example, let's declare a function that adds two integers and returns their sum:</p>
+<pre><code class="language-cpp">int add(int a, int b){
+    int sum = a + b;
+    return sum;
+}
+</code></pre>
+<p>In the above function, <code>int</code> is the return type, <code>add</code> is the function name, and <code>a</code> and <code>b</code> are the input parameters.</p>
+<p>Another example of declaring a function that doesn't return anything (i.e., <code>void</code>):</p>
+<pre><code class="language-cpp">void print_string(string s){
+    cout << s << endl;
+}
+</code></pre>
+<p>Here, <code>void</code> indicates that the function doesn't return any value. <code>print_string</code> is the function name, and <code>s</code> is the input parameter.</p>
+<p>In C++, we can also declare a method, which is a function that is part of a class definition. The syntax for declaring a method in a class is:</p>
+<pre><code class="language-cpp">class Class_name{
+    public:
+        return_type method_name(parameters){
+            //method body
+        }
+};
+</code></pre>
+<p>Here, <code>Class_name</code> is the name of the class, <code>return_type</code> is the data type of the value returned by the method (or <code>void</code> if the method doesn't return anything), and <code>method_name</code> is the name of the method.</p>
+<p>Let's take an example of declaring a method <code>get_area</code> in a class <code>Rectangle</code> that returns the area of a rectangle:</p>
+<pre><code class="language-cpp">class Rectangle{
+    private:
+        int length, width;
+    public:
+        void set_dimensions(int l, int w){
+            length = l;
+            width = w;
+        }
+        int get_area(){
+            int area = length * width;
+            return area;
+        }
+};
+</code></pre>
+<p>In the above example, <code>set_dimensions</code> and <code>get_area</code> are methods of class <code>Rectangle</code>. <code>set_dimensions</code> assigns values to the private members <code>length</code> and <code>width</code>. <code>get_area</code> calculates the area of the rectangle and returns its value as an integer.</p>
+            </article>
+
+            
+            <section class="related-concepts" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-color);">
+                <h2 style="font-size: 20px; margin-bottom: 15px; color: var(--text-primary);">See this concept in other languages</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
+                    <a href="../c/method-function-declare.html">C#</a><a href="../dart/method-function-declare.html">Dart</a><a href="../go/method-function-declare.html">Go</a><a href="../groovy/method-function-declare.html">Groovy</a><a href="../haskell/method-function-declare.html">Haskell</a><a href="../java-20/method-function-declare.html">Java 20</a><a href="../javascript-ecmascript-2021/method-function-declare.html">JavaScript - ECMAScript 2021</a><a href="../julia/method-function-declare.html">Julia</a><a href="../kotlin/method-function-declare.html">Kotlin</a><a href="../lua/method-function-declare.html">Lua</a><a href="../matlab/method-function-declare.html">MATLAB</a><a href="../objective-c/method-function-declare.html">Objective-C</a><a href="../perl/method-function-declare.html">Perl</a><a href="../php/method-function-declare.html">PHP</a><a href="../python-310/method-function-declare.html">Python 3.10</a><a href="../r/method-function-declare.html">R</a><a href="../ruby/method-function-declare.html">Ruby</a><a href="../rust-155/method-function-declare.html">Rust 1.55</a><a href="../scala/method-function-declare.html">Scala</a><a href="../swift/method-function-declare.html">Swift</a><a href="../typescript/method-function-declare.html">TypeScript</a><a href="../visual-basic-net/method-function-declare.html">Visual Basic .NET</a>
+                </div>
+                <style>
+                    .related-concepts a {
+                        padding: 8px 12px;
+                        background: var(--bg-tertiary);
+                        border-radius: 4px;
+                        text-decoration: none;
+                        color: var(--primary);
+                        display: inline-block;
+                        text-align: center;
+                        transition: background 0.2s, transform 0.2s;
+                    }
+                    .related-concepts a:hover {
+                        background: var(--primary-light);
+                        transform: translateY(-2px);
+                    }
+                </style>
+            </section>
+
+
+            <div class="back-link">
+                <a href="../../index.html">← Back to Full Comparison Table</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>Content generated using AI | <a href="https://github.com/srix/prog-lang-compare" target="_blank"
+                    rel="noopener noreferrer">View on GitHub</a></p>
+        </footer>
+    </div>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/haskell.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/dart.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/julia.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/kotlin.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/scala.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/groovy.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/matlab.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/vbnet.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelectorAll('pre code').forEach((el) => {
+                hljs.highlightElement(el);
+            });
+        });
+    </script>
+    <script src="../../theme.js"></script>
+</body>
+
+</html>
