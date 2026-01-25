@@ -218,15 +218,24 @@ header a:hover {
 .header-controls {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 16px;
     margin-bottom: 24px;
     padding-right: 60px;
     /* Space for theme toggle */
 }
 
-.header-controls h1 {
-    margin-bottom: 0;
-    margin-right: 16px;
+@media (max-width: 600px) {
+    .header-controls {
+        flex-direction: column;
+        padding-right: 0;
+    }
+
+    .header-controls h1 {
+        margin-right: 0;
+        width: 100%;
+    }
 }
 
 .github-cta {
@@ -859,8 +868,9 @@ footer a:hover {
     }
 
     .theme-toggle {
-        top: 24px;
-        right: 20px;
+        top: 20px;
+        right: 16px;
+        padding: 6px 10px;
     }
 
     .sidebar {
@@ -876,10 +886,13 @@ footer a:hover {
     .content {
         margin-left: 0;
         padding: 80px 16px 16px;
+        width: 100%;
+        overflow-x: hidden;
     }
 
     header h1 {
-        font-size: 28px;
+        font-size: 26px;
+        line-height: 1.2;
     }
 
     .stats-bar {
@@ -890,6 +903,13 @@ footer a:hover {
     .dataTables_wrapper {
         padding: 12px;
         border-radius: var(--border-radius-sm);
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .dataTables_wrapper .dataTable {
+        width: 100% !important;
+        font-size: 14px;
     }
 
     .language-container {
@@ -898,6 +918,17 @@ footer a:hover {
 
     .language-header {
         padding: 12px 16px;
+    }
+
+    /* Stack stats and cards */
+    .stats-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Code blocks sizing */
+    pre {
+        padding: 12px;
+        font-size: 13px;
     }
 }
 

@@ -20,7 +20,9 @@ from tenacity import (
 # Configure logging
 now = datetime.datetime.now()
 now_str = now.strftime("%Y-%m-%d_%H-%M-%S")
-logging.basicConfig(filename=f'logs/plc_{now_str}.log', level=logging.INFO,
+if not os.path.exists('../logs'):
+    os.makedirs('../logs')
+logging.basicConfig(filename=f'../logs/plc_{now_str}.log', level=logging.INFO,
                     format='%(asctime)s [%(levelname)s] %(message)s',
                     datefmt='%Y-%m-%d %H:%M:%S',filemode = 'w')
 logger = logging.getLogger(__name__)

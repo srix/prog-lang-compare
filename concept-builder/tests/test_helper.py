@@ -5,7 +5,7 @@ import yaml
 import sys
 
 # Add builder directory to path
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'builder'))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
 
 from helper import get_safename, load_from_yaml, save_to_yaml
 
@@ -43,8 +43,9 @@ class TestGetSafename:
         """Test with actual programming language names from the project"""
         assert get_safename("Visual Basic .NET") == "Visual_Basic__NET"
         assert get_safename("Objective-C") == "Objective_C"
-        # Note: '+' is not in the translation table, so it remains unchanged
-        assert get_safename("C++") == "C++"
+        # Special mappings
+        assert get_safename("C++") == "cpp"
+        assert get_safename("C#") == "csharp"
 
 
 class TestYamlFunctions:

@@ -31,14 +31,14 @@ def update( prog_lang, concept, subconcept):
 
     cache = mycache
 
-    filepath = f'.cache/{helper.get_safename(prog_lang)}.yaml'
+    filepath = f'../.cache/{helper.get_safename(prog_lang)}.yaml'
     helper.save_to_yaml(filepath, cache)
 
 
 
 def load(lang_concepts_yaml,proglang):
     proglang_filename = helper.get_safename(proglang)
-    proglang_filepath = f'.cache/{proglang_filename}.yaml'
+    proglang_filepath = f'../.cache/{proglang_filename}.yaml'
     cache_yaml = helper.load_from_yaml(proglang_filepath) if os.path.exists(proglang_filepath) else None
 
     global cache

@@ -5,7 +5,7 @@ import shutil
 import sys
 
 # Add builder directory to path
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'builder'))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
 
 import plccache
 import helper
@@ -127,7 +127,10 @@ class TestPlccache:
 
     def test_update_creates_cache_entry(self):
         """Test that update creates a new cache entry"""
-        with tempfile.TemporaryDirectory() as tmpdir:
+        with tempfile.TemporaryDirectory() as base_tmpdir:
+            # Create a nested directory so that ../ works
+            tmpdir = os.path.join(base_tmpdir, 'subdir')
+            os.makedirs(tmpdir)
             # Change cache directory temporarily
             original_cwd = os.getcwd()
             os.chdir(tmpdir)
@@ -147,8 +150,8 @@ class TestPlccache:
             assert 'Primitives' in plccache.cache['Datatypes']
             assert plccache.cache['Datatypes']['Primitives'] == 'Explain primitive types in {lang}'
 
-            # Verify cache file was created
-            cache_file = f'.cache/{helper.get_safename(proglang)}.yaml'
+            # Verify cache file was created (the code uses ../.cache)
+            cache_file = f'../.cache/{helper.get_safename(proglang)}.yaml'
             assert os.path.exists(cache_file)
 
             # Restore original directory
@@ -156,7 +159,10 @@ class TestPlccache:
 
     def test_update_preserves_existing_cache(self):
         """Test that update preserves existing cache entries"""
-        with tempfile.TemporaryDirectory() as tmpdir:
+        with tempfile.TemporaryDirectory() as base_tmpdir:
+            # Create a nested directory so that ../ works
+            tmpdir = os.path.join(base_tmpdir, 'subdir')
+            os.makedirs(tmpdir)
             original_cwd = os.getcwd()
             os.chdir(tmpdir)
 
@@ -185,7 +191,10 @@ class TestPlccache:
 
     def test_update_with_none_cache(self):
         """Test that update handles None cache gracefully"""
-        with tempfile.TemporaryDirectory() as tmpdir:
+        with tempfile.TemporaryDirectory() as base_tmpdir:
+            # Create a nested directory so that ../ works
+            tmpdir = os.path.join(base_tmpdir, 'subdir')
+            os.makedirs(tmpdir)
             original_cwd = os.getcwd()
             os.chdir(tmpdir)
 

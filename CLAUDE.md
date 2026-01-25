@@ -42,7 +42,8 @@ Consumes generated content to build the static website. **Strict JavaScript-only
 ### Coding Standards
 -   **Naming**: Use PascalCase for language names in data, but sanitized snake_case/kebab-case for filenames/slugs via `getSafeName` and `slugify`.
 -   **Scripts**: Prefer modular JS build scripts. Use `fs`, `path`, and `child_process` for filesystem tasks.
--   **Testing**: All new logic MUST be accompanied by Jest unit tests. Visual changes MUST be verified with Playwright.
+-   **Mobile-First**: All frontend changes MUST be mobile-friendly. Use responsive media queries and ensure no horizontal overflow.
+-   **Testing**: All new logic MUST be accompanied by Jest unit tests. Visual changes MUST be verified with Playwright, including mobile viewports.
 
 ## Deployment
 The `web-app/public` directory is the final artifact for production deployment.

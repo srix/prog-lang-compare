@@ -106,12 +106,15 @@ jobs:
 
 ```python
 import pytest
-from builder import helper
+import os
+import sys
+# Add src directory to path
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
+from helper import get_safename
 
 def test_get_safename():
     """Test safe name conversion"""
-    assert helper.get_safename("Python 3.10") == "Python_3_10"
-    assert helper.get_safename("C++") == "C__"
+    assert get_safename("Python 3.10") == "Python_3_10"
 ```
 
 ### JavaScript Test Example
@@ -194,7 +197,7 @@ module.exports = {
 ```bash
 # Make sure you're in the project root
 cd /path/to/proglangcompare
-pytest
+cd concept-builder && pytest
 ```
 
 **Jest cannot find modules:**
@@ -206,7 +209,7 @@ npm test -- --clearCache
 **Coverage not showing:**
 ```bash
 # Ensure test files match the pattern
-pytest tests/test_*.py --cov=builder
+cd concept-builder && pytest tests/test_*.py --cov=src
 ```
 
 ## Future Improvements
