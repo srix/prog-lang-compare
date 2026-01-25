@@ -4,24 +4,28 @@ set -e
 echo "🔨 Building Programming Language Comparison Site"
 echo ""
 
-cd "$(dirname "$0")/builder"
+
+# echo "Step 0/4: Generating Content (Optional, skipped by default)"
+# # python concept-builder/src/main.py
+
+cd "$(dirname "$0")/web-app/build"
 
 echo "Step 1/4: Generating language landing pages..."
-python generate_language_landing.py
+python3 generate_language_landing.py
 
 echo ""
 echo "Step 2/4: Generating static concept pages..."
-python generate_static_pages.py
+python3 generate_static_pages.py
 
 echo ""
 echo "Step 3/4: Generating sitemap..."
-python generate_sitemap.py
+python3 generate_sitemap.py
 
 echo ""
 echo "Step 4/4: Counting generated pages..."
 cd ..
-PAGE_COUNT=$(find docs/concepts -name '*.html' | wc -l)
-SITEMAP_SIZE=$(du -h docs/sitemap.xml | cut -f1)
+PAGE_COUNT=$(find public/concepts -name '*.html' | wc -l)
+SITEMAP_SIZE=$(du -h public/sitemap.xml | cut -f1)
 
 echo ""
 echo "✅ Build complete!"
