@@ -4,9 +4,9 @@ echo "🔨 Building Programming Language Comparison Site"
 echo ""
 
 # Initialize build
-if [ ! -d "web-app/public" ]; then
-    mkdir -p web-app/public
-fi
+echo "Cleaning public directory..."
+rm -rf web-app/public
+mkdir -p web-app/public
 
 # Install dependencies (only NPM needed now)
 echo "Installing NPM dependencies..."
@@ -22,6 +22,11 @@ cp web-app/src/js/script.js web-app/public/
 cp web-app/src/js/theme.js web-app/public/
 cp web-app/src/assets/favicon.svg web-app/public/
 cp LICENSE web-app/public/
+
+# Copy config files
+echo "Copying config files..."
+cp concept-builder/config/prog_langs.yaml web-app/public/
+cp concept-builder/config/prog_lang_concepts.yaml web-app/public/
 
 # Copy data files for SPA fetch logic
 echo "Copying data files..."

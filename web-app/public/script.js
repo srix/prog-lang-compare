@@ -274,17 +274,27 @@ async function loadLangConceptsInColumn(tableId, progLang) {
     }
 }
 
+/**
+ * Converts value to a filesystem-safe name.
+ * Matches implementation in web-app/build/helper.js
+ * @param {string} value
+ * @returns {string}
+ */
 function getSafeName(value) {
+    // Special case mappings for languages with problematic characters
+    const specialMappings = {
+        'C#': 'csharp',
+        'C++': 'cpp',
+    };
 
-    // const regex = /[&\/\\#, +()$~%.'":*?<>{}]/g;
-    const regex = /[&\/\\, +()$~%.'":*?<>{}-]/g;
-    // const regex = /\.|\ |-|\?|\(|\)|\/|\\|/g;
-    let newvalue = value.replace(regex, "_");
-    return newvalue;
-    // let regex = new RegExp(Object.keys(map).join('|'), 'g');
-    // return str.replace(regex, function(matched) {
-    //     return map[matched];
-    // });
+    // Check if value matches a special case (exact match)
+    if (specialMappings[value]) {
+        return specialMappings[value];
+    }
+
+    // Generic character translation for other cases
+    // Replace . , - ? ( ) / \ # + and SPACE with underscore
+    return value.replace(/[.,\-?()\/\\#+ ]/g, '_');
 }
 
 function addLangToggle(prog_lang_list) {
