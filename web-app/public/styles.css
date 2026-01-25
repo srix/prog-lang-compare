@@ -215,6 +215,50 @@ header a:hover {
     font-size: 18px;
 }
 
+.header-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.github-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #24292e;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.github-btn:hover {
+    background-color: #000;
+    text-decoration: none;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.github-btn svg {
+    fill: currentColor;
+    width: 20px;
+    height: 20px;
+}
+
+[data-theme="dark"] .github-btn {
+    background-color: #f0f6fc;
+    color: #24292e;
+}
+
+[data-theme="dark"] .github-btn:hover {
+    background-color: #ffffff;
+}
+
 /* ========================================
    DARK MODE TOGGLE
    ======================================== */

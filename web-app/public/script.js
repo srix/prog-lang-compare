@@ -249,7 +249,7 @@ async function loadLangConceptsInColumn(tableId, progLang) {
             // Append permalink icon if content exists
             if (htmlContent) {
                 htmlContent += `
-                <div style="margin-top: 10px; border-top: 1px solid #eee; padding-top: 5px; text-align: right;">
+                <div style="margin-top: 10px; padding-top: 5px; text-align: right;">
                     <a href="${permalink}" target="_blank" class="concept-permalink" style="font-size: 12px; color: #aaa; text-decoration: none;">
                         View Page ↗
                     </a>
