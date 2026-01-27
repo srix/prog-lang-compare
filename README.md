@@ -2,7 +2,7 @@
 
 A side-by-side comparison of popular programming languages, powered by AI. Compare syntax and concepts across 21+ languages including Python, JavaScript, Rust, Java, Go, and more.
 
-🌐 **Live Site**: [https://prog-lang-compare.netlify.app](https://prog-lang-compare.netlify.app)
+🌐 **Live Site**: [https://programming-languages.com](https://programming-languages.com)
 
 ## Project Overview
 
@@ -70,9 +70,9 @@ npm install
 ### 3. Preview Locally
 
 ```bash
-cd web-app/public
-python3 -m http.server 8000
-# Visit http://localhost:8000
+# From the project root
+python3 web-app/dev_serve.py
+# Visit http://localhost:8080
 ```
 
 ## Testing
@@ -92,15 +92,15 @@ npm test
 
 ```mermaid
 flowchart TD
-    config[Config YAMLs] --> builder(Concept Builder)
-    openai(OpenAI API) --> builder
-    builder --> output[Raw Content (JSON)]
+    config["Config YAMLs"] --> builder["Concept Builder"]
+    openai["OpenAI API"] --> builder
+    builder --> output["Raw Content (JSON)"]
 
-    output --> ssg(Web App SSG)
-    templates[HTML/CSS/JS] --> ssg
-    ssg --> public[Public Satic Site]
+    output --> ssg["Web App SSG"]
+    templates["HTML/CSS/JS"] --> ssg
+    ssg --> public["Public Static Site"]
 
-    public --> netlify(Netlify)
+    public --> netlify["Netlify"]
 ```
 
 ## Features

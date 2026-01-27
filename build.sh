@@ -25,6 +25,8 @@ cp web-app/src/robots.txt web-app/public/
 cp web-app/src/404.html web-app/public/
 cp LICENSE web-app/public/
 
+
+
 # Copy config files
 echo "Copying config files..."
 cp concept-builder/config/prog_langs.yaml web-app/public/
@@ -55,6 +57,8 @@ echo "✅ Build complete!"
 echo "   📄 Generated $FILE_COUNT pages"
 echo "   🗺️  Sitemap: web-app/public/sitemap.xml"
 echo ""
-echo "Preview locally:"
-echo "   cd web-app/public && python3 -m http.server 8080"
 echo "   Then visit: http://localhost:8080"
+echo "   Run local dev server: python3 web-app/dev_serve.py"
+
+
+
