@@ -50,16 +50,21 @@ jobs:
         with:
           node-version: '18'
           cache: 'npm'
+          cache-dependency-path: web-app/package-lock.json
 
       - name: Install dependencies
-        run: npm ci
+        run: |
+          cd web-app
+          npm ci
 
       - name: Run tests with coverage
-        run: npm run test:coverage
+        run: |
+          cd web-app
+          npm run test:coverage
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
         with:
-          file: ./coverage/lcov.info
+          file: ./web-app/coverage/lcov.info
           flags: javascript
           name: javascript-coverage
