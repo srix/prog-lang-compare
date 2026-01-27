@@ -3,7 +3,9 @@ import socketserver
 import os
 
 PORT = 8080
-DIRECTORY = "public"
+# Use absolute path relative to this script's location
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+DIRECTORY = os.path.join(SCRIPT_DIR, "public")
 ERROR_PAGE_PATH = os.path.join(DIRECTORY, "404.html")
 
 class CustomHandler(http.server.SimpleHTTPRequestHandler):
