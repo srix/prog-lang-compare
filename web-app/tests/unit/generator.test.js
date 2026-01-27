@@ -28,9 +28,10 @@ describe('Generator Content', () => {
 
         const language = "Test_Lang";
         const concepts = ["Concept_One", "Concept_Two"];
+        const mockButtonHtml = '<a href="#" class="github-cta">Star on GitHub</a>';
 
         // Execute
-        generateLanguageLandingPage(language, concepts);
+        generateLanguageLandingPage(language, concepts, mockButtonHtml);
 
         // Verify writeFileSync called
         expect(fs.writeFileSync).toHaveBeenCalled();

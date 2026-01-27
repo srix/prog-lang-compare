@@ -27,7 +27,17 @@ jobs:
           cd web-app
           npm ci
 
+      - name: Install Playwright Browsers
+        run: |
+          cd web-app
+          npx playwright install --with-deps
+
       - name: Run tests with coverage
         run: |
           cd web-app
           npm run test:coverage
+
+      - name: Run E2E Tests
+        run: |
+          cd web-app
+          npm run test:e2e

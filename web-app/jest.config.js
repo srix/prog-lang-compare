@@ -6,6 +6,7 @@ module.exports = {
     '!**node_modules/**',
     '!**/vendor/**'
   ],
+  testPathIgnorePatterns: ['/node_modules/', '/tests/e2e-playwright/'],
   coverageDirectory: 'coverage',
   coverageReporters: ['html', 'text', 'lcov'],
   verbose: true
