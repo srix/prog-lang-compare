@@ -17,7 +17,7 @@ const CONCEPTS_DIR = path.resolve(SCRIPT_DIR, '../public/concepts-ssg');
 const PROG_LANGS_YAML = path.resolve(SCRIPT_DIR, '../../concept-builder/config/prog_langs.yaml');
 
 // Base URL
-const BASE_URL = 'https://prog-lang-compare.netlify.app';
+const BASE_URL = 'https://programming-languages.com';
 
 function generateLanguageLandingPage(language, concepts) {
     const slug = slugify(language);

@@ -19,7 +19,7 @@ const PROG_CONCEPTS_YAML = path.resolve(SCRIPT_DIR, '../../concept-builder/confi
 const TEMPLATE_DIR = path.resolve(SCRIPT_DIR, '../src');
 
 // Base URL
-const BASE_URL = 'https://prog-lang-compare.netlify.app';
+const BASE_URL = 'https://programming-languages.com';
 
 function getLastModifiedDate(filePath) {
     try {

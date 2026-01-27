@@ -16,7 +16,7 @@ const CONCEPTS_DIR = path.resolve(DOCS_DIR, 'concepts-ssg');
 const SITEMAP_FILE = path.join(DOCS_DIR, 'sitemap.xml');
 
 // Base URL
-const BASE_URL = 'https://prog-lang-compare.netlify.app';
+const BASE_URL = 'https://programming-languages.com';
 
 function getGitLastModified(filePath) {
     try {
