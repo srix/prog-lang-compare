@@ -45,4 +45,18 @@ test.describe('SEO Verification', () => {
 
         expect(scriptsInHead.length).toBe(0);
     });
+    test('Favicon should be accessible and correct', async ({ request, page }) => {
+        // Check file accessibility
+        const response = await request.get('/favicon.svg');
+        expect(response.ok()).toBeTruthy();
+
+        // Check content (basic check for the new SVG structure)
+        const content = await response.text();
+        expect(content).toContain('<stop offset="0%" style="stop-color:#3498db;stop-opacity:1" />');
+
+        // Check HTML reference
+        await page.goto('/');
+        const iconHref = await page.locator('link[rel="icon"]').getAttribute('href');
+        expect(iconHref).toBe('favicon.svg');
+    });
 });

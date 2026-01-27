@@ -6,7 +6,7 @@ Following items are marked red and needs to be addressed.
 
 - [x] This website lacks a "robots.txt" file. This file can protect private content from appearing online, save bandwidth, and lower load time on your server. A missing "robots.txt" file also generates additional errors in your apache log whenever robots request one. Read more about the robots.txt file, and how to create one for your site.
 
-- This website either doesn't have a favicon or this has not been referenced correctly!
+- [x] This website either doesn't have a favicon or this has not been referenced correctly!
 
 - The size of this webpage's HTML is 100.47 Kb, and is greater than the average size of 33 Kb! This can lead to slower loading times, lost visitors, and decreased revenue. Good steps to reduce HTML size include: using HTML compression, CSS layouts, external style sheets, and moving javascript to external files.
 
