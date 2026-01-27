@@ -9,6 +9,7 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 const { loadFromYaml, getSafeName, slugify } = require('./helper');
+const { fetchGitHubStars, generateGitHubButtonHtml } = require('./fetch_github_stars');
 
 // Paths
 const SCRIPT_DIR = __dirname;
@@ -121,7 +122,7 @@ function generateRelatedLanguagesSection(currentLanguage, conceptSlug, allLangua
 `;
 }
 
-function generatePageTemplate(language, conceptKey, conceptTitle, contentHtml, category, allLanguages) {
+function generatePageTemplate(language, conceptKey, conceptTitle, contentHtml, category, allLanguages, buttonHtml) {
     // Parse concept key
     const parts = conceptKey.split('_');
     let subconcept = "";
@@ -169,6 +170,9 @@ function generatePageTemplate(language, conceptKey, conceptTitle, contentHtml, c
     template = template.replace(/\{\{language_display\}\}/g, languageDisplay);
     template = template.replace(/\{\{content_html\}\}/g, contentHtml || ''); // Handle potential undefined
 
+    // Replace GitHub Button placeholder
+    template = template.replace('{{github_button}}', buttonHtml || '');
+
     // Optional sections
     const relatedSection = allLanguages ? generateRelatedLanguagesSection(language, conceptSlug, allLanguages) : "";
     template = template.replace(/\{\{related_concepts\}\}/g, relatedSection);
@@ -200,13 +204,17 @@ function getCategoryForConcept(conceptKey, conceptsData) {
     return conceptKey.includes('_') ? conceptKey.split('_')[0] : 'General';
 }
 
-function generateAllPages() {
+async function generateAllPages() {
     console.log("Loading configurations...");
     const languagesData = loadFromYaml(PROG_LANGS_YAML);
     const conceptsData = loadFromYaml(PROG_CONCEPTS_YAML);
 
     const languages = languagesData['Programming Languages'] || [];
     console.log(`Found ${languages.length} languages`);
+
+    console.log("Fetching GitHub stars...");
+    const stars = await fetchGitHubStars();
+    const buttonHtml = generateGitHubButtonHtml(stars);
 
     let totalPages = 0;
 
@@ -239,7 +247,8 @@ function generateAllPages() {
                 conceptKey.replace(/_/g, ' '),
                 contentHtml,
                 category,
-                languages
+                languages,
+                buttonHtml
             );
 
             const outputFile = path.join(langDir, `${conceptSlug}.html`);
@@ -257,8 +266,9 @@ function generateAllPages() {
 }
 
 if (require.main === module) {
-    const count = generateAllPages();
-    // process.exit is not strictly necessary unless async ops hang, but good for robust scripts
+    generateAllPages().then(count => {
+        // process.exit is not strictly necessary unless async ops hang, but good for robust scripts
+    });
 }
 
 module.exports = { generateAllPages };

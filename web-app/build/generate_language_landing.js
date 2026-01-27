@@ -8,6 +8,7 @@
 const fs = require('fs');
 const path = require('path');
 const { loadFromYaml, getSafeName, slugify } = require('./helper');
+const { fetchGitHubStars, generateGitHubButtonHtml } = require('./fetch_github_stars');
 
 // Paths
 const SCRIPT_DIR = __dirname;
@@ -19,7 +20,7 @@ const PROG_LANGS_YAML = path.resolve(SCRIPT_DIR, '../../concept-builder/config/p
 // Base URL
 const BASE_URL = 'https://programming-languages.com';
 
-function generateLanguageLandingPage(language, concepts) {
+function generateLanguageLandingPage(language, concepts, buttonHtml) {
     const slug = slugify(language);
     const languageDisplay = language.replace(/_/g, ' ');
 
@@ -285,8 +286,7 @@ function generateLanguageLandingPage(language, concepts) {
             <h1>${languageDisplay} Programming Concepts</h1>
             <div class="github-cta">
                 <span>Find this useful? Support us:</span>
-                <script async defer src="https://buttons.github.io/buttons.js"></script>
-                <a class="github-button" href="https://github.com/srix/prog-lang-compare" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star srix/prog-lang-compare on GitHub">Star on GitHub</a>
+                ${buttonHtml}
             </div>
         </div>
         <p class="intro">Explore ${languageDisplay} programming with detailed explanations and code examples across ${concepts.length} concepts.</p>
@@ -326,7 +326,7 @@ function generateLanguageLandingPage(language, concepts) {
     return outputPath;
 }
 
-function generateAllLanguageLandingPages() {
+async function generateAllLanguageLandingPages() {
     console.log("Generating language landing pages...");
     console.log(`Content directory: ${CONTENT_DIR}`);
     console.log(`Output directory: ${CONCEPTS_DIR}`);
@@ -345,6 +345,10 @@ function generateAllLanguageLandingPages() {
     console.log(`Found ${languages.length} languages`);
     console.log("");
 
+    console.log("Fetching GitHub stars...");
+    const stars = await fetchGitHubStars();
+    const buttonHtml = generateGitHubButtonHtml(stars);
+
     let generatedCount = 0;
 
     languages.forEach(lang => {
@@ -361,7 +365,7 @@ function generateAllLanguageLandingPages() {
             const content = JSON.parse(fs.readFileSync(jsonFile, 'utf8'));
 
             // Generate landing page
-            const outputPath = generateLanguageLandingPage(lang, Object.keys(content));
+            const outputPath = generateLanguageLandingPage(lang, Object.keys(content), buttonHtml);
 
             console.log(`✓ Generated: ${lang} (${Object.keys(content).length} concepts) -> ${path.basename(outputPath)}`);
             generatedCount++;
@@ -379,8 +383,9 @@ function generateAllLanguageLandingPages() {
 }
 
 if (require.main === module) {
-    const count = generateAllLanguageLandingPages();
-    process.exit(count > 0 ? 0 : 1);
+    generateAllLanguageLandingPages().then(count => {
+        process.exit(count > 0 ? 0 : 1);
+    });
 }
 
 module.exports = { generateLanguageLandingPage };
