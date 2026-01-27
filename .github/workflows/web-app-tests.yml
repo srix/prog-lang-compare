@@ -1,0 +1,33 @@
+name: Web App Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  web-app-tests:
+    runs-on: ubuntu-latest
+    name: Web App Tests
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: web-app/package-lock.json
+
+      - name: Install dependencies
+        run: |
+          cd web-app
+          npm ci
+
+      - name: Run tests with coverage
+        run: |
+          cd web-app
+          npm run test:coverage
