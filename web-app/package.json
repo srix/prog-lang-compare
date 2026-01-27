@@ -6,7 +6,9 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "build": "cd .. && ./build.sh",
+    "start": "python3 dev_serve.py"
   },
   "repository": {
     "type": "git",

@@ -22,6 +22,7 @@ cp web-app/src/js/theme.js web-app/public/
 cp web-app/src/assets/favicon.svg web-app/public/
 cp web-app/src/robots.txt web-app/public/
 cp web-app/src/404.html web-app/public/
+cp web-app/src/about.html web-app/public/
 
 # Process and copy index.html
 echo "Processing index.html..."

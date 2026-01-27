@@ -29,8 +29,13 @@ if __name__ == "__main__":
     
     # Ensure we are in the correct directory (web-app) before serving public
     if not os.path.exists(DIRECTORY):
-        print(f"Error: '{DIRECTORY}' directory not found. Please run this script from the 'web-app' folder.")
-        exit(1)
+        # Fallback for running from within web-app directory
+        if os.path.exists(os.path.join(os.getcwd(), "public")):
+             DIRECTORY = os.path.join(os.getcwd(), "public")
+             ERROR_PAGE_PATH = os.path.join(DIRECTORY, "404.html")
+        else:
+            print(f"Error: '{DIRECTORY}' directory not found. Please run this script from the 'web-app' folder.")
+            exit(1)
 
     print(f"Custom 404 page enabled.")
     
