@@ -29,6 +29,14 @@
         html.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
         updateIcons(newTheme);
+
+        // Analytics
+        if (typeof gtag === 'function') {
+            gtag('event', 'theme_toggle', {
+                'event_category': 'interaction',
+                'event_label': newTheme
+            });
+        }
     }
 
     if (themeToggle) {

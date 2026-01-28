@@ -112,6 +112,7 @@ flowchart TD
 -   🔗 **Seamless Navigation**: All internal links navigate within the same tab for a smooth browsing experience.
 -   ⭐ **GitHub CTA**: Integrated "Star on GitHub" call-to-action.
 -   🔎 **Interactive**: DataTables-powered search and filtering.
+-   📈 **Usage Analytics**: Integrated Google Analytics for tracking page views.
 
 ## Contributing
 

@@ -39,6 +39,16 @@ $(document).ready(function () {
                 loadLangConceptsInColumn('#langTable', defaultShowLangs[i], conceptsData);
             }
         });
+
+    // Analytics for GitHub Button
+    $(document).on('click', '.github-button', function () {
+        if (typeof gtag === 'function') {
+            gtag('event', 'github_star_click', {
+                'event_category': 'engagement',
+                'event_label': 'header_button'
+            });
+        }
+    });
 });
 
 /**
@@ -334,6 +344,15 @@ function addLangToggle(prog_lang_list) {
             if (column.visible() == true && loadedColumns.includes(columnTitle) == false) {
                 loadLangConceptsInColumn('#langTable', columnTitle);
             }
+
+            // Analytics
+            if (typeof gtag === 'function') {
+                gtag('event', 'language_toggle', {
+                    'event_category': 'interaction',
+                    'event_label': columnTitle,
+                    'action': column.visible() ? 'selected' : 'deselected'
+                });
+            }
         };
 
         container.appendChild(a);
@@ -399,6 +418,14 @@ function addTocHtml(conceptsData) {
                 $('html, body').animate({
                     scrollTop: $(rowNode).offset().top - headerHeight
                 }, 500);
+
+                // Analytics
+                if (typeof gtag === 'function') {
+                    gtag('event', 'concept_select', {
+                        'event_category': 'navigation',
+                        'event_label': $(this).text()
+                    });
+                }
 
             };
 
@@ -520,6 +547,14 @@ function addTocHtml(conceptsData) {
                         button.textContent = 'Copy';
                     }, 2000);
                 });
+
+                // Analytics
+                if (typeof gtag === 'function') {
+                    gtag('event', 'code_copy', {
+                        'event_category': 'engagement',
+                        'event_label': 'code_snippet'
+                    });
+                }
             });
 
             wrapper.appendChild(button);
